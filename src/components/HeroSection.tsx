@@ -11,15 +11,15 @@ const GOLD = "#E8C96A";
 const features = [
   {
     icon: Compass,
-    title: "Nhận diện chính xác điều gì đang khiến hệ thần kinh bạn luôn trong trạng thái báo động",
+    title: "Hiểu vì sao hệ thần kinh của bạn đang ở chế độ sinh tồn — và vì sao \"nghĩ tích cực hơn\" không đủ",
   },
   {
     icon: BellOff,
-    title: "Không còn overthinking hàng giờ mỗi khi nghĩ đến tiền bạc hay tương lai",
+    title: "Không còn overthinking mỗi đêm về tiền bạc, tương lai và những quyết định đã qua",
   },
   {
     icon: ShieldCheck,
-    title: "Học cách đặt ranh giới và giữ năng lượng cho mình mà không còn thấy tội lỗi",
+    title: "Xây lại cảm giác \"mình là đủ\" — không cần chờ ai công nhận",
   },
 ];
 
@@ -54,7 +54,7 @@ export function HeroSection() {
         >
           <img
             src={heroBg}
-            alt="Nga Alchemist cầm thạch anh"
+            alt="Nga Alchemist"
             className="w-full h-full object-cover object-[68%_center] lg:object-[60%_center]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0c0420] from-5% via-[#0c0420]/85 via-44% to-transparent to-72%" />
@@ -70,7 +70,7 @@ export function HeroSection() {
               className="text-xs lg:text-sm font-bold tracking-[0.16em] uppercase mb-4"
               style={{ color: GOLD, textShadow: "0 1px 6px rgba(20,7,40,0.9)" }}
             >
-              Inner Security Kit™ · 7 Ngày Tái Thiết An Toàn Nội Tâm
+              Inner Safety Experience™ · 7 Ngày Tái Thiết An Toàn Nội Tâm
             </motion.p>
 
             <h1 className="leading-[1.1] mb-5">
@@ -81,7 +81,7 @@ export function HeroSection() {
                 className="block font-bold text-white"
                 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 5.2vw, 3.6rem)", textShadow: "0 2px 18px rgba(0,0,0,0.6)" }}
               >
-                Không phải bạn đang suy sụp.
+                Bạn từng là người có sự nghiệp, có vị trí,
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 24 }}
@@ -90,7 +90,7 @@ export function HeroSection() {
                 className="block font-bold"
                 style={{ color: GOLD, fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 5.2vw, 3.6rem)", textShadow: "0 2px 18px rgba(0,0,0,0.6)" }}
               >
-                Bạn đang thức tỉnh giữa tuổi trung niên,
+                có câu trả lời cho mọi thứ. Rồi một ngày,
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 24 }}
@@ -99,7 +99,7 @@ export function HeroSection() {
                 className="block font-bold"
                 style={{ color: GOLD, fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 5.2vw, 3.6rem)", textShadow: "0 2px 18px rgba(0,0,0,0.6)" }}
               >
-                và hệ thần kinh của bạn chưa từng được dạy cách đi qua nó an toàn.
+                tất cả sụp xuống cùng lúc.
               </motion.span>
             </h1>
 
@@ -110,9 +110,11 @@ export function HeroSection() {
               className="text-gray-200 mb-4 max-w-2xl"
               style={{ fontSize: "clamp(0.95rem, 1.7vw, 1.1rem)", textShadow: "0 1px 8px rgba(20,7,40,0.85)", lineHeight: 1.6, fontStyle: "italic" }}
             >
-              7 Ngày để tái thiết nền tảng an toàn nội tâm — để bạn ngủ được, nghĩ rõ ràng và tin lại vào chính mình.
+              Công việc, thu nhập, và cả hình ảnh về chính mình. Giờ bạn vẫn phải gồng lên vì con cái, vì cha mẹ,
+              trong khi bên trong không còn biết mình là ai nữa.
               <br />
-              Dù bạn đã đọc hàng chục cuốn sách self-help, đã thử thiền, đã tự nhủ "lần này mình sẽ ổn" — rồi vẫn quay lại đúng vòng hoảng loạn cũ.
+              Đây là hành trình 7 ngày để bạn ngừng gồng, lấy lại cảm giác vững vàng bên trong — trước khi tìm
+              được câu trả lời cho công việc, tiền bạc hay tương lai.
             </motion.p>
 
             <motion.div
@@ -141,7 +143,7 @@ export function HeroSection() {
               className="group w-full max-w-2xl flex items-center justify-center gap-3 px-7 py-4 md:py-5 rounded-sm font-bold text-base md:text-lg text-[#140728] transition-all duration-200 shadow-[0_8px_30px_rgba(232,201,106,0.4)] hover:shadow-[0_16px_50px_rgba(232,201,106,0.6)] hover:-translate-y-1 hover:scale-[1.01] active:scale-[0.99]"
               style={{ background: `linear-gradient(135deg, ${GOLD} 0%, #F2DFA0 50%, ${GOLD} 100%)` }}
             >
-              <span className="tracking-wide">TÔI MUỐN TÌM LẠI SỰ AN TOÀN CỦA MÌNH — CHỈ 444.000Đ</span>
+              <span className="tracking-wide">TÔI MUỐN BẮT ĐẦU HÀNH TRÌNH 7 NGÀY — CHỈ 1.990.000Đ</span>
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
             </motion.button>
 
@@ -152,7 +154,7 @@ export function HeroSection() {
               className="text-center text-xs md:text-sm mt-3"
               style={{ color: GOLD }}
             >
-              ⏳ Ưu đãi khai giảng chỉ áp dụng cho 50 học viên đầu tiên — Giá trị thực 4.444.000đ
+              ⏳ Ưu đãi khai giảng chỉ áp dụng cho 50 học viên đầu tiên — Giá gốc 4.990.000đ
             </motion.p>
 
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-5 text-xs md:text-sm text-gray-200">
@@ -174,11 +176,11 @@ export function HeroSection() {
           style={{ backgroundColor: "rgba(8,3,22,0.4)", boxShadow: "0 8px 24px rgba(0,0,0,0.25)" }}
         >
           <p style={{ color: "#F2E6C4", fontStyle: "italic", fontWeight: 500, fontFamily: "'Playfair Display', serif", fontSize: "0.8rem", lineHeight: 1.55, letterSpacing: "0.01em", textShadow: "0 2px 10px rgba(0,0,0,0.6)", whiteSpace: "nowrap" }}>
-            Người khác nhau,
+            Biến cố khác nhau,
             <br />
-            nhưng cảm giác mất phương hướng
+            nhưng cảm giác mất an toàn
             <br />
-            ở tuổi trung niên luôn giống hệt nhau.
+            bên trong luôn giống hệt nhau.
           </p>
           <div className="mt-2.5 ml-auto w-7 h-px" style={{ backgroundColor: "rgba(232,201,106,0.7)" }} />
           <p className="mt-2 text-[9px] tracking-[0.2em] uppercase" style={{ color: "rgba(232,201,106,0.85)", fontWeight: 600, textShadow: "0 1px 6px rgba(0,0,0,0.6)" }}>

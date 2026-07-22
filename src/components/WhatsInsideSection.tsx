@@ -6,32 +6,32 @@ const bonuses = [
   {
     num: "01",
     title: "Emergency Reset 5 Phút",
-    sub: "(Audio Bình Ổn Tức Thì)",
-    desc: "Bộ audio giúp bạn bình ổn ngay khi hoảng loạn hoặc mất ngủ giữa đêm — dùng được ngay cả khi bạn chưa học hết khóa.",
+    sub: "(Audio sơ cứu tức thì)",
+    desc: "Audio giúp bạn lấy lại bình tĩnh trong 5 phút khi cơn hoảng loạn hoặc lo âu ập đến giữa đêm hoặc giữa cuộc họp — dùng ngay, không cần chờ đến buổi học tiếp theo.",
   },
   {
     num: "02",
     title: "Money Healing Workbook",
-    sub: "(Chữa Lành Nỗi Sợ Tài Chính)",
-    desc: "Bài tập viết và nghi thức chữa lành nỗi sợ thiếu thốn tài chính, giúp bạn ngừng vòng lặp \"cứ nghĩ đến tiền là hoảng\".",
+    sub: "",
+    desc: "Bộ câu hỏi và bài tập giúp bạn nhận diện niềm tin gia đình về tiền bạc đang âm thầm điều khiển nỗi sợ thiếu thốn của mình, và viết lại \"hợp đồng mới\" với tiền.",
   },
   {
     num: "03",
-    title: "Trigger Tracker",
-    sub: "(Mini-Tracker Nhận Diện Cảm Xúc)",
-    desc: "Công cụ giúp bạn nhận diện chính xác điều gì đang kích hoạt cảm xúc bùng nổ của mình, thay vì chỉ biết mình đang tức giận mà không hiểu vì sao.",
+    title: "Sleep Healing Audio",
+    sub: "",
+    desc: "Audio hướng dẫn thư giãn trước khi ngủ, dành riêng cho những đêm đầu óc không chịu tắt, giúp bạn chìm vào giấc ngủ sâu hơn dù chỉ mới thực hành lần đầu.",
   },
   {
     num: "04",
-    title: "Boundary Workbook",
-    sub: "(Kịch Bản Đặt Ranh Giới)",
-    desc: "Mẫu câu và bài tập thực hành nói \"không\" mà không cắn rứt lương tâm, dành riêng cho người quen \"gồng gánh\" cho người khác.",
+    title: "Trigger Tracker",
+    sub: "(Mẫu theo dõi cảm xúc)",
+    desc: "Mẫu theo dõi giúp bạn nhận diện chính xác điều gì đang kích hoạt cảm xúc bùng nổ hoặc overthinking của mình, để xử lý đúng gốc rễ thay vì đoán mò.",
   },
   {
     num: "05",
-    title: "Sleep Healing Audio",
-    sub: "(Audio Hỗ Trợ Ngủ Sâu)",
-    desc: "Audio dùng mỗi tối để hệ thần kinh dần quen với cảm giác an toàn trong lúc ngủ, hỗ trợ bạn ngủ sâu và trọn giấc hơn.",
+    title: "Boundary Workbook",
+    sub: "",
+    desc: "Hướng dẫn từng bước để học nói \"không\" mà không thấy tội lỗi — dành cho người luôn cạn năng lượng vì ôm đồm trách nhiệm của người khác.",
   },
 ];
 
@@ -48,19 +48,18 @@ export function WhatsInsideSection() {
       <div className="container mx-auto px-4 lg:px-8 max-w-3xl relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
           <h2 className="text-2xl md:text-4xl font-bold font-serif text-[#F5D78E] mb-4">
-            ĐÂY LÀ TẤT CẢ NHỮNG GÌ BẠN NHẬN ĐƯỢC TRONG INNER SECURITY KIT™
+            ĐÂY LÀ TẤT CẢ NHỮNG GÌ BẠN NHẬN ĐƯỢC TRONG INNER SAFETY EXPERIENCE™
           </h2>
           <p className="text-gray-300 text-base md:text-lg max-w-xl mx-auto">
-            Khóa học toàn diện: Module 0 + 7 Chương, đi từ điều hòa hệ thần kinh, chữa lành nỗi sợ
-            tài chính, phục hồi giá trị bản thân, làm chủ cảm xúc, kích hoạt nội lực, đến bảo vệ
-            năng lượng và tái sinh phiên bản mới — giúp bạn tái thiết nền tảng an toàn nội tâm chỉ
-            trong 7 ngày.
+            Trọn bộ 7 chương — 28 bài học audio/video có hướng dẫn, đi từ điều hòa hệ thần kinh, chữa
+            lành nỗi sợ về tiền, giải phóng shame, làm chủ cảm xúc, đến thu hồi năng lượng và tái sinh
+            với một nền tảng an toàn mới.
           </p>
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex items-center gap-3 justify-center mb-8">
           <Gift className="w-7 h-7 text-[#C9A84C]" />
-          <span className="font-serif font-bold text-white text-xl md:text-2xl">Kèm theo 5 bonus dùng được ngay</span>
+          <span className="font-serif font-bold text-white text-xl md:text-2xl">Kèm theo 5 bonus thực chiến</span>
         </motion.div>
 
         <div className="space-y-5">
@@ -90,10 +89,10 @@ export function WhatsInsideSection() {
           viewport={{ once: true }}
           className="mt-12 bg-gradient-to-br from-[#C9A84C]/15 to-[#C9A84C]/5 border-2 border-[#C9A84C]/40 rounded-2xl p-8 text-center"
         >
-          <p className="text-gray-300 text-base md:text-lg mb-2">Giá trị thực</p>
-          <div className="text-gray-500/70 line-through text-2xl md:text-3xl mb-3">4.444.000đ</div>
+          <p className="text-gray-300 text-base md:text-lg mb-2">Giá trị thông thường</p>
+          <div className="text-gray-500/70 line-through text-2xl md:text-3xl mb-3">6.850.000đ</div>
           <p className="text-gray-300 text-base md:text-lg mb-2">Giá hôm nay</p>
-          <div className="text-6xl md:text-7xl font-bold text-[#C9A84C] font-serif leading-none">444.000đ</div>
+          <div className="text-6xl md:text-7xl font-bold text-[#C9A84C] font-serif leading-none">1.990.000đ</div>
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mt-10">

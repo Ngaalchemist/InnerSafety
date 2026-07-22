@@ -4,19 +4,19 @@ import instructorImg from "@/assets/images/instructor-beach.jpg";
 
 const pillars = [
   {
-    icon: "🔓",
-    title: "Giải mã kịch bản vô thức",
-    desc: "Nhìn thấu vì sao nỗi sợ vô giá trị đang âm thầm điều khiển cách bạn yêu, cách bạn lựa chọn và cách bạn cho phép người khác đối xử với mình.",
+    icon: "🧠",
+    title: "Điều hòa hệ thần kinh trước khi thay đổi niềm tin",
+    desc: "Nhìn thấu vì sao một hệ thần kinh đang ở chế độ sinh tồn không thể tiếp nhận suy nghĩ tích cực — và vì sao phải bắt đầu từ cơ thể, không phải từ lý trí.",
   },
   {
-    icon: "🛡️",
-    title: "Thu hồi quyền lực cá nhân",
-    desc: "Ngừng phản ứng từ những vết thương cũ, cắt đứt sự phụ thuộc cảm xúc và xây dựng cảm giác an toàn từ bên trong.",
+    icon: "🕯️",
+    title: "Tiếp cận trực tiếp tiềm thức qua thôi miên trị liệu",
+    desc: "Giúp bạn chạm vào gốc rễ niềm tin ăn sâu từ nhiều năm, thay vì chỉ \"hiểu\" vấn đề bằng đầu rồi lại phản ứng y hệt khi gặp chuyện.",
   },
   {
-    icon: "🦋",
-    title: "Tái lập mối quan hệ với chính mình",
-    desc: "Để bạn không còn phải tìm kiếm giá trị bản thân thông qua sự công nhận, sự chú ý hay tình yêu từ người khác.",
+    icon: "🌱",
+    title: "Tái thiết nền tảng an toàn không phụ thuộc bên ngoài",
+    desc: "Để giá trị của bạn không còn gắn với vai trò, tiền bạc hay sự công nhận của người khác — mà đến từ chính cảm giác an toàn bên trong bạn.",
   },
 ];
 
@@ -29,7 +29,7 @@ const ctaBadges = [
 
 export function InstructorSection() {
   const scrollToPricing = () =>
-    document.getElementById("registration")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
@@ -42,14 +42,14 @@ export function InstructorSection() {
           className="text-center mb-10"
         >
           <span className="inline-block text-xs md:text-sm font-semibold tracking-[0.3em] uppercase text-[#B0893A] mb-3">
-            Cycle Breaker
+            Inner Safety Method™
           </span>
           <h2 className="font-serif font-bold text-3xl md:text-5xl text-gray-900 tracking-wide">
             Chào bạn, mình là Nga Alchemist
           </h2>
           <p className="mt-4 text-violet-700/90 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-            Người đồng hành giúp phụ nữ phá vỡ những mô thức vô thức đang lặp lại trong tình yêu, các
-            mối quan hệ và cách họ nhìn nhận chính mình.
+            Người đồng hành giúp những ai đang trải qua khủng hoảng tuổi trung niên tìm lại cảm giác
+            an toàn bên trong, để dù cuộc đời có thay đổi thế nào, họ vẫn không đánh mất chính mình.
           </p>
         </motion.div>
 
@@ -63,14 +63,15 @@ export function InstructorSection() {
           <img src={instructorImg} alt="Nga Alchemist" className="w-full object-cover" />
         </motion.div>
 
-        {/* Story — rút gọn, giữ đúng mạch cảm xúc thật nhưng đi thẳng vào trọng tâm */}
+        {/* Story */}
         <div className="space-y-5 text-gray-700 leading-[1.9] text-base md:text-lg">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Mình từng là người luôn cố gắng, luôn nhịn, luôn hiểu chuyện — và luôn là người bị bỏ lại.
+            Mình từng là người luôn có câu trả lời cho mọi thứ — cho đến ngày mọi cột trụ mình dựa
+            vào sụp xuống cùng lúc.
           </motion.p>
 
           <motion.p
@@ -78,9 +79,10 @@ export function InstructorSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Năm 2022, sau một cuộc hôn nhân đổ vỡ, mình nhận ra: tất cả những mối quan hệ tan vỡ trong
-            đời mình đều có chung một kịch bản. Không phải vì mình gặp sai người liên tục — mà vì mình
-            chưa từng chữa lành phần bên trong khiến mình chấp nhận bị đối xử như vậy.
+            Sau một cuộc hôn nhân đổ vỡ và một giai đoạn mất phương hướng về tài chính, mình nhận ra:
+            điều khiến mình đau nhất không phải là những gì đã mất, mà là cảm giác không còn biết
+            mình là ai nếu không còn những thứ đó. Mình đã thử đọc sách, thiền, tự nhủ phải mạnh mẽ
+            hơn — nhưng cảm giác bất an vẫn quay lại mỗi khi có chuyện không như ý.
           </motion.p>
 
           <motion.p
@@ -89,7 +91,7 @@ export function InstructorSection() {
             viewport={{ once: true }}
             className="font-serif font-semibold text-violet-900 text-xl md:text-2xl leading-snug"
           >
-            "Đây không phải là một biến cố ngẫu nhiên. Đây là một vòng lặp."
+            "Đây không phải là mình bị hỏng. Đây là hệ thần kinh của mình đã quên mất cảm giác an toàn."
           </motion.p>
 
           <motion.p
@@ -97,11 +99,12 @@ export function InstructorSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Sau hành trình chữa lành cho chính mình bằng thôi miên trị liệu và làm việc với tiềm thức,
-            mình đã đồng hành cùng hàng trăm học viên để phá vỡ mô thức này — dù là trong tình yêu,
-            công việc, hay giữa những biến động của tuổi trung niên.{" "}
+            Sau hành trình chữa lành cho chính mình bằng thôi miên trị liệu, điều hòa hệ thần kinh và
+            làm việc với tiềm thức, mình đã đồng hành cùng nhiều học viên để tái thiết nền tảng an
+            toàn nội tâm.{" "}
             <span className="font-semibold text-violet-900">
-              "Inner Security Kit™" là chính hệ thống đó — rút gọn còn 7 ngày, để bạn tự học theo tốc độ của mình.
+              "Inner Safety Experience™" là chính hệ thống đó — rút gọn còn 7 ngày, để bạn tự học
+              theo tốc độ của mình.
             </span>
           </motion.p>
         </div>
@@ -146,15 +149,15 @@ export function InstructorSection() {
             Bạn chưa từng thiếu giá trị.
           </p>
           <p className="text-gray-700 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-            Bạn chỉ đang mang những vết thương khiến mình quên mất giá trị vốn có của bản thân. Nếu bạn
-            đã sẵn sàng ngừng tự bỏ rơi chính mình, mình sẽ đồng hành cùng bạn trên hành trình trở về ấy.
+            Bạn chỉ đang mang một hệ thần kinh đã quên mất cảm giác an toàn. Nếu bạn đã sẵn sàng
+            ngừng gồng mình để mạnh mẽ, mình sẽ đồng hành cùng bạn trên hành trình trở về ấy.
           </p>
           <button
             onClick={scrollToPricing}
             data-testid="button-cta-guide"
             className="group inline-flex items-center justify-center gap-3 px-8 py-4 md:py-5 rounded-none font-bold text-base md:text-lg text-[#140728] bg-[#C9A84C] hover:bg-[#E8C96A] transition-all shadow-[0_8px_30px_rgba(201,168,76,0.35)] hover:shadow-[0_14px_44px_rgba(201,168,76,0.6)] mx-auto"
           >
-            <span className="tracking-wide whitespace-nowrap">TÔI CHỌN NGỪNG TỰ BỎ RƠI CHÍNH MÌNH</span>
+            <span className="tracking-wide whitespace-nowrap">TÔI CHỌN TÌM LẠI SỰ AN TOÀN BÊN TRONG</span>
             <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform flex-shrink-0" />
           </button>
 

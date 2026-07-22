@@ -19,12 +19,12 @@ export function FinalCtaSection() {
           className="text-center max-w-2xl mx-auto space-y-7"
         >
           <h2 className="text-2xl md:text-4xl font-bold font-serif text-[#F5D78E] leading-tight">
-            ĐỪNG ĐỂ KHỦNG HOẢNG NÀY TIẾP TỤC CHỈ HUY CUỘC ĐỜI BẠN
+            ĐỪNG ĐỂ THÊM MỘT ĐÊM NỮA TRÔI QUA TRONG LO ÂU
           </h2>
           <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
-            Trong khi nhiều người 35-48 tuổi khác vẫn đang loay hoay một mình giữa khủng hoảng, bạn
-            có thể là người bắt đầu tái thiết nền tảng an toàn nội tâm thật sự — chỉ với 7 ngày và
-            một hệ thống đã được kiểm chứng.
+            Trong khi nhiều người cùng hoàn cảnh vẫn đang loay hoay một mình mỗi đêm, bạn có thể là
+            người bắt đầu tìm lại cảm giác an toàn bên trong — chỉ với 7 ngày và một hệ thống đã
+            được xây dựng bài bản.
           </p>
 
           <div className="space-y-5 pt-2">
@@ -36,7 +36,7 @@ export function FinalCtaSection() {
               GIỮ ƯU ĐÃI CHO TÔI NGAY BÂY GIỜ
             </CtaButton>
             <p className="text-[#C9A84C] text-sm md:text-base">
-              ⏳ Chỉ còn 444.000đ (giá trị thực 4.444.000đ)
+              ⏳ Chỉ còn 1.990.000đ (giá gốc 4.990.000đ)
             </p>
             <TrustBar dark />
           </div>

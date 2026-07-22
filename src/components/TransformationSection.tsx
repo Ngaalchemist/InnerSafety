@@ -4,28 +4,28 @@ import { CtaButton, TrustBar } from "./CtaButton";
 
 const rows = [
   {
-    before: "Hoảng loạn, khó ngủ, tim đập nhanh không rõ lý do",
-    after: "Ngủ sâu, thức dậy thấy nhẹ nhõm, cơ thể không còn trong trạng thái báo động",
+    before: "Luôn bất an, không biết tương lai sẽ ra sao, sợ mất tất cả lần nữa",
+    after: "Cảm nhận được sự bình an nội tâm, ngay cả khi hoàn cảnh bên ngoài chưa rõ ràng",
   },
   {
-    before: "Overthinking liên tục, không thể tắt được \"cái đầu\"",
-    after: "Tâm trí yên tĩnh hơn, phản ứng bình tĩnh trước biến cố thay vì cuốn theo nó",
+    before: "Hoảng loạn, tim đập nhanh, mất ngủ mỗi khi nghĩ đến tiền hoặc tương lai",
+    after: "Biết tự điều hòa hệ thần kinh trong vài phút, thay vì để cảm xúc cuốn đi cả đêm",
   },
   {
-    before: "Ám ảnh về tiền bạc, luôn thấy thiếu thốn dù đã cố gắng rất nhiều",
-    after: "Cảm giác đủ đầy nội tâm, không còn hoảng loạn mỗi khi nghĩ đến tài chính",
+    before: "Overthinking không dứt, đầu óc luôn phân tích và tưởng tượng điều tệ nhất",
+    after: "Có thể đưa sự chú ý trở về hiện tại, thay vì sống trong những kịch bản chưa xảy ra",
   },
   {
-    before: "Tự trách, tự ghét bản thân, luôn thấy \"mình không đủ\"",
-    after: "Tin tưởng giá trị bản thân, ngừng tự trách sau mỗi lần vấp ngã",
+    before: "Niềm tin \"Tôi không đủ\" âm thầm điều khiển mọi quyết định",
+    after: "Xây được nền tảng tự trọng: \"Tôi là đủ\" — không phụ thuộc vào thành tựu bên ngoài",
   },
   {
-    before: "Bùng nổ cảm xúc với người thân yêu rồi lại tự trách bản thân",
-    after: "Làm chủ cảm xúc, kết nối lại gần gũi hơn với người thân",
+    before: "Tự trách bản thân sau mỗi biến cố: \"Giá như ngày đó...\"",
+    after: "Nhìn lại biến cố bằng lòng tự từ bi, thay vì tiếp tục dằn vặt chính mình",
   },
   {
-    before: "Kiệt sức vì luôn phải gồng gánh, không dám từ chối ai",
-    after: "Biết đặt ranh giới rõ ràng, giữ được năng lượng cho chính mình",
+    before: "Tiền bạc là nỗi sợ thường trực, né tránh nhìn thẳng vào tài chính",
+    after: "Tiền trở thành dòng chảy và công cụ kiến tạo, không còn là nỗi ám ảnh",
   },
 ];
 
@@ -42,12 +42,11 @@ export function TransformationSection() {
       <div className="container mx-auto px-4 lg:px-8 max-w-4xl relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-6">
           <h2 className="text-2xl md:text-4xl font-bold font-serif text-white">
-            SỰ CHUYỂN HÓA <span className="text-[#F5D78E]">BẠN CÓ THỂ MONG ĐỢI</span>
+            HÀNH TRÌNH CHUYỂN HÓA <span className="text-[#F5D78E]">BẠN SẼ TRẢI QUA</span>
           </h2>
           <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
-            Đừng để khủng hoảng tuổi trung niên tiếp tục chi phối cuộc sống của bạn. Sự bình an mà
-            bạn đang tìm kiếm có thể gần hơn bạn nghĩ — bạn chỉ cần đúng hệ thống để biến nó thành
-            hiện thực.
+            Đừng để những biến cố tiếp tục quyết định thay bạn con người mà bạn sẽ trở thành. Cảm
+            giác an toàn bên trong bạn có thể gần hơn bạn nghĩ — bạn chỉ cần đúng hệ thống để làm điều đó xảy ra.
           </p>
         </motion.div>
 
@@ -88,7 +87,7 @@ export function TransformationSection() {
 
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mt-12">
           <CtaButton onClick={scrollToPricing} className="bg-[#C9A84C] text-[#1a0a2e] hover:bg-[#E8C96A] rounded-xl px-10 py-5" data-testid="button-cta-transformation">
-            TÔI MUỐN CHUYỂN HÓA NGAY — CHỈ 444.000Đ
+            TÔI MUỐN BẮT ĐẦU CHUYỂN HÓA — CHỈ 1.990.000Đ
           </CtaButton>
           <TrustBar dark />
         </motion.div>

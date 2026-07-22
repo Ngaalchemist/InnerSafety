@@ -15,15 +15,15 @@ interface OrderInfo {
 }
 
 const benefitsSummary = [
-  "Trọn bộ khóa học \"Inner Security Kit™\" — Module 0 + 7 Chương tái thiết an toàn nội tâm",
-  "5 Bonus dùng được ngay: Emergency Reset 5 Phút, Money Healing Workbook, Trigger Tracker, Boundary Workbook, Sleep Healing Audio",
+  "Trọn bộ Inner Safety Experience™ — 7 chương, 28 bài học chi tiết",
+  "5 Bonus thực chiến: Emergency Reset 5 Phút, Money Healing Workbook, Sleep Healing Audio, Trigger Tracker, Boundary Workbook",
   "Truy cập trọn đời, học theo tốc độ riêng của bạn",
-  "Tổng giá trị 4.444.000đ — giá ưu đãi hôm nay chỉ 444.000đ",
+  "Tổng giá trị 6.850.000đ — giá ưu đãi hôm nay chỉ 1.990.000đ",
 ];
 
 const guarantees = [
   "Hoàn tiền trong 7 ngày nếu bạn đã học nghiêm túc theo lộ trình mà không thấy phù hợp",
-  "Nội dung được xây dựng dựa trên nền tảng khoa học về hệ thần kinh (Polyvagal Theory) và sang chấn đã được kiểm chứng, không phải lời khuyên cảm tính",
+  "Nội dung được xây dựng dựa trên nền tảng khoa học thần kinh (Polyvagal Theory) và thực hành trị liệu đã được kiểm chứng, không phải lời khuyên cảm tính",
   "Bảo mật thông tin cá nhân tuyệt đối — thông tin đăng ký của bạn chỉ dùng để liên hệ hỗ trợ, không chia sẻ cho bên thứ ba",
 ];
 
@@ -67,7 +67,7 @@ export function RegistrationSection() {
         (window as any).fbq("track", "Purchase", {
           value: data.amount,
           currency: "VND",
-          content_name: "Inner Security Kit - 7 Ngày Tái Thiết An Toàn Nội Tâm",
+          content_name: "Inner Safety Experience - 7 Ngày Tái Thiết An Toàn Nội Tâm",
           content_type: "product"
         });
       }
@@ -86,7 +86,7 @@ export function RegistrationSection() {
               (window as any).fbq("track", "CompleteRegistration", {
                 value: data.amount,
                 currency: "VND",
-                content_name: "Inner Security Kit - Xác Nhận Chuyển Khoản Thành Công"
+                content_name: "Inner Safety Experience - Xác Nhận Chuyển Khoản Thành Công"
               });
             }
 
@@ -120,11 +120,11 @@ export function RegistrationSection() {
             className="text-center mb-8"
           >
             <h2 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-3">
-              Bạn đã sẵn sàng tái thiết nền tảng an toàn nội tâm chưa?
+              Bạn đã sẵn sàng ngừng gồng và tìm lại sự an toàn bên trong chưa?
             </h2>
             <p className="text-muted-foreground text-base md:text-lg">
-              Đăng ký ngay hôm nay để nhận trọn bộ Inner Security Kit™ 7 ngày cùng 5 bonus dùng được
-              ngay — và bắt đầu hành trình tái thiết an toàn nội tâm trước khi ưu đãi kết thúc.
+              Đăng ký ngay hôm nay để nhận trọn bộ Inner Safety Experience™ 7 ngày cùng 5 bonus thực
+              chiến — và bắt đầu hành trình tái thiết nền tảng an toàn nội tâm trước khi ưu đãi kết thúc.
             </p>
           </motion.div>
 
@@ -174,9 +174,7 @@ export function RegistrationSection() {
                   <CheckCircle2 className="w-16 h-16 text-primary mx-auto" />
                   <h3 className="text-2xl font-bold font-serif text-foreground">Thanh toán thành công! 🎉</h3>
                   <p className="text-muted-foreground">
-                    Cảm ơn bạn đã đăng ký Inner Security Kit™. Nga Alchemist sẽ gửi tài khoản học, bộ
-                    quà tặng, cùng lời mời vào nhóm Zalo và cộng đồng Skool đến số điện thoại / email
-                    của bạn trong ít phút tới.
+                    Cảm ơn bạn đã đăng ký. Nga Alchemist sẽ gửi tài khoản học và bộ quà tặng đến số điện thoại / email của bạn trong vòng 24 giờ.
                   </p>
                   <p className="text-sm text-muted-foreground">Mã đơn hàng: <span className="font-mono text-foreground">{order?.code}</span></p>
                 </motion.div>
@@ -316,7 +314,7 @@ export function RegistrationSection() {
                       )}
                     </button>
                     <p className="text-center text-xs md:text-sm text-primary">
-                      ⏳ Chỉ còn 444.000đ — ưu đãi kết thúc sau khi đồng hồ về 0
+                      ⏳ Chỉ còn 1.990.000đ — ưu đãi kết thúc sau khi đồng hồ về 0
                     </p>
 
                     <div className="relative py-1">

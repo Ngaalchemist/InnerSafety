@@ -14,72 +14,72 @@ import day7 from "@/assets/images/day-7.png";
 const days = [
   {
     img: day1,
-    title: "Tôi An Toàn — Đưa Hệ Thần Kinh Từ Sinh Tồn Về Bình An",
-    lead: "Bạn sẽ hiểu vì sao cơ thể luôn trong trạng thái báo động, và có công cụ đưa mình về trạng thái bình an ngay trong ngày đầu tiên.",
+    title: "Tôi An Toàn — Điều Hòa Hệ Thần Kinh",
+    lead: "Bạn sẽ hiểu vì sao cơ thể luôn trong trạng thái báo động, và học cách đưa hệ thần kinh trở về bình an — bước nền tảng trước khi làm bất cứ điều gì khác.",
     points: [
-      "Nhận diện Fight – Flight – Freeze – Fawn đang vận hành trong cơ thể bạn mỗi ngày",
-      "Somatic Reset: kỹ thuật grounding và somatic shaking để giải phóng cortisol, adrenaline",
-      "Thiền tái lập nền móng để cảm nhận lại cảm giác an toàn trong cơ thể",
+      "Fight – Flight – Freeze – Fawn: vì sao cơ thể phản ứng như vậy khi mất an toàn",
+      "Somatic Reset & Grounding để giải phóng cortisol, làm dịu hệ thần kinh",
+      "Thực hành nhận diện 3 nỗi sợ lớn nhất và bắt đầu gỡ niềm tin \"thế giới nguy hiểm\"",
     ],
   },
   {
     img: day2,
-    title: "Tôi Không Còn Sợ — Chữa Lành Tiền Và Nỗi Sợ Thiếu Thốn",
-    lead: "Bạn sẽ nhìn thấy gốc rễ nỗi sợ tài chính của mình, và bắt đầu chuyển hóa nó thay vì né tránh.",
+    title: "Tôi Không Còn Sợ — Chữa Lành Nỗi Sợ Về Tiền",
+    lead: "Bạn sẽ nhìn thấy gốc rễ của nỗi sợ thiếu thốn, và bắt đầu viết lại mối quan hệ của mình với tiền bạc.",
     points: [
-      "Hiểu Scarcity Mindset và Money Trauma hình thành từ niềm tin gia đình về tiền",
-      "Money Healing: nghi thức đối thoại với tiền và viết hợp đồng mới với tiền",
-      "Thiền đủ đầy để chuyển dịch tần số từ thiếu thốn sang đủ đầy",
+      "Nhận diện Scarcity Mindset và niềm tin gia đình về tiền",
+      "Thực hành Money Ritual — đối thoại và viết \"hợp đồng mới\" với tiền",
+      "Thiền chuyển dịch sang cảm giác đủ đầy, thay vì luôn thấy thiếu",
     ],
   },
   {
     img: day3,
-    title: "Tôi Xứng Đáng — Chữa Lành Shame Và Giá Trị Bản Thân",
-    lead: "Bạn sẽ ngừng tự trách, tự ghét bản thân, và bắt đầu phục hồi lại giá trị vốn có của mình.",
+    title: "Tôi Xứng Đáng — Giải Phóng Shame, Khôi Phục Giá Trị",
+    lead: "Bạn sẽ hiểu sự khác nhau giữa xấu hổ và cảm giác có lỗi, và bắt đầu khôi phục lại giá trị bản thân từ bên trong.",
     points: [
       "Phân biệt Shame và Guilt, thực hành Self-Compassion",
-      "Somatic vùng chậu: breathwork giải phóng cảm xúc mắc kẹt trong cơ thể",
-      "Viết lại giá trị bản thân — từ \"Tôi không đủ\" sang \"Tôi là đủ\"",
+      "Breathwork giải phóng cảm xúc mắc kẹt trong cơ thể",
+      "Viết lại niềm tin: từ \"Tôi không đủ\" sang \"Tôi là đủ\"",
     ],
   },
   {
     img: day4,
-    title: "Tôi Làm Chủ Cảm Xúc — Quản Lý Cảm Xúc Và Tâm Trí",
-    lead: "Bạn sẽ có công cụ thực tế để dừng overthinking và làm chủ cảm xúc ngay khi bị kích hoạt.",
+    title: "Tôi Làm Chủ Cảm Xúc — Dừng Overthinking",
+    lead: "Bạn sẽ có công cụ thực tế để không bị cuốn theo cảm xúc mỗi khi bị kích hoạt, dùng được ngay trong đời sống hằng ngày.",
     points: [
-      "Hiểu Emotional Trigger và cách hệ thần kinh phản ứng",
-      "Kỹ thuật quan sát suy nghĩ để dừng overthinking",
-      "Thực hành Inner Peace để trở về hiện tại",
+      "Hiểu cơ chế Emotional Trigger đang vận hành trong bạn",
+      "Kỹ thuật quan sát suy nghĩ, thực hành Mindfulness",
+      "Bài tập trở về hiện tại (Inner Peace) khi cảm xúc bùng lên",
     ],
   },
   {
     img: day5,
-    title: "Tôi Có Quyền Năng — Kích Hoạt Sức Mạnh Nội Tâm",
-    lead: "Bạn sẽ đánh thức lại ý chí nội tại và tự tin bắt đầu lại từ những hành động nhỏ nhất.",
+    title: "Tôi Có Quyền Năng — Đánh Thức Ý Chí Nội Tại",
+    lead: "Bạn sẽ đánh thức lại nguồn năng lượng và sự tự tin để bắt đầu lại, dù chưa biết chương tiếp theo của cuộc đời sẽ ra sao.",
     points: [
-      "Fire Breath: đánh thức Mặt Trời nội tâm và kích hoạt Solar Plexus",
-      "Reprogram Mind: cài đặt niềm tin \"tôi đủ giỏi, tôi đủ giá trị\"",
+      "Fire Breath, kích hoạt vùng năng lượng ý chí (Solar Plexus)",
+      "Tái lập trình niềm tin: \"Tôi đủ giỏi, tôi đủ giá trị\"",
       "Bài tập hành động nhỏ đầu tiên để xây lại niềm tin vào bản thân",
     ],
   },
   {
     img: day6,
-    title: "Tôi Thu Hồi Năng Lượng — Bảo Vệ Trường Năng Lượng Và Ranh Giới",
-    lead: "Bạn sẽ nhận diện điểm rò rỉ năng lượng và học cách thiết lập ranh giới lành mạnh.",
+    title: "Tôi Thu Hồi Năng Lượng — Ranh Giới Lành Mạnh",
+    lead: "Bạn sẽ học cách nhận diện điều gì đang rút cạn năng lượng của mình, và xây ranh giới để bảo vệ bản thân mà không thấy tội lỗi.",
     points: [
-      "Energy Leak: nhận diện các kiểu rò rỉ năng lượng trong mối quan hệ và công việc",
-      "Cutting Cords: cắt dây năng lượng với người, sự kiện và dự án cũ",
-      "Boundary: học nói \"không\" và bảo vệ năng lượng của mình",
+      "Energy Audit: nhận diện các kiểu rò rỉ năng lượng trong công việc, mối quan hệ",
+      "Thực hành cắt đứt gắn bó năng lượng với người, sự kiện và dự án cũ",
+      "Học nói \"Không\" và bảo vệ trường năng lượng của chính mình",
     ],
   },
   {
     img: day7,
-    title: "Tôi Tái Sinh — Đón Nhận Phiên Bản Mới",
-    lead: "Bạn sẽ hoàn tất hành trình với một giao ước mới cùng chính mình và bước vào phiên bản tái sinh.",
+    title: "Tôi Tái Sinh — Đồng Bộ Tim - Não, Ký Giao Ước Mới",
+    lead: "Bạn sẽ hoàn tất hành trình với một nền tảng an toàn mới, và một cam kết cụ thể để duy trì sự bình an sau khi khóa học kết thúc.",
     points: [
-      "Heart Brain Coherence: đồng bộ tim - não để đưa hệ thần kinh về bình an trong vài phút",
-      "Timeline mới: Quantum Confidence và Future Self",
-      "Ký giao ước với chính mình: cam kết sống từ giá trị nội tại thay vì thành tựu bên ngoài",
+      "Heart-Brain Coherence Meditation để đưa hệ thần kinh về bình an nhanh chóng",
+      "Chọn Timeline mới — hình dung phiên bản tương lai bạn muốn trở thành",
+      "Ký giao ước sống từ giá trị nội tại, thay vì từ thành tựu bên ngoài",
     ],
   },
 ];
@@ -126,7 +126,7 @@ export function CurriculumSection() {
             HÀNH TRÌNH 7 NGÀY TÁI THIẾT AN TOÀN NỘI TÂM CỦA BẠN BẮT ĐẦU TỪ ĐÂY
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto mb-2">
-            7 chặng đưa bạn từ hệ thần kinh báo động liên tục đến cảm giác an toàn bền vững từ bên trong.
+            7 chặng đưa bạn từ trạng thái sinh tồn trở về cảm giác an toàn, xứng đáng và vững vàng bên trong.
           </p>
           <p className="text-gray-400 text-sm">Bấm vào từng ngày để xem chi tiết bạn sẽ học gì.</p>
         </motion.div>

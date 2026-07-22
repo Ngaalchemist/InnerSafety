@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "inner_security_promo_deadline";
+const STORAGE_KEY = "rebirth_promo_deadline";
 const WINDOW_MS = 24 * 60 * 60 * 1000; // 24 giờ
 
 function getDeadline(): number {
