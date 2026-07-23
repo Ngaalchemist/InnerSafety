@@ -58,6 +58,29 @@ Sau khi thêm xong 2 việc trên (storage + API key), Vercel cần **deploy l�
 
 ---
 
+## Bước 5 (tuỳ chọn) — Tự động gửi email xác nhận kèm link Zalo + Skool
+
+Khi khách thanh toán xong, hệ thống có thể tự động gửi 1 email xác nhận kèm link nhóm Zalo và
+link cộng đồng Skool. Để bật tính năng này:
+
+1. Tạo tài khoản miễn phí tại [resend.com](https://resend.com) → lấy **API Key**
+2. Vào Vercel → **Settings** → **Environment Variables**, thêm:
+   - `RESEND_API_KEY` = API Key vừa lấy
+   - `RESEND_FROM_EMAIL` = email gửi đi, ví dụ `Nga Alchemist <hello@ngaalchemist.com>` (phải là domain đã xác thực trên Resend)
+   - `ZALO_GROUP_LINK` = link nhóm Zalo thật của bạn
+   - `SKOOL_LINK` = link cộng đồng Skool thật của bạn
+3. Redeploy lại project
+
+Nếu bạn không cấu hình `RESEND_API_KEY`, hệ thống vẫn hoạt động bình thường — chỉ là sẽ không tự
+gửi email, nhưng khách vẫn thấy 2 nút "Vào nhóm Zalo" và "Vào cộng đồng Skool" ngay trên màn hình
+"Thanh toán thành công" (lấy từ `ZALO_GROUP_LINK` / `SKOOL_LINK`, sửa trực tiếp trong
+`src/components/RegistrationSection.tsx` nếu chưa set biến môi trường).
+
+Giá khóa học hiện tại đã được đặt là **1.111.111đ** (biến `AMOUNT` trong `api/create-order.js`).
+Muốn đổi giá, chỉ cần sửa số đó rồi deploy lại.
+
+---
+
 ## Lưu ý quan trọng
 
 - **Nội dung chuyển khoản phải giữ đúng mã đơn hàng liền nhau** (ví dụ `NGAQE6XQJ`). QR đã tự điền sẵn nội dung này — nếu khách dùng app ngân hàng quét QR và chuyển khoản ngay (không sửa nội dung) thì luôn đúng. Nếu khách tự gõ tay và lỡ thêm khoảng trắng vào giữa mã, hệ thống sẽ không nhận diện được — khi đó bạn vẫn cần xử lý tay như trước (kiểm tra SePay dashboard).

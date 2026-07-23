@@ -1,4 +1,5 @@
 import { Redis } from "@upstash/redis";
+import { sendConfirmationEmail } from "./_send-email.js";
 
 const redis = new Redis({
   url: process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL,
@@ -73,6 +74,15 @@ export default async function handler(req, res) {
     // Cập nhật cột "Đã thanh toán" trong Google Sheet — phải await để Vercel không
     // tắt function trước khi request kịp gửi đi.
     await updateGoogleSheetPayment(code);
+
+    // Tự động gửi email xác nhận kèm link Zalo + Skool cho học viên (bỏ qua nếu chưa cấu hình
+    // RESEND_API_KEY — xem hướng dẫn trong api/HUONG-DAN-TICH-HOP-SEPAY.md).
+    await sendConfirmationEmail({
+      name: order.name,
+      email: order.email,
+      orderCode: order.code,
+      amount: order.amount,
+    });
 
     return res.status(200).json({ success: true });
   } catch (err) {

@@ -16,7 +16,7 @@ const redis = new Redis({
 const BANK_BIN = "970426"; // Mã BIN VietQR của MSB
 const ACCOUNT_NO = "96886693015092"; // Số VA cố định do MSB cấp qua SePay
 const ACCOUNT_NAME = "NGUYEN THANH NGA";
-const AMOUNT = 1990000;
+const AMOUNT = 1111111;
 const ORDER_TTL_SECONDS = 60 * 60 * 24; // giữ đơn hàng 24h rồi tự xoá
 
 function generateOrderCode() {
