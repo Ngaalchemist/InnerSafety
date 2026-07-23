@@ -3,10 +3,12 @@ import { HeaderSection } from "@/components/HeaderSection";
 import { HeroSection } from "@/components/HeroSection";
 import { MechanismSection } from "@/components/MechanismSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
-import { WhatsInsideSection } from "@/components/WhatsInsideSection";
 import { TransformationSection } from "@/components/TransformationSection";
-import { CurriculumSection } from "@/components/CurriculumSection";
 import { InstructorSection } from "@/components/InstructorSection";
+import { ReviewsSection } from "@/components/ReviewsSection";
+import { WhatsInsideSection } from "@/components/WhatsInsideSection";
+import { CurriculumSection } from "@/components/CurriculumSection";
+import { FaqSection } from "@/components/FaqSection";
 import { FinalCtaSection } from "@/components/FinalCtaSection";
 import { RegistrationSection } from "@/components/RegistrationSection";
 import { FooterSection } from "@/components/FooterSection";
@@ -21,10 +23,12 @@ export default function SalesPage() {
         <HeroSection />
         <MechanismSection />
         <BenefitsSection />
-        <WhatsInsideSection />
         <TransformationSection />
-        <CurriculumSection />
         <InstructorSection />
+        <ReviewsSection />
+        <WhatsInsideSection />
+        <CurriculumSection />
+        <FaqSection />
         <FinalCtaSection />
         <RegistrationSection />
         <FooterSection />

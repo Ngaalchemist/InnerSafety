@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShieldCheck, Zap, HeartHandshake, RefreshCw, Loader2, CheckCircle2, Copy, Check, Lock } from "lucide-react";
+import { ShieldCheck, Zap, HeartHandshake, RefreshCw, Loader2, CheckCircle2, Copy, Check, Lock, MessageCircle, Home } from "lucide-react";
 import { CountdownTimer } from "./CountdownTimer";
 
 type Step = "form" | "loading" | "qr" | "processing" | "paid" | "error";
@@ -14,16 +14,21 @@ interface OrderInfo {
   accountName: string;
 }
 
+// Có thể override bằng biến môi trường VITE_ZALO_GROUP_LINK / VITE_SKOOL_LINK trên Vercel,
+// hoặc sửa trực tiếp 2 dòng dưới đây bằng link Zalo nhóm và link cộng đồng Skool thật của bạn.
+const ZALO_GROUP_LINK = import.meta.env.VITE_ZALO_GROUP_LINK || "https://zalo.me/g/ngaalchemist";
+const SKOOL_LINK = import.meta.env.VITE_SKOOL_LINK || "https://www.skool.com/inner-safety-experience";
+
 const benefitsSummary = [
-  "Trọn bộ Inner Safety Experience™ — 7 chương, 28 bài học chi tiết",
-  "5 Bonus thực chiến: Emergency Reset 5 Phút, Money Healing Workbook, Sleep Healing Audio, Trigger Tracker, Boundary Workbook",
+  "Trọn bộ Inner Safety Experience™ — 7 chương, 28 bài học audio/video có hướng dẫn từng bước",
+  "5 Bonus thực chiến: Emergency Reset 5 Phút, Money Healing Workbook, Worthy Affirmation Sleep Hypnosis™, Trigger Tracker, Boundary Workbook",
   "Truy cập trọn đời, học theo tốc độ riêng của bạn",
-  "Tổng giá trị 6.850.000đ — giá ưu đãi hôm nay chỉ 1.990.000đ",
+  "Tổng giá trị 4.444.444đ — giá ưu đãi hôm nay chỉ 1.111.111đ",
 ];
 
 const guarantees = [
-  "Hoàn tiền trong 7 ngày nếu bạn đã học nghiêm túc theo lộ trình mà không thấy phù hợp",
-  "Nội dung được xây dựng dựa trên nền tảng khoa học thần kinh (Polyvagal Theory) và thực hành trị liệu đã được kiểm chứng, không phải lời khuyên cảm tính",
+  "Nếu sau khi hoàn thành đầy đủ 7 ngày, thực hành nghiêm túc theo đúng hướng dẫn mà bạn vẫn cảm thấy chương trình không mang lại giá trị cho mình — chỉ cần liên hệ trong vòng 7 ngày kể từ ngày đăng ký, bạn sẽ được hoàn lại 100% học phí mà không cần giải thích",
+  "Nội dung chương trình được xây dựng dựa trên kinh nghiệm thực hành thôi miên trị liệu thật, không phải lời khuyên cảm tính hay chắp vá từ nhiều nguồn khác nhau",
   "Bảo mật thông tin cá nhân tuyệt đối — thông tin đăng ký của bạn chỉ dùng để liên hệ hỗ trợ, không chia sẻ cho bên thứ ba",
 ];
 
@@ -120,11 +125,11 @@ export function RegistrationSection() {
             className="text-center mb-8"
           >
             <h2 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-3">
-              Bạn đã sẵn sàng ngừng gồng và tìm lại sự an toàn bên trong chưa?
+              Đừng để thêm một đêm nữa trôi qua trong lo âu
             </h2>
             <p className="text-muted-foreground text-base md:text-lg">
-              Đăng ký ngay hôm nay để nhận trọn bộ Inner Safety Experience™ 7 ngày cùng 5 bonus thực
-              chiến — và bắt đầu hành trình tái thiết nền tảng an toàn nội tâm trước khi ưu đãi kết thúc.
+              Đăng ký ngay hôm nay để nhận trọn bộ Inner Safety Experience™ cùng 5 bonus thực chiến —
+              và bắt đầu hành trình 7 ngày tái thiết cảm giác an toàn bên trong trước khi ưu đãi kết thúc.
             </p>
           </motion.div>
 
@@ -143,7 +148,7 @@ export function RegistrationSection() {
             viewport={{ once: true }}
             className="bg-card border border-primary/20 rounded-2xl p-6 mb-6"
           >
-            <p className="text-sm font-bold uppercase tracking-wider text-primary mb-3">
+            <p className="text-sm cta-label uppercase text-primary mb-3">
               Tóm tắt quyền lợi bạn nhận được khi đăng ký hôm nay
             </p>
             <ul className="space-y-2">
@@ -160,7 +165,7 @@ export function RegistrationSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-card border border-primary/30 rounded-3xl p-8 shadow-[0_0_50px_rgba(201,168,76,0.1)]"
+            className="bg-card border border-primary/30 rounded-3xl p-8 shadow-[0_0_50px_rgba(201,162,76,0.1)]"
           >
             <AnimatePresence mode="wait">
               {step === "paid" && (
@@ -168,49 +173,64 @@ export function RegistrationSection() {
                   key="paid"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="text-center py-10 space-y-4"
+                  className="text-center py-8 space-y-5"
                   data-testid="status-paid"
                 >
                   <CheckCircle2 className="w-16 h-16 text-primary mx-auto" />
-                  <h3 className="text-2xl font-bold font-serif text-foreground">Thanh toán thành công! 🎉</h3>
-                  <p className="text-muted-foreground">
-                    Cảm ơn bạn đã đăng ký. Nga Alchemist sẽ gửi tài khoản học và bộ quà tặng đến số điện thoại / email của bạn trong vòng 24 giờ.
+                  <h3 className="font-serif font-bold text-2xl md:text-3xl text-foreground">
+                    Thanh toán thành công 🎉
+                  </h3>
+                  <p className="text-muted-foreground text-sm md:text-base max-w-sm mx-auto">
+                    Cảm ơn bạn đã tin tưởng Inner Safety Experience™. Hãy tham gia ngay 2 kênh dưới đây
+                    để nhận link khóa học và đồng hành cùng cộng đồng học viên.
                   </p>
-                  <p className="text-sm text-muted-foreground">Mã đơn hàng: <span className="font-mono text-foreground">{order?.code}</span></p>
+
+                  <div className="grid gap-3 max-w-sm mx-auto pt-2">
+                    <a
+                      href={ZALO_GROUP_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-testid="button-zalo-group"
+                      className="w-full flex items-center justify-center gap-3 py-3.5 rounded-sm cta-label uppercase bg-[#0068FF] text-white hover:bg-[#0057D6] transition-all"
+                    >
+                      <MessageCircle className="w-5 h-5" />
+                      Vào Nhóm Zalo Học Viên
+                    </a>
+                    <a
+                      href={SKOOL_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-testid="button-skool"
+                      className="w-full flex items-center justify-center gap-3 py-3.5 rounded-sm cta-label uppercase bg-[#C9A24C] text-[#0e1712] hover:bg-[#E4C77E] transition-all"
+                    >
+                      <Home className="w-5 h-5" />
+                      Vào Cộng Đồng Skool
+                    </a>
+                  </div>
+
+                  <p className="text-xs text-muted-foreground pt-2">
+                    Link truy cập khóa học và biên nhận cũng đã được gửi tới email bạn đã đăng ký.
+                  </p>
                 </motion.div>
               )}
-              {step === "processing" && order && (
-                <motion.div
-                  key="processing"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-center py-10 space-y-4"
-                  data-testid="status-processing"
-                >
-                  <Loader2 className="w-16 h-16 text-primary mx-auto animate-spin" />
-                  <h3 className="text-2xl font-bold font-serif text-foreground">Đã nhận được chuyển khoản!</h3>
-                  <p className="text-muted-foreground">
-                    Hệ thống đang đối chiếu giao dịch, vui lòng chờ trong giây lát — <strong>đừng chuyển khoản thêm lần nữa</strong>.
-                  </p>
-                  <p className="text-sm text-muted-foreground">Mã đơn hàng: <span className="font-mono text-foreground">{order.code}</span></p>
-                </motion.div>
-              )}
-              {step === "qr" && order && (
+
+              {(step === "qr" || step === "processing") && order && (
                 <motion.div
                   key="qr"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="space-y-5"
+                  className="text-center space-y-5"
                   data-testid="status-qr"
                 >
-                  <div className="text-center">
-                    <h3 className="text-xl md:text-2xl font-bold font-serif text-foreground mb-1">Quét mã QR để thanh toán</h3>
-                    <p className="text-sm text-muted-foreground">Hệ thống sẽ tự động xác nhận ngay khi nhận được chuyển khoản</p>
-                  </div>
+                  <h3 className="font-serif font-bold text-xl md:text-2xl text-foreground">
+                    Quét mã để hoàn tất đăng ký
+                  </h3>
 
-                  <div className="bg-white rounded-2xl p-5 mx-auto max-w-xs">
-                    <img src={order.qrUrl} alt="QR thanh toán" className="w-full h-auto rounded-lg" />
-                  </div>
+                  <img
+                    src={order.qrUrl}
+                    alt="QR thanh toán"
+                    className="w-56 h-56 md:w-64 md:h-64 mx-auto rounded-xl border border-border bg-white p-2"
+                  />
 
                   <div className="space-y-2.5 text-sm md:text-base bg-background/50 rounded-xl p-4 border border-border">
                     <div className="flex justify-between items-center">
@@ -302,19 +322,19 @@ export function RegistrationSection() {
                       type="submit"
                       disabled={step === "loading"}
                       data-testid="button-submit"
-                      className="w-full py-4 rounded-none text-lg md:text-xl font-bold bg-[#C9A84C] text-[#140728] shadow-[0_0_20px_rgba(201,168,76,0.4)] hover:bg-[#E8C96A] hover:shadow-[0_0_35px_rgba(201,168,76,0.6)] transition-all tracking-wide disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      className="w-full py-4 rounded-sm text-lg md:text-xl cta-label uppercase bg-[#C9A24C] text-[#0e1712] shadow-[0_0_20px_rgba(201,162,76,0.4)] hover:bg-[#E4C77E] hover:shadow-[0_0_35px_rgba(201,162,76,0.6)] transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                       {step === "loading" ? (
                         <>
                           <Loader2 className="w-5 h-5 animate-spin" />
-                          ĐANG TẠO ĐƠN HÀNG...
+                          Đang Tạo Đơn Hàng...
                         </>
                       ) : (
-                        "ĐĂNG KÝ NGAY — GIỮ ƯU ĐÃI CHO TÔI"
+                        "Đăng Ký Ngay — Giữ Ưu Đãi 1.111.111đ"
                       )}
                     </button>
                     <p className="text-center text-xs md:text-sm text-primary">
-                      ⏳ Chỉ còn 1.990.000đ — ưu đãi kết thúc sau khi đồng hồ về 0
+                      ⏳ Chỉ áp dụng cho 100 người đăng ký đầu tiên — Học phí gốc 4.444.444đ
                     </p>
 
                     <div className="relative py-1">
@@ -331,12 +351,12 @@ export function RegistrationSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-testid="button-facebook-dm"
-                      className="w-full flex items-center justify-center gap-3 py-4 rounded-none text-base font-bold bg-[#1877F2] text-white hover:bg-[#0f63d6] transition-all"
+                      className="w-full flex items-center justify-center gap-3 py-4 rounded-sm cta-label uppercase bg-[#1877F2] text-white hover:bg-[#0f63d6] transition-all"
                     >
                       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M12 2C6.477 2 2 6.145 2 11.26c0 2.913 1.454 5.512 3.726 7.215V22l3.404-1.869c.908.252 1.871.388 2.87.388 5.523 0 10-4.145 10-9.259C22 6.145 17.523 2 12 2zm1.008 12.461l-2.546-2.717-4.97 2.717 5.467-5.803 2.608 2.717 4.907-2.717-5.466 5.803z" />
                       </svg>
-                      NHẮN TIN CHO NGA QUA FACEBOOK
+                      Nhắn Tin Cho Nga Qua Facebook
                     </a>
                   </form>
                 </motion.div>
@@ -364,9 +384,9 @@ export function RegistrationSection() {
             viewport={{ once: true }}
             className="mt-6 bg-card/60 border border-border/40 rounded-2xl p-6"
           >
-            <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-2">
+            <p className="text-sm cta-label uppercase text-muted-foreground mb-3 flex items-center gap-2">
               <Lock className="w-3.5 h-3.5" />
-              Cam kết từ chúng tôi
+              Cam kết hoàn tiền — Rủi ro thuộc về Nga, không phải bạn
             </p>
             <ul className="space-y-2">
               {guarantees.map((g, i) => (

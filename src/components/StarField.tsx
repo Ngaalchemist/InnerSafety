@@ -1,52 +1,49 @@
 import { useMemo } from "react";
+import { Leaf, Sparkles, Flower2 } from "lucide-react";
 
 interface StarFieldProps {
   count?: number;
   className?: string;
 }
 
+const ICONS = [Leaf, Sparkles, Flower2];
+
 /**
- * Lớp nền "sao lấp lánh" trang trí cho các section nền tối (#140728, #1a0a2e...).
- * Thuần CSS, không ảnh nặng — đặt absolute inset-0 phía sau nội dung section.
- * Dùng: <section className="relative ..."><StarField /><div className="relative z-10">...</div></section>
+ * Lớp nền "lá & ánh sáng" trang trí cho các section nền tối (rêu đậm #0e1712...).
+ * Các icon tâm linh (lá, hoa, ánh sáng) trôi nhẹ nhàng vô hạn — tạo cảm giác luôn chuyển động,
+ * sống động nhưng không gây rối mắt. Đặt absolute inset-0 phía sau nội dung section.
  */
-export function StarField({ count = 60, className = "" }: StarFieldProps) {
-  const stars = useMemo(
+export function StarField({ count = 26, className = "" }: StarFieldProps) {
+  const items = useMemo(
     () =>
       Array.from({ length: count }).map((_, i) => ({
         id: i,
         top: Math.random() * 100,
         left: Math.random() * 100,
-        size: Math.random() * 1.6 + 0.6,
-        delay: Math.random() * 4,
-        duration: Math.random() * 3 + 2.5,
-        opacity: Math.random() * 0.5 + 0.25,
+        size: Math.random() * 14 + 10,
+        delay: Math.random() * 5,
+        duration: Math.random() * 5 + 5,
+        Icon: ICONS[i % ICONS.length],
       })),
     [count]
   );
 
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`} aria-hidden="true">
-      {stars.map((s) => (
-        <span
+      {items.map((s) => (
+        <s.Icon
           key={s.id}
-          className="absolute rounded-full bg-[#F5D78E]"
+          className="absolute"
           style={{
             top: `${s.top}%`,
             left: `${s.left}%`,
             width: `${s.size}px`,
             height: `${s.size}px`,
-            opacity: s.opacity,
-            animation: `star-twinkle ${s.duration}s ease-in-out ${s.delay}s infinite`,
+            color: "#C9A24C",
+            animation: `leaf-drift ${s.duration}s ease-in-out ${s.delay}s infinite`,
           }}
         />
       ))}
-      <style>{`
-        @keyframes star-twinkle {
-          0%, 100% { opacity: 0.15; transform: scale(0.85); }
-          50% { opacity: 0.7; transform: scale(1.15); }
-        }
-      `}</style>
     </div>
   );
 }

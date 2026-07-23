@@ -14,10 +14,10 @@ export function CtaButton({ children, className = "", ...props }: CtaButtonProps
   return (
     <button
       type="button"
-      className={`group w-full sm:w-auto inline-flex items-center justify-center gap-3 tracking-wide transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.99] ${className}`}
+      className={`group w-full sm:w-auto inline-flex items-center justify-center gap-3 transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.99] ${className}`}
       {...props}
     >
-      <span>{children}</span>
+      <span className="cta-label uppercase">{children}</span>
       <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
     </button>
   );
