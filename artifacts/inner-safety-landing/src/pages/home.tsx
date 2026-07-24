@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 // Import images
+import ngaLogo from '@assets/nga_alchemist_logo_1784926721784.png';
 import heroImg from '@assets/Gemini_Generated_Image_rz0f3rz0f3rz0f3r_1784884536664.png';
 import heroAltImg from '@assets/ChatGPT_Image_Jul_24,_2026,_03_15_59_AM_1784884545442.png';
 import ngay1 from '@assets/ngay_1_1784886445192.png';
@@ -17,7 +18,7 @@ import ngay6 from '@assets/ngay_6_1784886445191.png';
 import ngay7 from '@assets/ngay_7_1784886445191.png';
 
 // Icons
-import { CheckCircle2, PlayCircle, Shield, Infinity as InfinityIcon, RefreshCw, ChevronRight, Lock, MessageCircle } from 'lucide-react';
+import { CheckCircle2, PlayCircle, Shield, ChevronRight, Lock, MessageCircle } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -37,17 +38,6 @@ export default function Home() {
     target: useRef<HTMLDivElement>(null),
   });
   
-  // Create a specific ref for the Hero
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: heroProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"]
-  });
-
-  const opacityHeroText1 = useTransform(heroProgress, [0, 0.4], [1, 0]);
-  const opacityHeroText2 = useTransform(heroProgress, [0.3, 0.7], [0, 1]);
-  const yHeroText2 = useTransform(heroProgress, [0.3, 0.7], [50, 0]);
-
   const scrollToRegister = () => {
     document.getElementById('register-form')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -57,88 +47,49 @@ export default function Home() {
       <Navbar onRegisterClick={scrollToRegister} />
       
       {/* SECTION 1: HERO */}
-      <section ref={heroRef} className="relative h-[200dvh] w-full">
-        <div className="sticky top-0 h-[100dvh] w-full overflow-hidden flex items-center justify-center">
-          {/* Background Image */}
-          <div className="absolute inset-0 w-full h-full">
-            <img 
-              src={heroImg} 
-              alt="Sacred tree with glowing roots" 
-              className="w-full h-full object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-black/40" />
-          </div>
+      <section className="relative min-h-[100dvh] w-full overflow-hidden">
+        {/* Background Image - no dark filter, full brightness as designed */}
+        <div className="absolute inset-0 w-full h-full">
+          <img 
+            src={heroImg} 
+            alt="Sacred tree with glowing roots" 
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
 
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 h-full flex flex-col justify-center mt-12">
-            
-            {/* Main Headline (Fades out on scroll) */}
-            <motion.div 
-              className="absolute top-1/3 left-6 md:left-12 max-w-2xl"
-              style={{ opacity: opacityHeroText1 }}
-            >
-              <div className="inline-block border border-primary/50 text-primary uppercase tracking-widest text-xs font-bold px-3 py-1 rounded-full mb-6 glass-panel">
-                Inner Safety Experience™
-              </div>
-              <h1 className="text-4xl md:text-6xl font-serif text-white font-bold leading-tight mb-4">
-                Không sửa cuộc đời bạn.
-              </h1>
-              <h2 className="text-4xl md:text-6xl font-serif text-primary font-bold leading-tight mb-6">
-                Nó xây lại bộ rễ tạo nên cuộc đời đó.
-              </h2>
-              <p className="text-lg md:text-xl text-white/90 mb-10 max-w-xl font-light">
-                7 ngày tái thiết cảm giác an toàn bên trong – để bạn không còn bị điều khiển bởi những nỗi sợ vô hình.
-              </p>
-              <Button 
-                onClick={scrollToRegister}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg font-medium shadow-[0_0_20px_rgba(200,168,75,0.4)] transition-all hover:scale-105"
-              >
-                🌿 TÔI MUỐN TRỞ VỀ NỀN TẢNG CỦA MÌNH
-              </Button>
-            </motion.div>
-
-            {/* Alternate Headline (Fades in on scroll) */}
-            <motion.div 
-              className="absolute top-1/3 left-6 md:left-12 max-w-2xl pointer-events-none"
-              style={{ opacity: opacityHeroText2, y: yHeroText2 }}
-            >
-              <div className="inline-block border border-primary/50 text-primary uppercase tracking-widest text-xs font-bold px-3 py-1 rounded-full mb-6 glass-panel">
-                Inner Safety Experience™
-              </div>
-              <h1 className="text-4xl md:text-6xl font-serif text-white font-bold leading-tight mb-4">
-                Mọi người chỉ nhìn thấy<br/>
-                cuộc đời bạn ở phía trên<br/>
-                mặt đất.
-              </h1>
-              <h2 className="text-3xl md:text-5xl font-serif text-primary font-bold leading-tight mb-6 text-glow">
-                Nhưng mọi thứ đều được<br/>
-                quyết định bởi bộ rễ ở bên dưới.
-              </h2>
-            </motion.div>
-
-            {/* Right Side Stats */}
-            <div className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 flex flex-col items-end gap-8 hidden md:flex">
-              <div className="text-right max-w-[200px]">
-                <div className="text-6xl font-serif text-primary mb-2">10%</div>
-                <div className="text-sm text-white/80">Những gì người khác nhìn thấy ở bạn.</div>
-              </div>
-              <div className="w-[1px] h-24 bg-gradient-to-b from-transparent via-primary to-transparent my-2" />
-              <div className="text-right max-w-[200px]">
-                <div className="text-6xl font-serif text-primary mb-2 text-glow">90%</div>
-                <div className="text-sm text-white/80">Những gì thực sự quyết định cuộc đời bạn.</div>
-              </div>
-              <div className="w-2 h-2 rotate-45 bg-primary mt-4 glow" />
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 min-h-[100dvh] flex flex-col justify-center pt-28 pb-16">
+          <div className="max-w-2xl">
+            <div className="text-primary uppercase tracking-widest text-xs font-bold mb-6">
+              Inner Safety Experience™
             </div>
-          </div>
-
-          {/* Trust Badges - Bottom */}
-          <div className="absolute bottom-0 w-full glass-panel border-t border-primary/20 py-4 px-4 overflow-x-auto whitespace-nowrap hide-scrollbar">
-            <div className="max-w-7xl mx-auto flex items-center justify-between md:justify-center gap-8 text-white/90 text-sm md:text-base font-light">
-              <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary" /> Học online mọi lúc, mọi nơi</span>
-              <span className="flex items-center gap-2"><PlayCircle className="w-4 h-4 text-primary" /> Truy cập ngay không cần chờ đợi</span>
-              <span className="flex items-center gap-2"><Shield className="w-4 h-4 text-primary" /> Có người đồng hành trong suốt hành trình</span>
-              <span className="flex items-center gap-2"><InfinityIcon className="w-4 h-4 text-primary" /> Truy cập trọn đời</span>
-              <span className="flex items-center gap-2"><RefreshCw className="w-4 h-4 text-primary" /> Hoàn tiền 7 ngày</span>
-            </div>
+            <h1 className="text-4xl md:text-6xl font-serif text-white font-bold leading-tight mb-6">
+              Sau một biến cố...<br/>
+              bạn vẫn tiếp tục sống.<br/>
+              Nhưng chưa bao giờ thật sự cảm thấy an toàn trở lại.
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl font-light">
+              Inner Safety Experience™ là hành trình 7 ngày giúp bạn tái thiết cảm giác an toàn từ gốc rễ, để cơ thể thôi phản ứng vì sợ hãi và bạn có thể sống từ sự bình an thay.
+            </p>
+            <ul className="space-y-3 mb-10">
+              <li className="flex items-start gap-3 text-white/90">
+                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <span>Làm dịu hệ thần kinh để cơ thể không còn luôn trong trạng thái cảnh giác</span>
+              </li>
+              <li className="flex items-start gap-3 text-white/90">
+                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <span>Ngủ sâu hơn, bớt overthinking và lấy lại cảm giác bình yên trong chính mình</span>
+              </li>
+              <li className="flex items-start gap-3 text-white/90">
+                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <span>Đưa ra quyết định từ sự vững vàng thay vì phản ứng vì nỗi sợ</span>
+              </li>
+            </ul>
+            <Button 
+              onClick={scrollToRegister}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg font-medium shadow-[0_0_20px_rgba(200,168,75,0.4)] transition-all hover:scale-105"
+            >
+              🌿 TÔI MUỐN XÂY LẠI GỐC RỄ CỦA MÌNH
+            </Button>
           </div>
         </div>
       </section>
@@ -801,7 +752,8 @@ function Navbar({ onRegisterClick }: { onRegisterClick: () => void }) {
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-border shadow-sm py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <div className={`font-serif font-bold text-xl flex items-center gap-2 ${isScrolled ? 'text-foreground' : 'text-white'}`}>
-          <span className="text-primary">🌿</span> Nga Alchemist
+          <img src={ngaLogo} alt="Nga Alchemist" className="h-8 w-auto object-contain" />
+          Nga Alchemist
         </div>
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium">
