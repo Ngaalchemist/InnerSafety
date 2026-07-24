@@ -47,39 +47,34 @@ export default function Home() {
       <Navbar onRegisterClick={scrollToRegister} />
       
       {/* SECTION 1: HERO */}
-      <section className="relative min-h-[100dvh] w-full overflow-hidden">
-        {/* Background Image - no dark filter, full brightness as designed */}
-        <div className="absolute inset-0 w-full h-full">
-          <img 
-            src={heroImg} 
-            alt="Sacred tree with glowing roots" 
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
+      <section className="relative w-full overflow-hidden bg-background">
+        {/* Dark bottom backdrop, matching the soil half of the tree image */}
+        <div className="absolute inset-x-0 bottom-0 h-[42%] bg-[#1a1510]" />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 min-h-[100dvh] flex flex-col justify-center pt-28 pb-16">
-          <div className="max-w-2xl">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-16 md:pt-40 md:pb-24 grid md:grid-cols-2 gap-12 items-center min-h-[92dvh]">
+          {/* Text content - sits on the light zone, dark readable text like the sample */}
+          <div className="max-w-xl">
             <div className="text-primary uppercase tracking-widest text-xs font-bold mb-6">
               Inner Safety Experience™
             </div>
-            <h1 className="text-4xl md:text-6xl font-serif text-white font-bold leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl font-serif text-foreground font-bold leading-tight mb-6">
               Sau một biến cố...<br/>
               bạn vẫn tiếp tục sống.<br/>
-              Nhưng chưa bao giờ thật sự cảm thấy an toàn trở lại.
+              <span className="text-primary">Nhưng chưa bao giờ thật sự cảm thấy an toàn trở lại.</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl font-light">
+            <p className="text-lg text-foreground/80 mb-8 max-w-lg font-light">
               Inner Safety Experience™ là hành trình 7 ngày giúp bạn tái thiết cảm giác an toàn từ gốc rễ, để cơ thể thôi phản ứng vì sợ hãi và bạn có thể sống từ sự bình an thay.
             </p>
             <ul className="space-y-3 mb-10">
-              <li className="flex items-start gap-3 text-white/90">
+              <li className="flex items-start gap-3 text-foreground/90">
                 <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <span>Làm dịu hệ thần kinh để cơ thể không còn luôn trong trạng thái cảnh giác</span>
               </li>
-              <li className="flex items-start gap-3 text-white/90">
+              <li className="flex items-start gap-3 text-foreground/90">
                 <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <span>Ngủ sâu hơn, bớt overthinking và lấy lại cảm giác bình yên trong chính mình</span>
               </li>
-              <li className="flex items-start gap-3 text-white/90">
+              <li className="flex items-start gap-3 text-foreground/90">
                 <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <span>Đưa ra quyết định từ sự vững vàng thay vì phản ứng vì nỗi sợ</span>
               </li>
@@ -90,6 +85,15 @@ export default function Home() {
             >
               🌿 TÔI MUỐN XÂY LẠI GỐC RỄ CỦA MÌNH
             </Button>
+          </div>
+
+          {/* Tree image - smaller, contained, shifted right (not full-bleed cover) */}
+          <div className="relative flex justify-center md:justify-end">
+            <img 
+              src={heroImg} 
+              alt="Sacred tree with glowing roots" 
+              className="w-[92%] md:w-[85%] h-auto object-contain translate-x-2 md:translate-x-6"
+            />
           </div>
         </div>
       </section>
@@ -749,15 +753,15 @@ function Navbar({ onRegisterClick }: { onRegisterClick: () => void }) {
   }, [scrollY]);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-border shadow-sm py-4' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-border shadow-sm py-4' : 'bg-background/70 backdrop-blur-sm py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <div className={`font-serif font-bold text-xl flex items-center gap-2 ${isScrolled ? 'text-foreground' : 'text-white'}`}>
+        <div className="font-serif font-bold text-xl flex items-center gap-2 text-foreground">
           <img src={ngaLogo} alt="Nga Alchemist" className="h-8 w-auto object-contain" />
           Nga Alchemist
         </div>
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <div className={`flex gap-6 ${isScrolled ? 'text-foreground/80' : 'text-white/80'}`}>
+          <div className="flex gap-6 text-foreground/80">
             <a href="#" className="hover:text-primary transition-colors">Về chương trình</a>
             <a href="#" className="hover:text-primary transition-colors">Câu chuyện</a>
             <a href="#" className="hover:text-primary transition-colors">FAQ</a>
