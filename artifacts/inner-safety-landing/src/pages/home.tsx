@@ -68,11 +68,11 @@ export default function Home() {
               className="text-[31px] md:text-[39px] font-serif font-bold leading-snug mb-5"
               style={{ textShadow: '0 2px 18px rgba(255,255,255,0.55)' }}
             >
-              <span className="block" style={{ color: '#5b3a1e' }}>Sau một biến cố...</span>
-              <span className="block md:whitespace-nowrap" style={{ color: '#5b3a1e' }}>cuộc sống của bạn có thể đã tiếp tục.</span>
-              <span className="block" style={{ color: '#8a6a1f' }}>Nhưng bên trong,</span>
+              <span className="block" style={{ color: '#5b3a1e' }}>Sau những biến cố...</span>
+              <span className="block md:whitespace-nowrap" style={{ color: '#5b3a1e' }}>Điều giữ bạn mắc kẹt không phải quá khứ.</span>
+              <span className="block" style={{ color: '#8a6a1f' }}>Mà là cảm giác,</span>
               <span className="block md:whitespace-nowrap" style={{ color: '#8a6a1f' }}>
-                bạn vẫn chưa thật sự <span style={{ color: '#5b3a1e' }}>cảm thấy an toàn</span>
+                chưa bao giờ <span style={{ color: '#5b3a1e' }}>thực sự an toàn</span>
               </span>
             </h1>
           </div>
@@ -86,7 +86,7 @@ export default function Home() {
               style={{ textShadow: '0 1px 12px rgba(0,0,0,0.5)' }}
             >
               <span className="text-primary font-extrabold font-serif" style={{ fontSize: '1.2em' }}>Inner Safety Experience™</span>{' '}
-              <span className="text-white" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}>là hành trình 7 ngày giúp bạn tái thiết cảm giác an toàn từ gốc rễ, để cơ thể thôi phản ứng vì sợ hãi và bạn có thể sống từ sự bình an thay.</span>
+              <span className="text-white" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}>là hành trình 7 ngày giúp bạn tái thiết cảm giác an toàn từ gốc rễ, để hệ thần kinh thôi phản ứng vì sợ hãi, và bạn có thể sống từ sự bình an thay vì sinh tồn.</span>
             </p>
             <ul className="space-y-3 mb-8" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}>
               <li className="flex items-center gap-3 text-white whitespace-nowrap text-sm" style={{ textShadow: '0 1px 10px rgba(0,0,0,0.55)' }}>
