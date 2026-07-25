@@ -46,38 +46,56 @@ export default function Home() {
     <div className="bg-background text-foreground overflow-x-hidden">
       <Navbar onRegisterClick={scrollToRegister} />
       
-      {/* SECTION 1: HERO
-          Matches the mockup 1:1: the background photo itself already contains the
-          10%/90% stat callouts baked in on the right side, positioned next to the
-          tree. We only overlay the parts that need to stay editable/responsive —
-          headline, subheadline, CTA, checklist — on the left, over the cliff wall's
-          own light-top/dark-bottom split. No separate 10%/90% blocks are coded here
-          (that would duplicate what's already in the image), and no bottom icon row
-          (the mockup doesn't have one). */}
+      {/* SECTION 1: HERO — no scrim now; the image is shown clean/untouched.
+          All copy blocks use text-shadow for legibility instead of a translucent
+          overlay, since the reference mockup has no visible tint layer. */}
       <section className="relative w-full overflow-hidden bg-background min-h-[100dvh] flex flex-col">
         <img
           src={heroImg}
           alt="Cây cổ thụ trên vách đất, bộ rễ phát sáng bên dưới — 10% người khác nhìn thấy, 90% thực sự quyết định cuộc đời bạn"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Scrim confined to the left ~55% (where the cliff wall is bare) so the
-            10%/90% labels baked into the image on the right stay untouched/clear */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/60 to-transparent md:from-background/90 md:via-background/50 md:to-transparent md:w-[65%]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pt-28 md:pt-32 flex-1 flex flex-col">
-          {/* Upper block — over the light sky/cliff-top zone, dark readable text */}
-          <div className="max-w-xl flex-1 flex flex-col justify-center py-10">
-            <div className="text-primary uppercase tracking-widest text-xs font-bold mb-6">
+        {/* Top-left copy block: eyebrow + headline + subheadline + bullets + CTA,
+            pulled up and in close to the left edge */}
+        <div className="relative z-10 w-full flex-1 flex flex-col justify-start pt-16 md:pt-20 px-[5%] md:px-[6%]">
+          <div className="max-w-xl">
+            <div
+              className="text-primary uppercase tracking-widest text-xs font-bold mb-4"
+              style={{ textShadow: '0 1px 10px rgba(255,255,255,0.7)' }}
+            >
               Inner Safety Experience™
             </div>
-            <h1 className="text-4xl md:text-5xl font-serif text-foreground font-bold leading-tight mb-6">
+            <h1
+              className="text-4xl md:text-5xl font-serif text-foreground font-bold leading-tight mb-5"
+              style={{ textShadow: '0 2px 18px rgba(255,255,255,0.55)' }}
+            >
               Sau một biến cố...<br/>
-              bạn vẫn tiếp tục sống.<br/>
-              <span className="text-primary">Nhưng chưa bao giờ thật sự cảm thấy an toàn trở lại.</span>
+              cuộc sống của bạn có thể đã tiếp tục.<br/>
+              <span className="block whitespace-nowrap text-3xl md:text-4xl lg:text-5xl">
+                Nhưng bên trong, bạn vẫn chưa thật sự <span className="text-primary font-black">cảm thấy an toàn</span>.
+              </span>
             </h1>
-            <p className="text-lg text-foreground/80 mb-8 max-w-lg font-light">
-              Inner Safety Experience™ là hành trình 7 ngày giúp bạn tái thiết cảm giác an toàn từ gốc rễ, để cơ thể thôi phản ứng vì sợ hãi và bạn có thể sống từ sự bình an thay.
+            <p
+              className="text-lg font-semibold text-foreground/90 mb-8 max-w-lg"
+              style={{ textShadow: '0 1px 12px rgba(255,255,255,0.55)' }}
+            >
+              <span className="text-primary font-extrabold">Inner Safety Experience™</span> là hành trình 7 ngày giúp bạn tái thiết cảm giác an toàn từ gốc rễ, để cơ thể thôi phản ứng vì sợ hãi và bạn có thể sống từ sự bình an thay.
             </p>
+            <ul className="space-y-3 mb-8">
+              <li className="flex items-start gap-3 text-foreground/90" style={{ textShadow: '0 1px 10px rgba(255,255,255,0.5)' }}>
+                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <span>Làm dịu hệ thần kinh để cơ thể không còn luôn trong trạng thái cảnh giác</span>
+              </li>
+              <li className="flex items-start gap-3 text-foreground/90" style={{ textShadow: '0 1px 10px rgba(255,255,255,0.5)' }}>
+                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <span>Ngủ sâu hơn, bớt overthinking và lấy lại cảm giác bình yên trong chính mình</span>
+              </li>
+              <li className="flex items-start gap-3 text-foreground/90" style={{ textShadow: '0 1px 10px rgba(255,255,255,0.5)' }}>
+                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <span>Đưa ra quyết định từ sự vững vàng thay vì phản ứng vì nỗi sợ</span>
+              </li>
+            </ul>
             <Button 
               onClick={scrollToRegister}
               className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg font-medium shadow-[0_0_20px_rgba(200,168,75,0.4)] transition-all hover:scale-105 w-fit"
@@ -85,23 +103,36 @@ export default function Home() {
               🌿 TÔI MUỐN XÂY LẠI GỐC RỄ CỦA MÌNH
             </Button>
           </div>
+        </div>
 
-          {/* Lower block — over the dark cliff-face zone, white text */}
-          <div className="max-w-xl pb-12 md:pb-16">
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-white/90">
-                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <span>Làm dịu hệ thần kinh để cơ thể không còn luôn trong trạng thái cảnh giác</span>
-              </li>
-              <li className="flex items-start gap-3 text-white/90">
-                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <span>Ngủ sâu hơn, bớt overthinking và lấy lại cảm giác bình yên trong chính mình</span>
-              </li>
-              <li className="flex items-start gap-3 text-white/90">
-                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <span>Đưa ra quyết định từ sự vững vàng thay vì phản ứng vì nỗi sợ</span>
-              </li>
-            </ul>
+        {/* Quote box — right side, over the tree/dark area */}
+        <div className="hidden lg:block absolute right-[6%] top-[38%] -translate-y-1/2 z-10 max-w-[19rem]">
+          <div className="border-l-2 border-primary pl-5 py-1">
+            <p
+              className="text-white text-lg font-serif italic leading-relaxed"
+              style={{ textShadow: '0 2px 12px rgba(0,0,0,0.65)' }}
+            >
+              "Bình an không được xây từ những gì xảy ra bên ngoài.<br/>
+              Nó được nuôi dưỡng từ bộ rễ bên trong."
+            </p>
+          </div>
+        </div>
+
+        {/* Trust badge row — full width, single line, evenly spaced */}
+        <div className="relative z-10 w-full px-[5%] md:px-[6%] pb-8 md:pb-10">
+          <div
+            className="flex items-center justify-between flex-nowrap gap-3 text-xs md:text-sm text-white font-medium whitespace-nowrap overflow-x-auto"
+            style={{ textShadow: '0 1px 8px rgba(0,0,0,0.65)' }}
+          >
+            <span>Học online</span>
+            <span className="text-white/40">·</span>
+            <span>Bắt đầu ngay</span>
+            <span className="text-white/40">·</span>
+            <span>Có người đồng hành</span>
+            <span className="text-white/40">·</span>
+            <span>Truy cập trọn đời</span>
+            <span className="text-white/40">·</span>
+            <span>Hoàn tiền 7 Ngày</span>
           </div>
         </div>
       </section>
