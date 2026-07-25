@@ -7,7 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 
 // Import images
 import ngaLogo from '@assets/nga_alchemist_logo_1784926721784.png';
-import heroImg from '@assets/hero_tree_cliff.png'; // full-bleed hero background — tree/cliff cutaway with 10%/90% stat labels already baked in on the right
+import heroImg from '@assets/hero_tree_cliff.jpg'; // full-bleed hero background — tree/cliff cutaway with 10%/90% stat labels already baked in on the right
 import heroAltImg from '@assets/ChatGPT_Image_Jul_24,_2026,_03_15_59_AM_1784884545442.png';
 import ngay1 from '@assets/ngay_1_1784886445192.png';
 import ngay2 from '@assets/ngay_2__1784886445192.png';
