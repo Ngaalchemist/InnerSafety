@@ -1,4 +1,5 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "artifacts/inner-safety-landing/dist/public"
+  "buildCommand": "vite build",
+  "outputDirectory": "dist/public",
+  "installCommand": "cd ../.. && pnpm install"
 }
