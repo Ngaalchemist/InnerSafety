@@ -12,9 +12,9 @@ export function Hero() {
 
   // Bullets split into a bold/yellow lead-in + normal remainder
   const bullets = [
-    { bold: 'Cơ thể nhẹ nhõm', rest: ' , không còn cảm giác nặng nề, căng cứng mãn tính' },
-    { bold: 'Thức dậy mà không còn cảm giác lo âu vô cớ', rest: ' mỗi buổi sáng' },
-    { bold: 'Đưa ra quyết định từ sự bình an', rest: ', không phải từ nỗi sợ' },
+    { bold: 'Không còn bị kéo ngược bởi nỗi sợ vô hình', rest: ' mỗi khi chuẩn bị bước lên' },
+    { bold: 'Hành động ngay khi cần', rest: ', thay vì thu mình lại' },
+    { bold: 'Đưa ý tưởng và món quà của mình ra thế giới', rest: ', thay vì giữ mãi trong đầu' },
   ];
 
   const trustBadges = [
@@ -71,7 +71,7 @@ export function Hero() {
                   Inner Safety Experience™
                 </span>
                 <span className="text-[0.65rem] md:text-xs font-medium uppercase tracking-[0.16em] text-[#c9a84c]/70">
-                  7 Ngày Xây Lại Gốc Rễ - Sống Vượt Trên Nỗi Sợ
+                  7 Ngày Cắm Rễ Sâu - Vững Vàng Bước Vào Phiên Bản Lớn Hơn
                 </span>
               </div>
             </Reveal>
@@ -80,26 +80,26 @@ export function Hero() {
             <Reveal delay={0.1}>
               <h1 className="font-serif font-bold text-white leading-[1.15] mb-9 text-[2.7rem] sm:text-[3.4rem] md:text-[4rem] lg:text-[4.55rem]">
                 Bạn Không Hỏng.<br />
-                Hệ Thần Kinh Của Bạn Chỉ<br />
-                Đang Kẹt Ở<br />
-                <span className="text-[#c9a84c] whitespace-nowrap">Chế Độ Sinh Tồn.</span>
+                Bạn Chỉ Đang Bị Kéo Ngược<br />
+                Bởi Một Nỗi Sợ<br />
+                <span className="text-[#c9a84c] whitespace-nowrap">Không Gọi Tên Được.</span>
               </h1>
             </Reveal>
 
             {/* Sub headline 1 — personal hook */}
             <Reveal delay={0.25}>
               <p className="text-base md:text-lg text-white/82 mb-2 max-w-3xl mx-auto leading-relaxed font-medium">
-                Nếu bạn đã sống quá lâu trong lo âu, luôn cảnh giác, overthinking hoặc cảm thấy cơ thể chưa bao giờ thật sự được an toàn — hành trình này được tạo ra dành cho bạn.
+                Có thể bạn đã đi một chặng đường trên hành trình thức tỉnh. Nhưng mỗi khi chuẩn bị bước vào phiên bản lớn hơn của chính mình, bạn lại bị kéo ngược bởi một nỗi sợ không gọi tên được.
               </p>
             </Reveal>
 
             {/* Sub headline 2 — product intro; product name in yellow display serif */}
             <Reveal delay={0.4}>
               <p className="text-sm md:text-base text-white/52 mb-10 max-w-3xl mx-auto leading-relaxed">
-                Khám phá{' '}
+                Đó không phải vì bạn thiếu kiến thức. Cũng không phải vì bạn thiếu ý chí. Mà vì hệ thần kinh của bạn vẫn đang sống trong chế độ sinh tồn.{' '}
                 <strong className="font-serif font-semibold text-[#c9a84c]">Inner Safety Experience™</strong>
-                {' '}— trải nghiệm chuyển hóa 7 ngày kết hợp{' '}
-                <strong className="text-white/80">thôi miên dẫn dắt</strong>, điều hòa hệ thần kinh và thực hành năng lượng để giúp bạn tái thiết cảm giác an toàn từ gốc rễ.
+                {' '}là hành trình 7 ngày kết hợp{' '}
+                <strong className="text-white/80">thôi miên dẫn dắt</strong>, điều hòa hệ thần kinh và thực hành năng lượng — để bạn cắm rễ thật sâu, đủ vững để mang phiên bản lớn hơn của mình ra thế giới.
               </p>
             </Reveal>
 
@@ -126,7 +126,7 @@ export function Hero() {
                   onClick={scrollToForm}
                   className="inline-flex items-center justify-center bg-[#c9a84c] text-[#0a0807] px-10 py-3.5 rounded-full font-bold text-base md:text-lg hover:bg-[#e0be6e] transition-all hover:scale-105 shadow-2xl shadow-[#c9a84c]/20"
                 >
-                  Tôi Muốn Tìm Lại Sự Bình An →
+                  Tôi Sẵn Sàng Cắm Rễ Vững Vàng →
                 </a>
               </div>
             </Reveal>
