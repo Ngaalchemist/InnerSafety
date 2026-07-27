@@ -61,7 +61,7 @@ export function Hero() {
         </div>
 
         {/* Wider container: expanded from max-w-3xl to max-w-6xl (~+50%) so content breathes further left/right */}
-        <div className="container mx-auto px-4 md:px-8 z-20 relative pt-16 pb-8 md:pt-20 md:pb-10">
+        <div className="container mx-auto px-4 md:px-8 z-20 relative pt-16 pb-16 md:pt-20 md:pb-28">
           <div className="max-w-6xl mx-auto text-center">
 
             {/* Eyebrow label — plain thin text, no box/background, 2 lines */}
@@ -78,7 +78,7 @@ export function Hero() {
 
             {/* H1 — "Chế Độ Sinh Tồn" locked on its own line */}
             <Reveal delay={0.06}>
-              <h1 className="font-serif font-bold text-white leading-[1.15] mb-5 text-[2.7rem] sm:text-[3.4rem] md:text-[4rem] lg:text-[4.55rem]">
+              <h1 className="font-serif font-bold text-white leading-[1.15] mb-9 text-[2.7rem] sm:text-[3.4rem] md:text-[4rem] lg:text-[4.55rem]">
                 Bạn Không Hỏng.<br />
                 Hệ Thần Kinh Của Bạn Chỉ<br />
                 Đang Kẹt Ở<br />
@@ -88,14 +88,14 @@ export function Hero() {
 
             {/* Sub headline 1 — personal hook */}
             <Reveal delay={0.12}>
-              <p className="text-base md:text-lg text-white/82 mb-3 max-w-3xl mx-auto leading-relaxed font-medium">
+              <p className="text-base md:text-lg text-white/82 mb-2 max-w-3xl mx-auto leading-relaxed font-medium">
                 Nếu bạn đã sống quá lâu trong lo âu, luôn cảnh giác, overthinking hoặc cảm thấy cơ thể chưa bao giờ thật sự được an toàn — hành trình này được tạo ra dành cho bạn.
               </p>
             </Reveal>
 
             {/* Sub headline 2 — product intro; product name in yellow display serif */}
             <Reveal delay={0.16}>
-              <p className="text-sm md:text-base text-white/52 mb-6 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-sm md:text-base text-white/52 mb-10 max-w-3xl mx-auto leading-relaxed">
                 Khám phá{' '}
                 <strong className="font-serif font-semibold text-[#c9a84c]">Inner Safety Experience™</strong>
                 {' '}— trải nghiệm chuyển hóa 7 ngày kết hợp{' '}
@@ -105,7 +105,7 @@ export function Hero() {
 
             {/* Bullets — concrete outcomes, bold + yellow lead-in */}
             <Reveal delay={0.2}>
-              <div className="flex flex-col gap-1.5 text-left max-w-2xl mx-auto mb-6">
+              <div className="flex flex-col gap-1.5 text-left max-w-2xl mx-auto mb-10">
                 {bullets.map((item, idx) => (
                   <div
                     key={idx}
@@ -123,7 +123,7 @@ export function Hero() {
 
             {/* CTA button + price */}
             <Reveal delay={0.25}>
-              <div className="flex flex-col items-center gap-3 mb-6">
+              <div className="flex flex-col items-center gap-3 mb-10">
                 <a
                   href="#register-form"
                   onClick={scrollToForm}
@@ -136,7 +136,7 @@ export function Hero() {
 
             {/* Trust signals row — always all 5 visible, wraps on small screens */}
             <Reveal delay={0.3}>
-              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 border-t border-white/10 pt-4 text-white/45 text-xs md:text-sm">
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 border-t border-white/10 pt-6 text-white/45 text-xs md:text-sm">
                 {trustBadges.map((item, idx) => (
                   <div key={idx} className="flex items-center gap-1.5">
                     {item.icon}
