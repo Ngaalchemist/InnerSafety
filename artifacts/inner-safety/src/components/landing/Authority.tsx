@@ -6,28 +6,28 @@ import ngaPhoto from '@assets/bca740a8-bf3b-433b-8b50-afe2a1ba901f_1784989963055
 export function Authority() {
   const testimonials = [
     {
-      name: "Chị Minh Hà",
-      age: "42 tuổi",
-      situation: "Khủng hoảng ly hôn & Mất kết nối bản thân",
-      text: "Sau ly hôn, tôi luôn gồng mình tỏ ra ổn trước mặt con cái. Đêm xuống là những cơn hoảng loạn không báo trước. Khóa học này không khuyên tôi phải mạnh mẽ nữa. Ngày thứ 3, tôi khóc nức nở nhưng cảm thấy nhẹ nhõm vô cùng. Lần đầu tiên sau 2 năm, tôi ngủ một giấc không mộng mị."
+      name: "Chị Ngọc Anh",
+      age: "32 tuổi",
+      situation: "Chia tay · Lệ thuộc cảm xúc",
+      text: "Sau phiên đầu tiên em chỉ có một cảm giác là... nhẹ. Như vừa đặt xuống một cục đá đè trong người. Ngực không còn tức, bụng cũng không còn đau như trước. Em không nghĩ chỉ một buổi mà cơ thể mình lại khác đến vậy."
     },
     {
-      name: "Chị Thanh Trúc",
-      age: "38 tuổi",
-      situation: "Kiệt quệ tài chính & Mất việc",
-      text: "Phá sản công ty khiến tôi mất hoàn toàn niềm tin vào chính mình. Tôi sợ hãi mọi thứ liên quan đến tiền. Modun về Money Healing thực sự là một cú gỡ gút ngoạn mục. Tôi không còn thấy khó thở khi nhắc đến nợ nần nữa, hệ thần kinh của tôi đã bình tĩnh trở lại để bắt đầu làm lại từ đầu."
+      name: "Chị Huyền",
+      age: "35 tuổi",
+      situation: "Overthinking & lo âu kéo dài",
+      text: "Em vẫn có cảm xúc chứ, nhưng không còn bị nó cuốn đi nữa. Mỗi khi có chuyện xảy ra, em bắt đầu dừng lại để quan sát thay vì phản ứng như trước. Em thấy mình bình tĩnh hơn rất nhiều."
     },
     {
-      name: "Chị Ngọc Lan",
-      age: "45 tuổi",
-      situation: "Empty Nest & Khủng hoảng tuổi trung niên",
-      text: "Con đi du học, tôi rơi vào trạng thái chơi vơi, không biết mình là ai ngoài vai trò làm mẹ. Tôi đã thử thiền Vipassana nhưng không thể ngồi yên. Phương pháp xả bỏ qua cơ thể của Nga giúp tôi thoát khỏi trạng thái tê liệt cảm xúc. Giờ đây, tôi thấy bình an khi ở một mình."
+      name: "Anh Linh",
+      age: "35 tuổi",
+      situation: "Khủng hoảng sau phá sản và mất việc",
+      text: "Lúc tìm đến chị, em chỉ thấy mọi thứ đều là lỗi của hoàn cảnh. Sau một thời gian thực hành, em bắt đầu nhìn lại chính mình. Không còn đổ lỗi nữa. Em tỉnh táo hơn, bình an hơn và biết mình cần làm gì tiếp theo."
     },
     {
-      name: "Chị Thu Hương",
-      age: "36 tuổi",
-      situation: "Stress mãn tính & Overthinking",
-      text: "Đầu óc tôi lúc nào cũng như có 100 tab đang mở, kiệt sức triền miên dù không làm việc nặng. Audio reset 5 phút là vị cứu tinh của tôi. Nó thực sự hoạt động! Tôi đã biết cách thiết lập ranh giới năng lượng tại nơi làm việc mà không cảm thấy tội lỗi. Tuyệt vời!"
+      name: "Chị Anh Thư",
+      age: "",
+      situation: "Mất ngủ · Nặng ngực · Mất ý nghĩa sống",
+      text: "Sau 7 ngày em thấy kết nối với bản thân mình hơn, tin vào bản thân hơn. Tim không còn nặng nữa. Em ngủ ngon, những triệu chứng cũ gần như không quay lại. Điều em vui nhất là... em thấy mình yêu đời hơn."
     }
   ];
 
@@ -53,17 +53,21 @@ export function Authority() {
                 <h2 className="text-4xl font-serif font-bold text-foreground mb-2">
                   Nga Alchemist
                 </h2>
-                <p className="text-primary font-medium text-lg mb-8 uppercase tracking-wider">
-                  Founder · Inner Safety Method™<br/>
-                  <span className="text-muted-foreground text-sm normal-case tracking-normal">Chuyên gia Tái thiết An toàn Nội tâm</span>
+                <p className="text-primary font-medium text-lg mb-1 uppercase tracking-wider">
+                  Founder · Inner Safety Method™
                 </p>
+                <p className="text-muted-foreground text-sm mb-1">Chuyên gia Thôi miên Trị liệu & Tái lập trình Tiềm thức</p>
+                <p className="text-muted-foreground/70 text-xs mb-8 font-medium">Certified Hypnotherapist (CTAA Accredited) · 3+ năm thực hành · 500+ khách hàng</p>
 
                 <div className="prose prose-lg prose-p:text-foreground/80 mb-10">
                   <p>
-                    "Mình không tạo ra Inner Safety Method™ từ lý thuyết. Phương pháp này bắt đầu từ chính hành trình đi qua đổ vỡ, mất phương hướng và những năm tháng tìm lại cảm giác an toàn bên trong."
+                    "Có một thời gian dài, mình cũng từng tin rằng hành trình phát triển bản thân và tâm linh sẽ đưa mình đến nhiều ánh sáng hơn, nhiều bình an hơn. Nhưng càng đi, mình càng nhận ra đó không phải là một con đường chỉ có ánh sáng."
                   </p>
                   <p>
-                    "Mình không dạy bạn những điều học được từ sách vở — mình đồng hành cùng bạn bằng trải nghiệm của một người đã từng đi qua vỡ vụn và tự dựng lại cái nền cho chính mình. Nơi nào bạn thấy đau nhất, tối tăm nhất, mình đều đã từng ở đó."
+                    "Đó là những lần danh tính sụp đổ. Là những lần đối diện với nỗi sợ sâu nhất. Là những giai đoạn mình không còn biết mình là ai. Và chính những trải nghiệm đó đã dạy mình một điều quan trọng: Con người không cần học cách bay cao trước — con người cần một bộ rễ đủ vững để đứng yên giữa giông bão."
+                  </p>
+                  <p>
+                    "Inner Safety Method™ ra đời để giúp bạn từng bước xây lại nền tảng an toàn từ gốc rễ. Mình không hứa thay đổi cuộc đời bạn trong vài ngày — mình chỉ mong giúp bạn đặt xuống một phần gánh nặng đã mang quá lâu, để bình tĩnh hơn, vững vàng hơn và tin vào chính mình hơn mỗi ngày."
                   </p>
                 </div>
 
@@ -87,8 +91,8 @@ export function Authority() {
                 </div>
 
                 <p className="text-sm text-muted-foreground">
-                  Chuyên môn: Nghiên cứu hệ thần kinh, thôi miên trị liệu, tâm lý học chấn thương.<br/>
-                  Đồng hành chuyên sâu cùng phụ nữ 35-50 tuổi đi qua ly hôn, mất việc, khủng hoảng tài chính.
+                  Chuyên môn: Thôi miên trị liệu, tái lập trình tiềm thức, điều hòa cảm xúc &amp; phát triển bản thân.<br/>
+                  Đồng hành chuyên sâu cùng phụ nữ 35–50 tuổi đi qua ly hôn, mất việc, khủng hoảng tài chính.
                 </p>
               </div>
             </Reveal>

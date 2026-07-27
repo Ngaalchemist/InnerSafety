@@ -28,36 +28,43 @@ export function Solution() {
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <Reveal delay={0.1} direction="up">
               <div className="bg-card p-8 rounded-3xl shadow-sm border border-border h-full flex flex-col items-center text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                   <Shield className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Layer 1: Cơ thể vật lý &<br/>Hệ thần kinh (Beta/3D)</h3>
+                <div className="text-xs font-bold uppercase tracking-widest text-primary/50 mb-2">Bước 1</div>
+                <h3 className="text-xl font-bold mb-4">Safe State™</h3>
                 <p className="text-muted-foreground">
-                  <strong>Body Reset</strong> — Xả bỏ hormone căng thẳng, dập chuông báo động sinh tồn đang kẹt trong cơ thể.
+                  Làm dịu hệ thần kinh để não và cơ thể ngừng báo động — tạo nền tảng để tiềm thức sẵn sàng tiếp nhận.
                 </p>
+                <p className="text-sm text-foreground/40 mt-4 italic">(Breathwork + Somatic)</p>
               </div>
             </Reveal>
 
             <Reveal delay={0.2} direction="up">
-              <div className="bg-card p-8 rounded-3xl shadow-sm border border-border h-full flex flex-col items-center text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                  <Sparkles className="w-8 h-8 text-primary" />
+              <div className="bg-primary text-primary-foreground p-8 rounded-3xl shadow-xl h-full flex flex-col items-center text-center ring-2 ring-primary ring-offset-2">
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4">
+                  <Sparkles className="w-8 h-8 text-primary-foreground" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Layer 2: Cảm xúc &<br/>Tiềm thức (Alpha/Theta)</h3>
-                <p className="text-muted-foreground">
-                  Giải phóng cảm xúc bị kìm nén, tháo gỡ niềm tin giới hạn, thay đổi dấu ấn năng lượng đã hình thành từ tổn thương.
+                <div className="text-xs font-bold uppercase tracking-widest text-primary-foreground/60 mb-2">Bước 2 — Cốt lõi</div>
+                <h3 className="text-xl font-bold mb-4">Safety Reprogram™</h3>
+                <p className="text-primary-foreground/90 mb-4">
+                  Thông qua các phiên <strong>thôi miên dẫn dắt</strong>, bạn từng bước giải phóng cảm xúc bị kìm nén, tháo gỡ niềm tin giới hạn vô thức và thay thế bằng niềm tin mới ở tầng sâu tiềm thức — chứ không chỉ ở lý trí.
+                </p>
+                <p className="text-sm text-primary-foreground/60 italic">
+                  Không ép nghĩ tích cực. Không tự kỷ ám thị. Thay đổi từ chính nơi tạo ra phản ứng.
                 </p>
               </div>
             </Reveal>
 
             <Reveal delay={0.3} direction="up">
               <div className="bg-card p-8 rounded-3xl shadow-sm border border-border h-full flex flex-col items-center text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                   <Navigation className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Layer 3: Danh tính &<br/>Lộ trình sống</h3>
+                <div className="text-xs font-bold uppercase tracking-widest text-primary/50 mb-2">Bước 3</div>
+                <h3 className="text-xl font-bold mb-4">Safety Integration™</h3>
                 <p className="text-muted-foreground">
-                  Tái lập bản sắc mới, sống và ra quyết định từ nội lực sâu thẳm thay vì chạy theo thành tựu bên ngoài.
+                  Tiềm thức cần được củng cố bằng trải nghiệm mới. Bạn học cách sống từ cảm giác an toàn thay vì phản ứng theo chương trình cũ.
                 </p>
               </div>
             </Reveal>
@@ -66,8 +73,9 @@ export function Solution() {
           <Reveal>
             <div className="text-center max-w-3xl mx-auto bg-muted p-8 rounded-2xl">
               <p className="text-lg font-medium text-foreground">
-                <span className="text-primary font-bold">Không bắt bạn nghĩ tích cực.</span><br/>
-                Chúng tôi giúp bạn tháo gỡ nỗi sợ theo đúng thứ tự vận hành của con người.
+                <span className="text-primary font-bold">Thôi miên là engine.</span><br/>
+                Hệ thần kinh là điều cần ổn định. Somatic và Breathwork là công cụ chuẩn bị.<br/>
+                <span className="text-foreground/60 text-base">Tất cả phối hợp để cập nhật đúng nơi tạo ra thay đổi — tiềm thức.</span>
               </p>
             </div>
           </Reveal>

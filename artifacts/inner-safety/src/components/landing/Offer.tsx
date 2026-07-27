@@ -15,40 +15,24 @@ export function Offer() {
       title: "Emergency Reset 5 Phút",
       value: "497.000 VNĐ",
       solve: "Cơn hoảng loạn cấp tính, lo âu đột ngột",
-      get: "Audio hướng dẫn 5 phút reset hệ thần kinh tức thì (dùng được ngay trong cơn hoảng loạn)",
-      why: "Không thể học bài khi đang trong cơn sợ — công cụ này tạo cửa sổ bình yên để học tiếp"
-    },
-    {
-      icon: <BookOpen className="w-6 h-6" />,
-      title: "Money Healing Workbook",
-      value: "397.000 VNĐ",
-      solve: "Nỗi sợ tiền, ám ảnh tài chính sau biến cố",
-      get: "Workbook chữa lành niềm tin về tiền — từ 'thiếu thốn/sợ hãi' sang 'đủ đầy/kiến tạo'",
-      why: "70% khủng hoảng trung niên liên quan đến tiền — chữa lành tiền là chữa lành căn nguyên"
+      get: "Audio hướng dẫn 5 phút làm dịu hệ thần kinh tức thì — dùng được ngay trong cơn sợ",
+      why: "Chuẩn bị hệ thần kinh trước phiên thôi miên — khi cơ thể bình ổn, tiềm thức tiếp nhận tái lập trình sâu hơn"
     },
     {
       icon: <Headphones className="w-6 h-6" />,
       title: "Sleep Healing Audio",
       value: "297.000 VNĐ",
-      solve: "Mất ngủ, ngủ không sâu, não không tắt được vào ban đêm",
-      get: "Audio 30 phút dẫn dắt hệ thần kinh vào trạng thái thư giãn sâu, kích hoạt healing trong khi ngủ",
-      why: "Thiếu ngủ làm trầm trọng mọi triệu chứng — ngủ ngon là nền tảng của chữa lành"
+      solve: "Mất ngủ, não không tắt được, tiềm thức hoạt động tiêu cực vào ban đêm",
+      get: "Audio 30 phút dẫn dắt vào trạng thái thư giãn sâu, củng cố tái lập trình tiềm thức trong khi ngủ",
+      why: "Khi ý thức nghỉ ngơi, tiềm thức tiếp tục học — đây là thời điểm vàng để củng cố chương trình mới"
     },
     {
       icon: <Zap className="w-6 h-6" />,
       title: "Trigger Tracker",
       value: "197.000 VNĐ",
-      solve: "Không biết tại sao mình bùng nổ cảm xúc, cứ lặp đi lặp lại",
-      get: "Template theo dõi trigger cảm xúc trong 30 ngày — nhận diện mô thức và tháo gỡ từng cái",
-      why: "Không thể thay đổi điều mình không thấy — tracker biến vô thức thành có thức"
-    },
-    {
-      icon: <Shield className="w-6 h-6" />,
-      title: "Energy Audit",
-      value: "197.000 VNĐ",
-      solve: "Kiệt sức không rõ lý do, bị người khác 'rút cạn' năng lượng",
-      get: "Công cụ kiểm tra 12 điểm rò rỉ năng lượng phổ biến + hướng dẫn thiết lập ranh giới cá nhân",
-      why: "Không thể nạp lại khi năng lượng vẫn đang rò rỉ"
+      solve: "Không nhận ra chương trình sinh tồn cũ đang kích hoạt",
+      get: "Template nhận diện trigger trong 30 ngày — biết chương trình nào đang chạy để biết cần cập nhật gì",
+      why: "Không thể cập nhật điều mình không thấy — tracker biến vô thức thành có thức"
     }
   ];
 
@@ -133,12 +117,12 @@ export function Offer() {
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-center gap-3"><Check className="text-primary w-5 h-5" /> 7 Module chuyên sâu theo từng giai đoạn</li>
                     <li className="flex items-center gap-3"><Check className="text-primary w-5 h-5" /> 28+ video bài học hướng dẫn chi tiết</li>
-                    <li className="flex items-center gap-3"><Check className="text-primary w-5 h-5" /> Bộ công cụ thực hành Somatic (Cơ thể)</li>
-                    <li className="flex items-center gap-3"><Check className="text-primary w-5 h-5" /> Hệ thống Audio Thiền định & Tái lập trình tiềm thức</li>
-                    <li className="flex items-center gap-3"><Check className="text-primary w-5 h-5" /> Workbook thực hành mỗi ngày</li>
+                    <li className="flex items-center gap-3"><Check className="text-primary w-5 h-5" /> Phiên thôi miên trị liệu được thiết kế cho từng giai đoạn</li>
+                    <li className="flex items-center gap-3"><Check className="text-primary w-5 h-5" /> Bộ công cụ Safe State™ (Breathwork + Somatic) chuẩn bị tiềm thức</li>
+                    <li className="flex items-center gap-3"><Check className="text-primary w-5 h-5" /> Workbook nhận diện & cập nhật chương trình vô thức mỗi ngày</li>
                   </ul>
                   <div className="inline-block bg-muted px-4 py-2 rounded-lg font-medium">
-                    Giá trị thực: 2.000.000 VNĐ
+                    Giá trị thực: 3.000.000 VNĐ
                   </div>
                 </div>
               </div>
@@ -149,7 +133,7 @@ export function Offer() {
             <div className="mb-12">
               <h3 className="text-2xl font-serif font-bold text-center mb-8 flex items-center justify-center gap-3">
                 <Gift className="text-primary w-6 h-6" /> 
-                Cộng Thêm 5 Quà Tặng Độc Quyền
+                Cộng Thêm 3 Quà Tặng Độc Quyền
               </h3>
               
               <div className="grid md:grid-cols-2 gap-6">
@@ -176,9 +160,9 @@ export function Offer() {
           <Reveal>
             <div className="text-center bg-[#1b1918] text-white p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
               <div className="relative z-10 flex flex-col items-center">
-                <div className="text-white/60 mb-2 font-medium">Tổng giá trị trọn bộ: <span className="line-through decoration-red-500 decoration-2 text-lg">3.582.000 VNĐ</span></div>
+                <div className="text-white/60 mb-2 font-medium">Tổng giá trị trọn bộ: <span className="line-through decoration-red-500 decoration-2 text-lg">3.991.000 VNĐ</span></div>
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-8">
-                  Hôm nay: 1.497.000 VNĐ
+                  Hôm nay: 1.111.000 VNĐ
                 </div>
                 <a
                   href="#register-form"

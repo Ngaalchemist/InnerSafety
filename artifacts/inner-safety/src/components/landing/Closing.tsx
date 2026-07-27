@@ -11,6 +11,10 @@ export function Closing() {
 
   const faqs = [
     {
+      q: "Thôi miên trị liệu có phải là bị điều khiển không?",
+      a: "Hoàn toàn không. Trong suốt phiên thôi miên, bạn luôn tỉnh táo và có quyền dừng lại bất cứ lúc nào. Thôi miên là trạng thái tập trung sâu — giống như khi bạn đọc sách say mê đến mức không nghe tiếng xung quanh. Bạn vẫn nhận thức được mọi thứ, chỉ là tâm trí đang ở trạng thái thư giãn sâu và cởi mở hơn với những thay đổi tích cực. Không ai có thể bắt bạn làm điều bạn không muốn."
+    },
+    {
       q: "Tôi rất bận — 7 ngày liệu có đủ thời gian không?",
       a: "Mỗi ngày chỉ cần 30-60 phút. Khóa học được thiết kế cho những người bận rộn — bạn có thể học theo tốc độ của mình, không bị giới hạn thời gian xem lại."
     },
@@ -20,7 +24,7 @@ export function Closing() {
     },
     {
       q: "Tôi đã thử nhiều phương pháp rồi — tại sao cái này khác?",
-      a: "Vì Inner Safety Method™ bắt đầu từ Cơ thể vật lý trước — xả bỏ hormone căng thẳng, dập chuông báo động sinh tồn — rồi mới cài đặt lại tiềm thức. Đây là thứ tự mà hầu hết phương pháp khác bỏ qua."
+      a: "Vì Inner Safety Method™ sử dụng thôi miên trị liệu như cơ chế cốt lõi — giúp cập nhật trực tiếp chương trình vô thức đang tạo ra phản ứng sợ hãi, thay vì chỉ tác động ở tầng ý thức. Hầu hết phương pháp khác (thiền, sách, affirmation) đều hoạt động ở tầng ý thức — trong khi vấn đề lại nằm ở tiềm thức."
     },
     {
       q: "Tôi đã 45 tuổi — có quá muộn không?",
@@ -90,7 +94,7 @@ export function Closing() {
               <div className="bg-white p-8 rounded-2xl shadow-sm text-center h-full border border-border">
                 <Star className="w-12 h-12 mx-auto text-primary mb-4" />
                 <h3 className="font-bold text-lg mb-3">Chất Lượng<br/>Được Kiểm Chứng</h3>
-                <p className="text-muted-foreground text-sm">Nội dung dựa trên Polyvagal Theory, Somatic Therapy, và 500+ ca thực tế, được kiểm chứng qua hàng trăm học viên.</p>
+                <p className="text-muted-foreground text-sm">Nội dung kết hợp Thôi miên Trị liệu, Somatic Therapy và 500+ ca thực tế — được kiểm chứng qua hàng trăm học viên ở độ tuổi 35–50.</p>
               </div>
             </Reveal>
 
@@ -123,7 +127,7 @@ export function Closing() {
               Đừng Để Thêm Một Đêm Nữa<br/>Trôi Qua Trong Lo Âu
             </h2>
             <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-              Đã đến lúc cho phép mình bình yên trở lại. Trong khi những người cùng hoàn cảnh tiếp tục chịu đựng, bạn có thể bắt đầu hành trình tái thiết an toàn nội tâm ngay tối nay.
+              Đã đến lúc cho phép mình bình yên trở lại. Bạn có thể bắt đầu xây lại bộ rễ — để không còn sống trong giới hạn mà nỗi sợ cho phép.
             </p>
           </Reveal>
 
@@ -139,8 +143,8 @@ export function Closing() {
               
               <div className="flex flex-col items-center">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-muted-foreground line-through">2.997.000 VNĐ</span>
-                  <span className="text-2xl font-bold text-foreground">1.497.000 VNĐ</span>
+                  <span className="text-muted-foreground line-through">3.000.000 VNĐ</span>
+                  <span className="text-2xl font-bold text-foreground">1.111.000 VNĐ</span>
                 </div>
                 <div className="text-sm font-medium text-destructive bg-destructive/10 px-4 py-1.5 rounded-full">
                   ⚡ Ưu đãi này kết thúc khi đủ số lượng học viên

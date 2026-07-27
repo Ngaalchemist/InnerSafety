@@ -102,10 +102,8 @@ export function FooterForm() {
                 {[
                   "Inner Safety Experience™ — 7 ngày, 28+ bài học",
                   "Emergency Reset 5 Phút (trị giá 497k)",
-                  "Money Healing Workbook (trị giá 397k)",
                   "Sleep Healing Audio (trị giá 297k)",
                   "Trigger Tracker (trị giá 197k)",
-                  "Energy Audit (trị giá 197k)",
                   "Truy cập vĩnh viễn",
                   "Cam kết hoàn tiền 100% trong 7 ngày"
                 ].map((item, idx) => (
@@ -117,8 +115,8 @@ export function FooterForm() {
               </ul>
 
               <div className="bg-black/30 p-6 rounded-2xl border border-white/5">
-                <div className="text-white/60 mb-1">Tổng giá trị: <span className="line-through">3.582.000 VNĐ</span></div>
-                <div className="text-3xl font-bold text-primary">Chỉ: 1.497.000 VNĐ</div>
+                <div className="text-white/60 mb-1">Tổng giá trị: <span className="line-through">3.991.000 VNĐ</span></div>
+                <div className="text-3xl font-bold text-primary">Chỉ: 1.111.000 VNĐ</div>
               </div>
             </div>
 
