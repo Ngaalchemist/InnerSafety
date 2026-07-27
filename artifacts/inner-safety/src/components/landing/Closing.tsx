@@ -37,6 +37,10 @@ export function Closing() {
     {
       q: "Nếu không phù hợp thì sao?",
       a: "Nga cam kết hoàn tiền 100% trong vòng 7 ngày nếu bạn thực hành đầy đủ mà không cảm nhận được sự thay đổi. Rủi ro thuộc về Nga, không phải về bạn."
+    },
+    {
+      q: "Tôi đã chữa lành/phát triển bản thân rất nhiều năm rồi — chương trình này khác gì so với những gì tôi đã học?",
+      a: "Rất nhiều học viên đến với Nga đã từng thiền, đọc sách, làm inner child, shadow work — và vẫn bị kẹt ở đúng khoảnh khắc chuẩn bị bước lên. Đó là vì hầu hết những công cụ đó tác động ở tầng ý thức, trong khi phản ứng sợ hãi lại nằm ở tầng tiềm thức. Inner Safety Experience™ không lặp lại một vòng chữa lành khác — nó là bước cắm rễ để những gì bạn đã học được thật sự 'hạ cánh' vào hành động."
     }
   ];
 
@@ -124,10 +128,10 @@ export function Closing() {
         <div className="container mx-auto px-4 max-w-4xl text-center relative z-10">
           <Reveal>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6 leading-tight">
-              Đừng Để Thêm Một Đêm Nữa<br/>Trôi Qua Trong Lo Âu
+              Đừng Để Thêm Một Ngày Nữa<br/>Trôi Qua Trong Giới Hạn Mà Nỗi Sợ Cho Phép
             </h2>
             <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-              Đã đến lúc cho phép mình bình yên trở lại. Bạn có thể bắt đầu xây lại bộ rễ — để không còn sống trong giới hạn mà nỗi sợ cho phép.
+              Đã đến lúc cắm rễ đủ sâu để bước vào phiên bản lớn hơn của chính mình. Bạn có thể bắt đầu xây lại bộ rễ đó — ngay hôm nay.
             </p>
           </Reveal>
 
