@@ -8,7 +8,7 @@ export function Authority() {
     {
       name: "Chị Ngọc Anh",
       age: "32 tuổi",
-      situation: "Chia tay · Lệ thuộc cảm xúc",
+      situation: "Buông bỏ gánh nặng cảm xúc kéo dài",
       text: "Sau phiên đầu tiên em chỉ có một cảm giác là... nhẹ. Như vừa đặt xuống một cục đá đè trong người. Ngực không còn tức, bụng cũng không còn đau như trước. Em không nghĩ chỉ một buổi mà cơ thể mình lại khác đến vậy."
     },
     {
@@ -20,13 +20,13 @@ export function Authority() {
     {
       name: "Anh Linh",
       age: "35 tuổi",
-      situation: "Khủng hoảng sau phá sản và mất việc",
+      situation: "Ngừng đổ lỗi, lấy lại sự tỉnh táo",
       text: "Lúc tìm đến chị, em chỉ thấy mọi thứ đều là lỗi của hoàn cảnh. Sau một thời gian thực hành, em bắt đầu nhìn lại chính mình. Không còn đổ lỗi nữa. Em tỉnh táo hơn, bình an hơn và biết mình cần làm gì tiếp theo."
     },
     {
       name: "Chị Anh Thư",
       age: "",
-      situation: "Mất ngủ · Nặng ngực · Mất ý nghĩa sống",
+      situation: "Kết nối lại với chính mình",
       text: "Sau 7 ngày em thấy kết nối với bản thân mình hơn, tin vào bản thân hơn. Tim không còn nặng nữa. Em ngủ ngon, những triệu chứng cũ gần như không quay lại. Điều em vui nhất là... em thấy mình yêu đời hơn."
     }
   ];
@@ -91,8 +91,8 @@ export function Authority() {
                 </div>
 
                 <p className="text-sm text-muted-foreground">
-                  Chuyên môn: Thôi miên trị liệu, tái lập trình tiềm thức, điều hòa cảm xúc &amp; phát triển bản thân.<br/>
-                  Đồng hành chuyên sâu cùng phụ nữ 35–50 tuổi đi qua ly hôn, mất việc, khủng hoảng tài chính.
+                  Chuyên môn: Thôi miên trị liệu, tái lập trình tiềm thức, điều hòa hệ thần kinh.<br/>
+                  Đồng hành cùng những "chiến binh có ý thức" — nhà sáng lập, coach, healer, người làm nghề tự do — đã đi một chặng đường thức tỉnh, nhưng vẫn bị một nỗi sợ vô hình kéo lại mỗi khi chuẩn bị bước vào phiên bản lớn hơn của sứ mệnh mình.
                 </p>
               </div>
             </Reveal>
@@ -109,7 +109,7 @@ export function Authority() {
                 Bạn Không Phải Người Duy Nhất
               </h2>
               <p className="text-xl text-muted-foreground">
-                Những người phụ nữ đã tự dựng lại nền tảng bình an giữa giông bão.
+                Những người đã tự dựng lại một nền tảng vững vàng giữa giông bão.
               </p>
             </div>
           </Reveal>
