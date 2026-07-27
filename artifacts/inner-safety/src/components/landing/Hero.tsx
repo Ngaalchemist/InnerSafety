@@ -18,26 +18,26 @@ export function Hero() {
   ];
 
   const trustBadges = [
-    { icon: <Monitor className="w-4 h-4" />, label: 'Học online mọi lúc, mọi nơi' },
-    { icon: <Zap className="w-4 h-4" />, label: 'Truy cập ngay' },
-    { icon: <Users className="w-4 h-4" />, label: 'Có cộng đồng riêng' },
-    { icon: <Infinity className="w-4 h-4" />, label: 'Truy cập trọn đời' },
-    { icon: <Shield className="w-4 h-4" />, label: 'Hoàn tiền 7 ngày' },
+    { icon: <Monitor className="w-4 h-4 text-[#c9a84c]" />, label: 'Học online mọi lúc, mọi nơi' },
+    { icon: <Zap className="w-4 h-4 text-[#c9a84c]" />, label: 'Truy cập ngay' },
+    { icon: <Users className="w-4 h-4 text-[#c9a84c]" />, label: 'Có cộng đồng riêng' },
+    { icon: <Infinity className="w-4 h-4 text-[#c9a84c]" />, label: 'Truy cập trọn đời' },
+    { icon: <Shield className="w-4 h-4 text-[#c9a84c]" />, label: 'Hoàn tiền 7 ngày' },
   ];
 
   return (
     <>
-      {/* Navbar — dark, matches hero */}
+      {/* Navbar — dark, matches hero, thin single line */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0807]/92 backdrop-blur-md border-b border-white/10">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img src={logoImg} alt="Nga Alchemist" className="h-10 w-10 object-contain rounded-full" />
-            <span className="font-serif font-semibold text-lg tracking-tight text-[#c9a84c]">Nga Alchemist</span>
+        <div className="container mx-auto px-4 h-11 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <img src={logoImg} alt="Nga Alchemist" className="h-6 w-6 object-contain rounded-full" />
+            <span className="font-serif font-medium text-sm tracking-tight text-[#c9a84c]">Nga Alchemist</span>
           </div>
           <a
             href="#register-form"
             onClick={scrollToForm}
-            className="text-sm font-bold bg-[#c9a84c] text-[#0a0807] px-5 py-2 rounded-full hover:bg-[#e0be6e] transition-colors shadow-md"
+            className="text-xs font-semibold bg-[#c9a84c] text-[#0a0807] px-3.5 py-1.5 rounded-full hover:bg-[#e0be6e] transition-colors"
           >
             Đăng Ký Ngay
           </a>
@@ -61,27 +61,27 @@ export function Hero() {
         </div>
 
         {/* Wider container: expanded from max-w-3xl to max-w-6xl (~+50%) so content breathes further left/right */}
-        <div className="container mx-auto px-4 md:px-8 z-20 relative pt-24 pb-8 md:pt-28 md:pb-10">
+        <div className="container mx-auto px-4 md:px-8 z-20 relative pt-16 pb-8 md:pt-20 md:pb-10">
           <div className="max-w-6xl mx-auto text-center">
 
-            {/* Eyebrow label — now 2 lines: product name + tagline */}
+            {/* Eyebrow label — plain thin text, no box/background, 2 lines */}
             <Reveal>
-              <div className="inline-flex flex-col items-center gap-0.5 bg-[#c9a84c]/12 border border-[#c9a84c]/28 text-[#c9a84c] px-6 py-3 rounded-2xl mb-6">
-                <span className="text-xs md:text-sm font-extrabold uppercase tracking-[0.2em]">
+              <div className="flex flex-col items-center gap-1 mb-6">
+                <span className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-[#c9a84c]">
                   Inner Safety Experience™
                 </span>
-                <span className="text-[0.65rem] md:text-xs font-bold uppercase tracking-[0.14em] text-[#c9a84c]/85">
+                <span className="text-[0.65rem] md:text-xs font-medium uppercase tracking-[0.16em] text-[#c9a84c]/70">
                   7 Ngày Xây Lại Gốc Rễ - Sống Vượt Trên Nỗi Sợ
                 </span>
               </div>
             </Reveal>
 
-            {/* H1 — exactly 3 lines; "chế độ sinh tồn" locked on its own line */}
+            {/* H1 — "Chế Độ Sinh Tồn" locked on its own line */}
             <Reveal delay={0.06}>
               <h1 className="font-serif font-bold text-white leading-[1.15] mb-5 text-[2.1rem] sm:text-[2.6rem] md:text-[3.1rem] lg:text-[3.5rem]">
                 Bạn Không Hỏng.<br />
-                Hệ Thần Kinh Của Bạn<br />
-                Chỉ Đang Kẹt Ở&nbsp;<span className="text-[#c9a84c] whitespace-nowrap">Chế Độ Sinh Tồn.</span>
+                Hệ Thần Kinh Của Bạn Chỉ Đang Kẹt Ở<br />
+                <span className="text-[#c9a84c] whitespace-nowrap">Chế Độ Sinh Tồn.</span>
               </h1>
             </Reveal>
 
