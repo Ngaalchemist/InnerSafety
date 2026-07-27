@@ -124,7 +124,7 @@ export function Problem() {
           <Reveal>
             <p className="text-white/40 text-center mb-3">Có thể bạn nghĩ mình chỉ đang lo lắng.</p>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-white text-center mb-5">
-              Nhưng Có Một Sự Thật Mà<br className="hidden md:block" /> Rất Ít Người Nhận Ra:
+              Nhưng Có Một Sự Thật Mà Rất Ít Người Nhận Ra:
             </h2>
             <p className="text-xl text-[#c9a84c] font-medium text-center mb-14 leading-relaxed">
               Rất nhiều quyết định trong cuộc đời không được đưa ra từ sự bình an<br className="hidden md:block" /> — mà từ những nỗi sợ vô hình.
