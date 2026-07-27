@@ -99,7 +99,7 @@ export function Hero() {
                 Khám phá{' '}
                 <strong className="font-serif font-semibold text-[#c9a84c]">Inner Safety Experience™</strong>
                 {' '}— trải nghiệm chuyển hóa 7 ngày kết hợp{' '}
-                <strong className="text-white/80">thôi miên dẫn dắt</strong>, điều hòa hệ thần kinh và thực hành năng lượng để giúp bạn tái thiết cảm giác an toàn từ gốc rễ.
+                <strong className="text-white/80">thôi miên hướng dẫn </strong>, điều hòa hệ thần kinh và thực hành năng lượng để giúp bạn tái thiết cảm giác an toàn từ gốc rễ.
               </p>
             </Reveal>
 
