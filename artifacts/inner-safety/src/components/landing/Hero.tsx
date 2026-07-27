@@ -10,6 +10,21 @@ export function Hero() {
     document.getElementById('register-form')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Bullets split into a bold/yellow lead-in + normal remainder
+  const bullets = [
+    { bold: 'Cơ thể nhẹ nhõm', rest: ' — không còn cảm giác nặng nề, căng cứng mãn tính' },
+    { bold: 'Thức dậy mà không còn cảm giác lo âu vô cớ', rest: ' mỗi buổi sáng' },
+    { bold: 'Đưa ra quyết định từ sự bình an', rest: ', không phải từ nỗi sợ' },
+  ];
+
+  const trustBadges = [
+    { icon: <Monitor className="w-4 h-4" />, label: 'Học online mọi lúc, mọi nơi' },
+    { icon: <Zap className="w-4 h-4" />, label: 'Truy cập ngay' },
+    { icon: <Users className="w-4 h-4" />, label: 'Có cộng đồng riêng' },
+    { icon: <Infinity className="w-4 h-4" />, label: 'Truy cập trọn đời' },
+    { icon: <Shield className="w-4 h-4" />, label: 'Hoàn tiền 7 ngày' },
+  ];
+
   return (
     <>
       {/* Navbar — dark, matches hero */}
@@ -45,19 +60,25 @@ export function Hero() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,#0a0807_100%)]" />
         </div>
 
-        <div className="container mx-auto px-4 z-20 relative pt-28 pb-16">
-          <div className="max-w-3xl mx-auto text-center">
+        {/* Wider container: expanded from max-w-3xl to max-w-6xl (~+50%) so content breathes further left/right */}
+        <div className="container mx-auto px-4 md:px-8 z-20 relative pt-24 pb-8 md:pt-28 md:pb-10">
+          <div className="max-w-6xl mx-auto text-center">
 
-            {/* Eyebrow label */}
+            {/* Eyebrow label — now 2 lines: product name + tagline */}
             <Reveal>
-              <div className="inline-flex items-center gap-2 bg-[#c9a84c]/12 border border-[#c9a84c]/28 text-[#c9a84c] text-xs font-bold uppercase tracking-[0.18em] px-5 py-2.5 rounded-full mb-8">
-                ✦ &nbsp;7 Ngày Xây Lại Gốc Rễ · Sống Vượt Trên Nỗi Sợ &nbsp;✦
+              <div className="inline-flex flex-col items-center gap-0.5 bg-[#c9a84c]/12 border border-[#c9a84c]/28 text-[#c9a84c] px-6 py-3 rounded-2xl mb-6">
+                <span className="text-xs md:text-sm font-extrabold uppercase tracking-[0.2em]">
+                  Inner Safety Experience™
+                </span>
+                <span className="text-[0.65rem] md:text-xs font-bold uppercase tracking-[0.14em] text-[#c9a84c]/85">
+                  7 Ngày Xây Lại Gốc Rễ - Sống Vượt Trên Nỗi Sợ
+                </span>
               </div>
             </Reveal>
 
             {/* H1 — exactly 3 lines; "chế độ sinh tồn" locked on its own line */}
             <Reveal delay={0.06}>
-              <h1 className="font-serif font-bold text-white leading-[1.18] mb-8 text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[3.85rem]">
+              <h1 className="font-serif font-bold text-white leading-[1.15] mb-5 text-[2.1rem] sm:text-[2.6rem] md:text-[3.1rem] lg:text-[3.5rem]">
                 Bạn Không Hỏng.<br />
                 Hệ Thần Kinh Của Bạn<br />
                 Chỉ Đang Kẹt Ở&nbsp;<span className="text-[#c9a84c] whitespace-nowrap">Chế Độ Sinh Tồn.</span>
@@ -66,33 +87,34 @@ export function Hero() {
 
             {/* Sub headline 1 — personal hook */}
             <Reveal delay={0.12}>
-              <p className="text-lg md:text-xl text-white/82 mb-5 max-w-2xl mx-auto leading-relaxed font-medium">
+              <p className="text-base md:text-lg text-white/82 mb-3 max-w-3xl mx-auto leading-relaxed font-medium">
                 Nếu bạn đã sống quá lâu trong lo âu, luôn cảnh giác, overthinking hoặc cảm thấy cơ thể chưa bao giờ thật sự được an toàn — hành trình này được tạo ra dành cho bạn.
               </p>
             </Reveal>
 
-            {/* Sub headline 2 — product intro */}
+            {/* Sub headline 2 — product intro; product name in yellow display serif */}
             <Reveal delay={0.16}>
-              <p className="text-base md:text-lg text-white/52 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Khám phá <strong className="text-white/80">Inner Safety Experience™</strong> — trải nghiệm chuyển hóa 7 ngày kết hợp{' '}
+              <p className="text-sm md:text-base text-white/52 mb-6 max-w-3xl mx-auto leading-relaxed">
+                Khám phá{' '}
+                <strong className="font-serif font-semibold text-[#c9a84c]">Inner Safety Experience™</strong>
+                {' '}— trải nghiệm chuyển hóa 7 ngày kết hợp{' '}
                 <strong className="text-white/80">thôi miên dẫn dắt</strong>, điều hòa hệ thần kinh và thực hành năng lượng để giúp bạn tái thiết cảm giác an toàn từ gốc rễ.
               </p>
             </Reveal>
 
-            {/* Bullets — concrete outcomes */}
+            {/* Bullets — concrete outcomes, bold + yellow lead-in */}
             <Reveal delay={0.2}>
-              <div className="flex flex-col gap-3 text-left max-w-lg mx-auto mb-10">
-                {[
-                  'Cơ thể nhẹ nhõm — không còn cảm giác nặng nề, căng cứng mãn tính',
-                  'Thức dậy mà không còn cảm giác lo âu vô cớ mỗi buổi sáng',
-                  'Đưa ra quyết định từ sự bình an, không phải từ nỗi sợ',
-                ].map((item, idx) => (
+              <div className="flex flex-col gap-2.5 text-left max-w-2xl mx-auto mb-6">
+                {bullets.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-3 bg-white/[0.06] border border-white/[0.10] p-4 rounded-xl backdrop-blur-sm"
+                    className="flex items-start gap-3 bg-white/[0.06] border border-white/[0.10] p-3.5 rounded-xl backdrop-blur-sm"
                   >
                     <CheckCircle className="w-5 h-5 text-[#c9a84c] shrink-0 mt-0.5" />
-                    <span className="text-white/88 font-medium">{item}</span>
+                    <span className="text-white/88">
+                      <strong className="text-[#c9a84c] font-bold">{item.bold}</strong>
+                      {item.rest}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -100,34 +122,28 @@ export function Hero() {
 
             {/* CTA button + price */}
             <Reveal delay={0.25}>
-              <div className="flex flex-col items-center gap-4 mb-10">
+              <div className="flex flex-col items-center gap-3 mb-6">
                 <a
                   href="#register-form"
                   onClick={scrollToForm}
-                  className="inline-flex items-center justify-center bg-[#c9a84c] text-[#0a0807] px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e0be6e] transition-all hover:scale-105 shadow-2xl shadow-[#c9a84c]/20"
+                  className="inline-flex items-center justify-center bg-[#c9a84c] text-[#0a0807] px-10 py-3.5 rounded-full font-bold text-base md:text-lg hover:bg-[#e0be6e] transition-all hover:scale-105 shadow-2xl shadow-[#c9a84c]/20"
                 >
                   Tôi Muốn Tìm Lại Sự Bình An →
                 </a>
                 <div className="flex flex-col items-center gap-1">
                   <div className="flex items-center gap-3">
                     <span className="text-white/35 line-through text-sm">3.000.000 VNĐ</span>
-                    <span className="text-xl font-bold text-white">1.111.000 VNĐ</span>
+                    <span className="text-lg md:text-xl font-bold text-white">1.111.000 VNĐ</span>
                   </div>
-                  <div className="text-sm font-semibold text-[#c9a84c]">⚡ Giá ra mắt — Chỉ còn vài suất</div>
+                  <div className="text-xs md:text-sm font-semibold text-[#c9a84c]">⚡ Giá ra mắt — Chỉ còn vài suất</div>
                 </div>
               </div>
             </Reveal>
 
-            {/* Trust signals row */}
+            {/* Trust signals row — always all 5 visible, wraps on small screens */}
             <Reveal delay={0.3}>
-              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 border-t border-white/10 pt-7 text-white/38 text-sm">
-                {[
-                  { icon: <Monitor className="w-4 h-4" />, label: 'Học online mọi lúc, mọi nơi' },
-                  { icon: <Zap className="w-4 h-4" />, label: 'Truy cập ngay' },
-                  { icon: <Users className="w-4 h-4" />, label: 'Có người đồng hành' },
-                  { icon: <Infinity className="w-4 h-4" />, label: 'Truy cập trọn đời' },
-                  { icon: <Shield className="w-4 h-4" />, label: 'Hoàn tiền 7 ngày' },
-                ].map((item, idx) => (
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 border-t border-white/10 pt-4 text-white/45 text-xs md:text-sm">
+                {trustBadges.map((item, idx) => (
                   <div key={idx} className="flex items-center gap-1.5">
                     {item.icon}
                     <span>{item.label}</span>
