@@ -32,55 +32,55 @@ export function Problem() {
   ];
 
   const fears = [
-    'Sợ không đủ.',
-    'Sợ thất bại.',
-    'Sợ mất tiền.',
-    'Sợ bị bỏ rơi.',
-    'Sợ bị đánh giá.',
-    'Sợ bắt đầu lại.',
-    'Sợ mình không còn giá trị.',
+    'Sợ bị nhìn thấy.',
+    'Sợ thất bại trước nhiều người.',
+    'Sợ thành công rồi lại tự phá.',
+    'Sợ nhận số tiền mình xứng đáng.',
+    'Sợ bị đánh giá khi lên tiếng.',
+    'Sợ chọn sai sứ mệnh.',
+    'Sợ mình chưa đủ tư cách.',
   ];
 
   const fearDecisions = [
-    'Bạn chọn ai để yêu.',
-    'Bạn dám theo đuổi điều gì.',
-    'Bạn giữ lại hay buông bỏ điều gì.',
-    'Và bạn tin rằng mình xứng đáng với điều gì.',
+    'Bạn có dám xuất hiện, hay tiếp tục ẩn mình.',
+    'Bạn có dám chia sẻ giá trị của mình, hay tiếp tục nghi ngờ bản thân.',
+    'Bạn có dám nhận mức thu nhập mình xứng đáng, hay tiếp tục tự giới hạn.',
+    'Và bạn xây dựng từ sứ mệnh, hay từ nỗi sợ phải chứng minh giá trị bản thân.',
   ];
 
   const rootFearItems = [
-    'Bạn thấy phải kiểm soát mọi thứ.',
-    'Bạn nói "tôi ổn" khi bên trong đang rối bời.',
-    'Bạn làm rất nhiều, nghỉ ngơi thì thấy tội lỗi.',
-    'Bạn từng đưa ra một quyết định lớn chỉ vì quá sợ, không phải vì thật sự muốn.',
+    'Cứ sắp launch là freeze, cứ định bán là overthinking.',
+    'Thành công một chút lại tự phá, kiếm được tiền lại thấy có lỗi.',
+    'Muốn hiện diện, nhưng lại thu mình xuống.',
+    'Từng đưa ra một quyết định lớn chỉ vì quá sợ, không phải vì thật sự muốn.',
   ];
 
   const rootSafeItems = [
-    'Bạn vẫn lo lắng, nhưng lo lắng không điều khiển quyết định.',
-    'Bạn nói "không" mà không cần giải thích dài dòng.',
-    'Bạn ra quyết định từ sự rõ ràng, không phải hoảng loạn.',
+    'Bạn vẫn hồi hộp trước khi bước lên, nhưng hồi hộp không còn khiến bạn im lặng.',
+    'Bạn ra quyết định từ sự rõ ràng, không phải từ hoảng loạn.',
+    'Bạn nhận điều mình xứng đáng mà không thấy cần phải xin lỗi.',
   ];
 
   const survivalModes = [
     {
       emoji: '⚔️',
       mode: 'Chiến đấu (Fight)',
-      desc: 'Bạn trở nên gắt gỏng, dễ nổi nóng hoặc luôn trong tư thế phòng thủ.',
+      desc: 'Bạn trở nên gắt gỏng, dễ nổi nóng hoặc luôn trong tư thế phòng thủ khi bị góp ý.',
     },
     {
       emoji: '🏃',
       mode: 'Bỏ chạy (Flight)',
-      desc: 'Bạn trì hoãn, né tránh hoặc lao vào làm việc để không phải đối diện cảm xúc.',
+      desc: 'Bạn trì hoãn ra mắt, né tránh hoặc lao vào làm việc để không phải đối diện nỗi sợ bị đánh giá.',
     },
     {
       emoji: '🧊',
       mode: 'Đóng băng (Freeze)',
-      desc: 'Bạn tê liệt, mất động lực và không biết phải bắt đầu từ đâu.',
+      desc: 'Bạn tê liệt ngay trước khi bước lên, mất động lực và không biết bắt đầu từ đâu.',
     },
     {
       emoji: '🤲',
       mode: 'Làm hài lòng (Fawn)',
-      desc: 'Bạn luôn cố làm vừa lòng người khác để đổi lấy cảm giác an toàn.',
+      desc: 'Bạn hạ thấp giá trị bản thân hoặc cố làm vừa lòng người khác để đổi lấy cảm giác an toàn.',
     },
   ];
 
@@ -138,7 +138,7 @@ export function Problem() {
             <Reveal>
               <div className="mb-10">
                 <p className="text-white/45 mb-5 uppercase tracking-widest text-xs font-bold text-center">
-                  Những nỗi sợ âm thầm đó rồi đấy
+                  Những nỗi sợ âm thầm đó...
                 </p>
                 <ul className="space-y-3">
                   {fears.map((fear, idx) => (
@@ -170,10 +170,10 @@ export function Problem() {
           <Reveal>
             <div className="bg-white/5 border border-white/10 p-8 rounded-2xl text-center">
               <p className="text-xl md:text-2xl text-white/80 leading-relaxed">
-                Theo thời gian, bạn không còn sống cuộc đời mình mong muốn.
+                Theo thời gian, bạn không còn xây dựng cuộc đời và sự nghiệp từ sứ mệnh của mình.
                 <br />
                 <span className="text-[#c9a84c] font-semibold">
-                  Bạn chỉ đang sống trong giới hạn mà nỗi sợ cho phép.
+                  Bạn chỉ đang xây trong giới hạn mà nỗi sợ cho phép.
                 </span>
               </p>
             </div>
@@ -240,9 +240,12 @@ export function Problem() {
                   </div>
                 </div>
 
-                <blockquote className="border-l-4 border-primary pl-5 py-2 text-foreground/70 italic text-base leading-relaxed">
-                  "Câu hỏi không phải bạn có đang gặp khó khăn không — mà là: bộ rễ nào đang âm thầm ra quyết định thay bạn mỗi ngày, mà bạn không hề hay biết?"
+                <blockquote className="border-l-4 border-primary pl-5 py-2 text-foreground/85 font-serif italic text-lg leading-relaxed mb-4">
+                  "Tôi không giúp bạn bay cao. Tôi giúp bạn cắm rễ thật sâu. Rồi mọi thứ tự nhiên nở hoa."
                 </blockquote>
+                <p className="text-foreground/60 text-sm leading-relaxed">
+                  Câu hỏi không phải bạn có đang gặp khó khăn không — mà là: bộ rễ nào đang âm thầm ra quyết định thay bạn mỗi ngày, mà bạn không hề hay biết?
+                </p>
               </div>
             </Reveal>
           </div>
@@ -264,11 +267,11 @@ export function Problem() {
                 </p>
                 <div className="space-y-4 text-foreground/80 text-base leading-relaxed mb-7">
                   <p>
-                    Bộ rễ sợ hãi không hình thành vì bạn yếu đuối. Nó hình thành vì sau mỗi biến cố, hệ thần kinh sẽ làm đúng điều nó được lập trình để làm:{' '}
+                    Bộ rễ sợ hãi không hình thành vì bạn yếu đuối. Nó hình thành vì hệ thần kinh của bạn đã học cách bảo vệ bạn từ rất sớm — trước cả khi bạn có ý thức lựa chọn:{' '}
                     <strong className="text-foreground">giúp bạn sống sót.</strong>
                   </p>
                   <p>
-                    Khi đối mặt với mất mát, đổ vỡ hay khủng hoảng, hệ thần kinh tự động chuyển sang{' '}
+                    Mỗi khi bạn đứng trước rủi ro bị từ chối, bị đánh giá, hoặc phải tự chứng minh giá trị của mình, hệ thần kinh tự động chuyển sang{' '}
                     <strong className="text-foreground">chế độ sinh tồn (Survival Mode)</strong> để bảo vệ bạn:
                   </p>
                 </div>
@@ -285,7 +288,7 @@ export function Problem() {
 
                 <div className="bg-primary/10 p-5 rounded-xl border border-primary/20">
                   <p className="text-foreground font-medium text-sm leading-relaxed">
-                    Trong thời điểm biến cố, những phản ứng này đã giúp bạn vượt qua. Nhưng khi biến cố kết thúc, hệ thần kinh không nhận ra nguy hiểm đã qua — và vẫn tiếp tục phản ứng như thể bạn đang cần phải sinh tồn.
+                    Những phản ứng này từng giúp bạn vượt qua giai đoạn khó khăn. Nhưng khi áp lực đã qua, hệ thần kinh không nhận ra điều đó — và vẫn tiếp tục phản ứng như thể bạn cần phải sinh tồn, ngay cả khi bạn chỉ đang cố gắng bước lên phiên bản lớn hơn của mình.
                   </p>
                 </div>
               </div>
@@ -317,11 +320,11 @@ export function Problem() {
             <div className="text-left max-w-2xl mx-auto bg-white rounded-2xl p-8 mb-8 shadow-sm border border-border space-y-4 text-foreground/80 text-base leading-relaxed">
               <p>
                 Bởi vì theo thời gian, những phản ứng sinh tồn đó không còn chỉ là phản ứng nhất thời — chúng trở thành một{' '}
-                <strong className="text-foreground">chương trình vô thức mà tiềm thức tự động kích hoạt</strong> mỗi khi gặp điều gì quen thuộc với tổn thương cũ.
+                <strong className="text-foreground">chương trình vô thức mà tiềm thức tự động kích hoạt</strong> mỗi khi gặp điều gì quen thuộc với nỗi sợ cũ.
               </p>
               <p className="text-foreground/45 italic text-sm">Không cần bạn lựa chọn. Không cần bạn nhận ra.</p>
               <p>
-                Chỉ cần một lời từ chối, một cuộc tranh cãi, một áp lực tài chính — hệ thần kinh sẽ ngay lập tức khởi động chương trình cũ: overthinking, lo âu, mất ngủ, tự chỉ trích, né tránh.
+                Chỉ cần một lời từ chối, một bình luận tiêu cực, hay một cơ hội lớn xuất hiện — hệ thần kinh sẽ ngay lập tức khởi động chương trình cũ: overthinking, trì hoãn, tự hoài nghi, thu mình lại.
               </p>
             </div>
           </Reveal>
@@ -344,8 +347,11 @@ export function Problem() {
               <p className="text-xl md:text-2xl font-serif font-medium mb-3">
                 Đó là lý do Inner Safety Experience™ được tạo ra.
               </p>
-              <p className="text-primary-foreground/80 text-base leading-relaxed">
+              <p className="text-primary-foreground/80 text-base leading-relaxed mb-3">
                 Chúng tôi không bắt bạn suy nghĩ tích cực hơn. Chúng tôi bắt đầu bằng việc giúp hệ thần kinh cảm thấy an toàn trở lại — để tiềm thức sẵn sàng cập nhật những chương trình sinh tồn cũ.
+              </p>
+              <p className="text-primary-foreground font-semibold text-base">
+                Đây không phải là chữa lành. Đây là chuẩn bị nền tảng cho sứ mệnh của bạn.
               </p>
             </div>
           </Reveal>
