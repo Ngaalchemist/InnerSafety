@@ -77,7 +77,7 @@ export function Hero() {
             </Reveal>
 
             {/* H1 — "Chế Độ Sinh Tồn" locked on its own line */}
-            <Reveal delay={0.06}>
+            <Reveal delay={0.1}>
               <h1 className="font-serif font-bold text-white leading-[1.15] mb-9 text-[2.7rem] sm:text-[3.4rem] md:text-[4rem] lg:text-[4.55rem]">
                 Bạn Không Hỏng.<br />
                 Hệ Thần Kinh Của Bạn Chỉ<br />
@@ -87,14 +87,14 @@ export function Hero() {
             </Reveal>
 
             {/* Sub headline 1 — personal hook */}
-            <Reveal delay={0.12}>
+            <Reveal delay={0.25}>
               <p className="text-base md:text-lg text-white/82 mb-2 max-w-3xl mx-auto leading-relaxed font-medium">
                 Nếu bạn đã sống quá lâu trong lo âu, luôn cảnh giác, overthinking hoặc cảm thấy cơ thể chưa bao giờ thật sự được an toàn — hành trình này được tạo ra dành cho bạn.
               </p>
             </Reveal>
 
             {/* Sub headline 2 — product intro; product name in yellow display serif */}
-            <Reveal delay={0.16}>
+            <Reveal delay={0.4}>
               <p className="text-sm md:text-base text-white/52 mb-10 max-w-3xl mx-auto leading-relaxed">
                 Khám phá{' '}
                 <strong className="font-serif font-semibold text-[#c9a84c]">Inner Safety Experience™</strong>
@@ -106,7 +106,7 @@ export function Hero() {
             {/* Bullets — concrete outcomes, bold + yellow lead-in */}
             <div className="flex flex-col gap-1.5 text-left max-w-2xl mx-auto mb-14">
               {bullets.map((item, idx) => (
-                <Reveal key={idx} delay={0.2 + idx * 0.15}>
+                <Reveal key={idx} delay={0.6 + idx * 0.25}>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-[#c9a84c] shrink-0 mt-0.5" />
                     <span className="text-white/88">
@@ -119,8 +119,8 @@ export function Hero() {
             </div>
 
             {/* CTA button + price */}
-            <Reveal delay={0.25}>
-              <div className="flex flex-col items-center gap-3 mb-14">
+            <Reveal delay={1.4}>
+              <div className="flex flex-col items-center gap-3 mb-6">
                 <a
                   href="#register-form"
                   onClick={scrollToForm}
@@ -132,8 +132,8 @@ export function Hero() {
             </Reveal>
 
             {/* Trust signals row — always all 5 visible, wraps on small screens */}
-            <Reveal delay={0.3}>
-              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 border-t border-white/10 pt-6 text-white/45 text-xs md:text-sm">
+            <Reveal delay={1.6}>
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 border-t border-white/10 pt-4 text-white/45 text-xs md:text-sm">
                 {trustBadges.map((item, idx) => (
                   <div key={idx} className="flex items-center gap-1.5">
                     {item.icon}
