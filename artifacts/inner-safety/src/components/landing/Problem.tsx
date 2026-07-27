@@ -95,7 +95,7 @@ export function Problem() {
                 Đây Có Phải Là Điều Bạn Đang Trải Qua?
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Bạn đã đi qua biến cố. Cuộc sống bên ngoài có thể đã tiếp tục. Nhưng bên trong, liệu có phải một phần của bạn vẫn chưa tin rằng mình đã an toàn?".
+                Bạn đã đi một chặng đường trên hành trình thức tỉnh. Cuộc sống bên ngoài có thể đã khác đi nhiều. Nhưng bên trong, liệu có phải một phần của bạn vẫn chưa đủ vững để bước vào phiên bản lớn hơn của chính mình?
               </p>
             </div>
           </Reveal>
@@ -138,7 +138,7 @@ export function Problem() {
             <Reveal>
               <div className="mb-10">
                 <p className="text-white/45 mb-5 uppercase tracking-widest text-xs font-bold text-center">
-                  Những nỗi sợ âm thầm đó...
+                  Những nỗi sợ âm thầm đó rồi đấy
                 </p>
                 <ul className="space-y-3">
                   {fears.map((fear, idx) => (
