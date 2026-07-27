@@ -89,7 +89,7 @@ export function Problem() {
           <Reveal>
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-6">
-                Đó Có Phải Là Điều Bạn Đang Trải Qua?
+                Đây Có Phải Là Điều Bạn Đang Trải Qua?
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Bạn đã qua biến cố. Cuộc sống bên ngoài có thể đã tiếp tục. Nhưng bên trong — hệ thần kinh vẫn đang sống trong chế độ sinh tồn.
