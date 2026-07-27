@@ -14,8 +14,8 @@ export function Offer() {
       icon: <Clock className="w-6 h-6" />,
       title: "Emergency Reset 5 Phút",
       value: "497.000 VNĐ",
-      solve: "Cơn hoảng loạn cấp tính, lo âu đột ngột",
-      get: "Audio hướng dẫn 5 phút làm dịu hệ thần kinh tức thì — dùng được ngay trong cơn sợ",
+      solve: "Cơn hoảng loạn hoặc đóng băng ngay trước một bước tiến quan trọng — trước khi launch, lên sóng, hay ra quyết định lớn",
+      get: "Audio hướng dẫn 5 phút làm dịu hệ thần kinh tức thì — dùng được ngay trong khoảnh khắc đó",
       why: "Chuẩn bị hệ thần kinh trước phiên thôi miên — khi cơ thể bình ổn, tiềm thức tiếp nhận tái lập trình sâu hơn"
     },
     {
@@ -47,15 +47,15 @@ export function Offer() {
     {
       day: "Ngày 2",
       title: "Tôi Không Còn Sợ",
-      subtitle: "Chữa lành tiền và nỗi sợ thiếu thốn",
-      lessons: "Hiểu nỗi sợ thiếu thốn | Money Healing | Chữa lành dòng họ | Thiền đủ đầy.",
+      subtitle: "Tháo gỡ nỗi sợ thiếu thốn quanh chuyện tiền bạc",
+      lessons: "Hiểu nỗi sợ thiếu thốn | Money Reset | Giải phóng niềm tin tài chính từ dòng họ | Thiền đủ đầy.",
       tools: "Money Journal + Money Ritual"
     },
     {
       day: "Ngày 3",
       title: "Tôi Xứng Đáng",
-      subtitle: "Chữa lành Shame và giá trị bản thân",
-      lessons: "Phẫu thuật Shame | Somatic vùng chậu | Violet Flame Healing | Viết lại giá trị bản thân.",
+      subtitle: "Tháo gỡ Shame, xây lại giá trị bản thân",
+      lessons: "Giải phóng Shame | Somatic vùng chậu | Violet Flame Practice | Viết lại giá trị bản thân.",
       tools: "Affirmation Audio"
     },
     {
@@ -81,8 +81,8 @@ export function Offer() {
     },
     {
       day: "Ngày 7",
-      title: "Tôi Tái Sinh",
-      subtitle: "Đón nhận phiên bản mới",
+      title: "Tôi Cắm Rễ Vững Vàng",
+      subtitle: "Bước vào phiên bản lớn hơn của chính mình",
       lessons: "Heart Brain Coherence | Timeline mới | Ký giao ước với chính mình | Platinum Light.",
       tools: "Heart Coherence Meditation + Sleep Healing Audio"
     }
@@ -109,7 +109,7 @@ export function Offer() {
                 <div className="bg-primary text-primary-foreground p-6 rounded-2xl md:w-1/3 flex flex-col justify-center shadow-lg">
                   <PlayCircle className="w-12 h-12 mb-4 opacity-80" />
                   <h3 className="text-2xl font-serif font-bold mb-2">Inner Safety Experience™</h3>
-                  <p className="opacity-90">7 Ngày Tái Thiết Nền Tảng An Toàn Giữa Tâm Bão Cuộc Đời</p>
+                  <p className="opacity-90">7 Ngày Cắm Rễ Sâu — Nền Tảng Vững Vàng Cho Phiên Bản Lớn Hơn Của Bạn</p>
                 </div>
                 
                 <div className="md:w-2/3">
@@ -186,7 +186,7 @@ export function Offer() {
                 Lộ Trình Chi Tiết 7 Ngày
               </h2>
               <p className="text-lg text-muted-foreground">
-                Từng bước thiết kế để đưa bạn đi từ sợ hãi về lại vùng an toàn.
+                Từng bước thiết kế để đưa bạn từ nỗi sợ vô hình về lại sự vững vàng bên trong.
               </p>
             </div>
           </Reveal>
