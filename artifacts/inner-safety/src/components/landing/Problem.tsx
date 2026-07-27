@@ -8,11 +8,11 @@ export function Problem() {
   const painPoints = [
     {
       icon: <Brain className="w-6 h-6" />,
-      text: 'Đầu óc không ngừng quay — overthinking kéo dài đến tận đêm khuya, không tắt được.',
+      text: 'Đầu óc không ngừng suy nghĩ,  overthinking kéo dài đến tận đêm khuya, không dừng được.',
     },
     {
       icon: <Waves className="w-6 h-6" />,
-      text: 'Cảm xúc bùng nổ bất ngờ — hoặc ngược lại, bạn tê liệt hoàn toàn, không cảm nhận được gì.',
+      text: 'Cảm xúc bùng nổ bất ngờ hoặc ngược lại, bạn tê liệt hoàn toàn, không cảm nhận được gì.',
     },
     {
       icon: <MinusCircle className="w-6 h-6" />,
@@ -24,7 +24,7 @@ export function Problem() {
     },
     {
       icon: <HelpCircle className="w-6 h-6" />,
-      text: 'Đã đọc sách, thiền định, nghĩ tích cực — mà sao vẫn không khá hơn?',
+      text: 'Đã đọc sách, thiền định, nghĩ tích cực... mà sao vẫn không khá hơn?',
     },
   ];
 
