@@ -61,7 +61,7 @@ export function Hero() {
         </div>
 
         {/* Wider container: expanded from max-w-3xl to max-w-6xl (~+50%) so content breathes further left/right */}
-        <div className="container mx-auto px-4 md:px-8 z-20 relative pt-16 pb-16 md:pt-20 md:pb-28">
+        <div className="container mx-auto px-4 md:px-8 z-20 relative pt-16 pb-24 md:pt-20 md:pb-40">
           <div className="max-w-6xl mx-auto text-center">
 
             {/* Eyebrow label — plain thin text, no box/background, 2 lines */}
@@ -105,7 +105,7 @@ export function Hero() {
 
             {/* Bullets — concrete outcomes, bold + yellow lead-in */}
             <Reveal delay={0.2}>
-              <div className="flex flex-col gap-1.5 text-left max-w-2xl mx-auto mb-10">
+              <div className="flex flex-col gap-1.5 text-left max-w-2xl mx-auto mb-14">
                 {bullets.map((item, idx) => (
                   <div
                     key={idx}
@@ -123,7 +123,7 @@ export function Hero() {
 
             {/* CTA button + price */}
             <Reveal delay={0.25}>
-              <div className="flex flex-col items-center gap-3 mb-10">
+              <div className="flex flex-col items-center gap-3 mb-14">
                 <a
                   href="#register-form"
                   onClick={scrollToForm}
