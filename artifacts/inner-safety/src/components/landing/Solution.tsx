@@ -95,7 +95,7 @@ export function Solution() {
                 Hành Trình Chuyển Hóa
               </h2>
               <p className="text-xl text-white/70">
-                Đừng để trạng thái sinh tồn tiếp tục điều khiển cuộc đời bạn.
+                Đừng để trạng thái sinh tồn tiếp tục điều khiển hành trình sứ mệnh của bạn.
               </p>
             </div>
           </Reveal>
@@ -106,12 +106,12 @@ export function Solution() {
                 <h3 className="text-2xl font-serif font-bold text-white/50 mb-8 border-b border-white/10 pb-4">Trước Đây...</h3>
                 <ul className="space-y-6">
                   {[
-                    "Overthinking kéo dài — đầu óc không có phút yên",
-                    "Cảm xúc bùng nổ hoặc tê liệt hoàn toàn",
-                    "Cảm thấy mình không đủ, không xứng đáng",
-                    "Luôn kiệt sức vì gồng mình mạnh mẽ",
-                    "Mối quan hệ và tiền bạc gây căng thẳng mãn tính",
-                    "Sợ hãi điều khiển mọi quyết định"
+                    "Overthinking kéo dài mỗi khi chuẩn bị ra mắt điều gì mới",
+                    "Sắp launch là freeze, sắp bán là tự nghi ngờ",
+                    "Thành công một chút lại tự phá, kiếm được tiền lại thấy có lỗi",
+                    "Luôn kiệt sức vì phải gồng mình mạnh mẽ để được nhìn nhận",
+                    "Muốn hiện diện nhưng lại thu mình lại vào phút chót",
+                    "Nỗi sợ điều khiển mọi quyết định trong sự nghiệp"
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-4 text-white/70">
                       <div className="mt-1 text-red-400">✕</div>
@@ -128,12 +128,12 @@ export function Solution() {
                 <h3 className="text-2xl font-serif font-bold text-primary mb-8 border-b border-white/10 pb-4">Sau 7 Ngày...</h3>
                 <ul className="space-y-6">
                   {[
-                    "Bình tĩnh lại chỉ sau vài phút khi cơn lo âu xuất hiện",
-                    "Cảm xúc được làm chủ — không còn bị trigger điều khiển",
-                    "\"Tôi là đủ\" trở thành niềm tin thật sự, không phải khẩu hiệu",
-                    "Nguồn năng lượng được bảo vệ — biết cách thiết lập ranh giới",
-                    "Mối quan hệ với tiền và người xung quanh lành mạnh hơn",
-                    "Mọi quyết định xuất phát từ sự bình an, không phải nỗi sợ"
+                    "Bình tĩnh lại chỉ sau vài phút khi nỗi sợ xuất hiện trước một bước tiến lớn",
+                    "Cảm xúc được làm chủ — không còn bị trigger điều khiển hành động",
+                    "\"Tôi đủ vững để bước lên\" trở thành niềm tin thật sự, không phải khẩu hiệu",
+                    "Biết thiết lập ranh giới, bảo vệ năng lượng và sự tập trung cho sứ mệnh",
+                    "Mối quan hệ với tiền bạc và sự hiện diện của mình trở nên lành mạnh hơn",
+                    "Mọi quyết định xuất phát từ sự vững vàng, không phải nỗi sợ"
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-4 text-white">
                       <div className="mt-1 text-primary">✓</div>
