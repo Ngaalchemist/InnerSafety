@@ -12,7 +12,7 @@ export function Hero() {
 
   // Bullets split into a bold/yellow lead-in + normal remainder
   const bullets = [
-    { bold: 'Cơ thể nhẹ nhõm', rest: ' — không còn cảm giác nặng nề, căng cứng mãn tính' },
+    { bold: 'Cơ thể nhẹ nhõm', rest: ' , không còn cảm giác nặng nề, căng cứng mãn tính' },
     { bold: 'Thức dậy mà không còn cảm giác lo âu vô cớ', rest: ' mỗi buổi sáng' },
     { bold: 'Đưa ra quyết định từ sự bình an', rest: ', không phải từ nỗi sợ' },
   ];
