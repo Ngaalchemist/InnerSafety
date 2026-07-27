@@ -1,29 +1,32 @@
 import React from 'react';
 import { Reveal } from '@/components/ui/reveal';
-import { Brain, Waves, MinusCircle, BatteryLow, HelpCircle } from 'lucide-react';
 import glowingPlantImg from '@assets/b7c36e0667cc4b981650a080f50a5cc8_1784992832049.jpg';
 import meditatingImg from '@assets/cd77bc5724d6b5571ffe542739aa734c_1784992832049.jpg';
 
 export function Problem() {
   const painPoints = [
     {
-      icon: <Brain className="w-6 h-6" />,
-      text: 'Đầu óc không ngừng suy nghĩ,  overthinking kéo dài đến tận đêm khuya, không dừng được.',
+      icon: '🧠',
+      text: 'Đầu óc không ngừng suy nghĩ, overthinking kéo dài đến tận đêm khuya, không dừng được.',
     },
     {
-      icon: <Waves className="w-6 h-6" />,
-      text: 'Cảm xúc bùng nổ bất ngờ hoặc ngược lại, bạn tê liệt hoàn toàn, không cảm nhận được gì.',
+      icon: '💔',
+      text: 'Cảm xúc bùng nổ bất ngờ hoặc ngược lại, bạn tê liệt hoàn toàn, không còn biết mình đang thật sự cảm thấy gì.',
     },
     {
-      icon: <MinusCircle className="w-6 h-6" />,
+      icon: '🧭',
+      text: 'Một quyết định nhỏ cũng khiến bạn suy nghĩ rất lâu, vì lúc nào cũng sợ mình sẽ chọn sai.',
+    },
+    {
+      icon: '🌧️',
       text: 'Luôn cảm thấy mình không đủ tốt, không đủ giỏi, không xứng đáng bắt đầu lại.',
     },
     {
-      icon: <BatteryLow className="w-6 h-6" />,
+      icon: '🪨',
       text: 'Kiệt sức vì phải gồng mình mạnh mẽ mỗi ngày trong khi bên trong đang sụp đổ.',
     },
     {
-      icon: <HelpCircle className="w-6 h-6" />,
+      icon: '📚',
       text: 'Đã đọc sách, thiền định, nghĩ tích cực... mà sao vẫn không khá hơn?',
     },
   ];
@@ -101,7 +104,7 @@ export function Problem() {
             {painPoints.map((item, idx) => (
               <Reveal key={idx} delay={idx * 0.08}>
                 <div className="bg-white p-6 rounded-2xl border border-border shadow-sm h-full flex items-start gap-4 group hover:border-primary/30 hover:shadow-md transition-all duration-200">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary/15 transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-2xl shrink-0 group-hover:bg-primary/15 transition-colors">
                     {item.icon}
                   </div>
                   <p className="text-foreground font-medium leading-relaxed pt-2">{item.text}</p>
@@ -134,6 +137,9 @@ export function Problem() {
           <div className="max-w-2xl mx-auto mb-12">
             <Reveal>
               <div className="mb-10">
+                <p className="text-white/45 mb-5 uppercase tracking-widest text-xs font-bold text-center">
+                  Những nỗi sợ âm thầm đó rồi đấy
+                </p>
                 <ul className="space-y-3">
                   {fears.map((fear, idx) => (
                     <li key={idx} className="text-white text-lg leading-snug text-center">
