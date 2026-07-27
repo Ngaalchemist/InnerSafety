@@ -61,7 +61,7 @@ export function Hero() {
         </div>
 
         {/* Wider container: expanded from max-w-3xl to max-w-6xl (~+50%) so content breathes further left/right */}
-        <div className="container mx-auto px-4 md:px-8 z-20 relative pt-16 pb-24 md:pt-20 md:pb-52">
+        <div className="container mx-auto px-4 md:px-8 z-20 relative pt-16 pb-24 md:pt-20 md:pb-40">
           <div className="max-w-6xl mx-auto text-center">
 
             {/* Eyebrow label — plain thin text, no box/background, 2 lines */}
@@ -99,27 +99,24 @@ export function Hero() {
                 Khám phá{' '}
                 <strong className="font-serif font-semibold text-[#c9a84c]">Inner Safety Experience™</strong>
                 {' '}— trải nghiệm chuyển hóa 7 ngày kết hợp{' '}
-                <strong className="text-white/80">thôi miên hướng dẫn</strong>, điều hòa hệ thần kinh và thực hành năng lượng để giúp bạn tái thiết cảm giác an toàn từ gốc rễ.
+                <strong className="text-white/80">thôi miên dẫn dắt</strong>, điều hòa hệ thần kinh và thực hành năng lượng để giúp bạn tái thiết cảm giác an toàn từ gốc rễ.
               </p>
             </Reveal>
 
             {/* Bullets — concrete outcomes, bold + yellow lead-in */}
-            <Reveal delay={0.2}>
-              <div className="flex flex-col gap-1.5 text-left max-w-2xl mx-auto mb-14">
-                {bullets.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-3"
-                  >
+            <div className="flex flex-col gap-1.5 text-left max-w-2xl mx-auto mb-14">
+              {bullets.map((item, idx) => (
+                <Reveal key={idx} delay={0.2 + idx * 0.15}>
+                  <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-[#c9a84c] shrink-0 mt-0.5" />
                     <span className="text-white/88">
                       <strong className="text-[#c9a84c] font-bold">{item.bold}</strong>
                       {item.rest}
                     </span>
                   </div>
-                ))}
-              </div>
-            </Reveal>
+                </Reveal>
+              ))}
+            </div>
 
             {/* CTA button + price */}
             <Reveal delay={0.25}>
