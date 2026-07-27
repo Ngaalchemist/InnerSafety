@@ -61,7 +61,7 @@ export function Hero() {
         </div>
 
         {/* Wider container: expanded from max-w-3xl to max-w-6xl (~+50%) so content breathes further left/right */}
-        <div className="container mx-auto px-4 md:px-8 z-20 relative pt-16 pb-24 md:pt-20 md:pb-40">
+        <div className="container mx-auto px-4 md:px-8 z-20 relative pt-16 pb-24 md:pt-20 md:pb-52">
           <div className="max-w-6xl mx-auto text-center">
 
             {/* Eyebrow label — plain thin text, no box/background, 2 lines */}
