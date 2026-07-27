@@ -138,7 +138,7 @@ export function Problem() {
             <Reveal>
               <div className="mb-10">
                 <p className="text-white/45 mb-5 uppercase tracking-widest text-xs font-bold text-center">
-                  Những nỗi sợ âm thầm đó rồi đấy
+                  Những nỗi sợ âm thầm đó
                 </p>
                 <ul className="space-y-3">
                   {fears.map((fear, idx) => (
