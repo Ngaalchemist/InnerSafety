@@ -134,14 +134,10 @@ export function Problem() {
           <div className="max-w-2xl mx-auto mb-12">
             <Reveal>
               <div className="mb-10">
-                <p className="text-white/45 mb-5 uppercase tracking-widest text-xs font-bold text-center">
-                  Những nỗi sợ âm thầm đó...
-                </p>
                 <ul className="space-y-3">
                   {fears.map((fear, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-white/78">
-                      <span className="text-[#c9a84c] shrink-0 mt-1.5 text-[6px]">●</span>
-                      <span className="text-lg leading-snug">{fear}</span>
+                    <li key={idx} className="text-white text-lg leading-snug text-center">
+                      {fear}
                     </li>
                   ))}
                 </ul>
