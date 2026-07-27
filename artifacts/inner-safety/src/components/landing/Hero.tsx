@@ -78,9 +78,10 @@ export function Hero() {
 
             {/* H1 — "Chế Độ Sinh Tồn" locked on its own line */}
             <Reveal delay={0.06}>
-              <h1 className="font-serif font-bold text-white leading-[1.15] mb-5 text-[2.1rem] sm:text-[2.6rem] md:text-[3.1rem] lg:text-[3.5rem]">
+              <h1 className="font-serif font-bold text-white leading-[1.15] mb-5 text-[2.7rem] sm:text-[3.4rem] md:text-[4rem] lg:text-[4.55rem]">
                 Bạn Không Hỏng.<br />
-                Hệ Thần Kinh Của Bạn Chỉ Đang Kẹt Ở<br />
+                Hệ Thần Kinh Của Bạn Chỉ<br />
+                Đang Kẹt Ở<br />
                 <span className="text-[#c9a84c] whitespace-nowrap">Chế Độ Sinh Tồn.</span>
               </h1>
             </Reveal>
@@ -104,11 +105,11 @@ export function Hero() {
 
             {/* Bullets — concrete outcomes, bold + yellow lead-in */}
             <Reveal delay={0.2}>
-              <div className="flex flex-col gap-2.5 text-left max-w-2xl mx-auto mb-6">
+              <div className="flex flex-col gap-1.5 text-left max-w-2xl mx-auto mb-6">
                 {bullets.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-3 bg-white/[0.06] border border-white/[0.10] p-3.5 rounded-xl backdrop-blur-sm"
+                    className="flex items-start gap-3"
                   >
                     <CheckCircle className="w-5 h-5 text-[#c9a84c] shrink-0 mt-0.5" />
                     <span className="text-white/88">
@@ -130,13 +131,6 @@ export function Hero() {
                 >
                   Tôi Muốn Tìm Lại Sự Bình An →
                 </a>
-                <div className="flex flex-col items-center gap-1">
-                  <div className="flex items-center gap-3">
-                    <span className="text-white/35 line-through text-sm">3.000.000 VNĐ</span>
-                    <span className="text-lg md:text-xl font-bold text-white">1.111.000 VNĐ</span>
-                  </div>
-                  <div className="text-xs md:text-sm font-semibold text-[#c9a84c]">⚡ Giá ra mắt — Chỉ còn vài suất</div>
-                </div>
               </div>
             </Reveal>
 
