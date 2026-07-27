@@ -131,31 +131,29 @@ export function Problem() {
             </p>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 gap-10 items-start mb-12">
-            <Reveal direction="right">
-              <div>
-                <p className="text-white/45 mb-4 uppercase tracking-widest text-xs font-bold">
+          <div className="max-w-2xl mx-auto mb-12">
+            <Reveal>
+              <div className="mb-10">
+                <p className="text-white/45 mb-5 uppercase tracking-widest text-xs font-bold text-center">
                   Những nỗi sợ âm thầm đó...
                 </p>
-                <div className="flex flex-wrap gap-2.5">
+                <ul className="space-y-3">
                   {fears.map((fear, idx) => (
-                    <span
-                      key={idx}
-                      className="bg-white/8 border border-white/14 text-white/78 px-4 py-2 rounded-full text-sm font-medium"
-                    >
-                      {fear}
-                    </span>
+                    <li key={idx} className="flex items-start gap-3 text-white/78">
+                      <span className="text-[#c9a84c] shrink-0 mt-1.5 text-[6px]">●</span>
+                      <span className="text-lg leading-snug">{fear}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </Reveal>
 
-            <Reveal direction="left">
+            <Reveal>
               <div>
-                <p className="text-white/45 mb-4 uppercase tracking-widest text-xs font-bold">
+                <p className="text-white/45 mb-5 uppercase tracking-widest text-xs font-bold text-center">
                   ...âm thầm quyết định thay bạn:
                 </p>
-                <ul className="space-y-4">
+                <ul className="space-y-3">
                   {fearDecisions.map((dec, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-white/80">
                       <span className="text-[#c9a84c] shrink-0 mt-1 font-bold">→</span>
@@ -354,3 +352,4 @@ export function Problem() {
     </>
   );
 }
+
