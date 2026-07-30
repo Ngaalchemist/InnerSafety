@@ -29,25 +29,33 @@ export function Header() {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-8 sm:h-10">
-          <div className="flex items-center gap-1.5">
-            <div className="w-5 h-5 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shrink-0">
-              <span className="text-[9px] font-bold text-primary-foreground">NA</span>
+        <div className="flex items-center justify-between h-14 sm:h-16">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shrink-0">
+              <span className="text-[11px] font-bold text-primary-foreground">NA</span>
             </div>
-            <h1 className="text-xs sm:text-sm font-serif font-semibold tracking-tight text-foreground">
+            <h1 className="text-sm sm:text-base font-serif font-semibold tracking-tight text-foreground">
               7 Ngày Sống Vượt Trên Nỗi Sợ
             </h1>
           </div>
-          
+
+          <nav className="hidden md:flex items-center gap-6 text-sm sm:text-base font-medium text-foreground/80">
+            <a href="#curriculum" className="hover:text-foreground transition-colors">Về chương trình</a>
+            <a href="#instructor" className="hover:text-foreground transition-colors">Câu chuyện</a>
+            <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
+            <a href="#testimonials" className="hover:text-foreground transition-colors">Review</a>
+          </nav>
+
           <button
             onClick={scrollToCTA}
-            className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs hover:scale-105 transition-all duration-300"
+            className="px-4 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm hover:scale-105 transition-all duration-300"
             data-testid="button-header-cta"
             style={{
               background: 'linear-gradient(90deg, #F59E0B, #C084FC)',
               color: '#0D0B18',
               fontWeight: 700,
               boxShadow: '0 4px 20px rgba(245, 158, 11, 0.4)',
+              transform: 'translateX(-30%)',
             }}
           >
             Đăng ký ngay — 111.000đ
