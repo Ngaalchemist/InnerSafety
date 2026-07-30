@@ -1,151 +1,179 @@
-import React from 'react';
-import { Reveal } from '@/components/ui/reveal';
-import { CheckCircle, Monitor, Zap, Users, Infinity, Shield } from 'lucide-react';
-import logoImg from '@assets/Gemini_Generated_Image_nmxs5qnmxs5qnmxs_1784992544531.png';
-import treeRootsImg from '@assets/Gemini_Generated_Image_rz0f3rz0f3rz0f3r_1784884536664_1784992800248.png';
+import { motion } from 'framer-motion';
+import { ArrowRight, Clock, Zap, Users, Infinity, RefreshCcw } from 'lucide-react';
+import cosmicTreeBg from '@assets/ẢNh_cây_nền_tím_1785394971585.jpg';
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.12
+    }
+  }
+};
+
+const bullets = [
+  { icon: '✓',  text: 'Nhận diện "gốc rễ" khiến bạn trì hoãn, né tránh và tự giới hạn bản thân' },
+  { icon: '✅', text: 'Có công cụ giúp cơ thể bình tĩnh trở lại chỉ trong vài phút khi bị lo âu hoặc trigger.' },
+  { icon: '✅', text: 'Tháo gỡ những niềm tin như "Tôi chưa đủ", "Tôi sẽ thất bại", "Tôi sẽ bị đánh giá".' },
+  { icon: '✅', text: 'Thực hành khoảng 20 phút trong 7 ngày mỗi ngày với video hướng dẫn và workbook đơn giản, dễ áp dụng' },
+  { icon: '✓',  text: 'Cài đặt lại cảm giác an toàn bên trong với Inner Safety Method™' },
+];
+
+const trustBadges = [
+  { icon: Clock,       label: 'Học online mọi lúc, mọi nơi' },
+  { icon: Zap,         label: 'Truy cập ngay' },
+  { icon: Users,       label: 'Có cộng đồng riêng' },
+  { icon: Infinity,    label: 'Truy cập trọn đời' },
+  { icon: RefreshCcw,  label: 'Hoàn tiền 7 ngày' },
+];
 
 export function Hero() {
-  const scrollToForm = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    document.getElementById('register-form')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToCTA = () => {
+    const ctaSection = document.getElementById('final-cta');
+    if (ctaSection) {
+      ctaSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
-  // Bullets split into a bold/yellow lead-in + normal remainder
-  const bullets = [
-    { bold: 'Không còn bị kéo ngược bởi nỗi sợ vô hình', rest: ' mỗi khi chuẩn bị bước lên' },
-    { bold: 'Hành động ngay khi cần', rest: ', thay vì thu mình lại' },
-    { bold: 'Đưa ý tưởng và món quà của mình ra thế giới', rest: ', thay vì giữ mãi trong đầu' },
-  ];
-
-  const trustBadges = [
-    { icon: <Monitor className="w-4 h-4 text-[#c9a84c]" />, label: 'Học online mọi lúc, mọi nơi' },
-    { icon: <Zap className="w-4 h-4 text-[#c9a84c]" />, label: 'Truy cập ngay' },
-    { icon: <Users className="w-4 h-4 text-[#c9a84c]" />, label: 'Có cộng đồng riêng' },
-    { icon: <Infinity className="w-4 h-4 text-[#c9a84c]" />, label: 'Truy cập trọn đời' },
-    { icon: <Shield className="w-4 h-4 text-[#c9a84c]" />, label: 'Hoàn tiền 7 ngày' },
-  ];
-
   return (
-    <>
-      {/* Navbar — dark, matches hero, thin single line */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0807]/92 backdrop-blur-md border-b border-white/10">
-        <div className="container mx-auto px-4 h-11 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img src={logoImg} alt="Nga Alchemist" className="h-6 w-6 object-contain rounded-full" />
-            <span className="font-serif font-medium text-sm tracking-tight text-[#c9a84c]">Nga Alchemist</span>
-          </div>
-          <a
-            href="#register-form"
-            onClick={scrollToForm}
-            className="text-xs font-semibold bg-[#c9a84c] text-[#0a0807] px-3.5 py-1.5 rounded-full hover:bg-[#e0be6e] transition-colors"
+    <section className="relative min-h-[100dvh] flex items-center overflow-hidden pt-20 pb-12 sm:pb-16">
+      {/* Full-width background image */}
+      <div className="absolute inset-0 w-full h-full">
+        <img
+          src={cosmicTreeBg}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-8">
+
+          {/* ── LEFT COLUMN ── */}
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate"
+            className="flex-1 lg:max-w-[72%] flex flex-col text-left"
           >
-            Đăng Ký Ngay
-          </a>
-        </div>
-      </nav>
+            {/* Eyebrow 1 — brand label */}
+            <motion.p
+              variants={fadeInUp}
+              className="text-xs sm:text-sm uppercase tracking-[0.22em] font-semibold text-primary mb-3"
+            >
+              Inner Safety Method™
+            </motion.p>
 
-      {/* Hero — full screen dark, tree+roots as dramatic background */}
-      <section className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden bg-[#0a0807]">
+            {/* Eyebrow 2 — audience line */}
+            <motion.p
+              variants={fadeInUp}
+              className="text-sm sm:text-base italic text-white/70 leading-relaxed mb-5 sm:mb-6"
+            >
+              Dành cho những người luôn biết mình có nhiều giá trị hơn... nhưng vẫn chưa thể bước ra.
+            </motion.p>
 
-        {/* Background: tree+roots image with layered gradients */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={treeRootsImg}
-            alt=""
-            className="w-full h-full object-cover object-center opacity-28"
-          />
-          {/* Top fade so text reads clearly; bottom fade for smooth transition */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0807]/85 via-[#0a0807]/45 to-[#0a0807]/90" />
-          {/* Subtle vignette */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,#0a0807_100%)]" />
-        </div>
+            {/* Headline — 3 tiers, 3× bigger, all-caps serif */}
+            <motion.h1
+              variants={fadeInUp}
+              className="font-serif font-bold leading-[1.05] tracking-tight mb-5 sm:mb-6 uppercase"
+              style={{ fontSize: 'clamp(1.8rem, 4.4vw, 3.6rem)', letterSpacing: '-0.02em' }}
+            >
+              <span className="text-gradient-gold block">7 NGÀY</span>
+              <span className="text-white block">NGỪNG ĐỂ NỖI SỢ</span>
+              <span className="text-white/90 block">QUYẾT ĐỊNH CUỘC ĐỜI BẠN.</span>
+            </motion.h1>
 
-        {/* Wider container: expanded from max-w-3xl to max-w-6xl (~+50%) so content breathes further left/right */}
-        <div className="container mx-auto px-4 md:px-8 z-20 relative pt-16 pb-24 md:pt-20 md:pb-40">
-          <div className="max-w-6xl mx-auto text-center">
-
-            {/* Eyebrow label — plain thin text, no box/background, 2 lines */}
-            <Reveal>
-              <div className="flex flex-col items-center gap-1 mb-6">
-                <span className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-[#c9a84c]">
-                  Inner Safety Experience™
-                </span>
-                <span className="text-[0.65rem] md:text-xs font-medium uppercase tracking-[0.16em] text-[#c9a84c]/70">
-                  7 Ngày Cắm Rễ Sâu - Vững Vàng Bước Vào Phiên Bản Lớn Hơn
-                </span>
-              </div>
-            </Reveal>
-
-            {/* H1 — "Chế Độ Sinh Tồn" locked on its own line */}
-            <Reveal delay={0.1}>
-              <h1 className="font-serif font-bold text-white leading-[1.15] mb-9 text-[2.7rem] sm:text-[3.4rem] md:text-[4rem] lg:text-[4.55rem]">
-                Bạn Không Hỏng.<br />
-                Bạn Chỉ Đang Bị Kéo Ngược<br />
-                Bởi Một Nỗi Sợ<br />
-                <span className="text-[#c9a84c] whitespace-nowrap">Không Gọi Tên Được.</span>
-              </h1>
-            </Reveal>
-
-            {/* Sub headline 1 — personal hook */}
-            <Reveal delay={0.25}>
-              <p className="text-base md:text-lg text-white/82 mb-2 max-w-3xl mx-auto leading-relaxed font-medium">
-                Có thể bạn đã đi một chặng đường trên hành trình thức tỉnh. Nhưng mỗi khi chuẩn bị bước vào phiên bản lớn hơn của chính mình, bạn lại bị kéo ngược bởi một nỗi sợ không gọi tên được.
+            {/* Subheadline — two paragraphs */}
+            <motion.div
+              variants={fadeInUp}
+              className="space-y-3 text-sm sm:text-base text-white/75 leading-relaxed mb-7 sm:mb-9"
+            >
+              <p>
+                Bạn không thiếu năng lực hay ý chí.<br />
+                Điều còn thiếu là một "bộ rễ an toàn" để bạn có thể hành động mà không còn bị nỗi sợ, sự tự nghi ngờ hay overthinking kéo lùi.
               </p>
-            </Reveal>
-
-            {/* Sub headline 2 — product intro; product name in yellow display serif */}
-            <Reveal delay={0.4}>
-              <p className="text-sm md:text-base text-white/52 mb-10 max-w-3xl mx-auto leading-relaxed">
-                Đó không phải vì bạn thiếu kiến thức. Cũng không phải vì bạn thiếu ý chí. Mà vì hệ thần kinh của bạn vẫn đang sống trong chế độ sinh tồn.{' '}
-                <strong className="font-serif font-semibold text-[#c9a84c]">Inner Safety Experience™</strong>
-                {' '}là hành trình 7 ngày kết hợp{' '}
-                <strong className="text-white/80">thôi miên dẫn dắt</strong>, điều hòa hệ thần kinh và thực hành năng lượng — để bạn cắm rễ thật sâu, đủ vững để mang phiên bản lớn hơn của mình ra thế giới.
+              <p>
+                Trong 20 phút mỗi ngày, bạn sẽ học cách làm dịu hệ thần kinh, tháo gỡ những phản ứng sợ hãi vô thức và bắt đầu sống từ sự bình an thay vì cơ chế sinh tồn.
               </p>
-            </Reveal>
+            </motion.div>
 
-            {/* Bullets — concrete outcomes, bold + yellow lead-in */}
-            <div className="flex flex-col gap-1.5 text-left max-w-2xl mx-auto mb-14">
+            {/* Bullets */}
+            <motion.ul variants={staggerContainer} className="space-y-3 sm:space-y-4 mb-9 sm:mb-11">
               {bullets.map((item, idx) => (
-                <Reveal key={idx} delay={0.6 + idx * 0.25}>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#c9a84c] shrink-0 mt-0.5" />
-                    <span className="text-white/88">
-                      <strong className="text-[#c9a84c] font-bold">{item.bold}</strong>
-                      {item.rest}
-                    </span>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-
-            {/* CTA button + price */}
-            <Reveal delay={1.4}>
-              <div className="flex flex-col items-center gap-3 mb-6">
-                <a
-                  href="#register-form"
-                  onClick={scrollToForm}
-                  className="inline-flex items-center justify-center bg-[#c9a84c] text-[#0a0807] px-10 py-3.5 rounded-full font-bold text-base md:text-lg hover:bg-[#e0be6e] transition-all hover:scale-105 shadow-2xl shadow-[#c9a84c]/20"
+                <motion.li
+                  key={idx}
+                  variants={fadeInUp}
+                  className="flex items-start gap-3"
+                  data-testid={`bullet-hero-${idx}`}
                 >
-                  Tôi Sẵn Sàng Cắm Rễ Vững Vàng →
-                </a>
-              </div>
-            </Reveal>
+                  <span className="text-primary font-bold text-base mt-0.5 shrink-0">{item.icon}</span>
+                  <span className="text-white/90 font-medium text-sm sm:text-base leading-snug">
+                    {item.text}
+                  </span>
+                </motion.li>
+              ))}
+            </motion.ul>
 
-            {/* Trust signals row — always all 5 visible, wraps on small screens */}
-            <Reveal delay={1.6}>
-              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 border-t border-white/10 pt-4 text-white/45 text-xs md:text-sm">
-                {trustBadges.map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-1.5">
-                    {item.icon}
-                    <span>{item.label}</span>
+            {/* CTA Button */}
+            <motion.div variants={fadeInUp}>
+              <button
+                onClick={scrollToCTA}
+                className="group inline-flex items-center gap-3 px-7 sm:px-10 py-4 sm:py-5 rounded-full bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground font-bold text-sm sm:text-base hover:shadow-2xl hover:shadow-primary/50 transition-all duration-500 hover:scale-105 w-full sm:w-auto justify-center"
+                data-testid="button-hero-cta"
+                style={{ boxShadow: '0 0 32px -4px hsl(var(--primary) / 0.5)' }}
+              >
+                TRẢI NGHIỆM 7 NGÀY CHỈ VỚI 111.000đ
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              {/* Trust badges */}
+              <div className="mt-5 flex flex-wrap gap-3">
+                {trustBadges.map(({ icon: Icon, label }) => (
+                  <div
+                    key={label}
+                    className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-3 py-1.5 text-white/80 text-xs font-medium"
+                  >
+                    <Icon className="w-3.5 h-3.5 text-primary shrink-0" />
+                    {label}
                   </div>
                 ))}
               </div>
-            </Reveal>
+            </motion.div>
+          </motion.div>
 
-          </div>
+          {/* ── RIGHT COLUMN — quote card ── */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden lg:flex flex-col items-end justify-center flex-shrink-0 w-72 xl:w-80"
+          >
+            <div className="relative bg-white/5 backdrop-blur-md border border-white/15 rounded-2xl px-7 py-8 text-right shadow-2xl">
+              {/* Decorative top accent */}
+              <div className="absolute top-0 right-0 w-16 h-16 rounded-tr-2xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-bl from-primary/30 to-transparent" />
+              </div>
+              {/* Opening quote mark */}
+              <p className="text-primary text-5xl font-serif leading-none mb-3 opacity-60">"</p>
+              <p className="font-serif italic text-white/90 text-base xl:text-lg leading-relaxed mb-5">
+                Không phải mọi điều quyết định cuộc đời bạn đều có thể nhìn thấy.
+              </p>
+              <p className="text-primary text-xs uppercase tracking-widest font-semibold">
+                — Nga Alchemist
+              </p>
+            </div>
+          </motion.div>
+
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
