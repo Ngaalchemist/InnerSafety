@@ -44,7 +44,7 @@ export function Header() {
             className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs hover:scale-105 transition-all duration-300"
             data-testid="button-header-cta"
             style={{
-              background: 'linear-gradient(90deg, #F59E0B, #D97706)',
+              background: 'linear-gradient(90deg, #F59E0B, #C084FC)',
               color: '#0D0B18',
               fontWeight: 700,
               boxShadow: '0 4px 20px rgba(245, 158, 11, 0.4)',
