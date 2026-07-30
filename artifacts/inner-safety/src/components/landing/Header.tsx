@@ -41,14 +41,8 @@ export function Header() {
           
           <button
             onClick={scrollToCTA}
-            className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs hover:scale-105 transition-all duration-300"
+            className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground font-medium text-[11px] sm:text-xs hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:scale-105"
             data-testid="button-header-cta"
-            style={{
-              background: 'linear-gradient(90deg, #F59E0B, #D97706)',
-              color: '#0D0B18',
-              fontWeight: 700,
-              boxShadow: '0 4px 20px rgba(245, 158, 11, 0.4)',
-            }}
           >
             Đăng ký ngay — 111.000đ
           </button>
