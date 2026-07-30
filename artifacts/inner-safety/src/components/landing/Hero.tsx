@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, Zap, Users, Infinity, RefreshCcw } from 'lucide-react';
+import { ArrowRight, Check, Clock, Zap, Users, Infinity, RefreshCcw } from 'lucide-react';
 import cosmicTreeBg from '@assets/ẢNh_cây_nền_tím_1785394971585.jpg';
 
 const fadeInUp = {
@@ -17,11 +17,11 @@ const staggerContainer = {
 };
 
 const bullets = [
-  { icon: '✓',  text: 'Nhận diện "gốc rễ" khiến bạn trì hoãn, né tránh và tự giới hạn bản thân' },
-  { icon: '✅', text: 'Có công cụ giúp cơ thể bình tĩnh trở lại chỉ trong vài phút khi bị lo âu hoặc trigger.' },
-  { icon: '✅', text: 'Tháo gỡ những niềm tin như "Tôi chưa đủ", "Tôi sẽ thất bại", "Tôi sẽ bị đánh giá".' },
-  { icon: '✅', text: 'Thực hành khoảng 20 phút trong 7 ngày mỗi ngày với video hướng dẫn và workbook đơn giản, dễ áp dụng' },
-  { icon: '✓',  text: 'Cài đặt lại cảm giác an toàn bên trong với Inner Safety Method™' },
+  { lead: 'Nhận diện "gốc rễ"', rest: ' khiến bạn trì hoãn, né tránh và tự giới hạn bản thân' },
+  { lead: 'Có công cụ giúp cơ thể bình tĩnh trở lại', rest: ' chỉ trong vài phút khi bị lo âu hoặc trigger.' },
+  { lead: 'Tháo gỡ những niềm tin', rest: ' như "Tôi chưa đủ", "Tôi sẽ thất bại", "Tôi sẽ bị đánh giá".' },
+  { lead: 'Thực hành khoảng 20 phút trong 7 ngày', rest: ' mỗi ngày với video hướng dẫn và workbook đơn giản, dễ áp dụng' },
+  { lead: 'Cài đặt lại cảm giác an toàn', rest: ' bên trong với ', lead2: 'Inner Safety Method™' },
 ];
 
 const trustBadges = [
@@ -94,14 +94,22 @@ export function Hero() {
             {/* Subheadline — two paragraphs */}
             <motion.div
               variants={fadeInUp}
-              className="space-y-3 text-sm sm:text-base text-white/75 leading-relaxed mb-7 sm:mb-9"
+              className="space-y-4 text-base sm:text-lg font-semibold text-white/90 leading-relaxed mb-7 sm:mb-9"
             >
               <p>
-                Bạn không thiếu năng lực hay ý chí.<br />
-                Điều còn thiếu là một "bộ rễ an toàn" để bạn có thể hành động mà không còn bị nỗi sợ, sự tự nghi ngờ hay overthinking kéo lùi.
+                Bạn không thiếu năng lực hay ý chí. Điều còn thiếu là một{' '}
+                <span
+                  className="italic font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#f6d371] to-[#c9902e]"
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.15em' }}
+                >
+                  "bộ rễ an toàn"
+                </span>{' '}
+                để bạn có thể hành động<br />
+                mà không còn bị nỗi sợ, sự tự nghi ngờ hay overthinking kéo lùi.
               </p>
               <p>
-                Trong 20 phút mỗi ngày, bạn sẽ học cách làm dịu hệ thần kinh, tháo gỡ những phản ứng sợ hãi vô thức và bắt đầu sống từ sự bình an thay vì cơ chế sinh tồn.
+                Trong 20 phút mỗi ngày, bạn sẽ học cách làm dịu hệ thần kinh,<br />
+                tháo gỡ những phản ứng sợ hãi vô thức và bắt đầu sống từ sự bình an thay vì cơ chế sinh tồn.
               </p>
             </motion.div>
 
@@ -114,9 +122,25 @@ export function Hero() {
                   className="flex items-start gap-3"
                   data-testid={`bullet-hero-${idx}`}
                 >
-                  <span className="text-primary font-bold text-base mt-0.5 shrink-0">{item.icon}</span>
-                  <span className="text-white/90 font-medium text-sm sm:text-base leading-snug">
-                    {item.text}
+                  <span className="flex items-center justify-center w-[18px] h-[18px] rounded-full border border-[#c9a24d] mt-1 shrink-0">
+                    <Check className="w-2.5 h-2.5 text-[#e8c778]" strokeWidth={3} />
+                  </span>
+                  <span className="text-white/80 font-light text-sm sm:text-base leading-snug">
+                    <span
+                      className="italic font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#f6d371] to-[#c9902e]"
+                      style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.15em' }}
+                    >
+                      {item.lead}
+                    </span>
+                    {item.rest}
+                    {item.lead2 && (
+                      <span
+                        className="italic font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#f6d371] to-[#c9902e]"
+                        style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.15em' }}
+                      >
+                        {item.lead2}
+                      </span>
+                    )}
                   </span>
                 </motion.li>
               ))}
@@ -154,20 +178,17 @@ export function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden lg:flex flex-col items-end justify-center flex-shrink-0 w-72 xl:w-80"
+            className="hidden lg:flex flex-col items-end justify-center flex-shrink-0 max-w-xs xl:max-w-sm"
           >
-            <div className="relative bg-white/5 backdrop-blur-md border border-white/15 rounded-2xl px-7 py-8 text-right shadow-2xl">
-              {/* Decorative top accent */}
-              <div className="absolute top-0 right-0 w-16 h-16 rounded-tr-2xl overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-bl from-primary/30 to-transparent" />
-              </div>
-              {/* Opening quote mark */}
-              <p className="text-primary text-5xl font-serif leading-none mb-3 opacity-60">"</p>
-              <p className="font-serif italic text-white/90 text-base xl:text-lg leading-relaxed mb-5">
+            <div className="border-r-2 border-[#c9a24d] pr-6 text-right">
+              <p
+                className="italic font-medium text-white/90 text-lg xl:text-xl leading-snug mb-2.5"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
                 Không phải mọi điều quyết định cuộc đời bạn đều có thể nhìn thấy.
               </p>
-              <p className="text-primary text-xs uppercase tracking-widest font-semibold">
-                — Nga Alchemist
+              <p className="text-[#c9a24d] text-[11px] uppercase tracking-[0.2em] font-medium">
+                Nga Alchemist
               </p>
             </div>
           </motion.div>
