@@ -66,7 +66,8 @@ export function Hero() {
             {/* Eyebrow 1 — brand label */}
             <motion.p
               variants={fadeInUp}
-              className="text-xs sm:text-sm uppercase tracking-[0.22em] font-semibold text-primary mb-2"
+              className="text-xs sm:text-sm uppercase tracking-[0.22em] font-semibold mb-2"
+              style={{ color: '#C084FC' }}
             >
               Inner Safety Method™
             </motion.p>
@@ -107,8 +108,8 @@ export function Hero() {
                 mà không còn bị nỗi sợ, sự tự nghi ngờ hay overthinking kéo lùi.
               </p>
               <p>
-                Chỉ với 20 phút mỗi ngày, bạn sẽ học cách làm dịu hệ thần kinh, tháo gỡ những phản ứng sợ hãi vô thức <br />
-                và xây dựng cảm giác an toàn từ bên trong - để có thể hành động ngay cả khi chưa hết sợ.
+                Chỉ với 20 phút mỗi ngày, bạn sẽ học cách làm dịu hệ thần kinh,tháo gỡ những phản ứng <br />
+                sợ hãi vô thức và xây dựng cảm giác an toàn từ bên trong - để có thể hành động ngay cả khi chưa hết sợ.
               </p>
             </motion.div>
 
