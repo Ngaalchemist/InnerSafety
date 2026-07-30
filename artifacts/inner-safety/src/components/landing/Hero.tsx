@@ -49,8 +49,8 @@ export function Hero() {
           aria-hidden="true"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/20 to-black/0" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/5" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-black/0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -66,8 +66,7 @@ export function Hero() {
             {/* Eyebrow 1 — brand label */}
             <motion.p
               variants={fadeInUp}
-              className="text-xs sm:text-sm uppercase tracking-[0.22em] font-semibold mb-2"
-              style={{ color: '#C084FC' }}
+              className="text-xs sm:text-sm uppercase tracking-[0.22em] font-semibold text-primary mb-2"
             >
               Inner Safety Method™
             </motion.p>
@@ -77,7 +76,7 @@ export function Hero() {
               variants={fadeInUp}
               className="text-sm sm:text-base italic text-white/70 leading-relaxed mb-3 sm:mb-4"
             >
-              Dành cho những người luôn biết mình có thể sống lớn hơn... nhưng vẫn đang bị nỗi sợ vô hình giữ chân.
+              Dành cho những người luôn biết mình có nhiều giá trị hơn... nhưng vẫn chưa thể bước ra.
             </motion.p>
 
             {/* Headline — 3 tiers, 3× bigger, all-caps serif */}
@@ -86,35 +85,31 @@ export function Hero() {
               className="font-serif font-bold leading-[1.05] tracking-tight mb-4 sm:mb-5 uppercase"
               style={{ fontSize: 'clamp(2.34rem, 5.72vw, 4.68rem)', letterSpacing: '-0.02em' }}
             >
-              <span className="block" style={{ color: '#FFFFFF' }}>NGỪNG ĐỂ NỖI SỢ TIẾP TỤC</span>
-              <span
-                className="block"
-                style={{ color: '#FBBF24', textShadow: '0 0 12px rgba(251, 191, 36, 0.3)' }}
-              >
-                QUYẾT ĐỊNH CUỘC ĐỜI BẠN
-              </span>
+              <span className="text-gradient-gold block">NGỪNG ĐỂ NỖI SỢ</span>
+              <span className="text-gradient-gold block">TIẾP TỤC QUYẾT ĐỊNH</span>
+              <span className="text-gradient-gold block">CUỘC ĐỜI BẠN</span>
             </motion.h1>
 
             {/* Subheadline — two paragraphs */}
             <motion.div
               variants={fadeInUp}
-              className="space-y-2 sm:space-y-3 text-base sm:text-lg font-light leading-relaxed mb-5 sm:mb-6"
+              className="space-y-2 sm:space-y-3 text-base sm:text-lg font-light text-white/90 leading-relaxed mb-5 sm:mb-6"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              <p style={{ color: '#F3F4F6' }}>
+              <p>
                 Bạn không thiếu năng lực hay ý chí. Điều còn thiếu là một{' '}
                 <span
-                  className="italic font-semibold"
-                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.15em', color: '#FBBF24' }}
+                  className="italic font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#f6d371] to-[#c9902e]"
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.15em' }}
                 >
                   "bộ rễ an toàn"
                 </span>{' '}
                 để bạn có thể hành động<br />
                 mà không còn bị nỗi sợ, sự tự nghi ngờ hay overthinking kéo lùi.
               </p>
-              <p style={{ color: '#E5E7EB' }}>
-                Chỉ với 20 phút mỗi ngày, bạn sẽ học cách làm dịu hệ thần kinh, tháo gỡ những phản ứng sợ hãi vô thức<br />
-                và xây dựng cảm giác an toàn từ bên trong - để có thể hành động ngay cả khi chưa hết sợ.
+              <p>
+                Trong 20 phút mỗi ngày, bạn sẽ học cách làm dịu hệ thần kinh,<br />
+                tháo gỡ những phản ứng sợ hãi vô thức và bắt đầu sống từ sự bình an thay vì cơ chế sinh tồn.
               </p>
             </motion.div>
 
@@ -127,24 +122,21 @@ export function Hero() {
                   className="flex items-start gap-3"
                   data-testid={`bullet-hero-${idx}`}
                 >
-                  <span
-                    className="flex items-center justify-center w-[18px] h-[18px] rounded-full mt-1 shrink-0"
-                    style={{ border: '1px solid #F59E0B' }}
-                  >
-                    <Check className="w-2.5 h-2.5" strokeWidth={3} style={{ color: '#F59E0B' }} />
+                  <span className="flex items-center justify-center w-[18px] h-[18px] rounded-full border border-[#c9a24d] mt-1 shrink-0">
+                    <Check className="w-2.5 h-2.5 text-[#e8c778]" strokeWidth={3} />
                   </span>
-                  <span className="font-light text-sm sm:text-base leading-snug" style={{ color: '#E5E7EB' }}>
+                  <span className="text-white/80 font-light text-sm sm:text-base leading-snug">
                     <span
-                      className="italic font-semibold"
-                      style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.15em', color: '#FFFFFF' }}
+                      className="italic font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#f6d371] to-[#c9902e]"
+                      style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.15em' }}
                     >
                       {item.lead}
                     </span>
                     {item.rest}
                     {item.lead2 && (
                       <span
-                        className="italic font-semibold"
-                        style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.15em', color: '#FFFFFF' }}
+                        className="italic font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#f6d371] to-[#c9902e]"
+                        style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.15em' }}
                       >
                         {item.lead2}
                       </span>
@@ -158,14 +150,9 @@ export function Hero() {
             <motion.div variants={fadeInUp}>
               <button
                 onClick={scrollToCTA}
-                className="group inline-flex items-center gap-3 px-7 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-sm sm:text-base transition-all duration-500 hover:scale-105 w-full sm:w-auto justify-center"
+                className="group inline-flex items-center gap-3 px-7 sm:px-10 py-4 sm:py-5 rounded-full bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground font-bold text-sm sm:text-base hover:shadow-2xl hover:shadow-primary/50 transition-all duration-500 hover:scale-105 w-full sm:w-auto justify-center"
                 data-testid="button-hero-cta"
-                style={{
-                  background: 'linear-gradient(90deg, #F59E0B, #D97706)',
-                  color: '#0D0B18',
-                  fontWeight: 700,
-                  boxShadow: '0 4px 20px rgba(245, 158, 11, 0.4)',
-                }}
+                style={{ boxShadow: '0 0 32px -4px hsl(var(--primary) / 0.5)' }}
               >
                 TRẢI NGHIỆM 7 NGÀY CHỈ VỚI 111.000đ
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -176,14 +163,9 @@ export function Hero() {
                 {trustBadges.map(({ icon: Icon, label }) => (
                   <div
                     key={label}
-                    className="flex items-center gap-1.5 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-medium"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid #A1A1AA',
-                      color: '#A1A1AA',
-                    }}
+                    className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-3 py-1.5 text-white/80 text-xs font-medium"
                   >
-                    <Icon className="w-3.5 h-3.5 shrink-0" style={{ color: '#A1A1AA' }} />
+                    <Icon className="w-3.5 h-3.5 text-primary shrink-0" />
                     {label}
                   </div>
                 ))}
@@ -198,14 +180,14 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="hidden lg:flex flex-col items-end justify-center flex-shrink-0 max-w-xs xl:max-w-sm"
           >
-            <div className="pr-6 text-right" style={{ borderRight: '2px solid #F59E0B' }}>
+            <div className="border-r-2 border-[#c9a24d] pr-6 text-right">
               <p
-                className="italic font-medium text-lg xl:text-xl leading-snug mb-2.5"
-                style={{ fontFamily: "'Cormorant Garamond', serif", color: 'rgba(255, 255, 255, 0.8)' }}
+                className="italic font-medium text-white/90 text-lg xl:text-xl leading-snug mb-2.5"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
                 Không phải mọi điều quyết định cuộc đời bạn đều có thể nhìn thấy.
               </p>
-              <p className="text-[11px] uppercase tracking-[0.2em] font-medium" style={{ color: '#FBBF24' }}>
+              <p className="text-[#c9a24d] text-[11px] uppercase tracking-[0.2em] font-medium">
                 Nga Alchemist
               </p>
             </div>
