@@ -72,7 +72,7 @@ export function FAQSection() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-24 lg:py-32 relative">
+    <section id="faq" ref={sectionRef} className="py-16 sm:py-24 lg:py-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
