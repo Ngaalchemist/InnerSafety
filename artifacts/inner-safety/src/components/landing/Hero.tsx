@@ -76,7 +76,7 @@ export function Hero() {
               variants={fadeInUp}
               className="text-sm sm:text-base italic text-white/70 leading-relaxed mb-3 sm:mb-4"
             >
-              Dành cho những người luôn biết mình có nhiều giá trị hơn... nhưng vẫn chưa thể bước ra.
+              Dành cho những người luôn biết mình có thể sống lớn hơn... nhưng vẫn đang bị nỗi sợ vô hình giữ chân.
             </motion.p>
 
             {/* Headline — 3 tiers, 3× bigger, all-caps serif */}
