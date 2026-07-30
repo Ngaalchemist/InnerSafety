@@ -76,7 +76,7 @@ export function Hero() {
               variants={fadeInUp}
               className="text-sm sm:text-base italic text-white/70 leading-relaxed mb-5 sm:mb-6"
             >
-              Dành cho những người luôn biết mình có nhiều giá trị hơn... nhưng vẫn đang bị nỗi sợ vô hình giữ chân.
+              Dành cho những người luôn biết mình có nhiều giá trị hơn... nhưng vẫn chưa thể bước ra.
             </motion.p>
 
             {/* Headline — 3 tiers, 3× bigger, all-caps serif */}
@@ -85,7 +85,7 @@ export function Hero() {
               className="font-serif font-bold leading-[1.05] tracking-tight mb-5 sm:mb-6 uppercase"
               style={{ fontSize: 'clamp(2.34rem, 5.72vw, 4.68rem)', letterSpacing: '-0.02em' }}
             >
-              <span className="text-gradient-gold block">ĐỪNG ĐỂ NỖI SỢ</span>
+              <span className="text-gradient-gold block">NGỪNG ĐỂ NỖI SỢ</span>
               <span className="text-gradient-gold block">TIẾP TỤC QUYẾT ĐỊNH</span>
               <span className="text-gradient-gold block">CUỘC ĐỜI BẠN</span>
             </motion.h1>
@@ -93,8 +93,8 @@ export function Hero() {
             {/* Subheadline — two paragraphs */}
             <motion.div
               variants={fadeInUp}
-              className="space-y-4 text-base sm:text-lg font-semibold text-white/90 leading-relaxed mb-7 sm:mb-9"
-              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              className="space-y-4 text-base sm:text-lg font-light text-white/90 leading-relaxed mb-7 sm:mb-9"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               <p>
                 Bạn không thiếu năng lực hay ý chí. Điều còn thiếu là một{' '}
@@ -108,8 +108,8 @@ export function Hero() {
                 mà không còn bị nỗi sợ, sự tự nghi ngờ hay overthinking kéo lùi.
               </p>
               <p>
-                Chỉ với 20 phút mỗi ngày, bạn sẽ học cách làm dịu hệ thần kinh,tháo gỡ những phản ứng sợ hãi vô thức<br />
-                và và xây dựng cảm giác an toàn từ bên trong — để có thể hành động ngay cả khi chưa hết sợ.
+                Trong 20 phút mỗi ngày, bạn sẽ học cách làm dịu hệ thần kinh,<br />
+                tháo gỡ những phản ứng sợ hãi vô thức và bắt đầu sống từ sự bình an thay vì cơ chế sinh tồn.
               </p>
             </motion.div>
 
