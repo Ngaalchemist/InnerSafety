@@ -85,7 +85,7 @@ export function Hero() {
               className="font-serif font-bold leading-[1.05] tracking-tight mb-5 sm:mb-6 uppercase"
               style={{ fontSize: 'clamp(2.34rem, 5.72vw, 4.68rem)', letterSpacing: '-0.02em' }}
             >
-              <span className="text-gradient-gold block">NGỪNG ĐỂ NỖI SỢ</span>
+              <span className="text-gradient-gold block">ĐỪNG ĐỂ NỖI SỢ</span>
               <span className="text-gradient-gold block">TIẾP TỤC QUYẾT ĐỊNH</span>
               <span className="text-gradient-gold block">CUỘC ĐỜI BẠN</span>
             </motion.h1>
