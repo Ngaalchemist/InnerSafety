@@ -47,8 +47,7 @@ export function Hero() {
           src={cosmicTreeBg}
           alt=""
           aria-hidden="true"
-          className="absolute top-0 h-full object-cover object-center"
-          style={{ width: '150%', left: '-5%' }}
+          className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/20 to-black/0" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/5" />
@@ -198,15 +197,13 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="hidden lg:flex flex-col items-end justify-center flex-shrink-0 max-w-xs xl:max-w-sm"
-            style={{ transform: 'translateY(20vh)' }}
           >
             <div className="pr-6 text-right" style={{ borderRight: '2px solid #F59E0B' }}>
               <p
                 className="italic font-medium text-lg xl:text-xl leading-snug mb-2.5"
                 style={{ fontFamily: "'Cormorant Garamond', serif", color: 'rgba(255, 255, 255, 0.8)' }}
               >
-                Không phải mọi điều quyết định cuộc đời bạn<br />
-                đều có thể nhìn thấy.
+                Không phải mọi điều quyết định cuộc đời bạn đều có thể nhìn thấy.
               </p>
               <p className="text-[11px] uppercase tracking-[0.2em] font-medium" style={{ color: '#FBBF24' }}>
                 Nga Alchemist
