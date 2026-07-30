@@ -108,8 +108,8 @@ export function Hero() {
                 mà không còn bị nỗi sợ, sự tự nghi ngờ hay overthinking kéo lùi.
               </p>
               <p>
-                Trong 20 phút mỗi ngày, bạn sẽ học cách làm dịu hệ thần kinh,<br />
-                tháo gỡ những phản ứng sợ hãi vô thức và bắt đầu sống từ sự bình an thay vì cơ chế sinh tồn.
+                Chỉ với 20 phút mỗi ngày, bạn sẽ học cách làm dịu hệ thần kinh, tháo gỡ những phản ứng sợ hãi vô thức<br />
+                và xây dựng cảm giác an toàn từ bên trong - để có thể hành động ngay cả khi chưa hết sợ.
               </p>
             </motion.div>
 
