@@ -40,7 +40,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center overflow-hidden pt-20 pb-12 sm:pb-16">
+    <section className="relative min-h-[100dvh] flex items-center overflow-hidden pt-14 pb-8 sm:pb-10">
       {/* Full-width background image */}
       <div className="absolute inset-0 w-full h-full">
         <img
@@ -66,7 +66,7 @@ export function Hero() {
             {/* Eyebrow 1 — brand label */}
             <motion.p
               variants={fadeInUp}
-              className="text-xs sm:text-sm uppercase tracking-[0.22em] font-semibold text-primary mb-3"
+              className="text-xs sm:text-sm uppercase tracking-[0.22em] font-semibold text-primary mb-2"
             >
               Inner Safety Method™
             </motion.p>
@@ -74,7 +74,7 @@ export function Hero() {
             {/* Eyebrow 2 — audience line */}
             <motion.p
               variants={fadeInUp}
-              className="text-sm sm:text-base italic text-white/70 leading-relaxed mb-5 sm:mb-6"
+              className="text-sm sm:text-base italic text-white/70 leading-relaxed mb-3 sm:mb-4"
             >
               Dành cho những người luôn biết mình có nhiều giá trị hơn... nhưng vẫn chưa thể bước ra.
             </motion.p>
@@ -82,7 +82,7 @@ export function Hero() {
             {/* Headline — 3 tiers, 3× bigger, all-caps serif */}
             <motion.h1
               variants={fadeInUp}
-              className="font-serif font-bold leading-[1.05] tracking-tight mb-5 sm:mb-6 uppercase"
+              className="font-serif font-bold leading-[1.05] tracking-tight mb-4 sm:mb-5 uppercase"
               style={{ fontSize: 'clamp(2.34rem, 5.72vw, 4.68rem)', letterSpacing: '-0.02em' }}
             >
               <span className="text-gradient-gold block">NGỪNG ĐỂ NỖI SỢ</span>
@@ -93,7 +93,7 @@ export function Hero() {
             {/* Subheadline — two paragraphs */}
             <motion.div
               variants={fadeInUp}
-              className="space-y-4 text-base sm:text-lg font-light text-white/90 leading-relaxed mb-7 sm:mb-9"
+              className="space-y-2 sm:space-y-3 text-base sm:text-lg font-light text-white/90 leading-relaxed mb-5 sm:mb-6"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               <p>
@@ -114,7 +114,7 @@ export function Hero() {
             </motion.div>
 
             {/* Bullets */}
-            <motion.ul variants={staggerContainer} className="space-y-3 sm:space-y-4 mb-9 sm:mb-11">
+            <motion.ul variants={staggerContainer} className="space-y-2 sm:space-y-3 mb-6 sm:mb-7">
               {bullets.map((item, idx) => (
                 <motion.li
                   key={idx}
