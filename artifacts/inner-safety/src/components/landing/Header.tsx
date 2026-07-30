@@ -29,19 +29,19 @@ export function Header() {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-xs font-bold text-primary-foreground">NA</span>
+        <div className="flex items-center justify-between h-8 sm:h-10">
+          <div className="flex items-center gap-1.5">
+            <div className="w-5 h-5 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shrink-0">
+              <span className="text-[9px] font-bold text-primary-foreground">NA</span>
             </div>
-            <h1 className="text-lg sm:text-xl font-serif font-semibold tracking-tight text-foreground">
+            <h1 className="text-xs sm:text-sm font-serif font-semibold tracking-tight text-foreground">
               7 Ngày Sống Vượt Trên Nỗi Sợ
             </h1>
           </div>
           
           <button
             onClick={scrollToCTA}
-            className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground font-medium text-sm sm:text-base hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:scale-105"
+            className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground font-medium text-[11px] sm:text-xs hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:scale-105"
             data-testid="button-header-cta"
           >
             Đăng ký ngay — 111.000đ
