@@ -83,17 +83,16 @@ export function Hero() {
             <motion.h1
               variants={fadeInUp}
               className="font-serif font-bold leading-[1.05] tracking-tight mb-4 sm:mb-5 uppercase"
-              style={{ fontSize: 'clamp(2.34rem, 5.72vw, 4.68rem)', letterSpacing: '-0.02em' }}
+              style={{ fontSize: 'clamp(1.64rem, 4vw, 3.28rem)', letterSpacing: '-0.02em' }}
             >
-              <span className="text-gradient-gold block">NGỪNG ĐỂ NỖI SỢ</span>
-              <span className="text-gradient-gold block">TIẾP TỤC QUYẾT ĐỊNH</span>
-              <span className="text-gradient-gold block">CUỘC ĐỜI BẠN</span>
+              <span className="block text-white">NGỪNG ĐỂ NỖI SỢ TIẾP TỤC</span>
+              <span className="block" style={{ color: '#FBBF24' }}>QUYẾT ĐỊNH CUỘC ĐỜI BẠN</span>
             </motion.h1>
 
             {/* Subheadline — two paragraphs */}
             <motion.div
               variants={fadeInUp}
-              className="space-y-2 sm:space-y-3 text-base sm:text-lg font-light text-white/90 leading-relaxed mb-5 sm:mb-6"
+              className="space-y-2 sm:space-y-3 text-sm sm:text-base font-light text-white/90 leading-relaxed mb-5 sm:mb-6"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               <p>
@@ -150,9 +149,14 @@ export function Hero() {
             <motion.div variants={fadeInUp}>
               <button
                 onClick={scrollToCTA}
-                className="group inline-flex items-center gap-3 px-7 sm:px-10 py-4 sm:py-5 rounded-full bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground font-bold text-sm sm:text-base hover:shadow-2xl hover:shadow-primary/50 transition-all duration-500 hover:scale-105 w-full sm:w-auto justify-center"
+                className="group inline-flex items-center gap-3 px-7 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-sm sm:text-base transition-all duration-500 hover:scale-105 w-full sm:w-auto justify-center"
                 data-testid="button-hero-cta"
-                style={{ boxShadow: '0 0 32px -4px hsl(var(--primary) / 0.5)' }}
+                style={{
+                  background: 'linear-gradient(90deg, #F59E0B, #C084FC)',
+                  color: '#0D0B18',
+                  fontWeight: 700,
+                  boxShadow: '0 4px 24px rgba(245, 158, 11, 0.4)',
+                }}
               >
                 TRẢI NGHIỆM 7 NGÀY CHỈ VỚI 111.000đ
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -179,13 +183,15 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="hidden lg:flex flex-col items-end justify-center flex-shrink-0 max-w-xs xl:max-w-sm"
+            style={{ transform: 'translateY(20vh)' }}
           >
             <div className="border-r-2 border-[#c9a24d] pr-6 text-right">
               <p
                 className="italic font-medium text-white/90 text-lg xl:text-xl leading-snug mb-2.5"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
-                Không phải mọi điều quyết định cuộc đời bạn đều có thể nhìn thấy.
+                Không phải mọi điều quyết định cuộc đời bạn<br />
+                đều có thể nhìn thấy.
               </p>
               <p className="text-[#c9a24d] text-[11px] uppercase tracking-[0.2em] font-medium">
                 Nga Alchemist
