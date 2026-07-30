@@ -20,7 +20,6 @@ const bullets = [
   { lead: 'Nhận diện "gốc rễ"', rest: ' khiến bạn trì hoãn, né tránh và tự giới hạn bản thân' },
   { lead: 'Có công cụ giúp cơ thể bình tĩnh trở lại', rest: ' chỉ trong vài phút khi bị lo âu hoặc trigger.' },
   { lead: 'Tháo gỡ những niềm tin', rest: ' như "Tôi chưa đủ", "Tôi sẽ thất bại", "Tôi sẽ bị đánh giá".' },
-  { lead: 'Thực hành khoảng 20 phút trong 7 ngày', rest: ' mỗi ngày với video hướng dẫn và workbook đơn giản, dễ áp dụng' },
   { lead: 'Cài đặt lại cảm giác an toàn', rest: ' bên trong với ', lead2: 'Inner Safety Method™' },
 ];
 
@@ -84,17 +83,18 @@ export function Hero() {
             <motion.h1
               variants={fadeInUp}
               className="font-serif font-bold leading-[1.05] tracking-tight mb-5 sm:mb-6 uppercase"
-              style={{ fontSize: 'clamp(1.8rem, 4.4vw, 3.6rem)', letterSpacing: '-0.02em' }}
+              style={{ fontSize: 'clamp(2.34rem, 5.72vw, 4.68rem)', letterSpacing: '-0.02em' }}
             >
-              <span className="text-gradient-gold block">7 NGÀY</span>
-              <span className="text-white block">NGỪNG ĐỂ NỖI SỢ</span>
-              <span className="text-white/90 block">QUYẾT ĐỊNH CUỘC ĐỜI BẠN.</span>
+              <span className="text-gradient-gold block">NGỪNG ĐỂ NỖI SỢ</span>
+              <span className="text-gradient-gold block">TIẾP TỤC QUYẾT ĐỊNH</span>
+              <span className="text-gradient-gold block">CUỘC ĐỜI BẠN</span>
             </motion.h1>
 
             {/* Subheadline — two paragraphs */}
             <motion.div
               variants={fadeInUp}
               className="space-y-4 text-base sm:text-lg font-semibold text-white/90 leading-relaxed mb-7 sm:mb-9"
+              style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
               <p>
                 Bạn không thiếu năng lực hay ý chí. Điều còn thiếu là một{' '}
