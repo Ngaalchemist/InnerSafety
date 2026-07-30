@@ -76,7 +76,7 @@ export function Hero() {
               variants={fadeInUp}
               className="text-sm sm:text-base italic text-white/70 leading-relaxed mb-5 sm:mb-6"
             >
-              Dành cho những người luôn biết mình có nhiều giá trị hơn... nhưng vẫn chưa thể bước ra.
+              Dành cho những người luôn biết mình có nhiều giá trị hơn... nhưng vẫn đang bị nỗi sợ vô hình giữ chân.
             </motion.p>
 
             {/* Headline — 3 tiers, 3× bigger, all-caps serif */}
@@ -108,8 +108,8 @@ export function Hero() {
                 mà không còn bị nỗi sợ, sự tự nghi ngờ hay overthinking kéo lùi.
               </p>
               <p>
-                Trong 20 phút mỗi ngày, bạn sẽ học cách làm dịu hệ thần kinh,<br />
-                tháo gỡ những phản ứng sợ hãi vô thức và bắt đầu sống từ sự bình an thay vì cơ chế sinh tồn.
+                Chỉ với 20 phút mỗi ngày, bạn sẽ học cách làm dịu hệ thần kinh,<br />
+                tháo gỡ những phản ứng sợ hãi vô thức và và xây dựng cảm giác an toàn từ bên trong — để có thể hành động ngay cả khi chưa hết sợ.
               </p>
             </motion.div>
 
