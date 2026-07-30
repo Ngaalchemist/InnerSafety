@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Check, Clock, Zap, Users, Infinity, RefreshCcw } from 'lucide-react';
-import cosmicTreeBg from '@assets/ẢNh_cây_nền_tím_1785394971585.jpg';
+import cosmicTreeBg from '@assets/cay_tim_dich_sang_phai.jpg';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
