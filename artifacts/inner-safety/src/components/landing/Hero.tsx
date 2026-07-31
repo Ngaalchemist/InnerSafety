@@ -52,13 +52,6 @@ const PURPLE = '#C084FC';
 const GOLD = '#FBBF24';
 const INK = '#0D0B18';
 
-const navLinks = [
-  { label: 'VỀ CHƯƠNG TRÌNH', href: '#program' },
-  { label: 'CÂU CHUYỆN', href: '#story' },
-  { label: 'REVIEW', href: '#review' },
-  { label: 'FAQ', href: '#faq' },
-];
-
 const quickFacts = [
   { icon: Clock, title: '20 phút / ngày', caption: 'dễ thực hành' },
   { icon: Calendar, title: '7 ngày', caption: 'thực hành liên tục' },
@@ -103,23 +96,19 @@ export function Hero() {
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover object-center"
+          style={{ filter: 'saturate(1.35) contrast(1.12) brightness(1.05)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-black/0" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/25 to-black/0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/5" />
       </div>
 
-      {/* ── NAVBAR ── */}
-      <nav className="relative z-20 flex items-center justify-between px-4 sm:px-8 py-5">
+      {/* ── NAVBAR (sticky, no nav links) ── */}
+      <nav
+        className="sticky top-0 z-30 flex items-center justify-between px-4 sm:px-8 py-4 backdrop-blur-md"
+        style={{ backgroundColor: 'rgba(13,11,24,0.7)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
+      >
         <div className="flex items-center">
           <img src={logoImg} alt="Inner Safety Method™" className="h-8 sm:h-9 w-auto" />
-        </div>
-
-        <div className="hidden lg:flex items-center gap-8 text-xs font-medium text-white/65 tracking-wide">
-          {navLinks.map((item) => (
-            <a key={item.label} href={item.href} className="hover:text-white transition-colors">
-              {item.label}
-            </a>
-          ))}
         </div>
 
         <button
@@ -166,7 +155,16 @@ export function Hero() {
               </span>
             </motion.h1>
 
-            {/* Subheadline */}
+            {/* Subheadline 1 — new, right under the headline */}
+            <motion.p
+              variants={fadeInUp}
+              className="italic font-medium text-white/85 text-base sm:text-lg leading-snug mb-3 max-w-xl"
+              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            >
+              Dành cho người biết mình có nhiều giá trị hơn... nhưng vẫn đang bị nỗi sợ vô hình giữ chân.
+            </motion.p>
+
+            {/* Subheadline 2 — original supporting copy */}
             <motion.p
               variants={fadeInUp}
               className="text-white/80 text-sm sm:text-base leading-relaxed mb-7 max-w-xl"
@@ -183,7 +181,7 @@ export function Hero() {
             </motion.p>
 
             {/* Quick facts row */}
-            <motion.div variants={staggerContainer} className="flex flex-wrap gap-x-8 gap-y-4 mb-8">
+            <motion.div variants={staggerContainer} className="flex flex-wrap gap-x-8 gap-y-4 mb-7">
               {quickFacts.map(({ icon: Icon, title, caption }) => (
                 <motion.div variants={fadeInUp} key={title} className="flex items-center gap-2.5">
                   <Icon className="w-5 h-5 shrink-0" style={{ color: PURPLE }} />
@@ -196,7 +194,7 @@ export function Hero() {
             </motion.div>
 
             {/* Testimonial row */}
-            <motion.div variants={fadeInUp} className="flex items-center gap-4 mb-8 flex-wrap">
+            <motion.div variants={fadeInUp} className="flex items-center gap-4 mb-7 flex-wrap">
               <div className="flex -space-x-2 shrink-0">
                 {avatarInitials.map((letter, i) => (
                   <div
@@ -222,41 +220,43 @@ export function Hero() {
               </div>
             </motion.div>
 
-            {/* Pricing / CTA card */}
+            {/* Benefit row — moved up, right after the subheadlines */}
             <motion.div
-              variants={fadeInUp}
-              className="rounded-2xl border p-5 sm:p-6 max-w-md w-full"
-              style={{ borderColor: 'rgba(192,132,252,0.35)', background: 'rgba(13,11,24,0.45)' }}
+              variants={staggerContainer}
+              className="flex flex-wrap gap-x-6 gap-y-4 mb-8 pb-7 border-b border-white/10 max-w-2xl"
             >
-              <p className="text-xs font-bold tracking-wide mb-1" style={{ color: PURPLE }}>
-                TRẢI NGHIỆM 7 NGÀY
-              </p>
-              <p className="text-white/55 text-xs mb-2">CHỈ VỚI</p>
-              <div className="flex items-center gap-3 flex-wrap mb-4">
-                <span className="font-serif font-bold" style={{ color: GOLD, fontSize: '2.2rem', lineHeight: 1 }}>
-                  111.000đ
-                </span>
-                <span className="text-white/40 text-base line-through">799.000đ</span>
-                <span
-                  className="text-[11px] font-bold px-2.5 py-1 rounded-full"
-                  style={{ background: GOLD, color: INK }}
-                >
-                  TIẾT KIỆM 86%
-                </span>
-              </div>
+              {benefitCards.map(({ icon: Icon, title }) => (
+                <motion.div variants={fadeInUp} key={title} className="flex items-center gap-2 min-w-[130px]">
+                  <Icon className="w-4 h-4 shrink-0" style={{ color: PURPLE }} />
+                  <p className="text-white/85 text-xs sm:text-[13px] font-semibold leading-tight">{title}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* CTA — just the button, enlarged, no surrounding card */}
+            <motion.div variants={fadeInUp} className="max-w-lg w-full">
               <button
                 onClick={scrollToCTA}
-                className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-3.5 font-bold text-sm mb-3 transition-transform hover:scale-[1.02]"
+                className="group w-full inline-flex items-center justify-center gap-3 rounded-full py-5 sm:py-6 px-8 font-bold text-base sm:text-lg mb-5 transition-transform hover:scale-[1.02] shadow-2xl"
                 style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
                 data-testid="button-hero-cta"
               >
-                TÔI MUỐN BẮT ĐẦU 7 NGÀY NGAY!
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                TÔI MUỐN BẮT ĐẦU 7 NGÀY NGAY — CHỈ 111.000Đ
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <p className="flex items-center gap-1.5 text-white/55 text-xs">
-                <ShieldCheck className="w-3.5 h-3.5 shrink-0" style={{ color: PURPLE }} />
-                Hoàn tiền 100% trong 7 ngày nếu chương trình không phù hợp.
-              </p>
+
+              {/* Trust badges — now directly under the CTA button */}
+              <div className="flex flex-wrap gap-x-7 gap-y-3">
+                {trustStrip.map(({ icon: Icon, title, caption }) => (
+                  <div key={title} className="flex items-center gap-2">
+                    <Icon className="w-4 h-4 shrink-0" style={{ color: PURPLE }} />
+                    <div className="leading-tight">
+                      <p className="text-white text-xs font-bold">{title}</p>
+                      <p className="text-white/40 text-[11px]">{caption}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
 
@@ -282,42 +282,8 @@ export function Hero() {
             </div>
           </motion.div>
         </div>
-
-        {/* ── BENEFIT CARDS GRID ── */}
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.2 }}
-          className="mt-14 lg:mt-20 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5"
-        >
-          {benefitCards.map(({ icon: Icon, title, desc }) => (
-            <motion.div
-              variants={fadeInUp}
-              key={title}
-              className="rounded-xl border p-5 text-center sm:text-left"
-              style={{ borderColor: 'rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}
-            >
-              <Icon className="w-6 h-6 mb-3 mx-auto sm:mx-0" style={{ color: PURPLE }} />
-              <p className="text-white text-sm font-bold mb-1">{title}</p>
-              <p className="text-white/45 text-xs leading-relaxed">{desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* ── BOTTOM TRUST STRIP ── */}
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap justify-center lg:justify-between gap-y-4 gap-x-8">
-          {trustStrip.map(({ icon: Icon, title, caption }) => (
-            <div key={title} className="flex items-center gap-2">
-              <Icon className="w-4 h-4 shrink-0" style={{ color: PURPLE }} />
-              <div className="leading-tight">
-                <p className="text-white text-xs font-bold">{title}</p>
-                <p className="text-white/40 text-[11px]">{caption}</p>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
 }
+ 
