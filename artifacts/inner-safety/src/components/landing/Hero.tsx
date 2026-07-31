@@ -286,4 +286,3 @@ export function Hero() {
     </section>
   );
 }
- 
