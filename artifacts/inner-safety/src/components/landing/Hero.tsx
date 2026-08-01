@@ -51,13 +51,6 @@ const PURPLE = '#C084FC';
 const GOLD = '#FBBF24';
 const INK = '#0D0B18';
 
-const navLinks = [
-  { label: 'VỀ CHƯƠNG TRÌNH', href: '#about' },
-  { label: 'CÂU CHUYỆN', href: '#story' },
-  { label: 'REVIEW', href: '#review' },
-  { label: 'FAQ', href: '#faq' },
-];
-
 const avatarInitials = ['A', 'M', 'T', 'H'];
 
 const benefitCards = [
@@ -97,25 +90,16 @@ export function Hero() {
         />
       </div>
 
-      {/* ── NAVBAR ── */}
+      {/* ── NAVBAR (single sticky header: logo + course name + CTA only) ── */}
       <nav
         className="sticky top-0 z-30 flex items-center justify-between px-4 sm:px-8 py-4"
         style={{ backgroundColor: 'rgba(13,11,24,0.7)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
       >
-        <div className="flex items-center">
+        <div className="flex items-center gap-3">
           <img src={logoImg} alt="Inner Safety Method™" className="h-8 sm:h-9 w-auto" />
-        </div>
-
-        <div className="hidden lg:flex items-center gap-8">
-          {navLinks.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              className="text-xs font-semibold tracking-wide text-white/70 hover:text-white transition-colors"
-            >
-              {label}
-            </a>
-          ))}
+          <span className="hidden sm:inline text-white/80 text-sm font-semibold tracking-wide">
+            Inner Safety Method™
+          </span>
         </div>
 
         <button
