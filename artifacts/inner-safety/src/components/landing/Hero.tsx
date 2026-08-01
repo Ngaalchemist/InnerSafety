@@ -15,7 +15,7 @@ import {
   Footprints,
   TreePine,
 } from 'lucide-react';
-import cosmicTreeBg from '@assets/cay_tim_dich_sang_phai.jpg';
+import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
 import logoImg from '@assets/Logo_Inner_Safety_transparent.png';
 
 // Self-loads the Google Font so the elegant serif italic accents render
@@ -94,15 +94,12 @@ export function Hero() {
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover object-center"
-          style={{ filter: 'saturate(1.35) contrast(1.12) brightness(1.05)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/25 to-black/0" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/5" />
       </div>
 
       {/* ── NAVBAR ── */}
       <nav
-        className="sticky top-0 z-30 flex items-center justify-between px-4 sm:px-8 py-4 backdrop-blur-md"
+        className="sticky top-0 z-30 flex items-center justify-between px-4 sm:px-8 py-4"
         style={{ backgroundColor: 'rgba(13,11,24,0.7)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
       >
         <div className="flex items-center">
@@ -265,7 +262,7 @@ export function Hero() {
 
             {/* Pricing card */}
             <div
-              className="rounded-2xl border p-6 backdrop-blur-md"
+              className="rounded-2xl border p-6"
               style={{ borderColor: 'rgba(192,132,252,0.3)', background: 'rgba(13,11,24,0.6)' }}
             >
               <p className="text-center text-xs sm:text-sm font-semibold tracking-wide text-white/70 mb-2">
