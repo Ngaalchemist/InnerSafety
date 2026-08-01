@@ -131,7 +131,8 @@ export function Hero() {
             >
               <Shield className="w-3.5 h-3.5" style={{ color: PURPLE }} />
               <span className="text-[11px] sm:text-xs font-semibold tracking-wide" style={{ color: PURPLE }}>
-                CHƯƠNG TRÌNH THỰC HÀNH 7 NGÀY
+                Inner Safety Method™ 
+                (/br)CHƯƠNG TRÌNH THỰC HÀNH 7 NGÀY
               </span>
             </motion.div>
 
