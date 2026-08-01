@@ -3,7 +3,7 @@ import { ProblemSection } from '@/components/landing/ProblemSection';
 import { SolutionSection } from '@/components/landing/SolutionSection';
 import { CurriculumSection } from '@/components/landing/CurriculumSection';
 import { IncludedSection } from '@/components/landing/IncludedSection';
-import { TransformationSection a} from '@/components/landing/TransformationSection';
+import { TransformationSection } from '@/components/landing/TransformationSection';
 import { InstructorSection } from '@/components/landing/InstructorSection';
 import { TestimonialsSection } from '@/components/landing/TestimonialsSection';
 import { FAQSection } from '@/components/landing/FAQSection';
