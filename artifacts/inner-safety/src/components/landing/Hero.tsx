@@ -105,6 +105,39 @@ export function Hero() {
         </button>
       </nav>
 
+      {/* ── SOCIAL PROOF — floats beside/below the tree, out of the text flow ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        className="hidden md:flex absolute z-20 bottom-[8%] right-[6%] lg:right-[10%] xl:right-[14%] items-center gap-3 max-w-[280px] rounded-2xl border border-white/10 px-4 py-3"
+        style={{ background: 'rgba(13,11,24,0.55)', backdropFilter: 'blur(6px)' }}
+      >
+        <div className="flex -space-x-2 shrink-0">
+          {avatarInitials.map((letter, i) => (
+            <div
+              key={letter}
+              className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-white border-2"
+              style={{
+                background: `linear-gradient(135deg, ${GOLD}, ${PURPLE})`,
+                borderColor: INK,
+                zIndex: avatarInitials.length - i,
+              }}
+            >
+              {letter}
+            </div>
+          ))}
+        </div>
+        <div>
+          <p className="text-white text-sm font-semibold mb-0.5">
+            500+ học viên &amp; khách hàng đã đồng hành
+          </p>
+          <p className="text-white/45 text-xs leading-snug">
+            Họ đã bắt đầu hành động thay vì tiếp tục để nỗi sợ điều khiển cuộc đời.
+          </p>
+        </div>
+      </motion.div>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-6 pb-16 lg:pt-8 lg:pb-24">
         <div className="flex flex-col gap-10">
 
@@ -163,33 +196,6 @@ export function Hero() {
               <p className="text-white/45 text-sm italic leading-snug">Không cần thêm nhiều lý thuyết chữa lành.</p>
             </motion.div>
 
-            {/* Testimonial row */}
-            <motion.div variants={fadeInUp} className="flex items-center gap-4 mb-7 flex-wrap">
-              <div className="flex -space-x-2 shrink-0">
-                {avatarInitials.map((letter, i) => (
-                  <div
-                    key={letter}
-                    className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold text-white border-2"
-                    style={{
-                      background: `linear-gradient(135deg, ${GOLD}, ${PURPLE})`,
-                      borderColor: INK,
-                      zIndex: avatarInitials.length - i,
-                    }}
-                  >
-                    {letter}
-                  </div>
-                ))}
-              </div>
-              <div>
-                <p className="text-white text-sm font-semibold mb-0.5">
-                  500+ học viên &amp; khách hàng đã đồng hành
-                </p>
-                <p className="text-white/45 text-xs">
-                  Họ đã bắt đầu hành động thay vì tiếp tục để nỗi sợ điều khiển cuộc đời.
-                </p>
-              </div>
-            </motion.div>
-
             {/* Checklist */}
             <motion.ul variants={staggerContainer} className="space-y-3 max-w-xl">
               {checklist.map((item) => (
@@ -216,24 +222,23 @@ export function Hero() {
               TÔI MUỐN SỐNG KHÔNG CÒN BỊ NỖI SỢ ĐIỀU KHIỂN
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </motion.button>
+
+            {/* ── TRUST BADGES (directly under the CTA) ── */}
+            <motion.div
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+              className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5"
+            >
+              {trustStrip.map(({ icon: Icon, label }) => (
+                <motion.div variants={fadeInUp} key={label} className="flex items-center gap-2">
+                  <Icon className="w-4 h-4 shrink-0" style={{ color: PURPLE }} />
+                  <p className="text-white/70 text-xs font-semibold">{label}</p>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
         </div>
-
-        {/* ── TRUST STRIP (full width) ── */}
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 gap-x-6 mt-12 pt-8 border-t border-white/10"
-        >
-          {trustStrip.map(({ icon: Icon, label }) => (
-            <motion.div variants={fadeInUp} key={label} className="flex items-center gap-2.5">
-              <Icon className="w-5 h-5 shrink-0" style={{ color: PURPLE }} />
-              <p className="text-white text-xs font-bold">{label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
 
         {/* ── PAYMENT SECURITY LINE ── */}
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 mt-6 text-white/40 text-xs">
