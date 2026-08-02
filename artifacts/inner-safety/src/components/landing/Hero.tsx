@@ -6,7 +6,6 @@ import {
   Monitor,
   Users,
   Infinity as InfinityIcon,
-  Lock,
   Check,
 } from 'lucide-react';
 import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
@@ -238,18 +237,6 @@ export function Hero() {
               ))}
             </motion.div>
           </motion.div>
-        </div>
-
-        {/* ── PAYMENT SECURITY LINE ── */}
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 mt-6 text-white/40 text-xs">
-          <div className="flex items-center gap-1.5">
-            <Lock className="w-3.5 h-3.5" />
-            <span>Thanh toán bảo mật tuyệt đối</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span>Được bảo trợ bởi</span>
-            <span className="font-semibold text-white/60 italic">Stripe</span>
-          </div>
         </div>
       </div>
     </section>
