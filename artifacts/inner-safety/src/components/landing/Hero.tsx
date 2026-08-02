@@ -79,7 +79,7 @@ export function Hero() {
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover"
-          style={{ objectPosition: 'center 25%' }}
+          style={{ objectPosition: 'center 70%' }}
         />
       </div>
 
@@ -169,8 +169,8 @@ export function Hero() {
               style={{
                 fontFamily: "'Anton', sans-serif",
                 fontSize: 'clamp(2.2rem, 5.6vw, 4rem)',
-                lineHeight: 1.25,
-                letterSpacing: '0.015em',
+                lineHeight: 1.75,
+                letterSpacing: '1px',
               }}
             >
               <span className="block text-white">NGỪNG ĐỂ NỖI SỢ</span>
