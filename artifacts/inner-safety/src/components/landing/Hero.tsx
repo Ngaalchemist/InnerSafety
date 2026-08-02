@@ -50,7 +50,7 @@ const checklist = [
   'Ngừng overthinking trước mỗi quyết định.',
   'Bình tĩnh trở lại chỉ trong vài phút khi bị trigger.',
   'Thay thế niềm tin giới hạn bằng những niềm tin giúp bạn phát triển.',
-  'Dám xuất hiện và chia sẻ giá trị mà không còn bị nỗi sợ kéo lùi.',
+  'Dám xuất hành động dù vẫn còn sợ.',
 ];
 
 const trustStrip = [
@@ -209,8 +209,10 @@ export function Hero() {
               <span className="font-semibold" style={{ color: PURPLE }}>
                 20 phút
               </span>{' '}
-              mỗi ngày trong 7 ngày, bạn sẽ làm dịu hệ thần kinh, tháo gỡ gốc rễ của nỗi sợ, và xây
-              dựng cảm giác an toàn nội tại để chủ động, tự tin và bình tĩnh sống đúng với con người
+              mỗi ngày trong 7 ngày.
+              <br />
+              Bạn sẽ làm dịu hệ thần kinh, tháo gỡ gốc rễ của nỗi sợ, và xây
+              dựng cảm giác an toàn nội tại để sống đúng với con người
               mà mình sinh ra để trở thành.
             </motion.p>
 
@@ -242,7 +244,7 @@ export function Hero() {
               style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
               data-testid="button-hero-cta"
             >
-              TÔI MUỐN SỐNG KHÔNG CÒN BỊ NỖI SỢ ĐIỀU KHIỂN
+              TÔI MUỐN LÀM CHỦ NỖI SỢ CỦA MÌNH
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </motion.button>
 
