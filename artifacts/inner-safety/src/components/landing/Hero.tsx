@@ -7,6 +7,7 @@ import {
   Users,
   Infinity as InfinityIcon,
   Check,
+  Star,
 } from 'lucide-react';
 import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
 import logoImg from '@assets/Logo_cay_transparent.png';
@@ -77,7 +78,8 @@ export function Hero() {
           src={cosmicTreeBg}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center 25%' }}
         />
       </div>
 
@@ -163,11 +165,12 @@ export function Hero() {
             {/* Headline */}
             <motion.h1
               variants={fadeInUp}
-              className="leading-[1.05] uppercase mb-5"
+              className="uppercase mb-5"
               style={{
                 fontFamily: "'Anton', sans-serif",
                 fontSize: 'clamp(2.2rem, 5.6vw, 4rem)',
-                letterSpacing: '-0.01em',
+                lineHeight: 1.25,
+                letterSpacing: '0.015em',
               }}
             >
               <span className="block text-white">NGỪNG ĐỂ NỖI SỢ</span>
@@ -175,6 +178,23 @@ export function Hero() {
                 ĐIỀU KHIỂN CUỘC ĐỜI BẠN
               </span>
             </motion.h1>
+
+            {/* Star rating social proof — directly under headline */}
+            <motion.div variants={fadeInUp} className="flex items-center gap-2 mb-5 flex-wrap">
+              <div className="flex items-center gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4"
+                    style={{ color: PURPLE, fill: PURPLE }}
+                  />
+                ))}
+              </div>
+              <span className="text-white text-sm font-bold">4.9/5</span>
+              <span className="text-white/60 text-sm">
+                — 500+ khách hàng và học viên đã đồng hành
+              </span>
+            </motion.div>
 
             {/* Subheadline */}
             <motion.p
