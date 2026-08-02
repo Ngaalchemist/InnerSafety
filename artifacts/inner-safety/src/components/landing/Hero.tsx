@@ -2,18 +2,12 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
-  Shield,
   ShieldCheck,
   Monitor,
   Users,
-  Zap,
-  Star,
+  Infinity as InfinityIcon,
   Lock,
-  Brain,
-  Waves,
-  Unlink,
-  Footprints,
-  TreePine,
+  Check,
 } from 'lucide-react';
 import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
 import logoImg from '@assets/Logo_Inner_Safety_transparent.png';
@@ -53,19 +47,19 @@ const INK = '#0D0B18';
 
 const avatarInitials = ['A', 'M', 'T', 'H'];
 
-const benefitCards = [
-  { icon: Brain, title: 'BÌNH TĨNH KHI BỊ TRIGGER', desc: 'Làm dịu hệ thần kinh chỉ trong vài phút.' },
-  { icon: Waves, title: 'GIẢM OVERTHINKING', desc: 'Ngừng suy nghĩ lặp lại vô tận.' },
-  { icon: Unlink, title: 'THÁO GỠ NIỀM TIN GIỚI HẠN', desc: 'Giải phóng những niềm tin kéo bạn lại.' },
-  { icon: Footprints, title: 'DÁM HÀNH ĐỘNG DÙ CÒN SỢ', desc: 'Không chờ tự tin mới bắt đầu.' },
-  { icon: TreePine, title: 'XÂY GỐC RỄ AN TOÀN', desc: 'Cảm giác an toàn bền vững từ bên trong.' },
+const checklist = [
+  'Ngừng overthinking trước mỗi quyết định.',
+  'Bình tĩnh trở lại chỉ trong vài phút khi bị trigger.',
+  'Thay thế niềm tin giới hạn bằng những niềm tin giúp bạn phát triển.',
+  'Dám xuất hiện và chia sẻ giá trị mà không còn bị nỗi sợ kéo lùi.',
+  'Xây dựng cảm giác an toàn nội tại để hành động một cách tự nhiên.',
 ];
 
 const trustStrip = [
-  { icon: Monitor, title: 'HỌC ONLINE', caption: 'mọi lúc, mọi nơi' },
-  { icon: Zap, title: 'TRUY CẬP NGAY', caption: 'sau khi đăng ký' },
-  { icon: Users, title: 'CỘNG ĐỒNG RIÊNG', caption: 'hỗ trợ 24/7' },
-  { icon: ShieldCheck, title: 'HOÀN TIỀN 7 NGÀY', caption: 'nếu không phù hợp' },
+  { icon: Monitor, label: 'Học online mọi lúc mọi nơi' },
+  { icon: InfinityIcon, label: 'Truy cập trọn đời' },
+  { icon: Users, label: 'Cộng đồng riêng' },
+  { icon: ShieldCheck, label: 'Hoàn tiền 7 ngày' },
 ];
 
 export function Hero() {
@@ -92,19 +86,19 @@ export function Hero() {
 
       {/* ── NAVBAR (single sticky header: logo + course name + CTA only) ── */}
       <nav
-        className="sticky top-0 z-30 flex items-center justify-between px-4 sm:px-8 py-4"
+        className="sticky top-0 z-30 flex items-center justify-between px-4 sm:px-8 py-2"
         style={{ backgroundColor: 'rgba(13,11,24,0.7)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
       >
-        <div className="flex items-center gap-3">
-          <img src={logoImg} alt="Inner Safety Method™" className="h-8 sm:h-9 w-auto" />
-          <span className="hidden sm:inline text-white/80 text-sm font-semibold tracking-wide">
-            Inner Safety Method™
+        <div className="flex items-center gap-2.5">
+          <img src={logoImg} alt="Inner Safety Method™" className="h-6 sm:h-7 w-auto" />
+          <span className="hidden sm:inline text-white/80 text-xs font-semibold tracking-wide uppercase">
+            7 Ngày Vượt Trên Nỗi Sợ
           </span>
         </div>
 
         <button
           onClick={scrollToCTA}
-          className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-transform hover:scale-105"
+          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold transition-transform hover:scale-105"
           style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
           data-testid="button-nav-cta"
         >
@@ -113,7 +107,7 @@ export function Hero() {
         </button>
       </nav>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-10 pb-16 lg:pt-14 lg:pb-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-6 pb-16 lg:pt-8 lg:pb-24">
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 lg:gap-12">
 
           {/* ── LEFT COLUMN ── */}
@@ -123,17 +117,17 @@ export function Hero() {
             animate="animate"
             className="flex-1 lg:max-w-[58%] flex flex-col text-left"
           >
-            {/* Badge */}
-            <motion.div
-              variants={fadeInUp}
-              className="inline-flex self-start items-center gap-2 rounded-full border px-4 py-1.5 mb-5"
-              style={{ borderColor: 'rgba(192,132,252,0.4)', background: 'rgba(192,132,252,0.08)' }}
-            >
-              <Shield className="w-3.5 h-3.5" style={{ color: PURPLE }} />
-              <span className="text-[11px] sm:text-xs font-semibold tracking-wide" style={{ color: PURPLE }}>
-                Inner Safety Method™ 
-                (/br)CHƯƠNG TRÌNH THỰC HÀNH 7 NGÀY
-              </span>
+            {/* Eyebrow */}
+            <motion.div variants={fadeInUp} className="mb-4">
+              <p
+                className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] mb-1"
+                style={{ color: PURPLE }}
+              >
+                Inner Safety Method™
+              </p>
+              <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-md">
+                Chương trình thực hành 7 ngày dành cho những người biết mình sinh ra để làm nhiều điều hơn.
+              </p>
             </motion.div>
 
             {/* Headline */}
@@ -142,32 +136,30 @@ export function Hero() {
               className="font-serif font-bold leading-[1.08] uppercase mb-5"
               style={{ fontSize: 'clamp(2.2rem, 5.6vw, 4rem)', letterSpacing: '-0.02em' }}
             >
-              <span className="block text-white">XÂY CẢM GIÁC AN TOÀN</span>
-              <span className="block text-white">TỪ BÊN TRONG</span>
+              <span className="block text-white">NGỪNG ĐỂ NỖI SỢ</span>
               <span className="block" style={{ color: GOLD }}>
-                ĐỂ HÀNH ĐỘNG NGAY
-              </span>
-              <span className="block" style={{ color: GOLD }}>
-                CẢ KHI VẪN CÒN SỢ.
+                ĐIỀU KHIỂN CUỘC ĐỜI BẠN
               </span>
             </motion.h1>
 
             {/* Subheadline */}
             <motion.p
               variants={fadeInUp}
-              className="text-white/80 text-sm sm:text-base leading-relaxed mb-7 max-w-xl"
+              className="text-white/80 text-sm sm:text-base leading-relaxed mb-3 max-w-xl"
             >
               Chỉ với{' '}
               <span className="font-semibold" style={{ color: PURPLE }}>
                 20 phút
               </span>{' '}
-              mỗi ngày, bạn sẽ làm dịu hệ thần kinh, giảm overthinking và tháo gỡ niềm tin giới hạn để
-              sống{' '}
-              <span className="font-semibold" style={{ color: PURPLE }}>
-                chủ động, tự tin và bình tĩnh
-              </span>{' '}
-              trong mọi quyết định.
+              mỗi ngày trong 7 ngày, bạn sẽ làm dịu hệ thần kinh, tháo gỡ gốc rễ của nỗi sợ, và xây
+              dựng cảm giác an toàn nội tại để chủ động, tự tin và bình tĩnh sống đúng với con người
+              mà mình sinh ra để trở thành.
             </motion.p>
+
+            <motion.div variants={fadeInUp} className="mb-7">
+              <p className="text-white/45 text-sm italic leading-snug">Không cần ép bản thân tích cực.</p>
+              <p className="text-white/45 text-sm italic leading-snug">Không cần thêm nhiều lý thuyết chữa lành.</p>
+            </motion.div>
 
             {/* Testimonial row */}
             <motion.div variants={fadeInUp} className="flex items-center gap-4 mb-7 flex-wrap">
@@ -187,41 +179,29 @@ export function Hero() {
                 ))}
               </div>
               <div>
-                <div className="flex items-center gap-1.5 mb-0.5">
-                  <div className="flex items-center gap-0.5">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5" style={{ color: GOLD, fill: GOLD }} />
-                    ))}
-                  </div>
-                  <span className="text-white text-sm font-semibold ml-1">4.9/5 từ hơn 2.000 học viên</span>
-                </div>
+                <p className="text-white text-sm font-semibold mb-0.5">
+                  500+ học viên &amp; khách hàng đã đồng hành
+                </p>
                 <p className="text-white/45 text-xs">
                   Họ đã bắt đầu hành động thay vì tiếp tục để nỗi sợ điều khiển cuộc đời.
                 </p>
               </div>
             </motion.div>
 
-            {/* Benefit cards */}
-            <motion.div
-              variants={staggerContainer}
-              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 rounded-2xl border p-5 sm:p-6 max-w-2xl"
-              style={{ borderColor: 'rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)' }}
-            >
-              {benefitCards.map(({ icon: Icon, title, desc }) => (
-                <motion.div variants={fadeInUp} key={title} className="flex flex-col items-start gap-2.5">
-                  <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center border"
-                    style={{ borderColor: 'rgba(192,132,252,0.4)' }}
+            {/* Checklist */}
+            <motion.ul variants={staggerContainer} className="space-y-3 max-w-xl">
+              {checklist.map((item) => (
+                <motion.li variants={fadeInUp} key={item} className="flex items-start gap-2.5">
+                  <span
+                    className="flex items-center justify-center w-5 h-5 rounded-full border shrink-0 mt-0.5"
+                    style={{ borderColor: 'rgba(192,132,252,0.5)' }}
                   >
-                    <Icon className="w-4 h-4" style={{ color: PURPLE }} />
-                  </div>
-                  <p className="text-white text-[11px] sm:text-xs font-bold leading-tight tracking-wide">
-                    {title}
-                  </p>
-                  <p className="text-white/45 text-[11px] leading-snug">{desc}</p>
-                </motion.div>
+                    <Check className="w-3 h-3" style={{ color: PURPLE }} strokeWidth={3} />
+                  </span>
+                  <span className="text-white/85 text-sm leading-snug">{item}</span>
+                </motion.li>
               ))}
-            </motion.div>
+            </motion.ul>
           </motion.div>
 
           {/* ── RIGHT COLUMN — quote card + pricing card over the tree image ── */}
@@ -254,12 +234,12 @@ export function Hero() {
                 TRẢI NGHIỆM 7 NGÀY CHỈ VỚI
               </p>
               <div className="flex items-center justify-center gap-3 mb-1">
-                <span className="text-white/40 line-through text-sm">799.000đ</span>
+                <span className="text-white/40 line-through text-sm">1.111.000đ</span>
                 <span
                   className="text-[10px] font-bold px-2 py-0.5 rounded-full border"
                   style={{ color: GOLD, borderColor: GOLD }}
                 >
-                  TIẾT KIỆM 86%
+                  TIẾT KIỆM 90%
                 </span>
               </div>
               <p
@@ -270,16 +250,18 @@ export function Hero() {
               </p>
               <button
                 onClick={scrollToCTA}
-                className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-4 font-bold text-sm mb-3 transition-transform hover:scale-[1.02] shadow-2xl"
+                className="group w-full inline-flex flex-col items-center justify-center gap-1 rounded-full py-4 px-4 font-bold text-sm mb-3 transition-transform hover:scale-[1.02] shadow-2xl text-center"
                 style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
                 data-testid="button-hero-cta"
               >
-                TÔI MUỐN BẮT ĐẦU 7 NGÀY NGAY!
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <span className="inline-flex items-center gap-2">
+                  TÔI MUỐN SỐNG KHÔNG CÒN BỊ NỖI SỢ ĐIỀU KHIỂN
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
               </button>
-              <p className="text-center text-white/50 text-[11px] flex items-center justify-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 shrink-0" style={{ color: PURPLE }} />
-                Hoàn tiền 100% trong 7 ngày nếu chương trình không phù hợp.
+              <p className="text-center text-white/50 text-[11px] leading-relaxed">
+                Sau 7 ngày, bạn sẽ không còn chờ đến khi đủ tự tin mới bắt đầu. Bạn sẽ trở thành người
+                biết cách hành động ngay cả khi nỗi sợ vẫn còn đó.
               </p>
             </div>
           </motion.div>
@@ -294,12 +276,12 @@ export function Hero() {
                 TRẢI NGHIỆM 7 NGÀY CHỈ VỚI
               </p>
               <div className="flex items-center justify-center gap-3 mb-1">
-                <span className="text-white/40 line-through text-sm">799.000đ</span>
+                <span className="text-white/40 line-through text-sm">1.111.000đ</span>
                 <span
                   className="text-[10px] font-bold px-2 py-0.5 rounded-full border"
                   style={{ color: GOLD, borderColor: GOLD }}
                 >
-                  TIẾT KIỆM 86%
+                  TIẾT KIỆM 90%
                 </span>
               </div>
               <p className="text-center font-serif font-bold mb-5" style={{ color: GOLD, fontSize: '2.5rem' }}>
@@ -307,15 +289,15 @@ export function Hero() {
               </p>
               <button
                 onClick={scrollToCTA}
-                className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-4 font-bold text-sm mb-3 shadow-2xl"
+                className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-4 px-4 font-bold text-sm mb-3 shadow-2xl text-center"
                 style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
               >
-                TÔI MUỐN BẮT ĐẦU 7 NGÀY NGAY!
+                TÔI MUỐN SỐNG KHÔNG CÒN BỊ NỖI SỢ ĐIỀU KHIỂN
                 <ArrowRight className="w-4 h-4" />
               </button>
-              <p className="text-center text-white/50 text-[11px] flex items-center justify-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 shrink-0" style={{ color: PURPLE }} />
-                Hoàn tiền 100% trong 7 ngày nếu chương trình không phù hợp.
+              <p className="text-center text-white/50 text-[11px] leading-relaxed">
+                Sau 7 ngày, bạn sẽ không còn chờ đến khi đủ tự tin mới bắt đầu. Bạn sẽ trở thành người
+                biết cách hành động ngay cả khi nỗi sợ vẫn còn đó.
               </p>
             </div>
           </motion.div>
@@ -329,13 +311,10 @@ export function Hero() {
           viewport={{ once: true }}
           className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 gap-x-6 mt-12 pt-8 border-t border-white/10"
         >
-          {trustStrip.map(({ icon: Icon, title, caption }) => (
-            <motion.div variants={fadeInUp} key={title} className="flex items-center gap-2.5">
+          {trustStrip.map(({ icon: Icon, label }) => (
+            <motion.div variants={fadeInUp} key={label} className="flex items-center gap-2.5">
               <Icon className="w-5 h-5 shrink-0" style={{ color: PURPLE }} />
-              <div className="leading-tight">
-                <p className="text-white text-xs font-bold">{title}</p>
-                <p className="text-white/40 text-[11px]">{caption}</p>
-              </div>
+              <p className="text-white text-xs font-bold">{label}</p>
             </motion.div>
           ))}
         </motion.div>
