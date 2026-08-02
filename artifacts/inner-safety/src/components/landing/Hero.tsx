@@ -79,7 +79,11 @@ export function Hero() {
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover"
-          style={{ objectPosition: 'right 15%' }}
+          style={{
+            objectPosition: 'right 15%',
+            transform: 'scale(0.88) translateX(3%)',
+            transformOrigin: 'right center',
+          }}
         />
       </div>
 
@@ -147,7 +151,7 @@ export function Hero() {
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="flex flex-col text-left lg:max-w-2xl"
+            className="flex flex-col text-left lg:max-w-[62%]"
           >
             {/* Eyebrow */}
             <motion.div variants={fadeInUp} className="mb-4">
