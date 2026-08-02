@@ -169,7 +169,7 @@ export function Hero() {
               style={{
                 fontFamily: "'Anton', sans-serif",
                 fontSize: 'clamp(2.2rem, 5.6vw, 4rem)',
-                lineHeight: 1.75,
+                lineHeight: 1.35,
                 letterSpacing: '1px',
               }}
             >
