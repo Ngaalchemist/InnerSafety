@@ -77,11 +77,7 @@ export function Hero() {
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover"
-          style={{
-            objectPosition: 'right 15%',
-            transform: 'scale(0.88) translateX(3%)',
-            transformOrigin: 'right center',
-          }}
+          style={{ objectPosition: 'right 15%' }}
         />
       </div>
 
@@ -214,7 +210,7 @@ export function Hero() {
             <motion.button
               variants={fadeInUp}
               onClick={scrollToCTA}
-              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full py-3 px-6 font-bold text-sm mt-5 transition-transform hover:scale-[1.02] shadow-2xl text-center"
+              className="group w-full sm:w-auto self-start inline-flex items-center justify-center gap-2 rounded-full py-3 px-6 font-bold text-sm mt-5 transition-transform hover:scale-[1.02] shadow-2xl text-center"
               style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
               data-testid="button-hero-cta"
             >
