@@ -47,10 +47,10 @@ const INK = '#0D0B18';
 const avatarInitials = ['A', 'M', 'T', 'H'];
 
 const checklist = [
-  'Ngừng overthinking trước mỗi quyết định.',
-  'Bình tĩnh trở lại chỉ trong vài phút khi bị trigger.',
-  'Thay thế niềm tin giới hạn bằng những niềm tin giúp bạn phát triển.',
-  'Dám xuất hành động dù vẫn còn sợ.',
+  'Ngừng overthinking.',
+  'Bình tĩnh khi bị trigger.',
+  'Thay đổi niềm tin giới hạn.',
+  'Dám hành động dù vẫn còn sợ.',
 ];
 
 const trustStrip = [
