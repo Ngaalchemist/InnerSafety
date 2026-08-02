@@ -52,7 +52,6 @@ const checklist = [
   'Bình tĩnh trở lại chỉ trong vài phút khi bị trigger.',
   'Thay thế niềm tin giới hạn bằng những niềm tin giúp bạn phát triển.',
   'Dám xuất hiện và chia sẻ giá trị mà không còn bị nỗi sợ kéo lùi.',
-  'Xây dựng cảm giác an toàn nội tại để hành động một cách tự nhiên.',
 ];
 
 const trustStrip = [
@@ -108,14 +107,14 @@ export function Hero() {
       </nav>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-6 pb-16 lg:pt-8 lg:pb-24">
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 lg:gap-12">
+        <div className="flex flex-col gap-10">
 
-          {/* ── LEFT COLUMN ── */}
+          {/* ── MAIN COLUMN ── */}
           <motion.div
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="flex-1 lg:max-w-[58%] flex flex-col text-left"
+            className="flex flex-col text-left lg:max-w-2xl"
           >
             {/* Eyebrow */}
             <motion.div variants={fadeInUp} className="mb-4">
@@ -202,104 +201,18 @@ export function Hero() {
                 </motion.li>
               ))}
             </motion.ul>
-          </motion.div>
 
-          {/* ── RIGHT COLUMN — quote card + pricing card over the tree image ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden lg:flex lg:w-[36%] shrink-0 flex-col justify-between min-h-[520px]"
-          >
-            <div className="border-r-2 pr-6 text-right" style={{ borderColor: '#c9a24d' }}>
-              <p
-                className="italic font-medium text-white/90 text-lg xl:text-xl leading-snug mb-2.5"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              >
-                Không phải mọi điều quyết định cuộc đời bạn
-                <br />
-                đều có thể nhìn thấy.
-              </p>
-              <p className="text-[11px] uppercase tracking-[0.2em] font-medium" style={{ color: '#c9a24d' }}>
-                Nga Alchemist
-              </p>
-            </div>
-
-            {/* Pricing card */}
-            <div
-              className="rounded-2xl border p-6"
-              style={{ borderColor: 'rgba(192,132,252,0.3)', background: 'rgba(13,11,24,0.6)' }}
+            {/* ── SINGLE CTA BUTTON (no box, no price) ── */}
+            <motion.button
+              variants={fadeInUp}
+              onClick={scrollToCTA}
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full py-4 px-8 font-bold text-sm mt-8 transition-transform hover:scale-[1.02] shadow-2xl text-center"
+              style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
+              data-testid="button-hero-cta"
             >
-              <p className="text-center text-xs sm:text-sm font-semibold tracking-wide text-white/70 mb-2">
-                TRẢI NGHIỆM 7 NGÀY CHỈ VỚI
-              </p>
-              <div className="flex items-center justify-center gap-3 mb-1">
-                <span className="text-white/40 line-through text-sm">1.111.000đ</span>
-                <span
-                  className="text-[10px] font-bold px-2 py-0.5 rounded-full border"
-                  style={{ color: GOLD, borderColor: GOLD }}
-                >
-                  TIẾT KIỆM 90%
-                </span>
-              </div>
-              <p
-                className="text-center font-serif font-bold mb-5"
-                style={{ color: GOLD, fontSize: '2.75rem', lineHeight: 1 }}
-              >
-                111.000đ
-              </p>
-              <button
-                onClick={scrollToCTA}
-                className="group w-full inline-flex flex-col items-center justify-center gap-1 rounded-full py-4 px-4 font-bold text-sm mb-3 transition-transform hover:scale-[1.02] shadow-2xl text-center"
-                style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
-                data-testid="button-hero-cta"
-              >
-                <span className="inline-flex items-center gap-2">
-                  TÔI MUỐN SỐNG KHÔNG CÒN BỊ NỖI SỢ ĐIỀU KHIỂN
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </button>
-              <p className="text-center text-white/50 text-[11px] leading-relaxed">
-                Sau 7 ngày, bạn sẽ không còn chờ đến khi đủ tự tin mới bắt đầu. Bạn sẽ trở thành người
-                biết cách hành động ngay cả khi nỗi sợ vẫn còn đó.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* ── MOBILE CTA (shown only when right column is hidden) ── */}
-          <motion.div variants={fadeInUp} initial="initial" animate="animate" className="lg:hidden w-full">
-            <div
-              className="rounded-2xl border p-6"
-              style={{ borderColor: 'rgba(192,132,252,0.3)', background: 'rgba(13,11,24,0.6)' }}
-            >
-              <p className="text-center text-xs font-semibold tracking-wide text-white/70 mb-2">
-                TRẢI NGHIỆM 7 NGÀY CHỈ VỚI
-              </p>
-              <div className="flex items-center justify-center gap-3 mb-1">
-                <span className="text-white/40 line-through text-sm">1.111.000đ</span>
-                <span
-                  className="text-[10px] font-bold px-2 py-0.5 rounded-full border"
-                  style={{ color: GOLD, borderColor: GOLD }}
-                >
-                  TIẾT KIỆM 90%
-                </span>
-              </div>
-              <p className="text-center font-serif font-bold mb-5" style={{ color: GOLD, fontSize: '2.5rem' }}>
-                111.000đ
-              </p>
-              <button
-                onClick={scrollToCTA}
-                className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-4 px-4 font-bold text-sm mb-3 shadow-2xl text-center"
-                style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
-              >
-                TÔI MUỐN SỐNG KHÔNG CÒN BỊ NỖI SỢ ĐIỀU KHIỂN
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              <p className="text-center text-white/50 text-[11px] leading-relaxed">
-                Sau 7 ngày, bạn sẽ không còn chờ đến khi đủ tự tin mới bắt đầu. Bạn sẽ trở thành người
-                biết cách hành động ngay cả khi nỗi sợ vẫn còn đó.
-              </p>
-            </div>
+              TÔI MUỐN SỐNG KHÔNG CÒN BỊ NỖI SỢ ĐIỀU KHIỂN
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
           </motion.div>
         </div>
 
