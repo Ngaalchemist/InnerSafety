@@ -81,7 +81,7 @@ export function Hero() {
           className="w-full h-full object-cover"
           style={{
             objectPosition: 'right 15%',
-            transform: 'scale(0.88) translateX(3%)',
+            transform: 'scale(0.78) translateX(6%)',
             transformOrigin: 'right center',
           }}
         />
