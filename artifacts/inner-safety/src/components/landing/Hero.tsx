@@ -10,7 +10,7 @@ import {
   Check,
 } from 'lucide-react';
 import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
-import logoImg from '@assets/Logo_Inner_Safety_transparent.png';
+import logoImg from '@assets/Logo_cay_transparent.png';
 
 // Self-loads the Google Font so the elegant serif italic accents render
 // correctly even if the project's global CSS doesn't import it.
