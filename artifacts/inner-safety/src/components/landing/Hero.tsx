@@ -79,7 +79,7 @@ export function Hero() {
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover"
-          style={{ objectPosition: 'center 70%' }}
+          style={{ objectPosition: 'right 15%' }}
         />
       </div>
 
@@ -169,7 +169,7 @@ export function Hero() {
               style={{
                 fontFamily: "'Anton', sans-serif",
                 fontSize: 'clamp(2.2rem, 5.6vw, 4rem)',
-                lineHeight: 1.35,
+                lineHeight: 1.45,
                 letterSpacing: '1px',
               }}
             >
