@@ -12,17 +12,16 @@ import {
 import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
 import logoImg from '@assets/Logo_cay_transparent.png';
 
-// Self-loads the Google Font so the elegant serif italic accents render
+// Self-loads the Google Font so the bold condensed headline renders
 // correctly even if the project's global CSS doesn't import it.
-const GOOGLE_FONT_ID = 'font-cormorant-garamond';
-function useCormorantGaramondFont() {
+const GOOGLE_FONT_ID = 'font-anton';
+function useAntonFont() {
   useEffect(() => {
     if (document.getElementById(GOOGLE_FONT_ID)) return;
     const link = document.createElement('link');
     link.id = GOOGLE_FONT_ID;
     link.rel = 'stylesheet';
-    link.href =
-      'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Anton&display=swap';
     document.head.appendChild(link);
   }, []);
 }
@@ -62,7 +61,7 @@ const trustStrip = [
 ];
 
 export function Hero() {
-  useCormorantGaramondFont();
+  useAntonFont();
 
   const scrollToCTA = () => {
     const ctaSection = document.getElementById('final-cta');
@@ -132,8 +131,12 @@ export function Hero() {
             {/* Headline */}
             <motion.h1
               variants={fadeInUp}
-              className="font-serif font-bold leading-[1.08] uppercase mb-5"
-              style={{ fontSize: 'clamp(2.2rem, 5.6vw, 4rem)', letterSpacing: '-0.02em' }}
+              className="leading-[1.05] uppercase mb-5"
+              style={{
+                fontFamily: "'Anton', sans-serif",
+                fontSize: 'clamp(2.2rem, 5.6vw, 4rem)',
+                letterSpacing: '-0.01em',
+              }}
             >
               <span className="block text-white">NGỪNG ĐỂ NỖI SỢ</span>
               <span className="block" style={{ color: GOLD }}>
