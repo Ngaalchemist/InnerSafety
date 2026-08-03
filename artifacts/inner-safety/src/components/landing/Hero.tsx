@@ -146,7 +146,7 @@ export function Hero() {
       </nav>
 
       <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-2 pb-0 lg:pt-3">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-5">
+        <div className="mx-auto flex w-full flex-col gap-5">
 
           {/* ── TEXT COLUMN (eyebrow through avatar/rating) ── */}
           <motion.div
@@ -252,7 +252,7 @@ export function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-2xl p-5 w-full lg:w-[46%] shrink-0"
+              className="rounded-2xl p-4 w-full lg:w-[46%] shrink-0"
               style={{
                 border: `1px solid rgba(192,132,252,0.35)`,
                 backgroundColor: 'rgba(13,11,24,0.6)',
@@ -264,31 +264,35 @@ export function Hero() {
                   Trải nghiệm 7 ngày
                 </p>
                 <span
-                  className="text-[11px] font-bold px-2 py-0.5 rounded-full"
-                  style={{ backgroundColor: 'rgba(251,191,36,0.15)', color: GOLD }}
+                  className="text-xs font-extrabold px-2.5 py-1 rounded-full"
+                  style={{
+                    backgroundColor: 'rgba(251,191,36,0.18)',
+                    color: GOLD,
+                    border: '1px solid rgba(251,191,36,0.5)',
+                  }}
                 >
                   TIẾT KIỆM 90%
                 </span>
               </div>
-              <div className="flex items-baseline gap-2 mb-4">
+              <div className="flex items-baseline gap-2 mb-1.5">
                 <span className="text-white font-extrabold text-3xl sm:text-4xl">111.000đ</span>
                 <span className="text-white/40 text-base line-through">1.111.000đ</span>
               </div>
 
+              <p className="flex items-center gap-1.5 text-white/60 text-[11px] mb-3">
+                <ShieldCheck className="w-3.5 h-3.5 shrink-0" style={{ color: PURPLE }} />
+                Hoàn tiền 100% trong 7 ngày nếu chương trình không phù hợp.
+              </p>
+
               <button
                 onClick={scrollToCTA}
-                className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-[16px] px-6 font-bold text-sm transition-transform hover:scale-[1.02] shadow-2xl text-center"
+                className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-3 px-6 font-bold text-sm transition-transform hover:scale-[1.02] shadow-2xl text-center"
                 style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
                 data-testid="button-hero-cta"
               >
                 🔥 Tôi muốn bắt đầu 7 ngày ngay!
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-
-              <p className="flex items-center gap-1.5 text-white/50 text-[11px] mt-3">
-                <ShieldCheck className="w-3.5 h-3.5 shrink-0" style={{ color: PURPLE }} />
-                Hoàn tiền 100% trong 7 ngày nếu chương trình không phù hợp.
-              </p>
             </motion.div>
 
             {/* Feature grid — one continuous box with internal dividers, stretched to fill remaining width */}
@@ -308,9 +312,9 @@ export function Hero() {
                 <motion.div
                   variants={fadeInUp}
                   key={title}
-                  className="flex flex-1 flex-col items-center text-center gap-2.5 p-4"
+                  className="flex flex-1 flex-col items-center text-center gap-1.5 p-3"
                 >
-                  <Icon className="w-9 h-9 sm:w-10 sm:h-10 shrink-0" style={{ color: PURPLE }} strokeWidth={1.5} />
+                  <Icon className="w-7 h-7 sm:w-8 sm:h-8 shrink-0" style={{ color: PURPLE }} strokeWidth={1.5} />
                   <p className="text-white font-extrabold text-xs sm:text-[13px] uppercase tracking-wide leading-snug">
                     {title}
                   </p>
@@ -322,16 +326,16 @@ export function Hero() {
         </div>
       </div>
 
-      {/* ── BOTTOM TRUST STRIP — full-bleed bar across the entire hero width ── */}
+      {/* ── BOTTOM TRUST STRIP — same padding pattern as the row above, so edges always line up ── */}
       <div
-        className="relative z-10 mt-0"
+        className="relative z-10 px-4 sm:px-10 lg:px-12 py-6"
         style={{
           borderTop: '1px solid rgba(255,255,255,0.08)',
           backgroundColor: 'rgba(13,11,24,0.75)',
           backdropFilter: 'blur(6px)',
         }}
       >
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-10 lg:px-12 py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-5 gap-x-4">
+        <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-5 gap-x-4">
           {trustStrip.map(({ icon: Icon, label, sub }) => (
             <div key={label} className="flex items-center gap-3">
               <Icon className="w-6 h-6 shrink-0" style={{ color: PURPLE }} />
