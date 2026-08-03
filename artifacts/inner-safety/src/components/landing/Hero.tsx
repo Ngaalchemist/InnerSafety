@@ -109,14 +109,18 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: INK }}>
-      {/* Full-width background image */}
-      <div className="absolute inset-0 w-full h-full">
+      {/* Background image — scaled down so the tree reads smaller, matching the reference mockup */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
         <img
           src={cosmicTreeBg}
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover"
-          style={{ objectPosition: 'right 10%' }}
+          style={{
+            objectPosition: 'right 10%',
+            transform: 'scale(0.82)',
+            transformOrigin: 'right center',
+          }}
         />
       </div>
 
@@ -145,10 +149,10 @@ export function Hero() {
         </div>
       </nav>
 
-      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-6 pb-0 lg:pt-8">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
+      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-6 pb-8 lg:pt-8">
+        <div className="max-w-[1280px] mx-auto flex flex-col gap-5">
 
-          {/* ── MAIN COLUMN ── */}
+          {/* ── TEXT COLUMN (eyebrow through avatar/rating) ── */}
           <motion.div
             variants={staggerContainer}
             initial="initial"
@@ -242,14 +246,20 @@ export function Hero() {
                 </p>
               </div>
             </motion.div>
+          </motion.div>
 
-            {/* ── PRICE BOX + CTA ── */}
+          {/* ── PRICE BOX (left) + FEATURE GRID (right) — side by side, same row, like the mockup ── */}
+          <div className="flex flex-col lg:flex-row gap-4 lg:items-stretch">
+            {/* Price box + CTA */}
             <motion.div
-              variants={fadeInUp}
-              className="rounded-2xl p-5 max-w-md"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="rounded-2xl p-5 w-full lg:w-[360px] shrink-0"
               style={{
                 border: `1px solid rgba(192,132,252,0.35)`,
-                backgroundColor: 'rgba(13,11,24,0.55)',
+                backgroundColor: 'rgba(13,11,24,0.6)',
                 backdropFilter: 'blur(6px)',
               }}
             >
@@ -265,7 +275,7 @@ export function Hero() {
                 </span>
               </div>
               <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-white font-extrabold text-3xl sm:text-4xl">Chỉ với 111.000đ</span>
+                <span className="text-white font-extrabold text-3xl sm:text-4xl">111.000đ</span>
                 <span className="text-white/40 text-base line-through">1.111.000đ</span>
               </div>
 
@@ -284,40 +294,40 @@ export function Hero() {
                 Hoàn tiền 100% trong 7 ngày nếu chương trình không phù hợp.
               </p>
             </motion.div>
-          </motion.div>
 
-          {/* ── FEATURE GRID — 5 icons matching the reassurance outcomes ── */}
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, amount: 0.3 }}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-3 max-w-[1280px]"
-          >
-            {featureGrid.map(({ icon: Icon, title, desc }) => (
-              <motion.div
-                variants={fadeInUp}
-                key={title}
-                className="flex flex-col items-start gap-2 rounded-xl p-4"
-                style={{
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  backgroundColor: 'rgba(255,255,255,0.03)',
-                }}
-              >
-                <Icon className="w-6 h-6 shrink-0" style={{ color: PURPLE }} strokeWidth={2} />
-                <p className="text-white font-bold text-xs uppercase tracking-wide leading-snug">
-                  {title}
-                </p>
-                <p className="text-white/50 text-[11px] leading-snug">{desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+            {/* Feature grid — 5 icons matching the reassurance outcomes */}
+            <motion.div
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.3 }}
+              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 flex-1"
+            >
+              {featureGrid.map(({ icon: Icon, title, desc }) => (
+                <motion.div
+                  variants={fadeInUp}
+                  key={title}
+                  className="flex flex-col items-start gap-2 rounded-xl p-3.5"
+                  style={{
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    backgroundColor: 'rgba(255,255,255,0.03)',
+                  }}
+                >
+                  <Icon className="w-5 h-5 shrink-0" style={{ color: PURPLE }} strokeWidth={2} />
+                  <p className="text-white font-bold text-[11px] uppercase tracking-wide leading-snug">
+                    {title}
+                  </p>
+                  <p className="text-white/50 text-[10px] leading-snug">{desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
 
       {/* ── BOTTOM TRUST STRIP — full-bleed bar across the entire hero width ── */}
       <div
-        className="relative z-10 mt-8"
+        className="relative z-10 mt-6"
         style={{
           borderTop: '1px solid rgba(255,255,255,0.08)',
           backgroundColor: 'rgba(13,11,24,0.75)',
