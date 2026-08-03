@@ -153,7 +153,7 @@ export function Hero() {
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="flex flex-col text-left lg:max-w-[46%]"
+            className="flex flex-col text-left lg:max-w-[58%]"
           >
             {/* Eyebrow */}
             <motion.div variants={fadeInUp} className="mb-2">
@@ -163,7 +163,7 @@ export function Hero() {
               >
                 Inner Safety Method™
               </p>
-              <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-md">
+              <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
                 Chương trình thực hành 7 ngày dành cho những người biết mình sinh ra để làm nhiều điều hơn...nhưng vẫn đang bị nỗi sợ giữ chân.
               </p>
             </motion.div>
@@ -174,12 +174,12 @@ export function Hero() {
               className="uppercase mb-2"
               style={{
                 fontFamily: "'Anton', sans-serif",
-                fontSize: 'clamp(2rem, 5vw, 3.6rem)',
-                lineHeight: 1.25,
+                fontSize: 'clamp(2.4rem, 6.2vw, 4.4rem)',
+                lineHeight: 1.15,
                 letterSpacing: '1px',
               }}
             >
-              <span className="block text-white">NGỪNG ĐỂ NỖI SỢ</span>
+              <span className="block text-white">NGỪNG ĐỂ NỖI SỢ TIẾP TỤC</span>
               <span className="block" style={{ color: GOLD }}>
                 ĐIỀU KHIỂN CUỘC ĐỜI BẠN
               </span>
@@ -188,7 +188,7 @@ export function Hero() {
             {/* Subheadline */}
             <motion.p
               variants={fadeInUp}
-              className="text-white/80 text-sm sm:text-base leading-relaxed mb-2 max-w-md"
+              className="text-white/80 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
             >
               Chỉ với{' '}
               <span className="font-semibold" style={{ color: PURPLE }}>
