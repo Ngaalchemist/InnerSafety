@@ -6,7 +6,6 @@ import {
   Monitor,
   Users,
   Infinity as InfinityIcon,
-  Check,
   Star,
   Brain,
   RotateCcw,
@@ -148,25 +147,31 @@ export function Hero() {
       <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-2 pb-0 lg:pt-3">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-5 relative">
 
-          {/* ── QUOTE — sits over the tree image, right side, echoing the reference mockup ── */}
+          {/* ── QUOTE — sits lower, over the grass at the base of the tree, echoing the reference mockup ── */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="hidden lg:block absolute z-10 text-right"
-            style={{ top: '20%', right: '3%', maxWidth: '260px' }}
+            style={{ top: '48%', right: '4%', maxWidth: '240px' }}
           >
             <span
-              className="block text-5xl leading-none mb-1"
-              style={{ color: PURPLE, fontFamily: "'Playfair Display', serif", opacity: 0.7 }}
+              className="block text-4xl leading-none mb-1"
+              style={{ color: PURPLE, fontFamily: "'Playfair Display', serif", opacity: 0.6, fontWeight: 300 }}
             >
               &ldquo;
             </span>
             <p
-              className="italic text-white/85 text-sm leading-snug"
+              className="italic text-white/80 text-xs leading-snug font-light"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Điều thay đổi cuộc đời bạn không nằm ở những gì người khác nhìn thấy, mà ở gốc rễ bên trong bạn.
+            </p>
+            <p
+              className="text-[11px] font-semibold tracking-widest uppercase mt-2"
+              style={{ color: PURPLE }}
+            >
+              – Nga Alchemist
             </p>
           </motion.div>
 
@@ -201,9 +206,9 @@ export function Hero() {
                 letterSpacing: '1px',
               }}
             >
-              <span className="block text-white">NGỪNG ĐỂ NỖI SỢ TIẾP TỤC</span>
+              <span className="block text-white">ĐỪNG ĐỂ NỖI SỢ QUYẾT ĐỊNH</span>
               <span className="block" style={{ color: GOLD }}>
-                ĐIỀU KHIỂN CUỘC ĐỜI BẠN
+                CON NGƯỜI BẠN SẼ TRỞ THÀNH
               </span>
             </motion.h1>
 
@@ -227,7 +232,9 @@ export function Hero() {
             <motion.ul variants={staggerContainer} className="space-y-1.5 max-w-md mt-3 mb-5">
               {checklist.map((item) => (
                 <motion.li variants={fadeInUp} key={item} className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 shrink-0" style={{ color: PURPLE }} strokeWidth={3} />
+                  <span className="shrink-0 text-base leading-none" style={{ color: PURPLE }}>
+                    ✦
+                  </span>
                   <span className="font-bold text-sm leading-snug" style={{ color: '#E9D5FF' }}>
                     {item}
                   </span>
@@ -285,13 +292,13 @@ export function Hero() {
                 Trải nghiệm 7 ngày
               </p>
 
-              <div className="flex items-center flex-wrap gap-3 mb-4">
+              <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
                 <div className="flex items-baseline gap-2">
                   <span className="text-white font-extrabold text-3xl sm:text-4xl">111.000đ</span>
                   <span className="text-white/40 text-base line-through">1.111.000đ</span>
                 </div>
                 <span
-                  className="text-[11px] font-bold px-2.5 py-1 rounded-full tracking-wide"
+                  className="text-[11px] font-bold px-2.5 py-1 rounded-full tracking-wide ml-auto"
                   style={{
                     backgroundColor: 'rgba(251,191,36,0.12)',
                     color: GOLD,
@@ -308,7 +315,7 @@ export function Hero() {
                 style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
                 data-testid="button-hero-cta"
               >
-                🔥 Tôi muốn bắt đầu 7 ngày ngay!
+                🔥 Tôi muốn làm chủ nỗi sợ của mình
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </motion.div>
