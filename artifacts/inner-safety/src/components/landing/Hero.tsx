@@ -8,6 +8,12 @@ import {
   Infinity as InfinityIcon,
   Check,
   Star,
+  Brain,
+  RotateCcw,
+  Unlock,
+  Zap,
+  Sprout,
+  BookOpen,
 } from 'lucide-react';
 import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
 
@@ -44,21 +50,52 @@ const PURPLE = '#C084FC';
 const GOLD = '#FBBF24';
 const INK = '#0D0B18';
 
+// Short reassurance bullets under the subheadline
 const checklist = [
-  'Ngừng overthinking.',
-  'Bình tĩnh khi bị trigger.',
-  'Thay đổi niềm tin giới hạn.',
-  'Dám hành động dù vẫn còn sợ.',
-  'Dừng tự trách móc bản thân.',
-  'Xây "gốc rễ an toàn" bền vững.',
+  'Không cần ép bản thân.',
+  'Không cần "tích cực độc hại".',
+  'Không cần chờ đến lúc tự tin.',
 ];
 
-const trustStrip = [
-  { icon: Monitor, label: 'Học online mọi lúc mọi nơi' },
-  { icon: InfinityIcon, label: 'Truy cập trọn đời' },
-  { icon: Users, label: 'Cộng đồng riêng' },
-  { icon: ShieldCheck, label: 'Hoàn tiền 7 ngày' },
+// 5 feature icons — mirrors the 5 checklist outcomes from the reference mockup
+const featureGrid = [
+  {
+    icon: Brain,
+    title: 'Bình tĩnh khi bị trigger',
+    desc: 'Làm dịu hệ thần kinh chỉ trong vài phút.',
+  },
+  {
+    icon: RotateCcw,
+    title: 'Giảm overthinking',
+    desc: 'Ngừng suy nghĩ lặp lại vô tận.',
+  },
+  {
+    icon: Unlock,
+    title: 'Tháo gỡ niềm tin giới hạn',
+    desc: 'Giải phóng những niềm tin kéo bạn lại.',
+  },
+  {
+    icon: Zap,
+    title: 'Dám hành động dù còn sợ',
+    desc: 'Không chờ tự tin mới bắt đầu.',
+  },
+  {
+    icon: Sprout,
+    title: 'Xây gốc rễ an toàn',
+    desc: 'Cảm giác an toàn bền vững từ bên trong.',
+  },
 ];
+
+// Bottom trust strip — full-bleed bar at the base of the hero
+const trustStrip = [
+  { icon: Monitor, label: 'Học online', sub: 'mọi lúc, mọi nơi' },
+  { icon: InfinityIcon, label: 'Truy cập ngay', sub: 'sau khi đăng ký' },
+  { icon: ShieldCheck, label: 'Hoàn tiền 7 ngày', sub: 'nếu không phù hợp' },
+  { icon: Users, label: 'Cộng đồng riêng', sub: 'hỗ trợ 24/7' },
+  { icon: BookOpen, label: 'Bài học ngắn gọn', sub: 'dễ hiểu, dễ áp dụng' },
+];
+
+const AVATAR_COLORS = ['#C084FC', '#FBBF24', '#F472B6', '#60A5FA'];
 
 export function Hero() {
   useAntonFont();
@@ -83,7 +120,7 @@ export function Hero() {
         />
       </div>
 
-      {/* ── NAVBAR (single sticky header: logo + course name + CTA only) ── */}
+      {/* ── NAVBAR (unchanged: logo + course name + CTA only) ── */}
       <nav
         className="sticky top-0 z-30 px-4 sm:px-10 lg:px-12 py-2"
         style={{ backgroundColor: 'rgba(13,11,24,0.7)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
@@ -108,64 +145,7 @@ export function Hero() {
         </div>
       </nav>
 
-      {/* ── QUOTE — right side of the tree, anchored at the grass/soil line (matches reference image position): quote above ground, purple attribution below ── */}
-      <div
-        className="hidden lg:block absolute z-20 top-[43%] right-[6%] xl:right-[8%] text-left"
-        style={{ maxWidth: '280px' }}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          style={{ transform: 'translateY(-100%)' }}
-        >
-          <span className="block text-2xl leading-none mb-1" style={{ color: PURPLE }}>
-            &ldquo;
-          </span>
-          <p className="italic text-white/75 text-sm leading-snug -mt-2">
-            Điều quyết định cuộc đời bạn<br />
-            không nằm ở những gì người khác nhìn thấy, mà ở gốc rễ bên trong bạn.
-          </p>
-        </motion.div>
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-xs font-semibold tracking-wide uppercase mt-1"
-          style={{ color: PURPLE }}
-        >
-          — Nga Alchemist
-        </motion.p>
-      </div>
-
-      {/* ── TRUST STAMP — floating seal badge, centered in the gap between subheadline / checklist / tree roots ── */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8, rotate: -14 }}
-        animate={{ opacity: 1, scale: 1, rotate: -8 }}
-        transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="hidden lg:flex absolute z-20 top-[58%] left-[40%] xl:left-[42%] flex-col items-center justify-center text-center"
-        style={{
-          width: '170px',
-          height: '170px',
-          borderRadius: '9999px',
-          border: `2px solid ${PURPLE}`,
-          boxShadow: `0 0 0 5px rgba(192,132,252,0.15), 0 10px 28px rgba(0,0,0,0.45)`,
-          backgroundColor: 'rgba(13,11,24,0.6)',
-          backdropFilter: 'blur(6px)',
-        }}
-      >
-        <div className="flex items-center gap-0.5 mb-1.5">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star key={i} className="w-3.5 h-3.5" style={{ color: GOLD, fill: GOLD }} />
-          ))}
-        </div>
-        <span className="text-white font-extrabold text-2xl leading-none">4.9/5</span>
-        <span className="text-white/70 text-[9px] font-semibold uppercase tracking-wide mt-2 leading-tight px-4">
-        500+ người đã <br /> bước ra khỏi nỗi sợ
-          </span>
-      </motion.div>
-
-      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-4 pb-10 lg:pt-5 lg:pb-16">
+      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-6 pb-0 lg:pt-8">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
 
           {/* ── MAIN COLUMN ── */}
@@ -173,7 +153,7 @@ export function Hero() {
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="flex flex-col text-left lg:max-w-[65%]"
+            className="flex flex-col text-left lg:max-w-[46%]"
           >
             {/* Eyebrow */}
             <motion.div variants={fadeInUp} className="mb-2">
@@ -205,24 +185,7 @@ export function Hero() {
               </span>
             </motion.h1>
 
-            {/* Star rating — simple inline row, mobile/tablet only (the floating stamp below covers lg+) */}
-            <motion.div variants={fadeInUp} className="flex lg:hidden items-center gap-2 mb-2 flex-wrap">
-              <div className="flex items-center gap-0.5">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5"
-                    style={{ color: PURPLE, fill: PURPLE }}
-                  />
-                ))}
-              </div>
-              <span className="text-white text-base sm:text-lg font-bold">4.9/5</span>
-              <span className="text-white/70 text-base sm:text-lg">
-                — 500+ khách hàng và học viên đã đồng hành
-              </span>
-            </motion.div>
-
-            {/* Subheadline — narrower than the headline block above it, so it reads as its own layer */}
+            {/* Subheadline */}
             <motion.p
               variants={fadeInUp}
               className="text-white/80 text-sm sm:text-base leading-relaxed mb-2 max-w-md"
@@ -238,8 +201,8 @@ export function Hero() {
               mà mình sinh ra để trở thành.
             </motion.p>
 
-            {/* Checklist — plain list, no chip background, tight spacing so the CTA sits above the fold */}
-            <motion.ul variants={staggerContainer} className="space-y-1.5 max-w-md mt-3">
+            {/* Reassurance bullets — 3 short lines, plain list */}
+            <motion.ul variants={staggerContainer} className="space-y-1.5 max-w-md mt-3 mb-5">
               {checklist.map((item) => (
                 <motion.li variants={fadeInUp} key={item} className="flex items-center gap-2.5">
                   <Check className="w-4 h-4 shrink-0" style={{ color: PURPLE }} strokeWidth={3} />
@@ -250,33 +213,127 @@ export function Hero() {
               ))}
             </motion.ul>
 
-            {/* ── SINGLE CTA BUTTON (no box, no price) ── */}
-            <motion.button
-              variants={fadeInUp}
-              onClick={scrollToCTA}
-              className="group w-full sm:w-auto self-start inline-flex items-center justify-center gap-2 rounded-full py-[18px] px-9 font-bold text-sm mt-5 transition-transform hover:scale-[1.02] shadow-2xl text-center"
-              style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
-              data-testid="button-hero-cta"
-            >
-              🔥 Tôi muốn bắt đầu hành trình 7 ngày - 111.000đ
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            {/* ── AVATAR + RATING ROW ── */}
+            <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-4">
+              <div className="flex -space-x-2.5">
+                {AVATAR_COLORS.map((c, i) => (
+                  <div
+                    key={i}
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold"
+                    style={{
+                      backgroundColor: c,
+                      color: INK,
+                      border: `2px solid ${INK}`,
+                    }}
+                  >
+                    {i + 1}
+                  </div>
+                ))}
+              </div>
+              <div>
+                <div className="flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5" style={{ color: GOLD, fill: GOLD }} />
+                  ))}
+                  <span className="text-white text-xs font-bold ml-1">4.9/5 từ hơn 2.000 học viên</span>
+                </div>
+                <p className="text-white/50 text-[11px] leading-snug mt-0.5">
+                  Họ đã bắt đầu hành động thay vì tiếp tục trì hoãn vì nỗi sợ.
+                </p>
+              </div>
+            </motion.div>
 
-            {/* ── TRUST BADGES (directly under the CTA) ── */}
+            {/* ── PRICE BOX + CTA ── */}
             <motion.div
-              variants={staggerContainer}
-              initial="initial"
-              animate="animate"
-              className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4"
+              variants={fadeInUp}
+              className="rounded-2xl p-5 max-w-md"
+              style={{
+                border: `1px solid rgba(192,132,252,0.35)`,
+                backgroundColor: 'rgba(13,11,24,0.55)',
+                backdropFilter: 'blur(6px)',
+              }}
             >
-              {trustStrip.map(({ icon: Icon, label }) => (
-                <motion.div variants={fadeInUp} key={label} className="flex items-center gap-2">
-                  <Icon className="w-4 h-4 shrink-0" style={{ color: PURPLE }} />
-                  <p className="text-white/70 text-xs font-semibold">{label}</p>
-                </motion.div>
-              ))}
+              <div className="flex items-center justify-between mb-1">
+                <p className="text-white/70 text-xs font-bold uppercase tracking-wide">
+                  Trải nghiệm 7 ngày
+                </p>
+                <span
+                  className="text-[11px] font-bold px-2 py-0.5 rounded-full"
+                  style={{ backgroundColor: 'rgba(251,191,36,0.15)', color: GOLD }}
+                >
+                  TIẾT KIỆM 90%
+                </span>
+              </div>
+              <div className="flex items-baseline gap-2 mb-4">
+                <span className="text-white font-extrabold text-3xl sm:text-4xl">Chỉ với 111.000đ</span>
+                <span className="text-white/40 text-base line-through">1.111.000đ</span>
+              </div>
+
+              <button
+                onClick={scrollToCTA}
+                className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-[16px] px-6 font-bold text-sm transition-transform hover:scale-[1.02] shadow-2xl text-center"
+                style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
+                data-testid="button-hero-cta"
+              >
+                🔥 Tôi muốn bắt đầu 7 ngày ngay!
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              <p className="flex items-center gap-1.5 text-white/50 text-[11px] mt-3">
+                <ShieldCheck className="w-3.5 h-3.5 shrink-0" style={{ color: PURPLE }} />
+                Hoàn tiền 100% trong 7 ngày nếu chương trình không phù hợp.
+              </p>
             </motion.div>
           </motion.div>
+
+          {/* ── FEATURE GRID — 5 icons matching the reassurance outcomes ── */}
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.3 }}
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-3 max-w-[1280px]"
+          >
+            {featureGrid.map(({ icon: Icon, title, desc }) => (
+              <motion.div
+                variants={fadeInUp}
+                key={title}
+                className="flex flex-col items-start gap-2 rounded-xl p-4"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  backgroundColor: 'rgba(255,255,255,0.03)',
+                }}
+              >
+                <Icon className="w-6 h-6 shrink-0" style={{ color: PURPLE }} strokeWidth={2} />
+                <p className="text-white font-bold text-xs uppercase tracking-wide leading-snug">
+                  {title}
+                </p>
+                <p className="text-white/50 text-[11px] leading-snug">{desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* ── BOTTOM TRUST STRIP — full-bleed bar across the entire hero width ── */}
+      <div
+        className="relative z-10 mt-8"
+        style={{
+          borderTop: '1px solid rgba(255,255,255,0.08)',
+          backgroundColor: 'rgba(13,11,24,0.75)',
+          backdropFilter: 'blur(6px)',
+        }}
+      >
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-10 lg:px-12 py-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-4 gap-x-4">
+          {trustStrip.map(({ icon: Icon, label, sub }) => (
+            <div key={label} className="flex items-center gap-2.5">
+              <Icon className="w-5 h-5 shrink-0" style={{ color: PURPLE }} />
+              <div>
+                <p className="text-white text-xs font-bold leading-tight">{label}</p>
+                <p className="text-white/50 text-[10px] leading-tight">{sub}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
