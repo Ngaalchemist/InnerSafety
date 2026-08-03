@@ -106,17 +106,32 @@ export function Hero() {
         </div>
       </nav>
 
-      {/* ── SUBTLE QUOTE — bottom right, near the roots, no longer competing with the headline ── */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="hidden lg:block absolute z-20 bottom-[6%] right-[6%] xl:right-[9%] max-w-[200px] text-right"
+      {/* ── QUOTE — anchored right at the grass/soil line by the tree: quote sits above ground, attribution sits below in purple ── */}
+      <div
+        className="hidden lg:block absolute z-20 top-[63%] left-[60%] -translate-x-1/2 text-center"
+        style={{ maxWidth: '340px' }}
       >
-        <p className="italic text-white/40 text-xs leading-relaxed">
-          Điều quyết định cuộc đời bạn không nằm ở những gì người khác nhìn thấy, mà ở gốc rễ bên trong bạn.
-        </p>
-      </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="italic text-white/75 text-sm leading-snug mb-2"
+          style={{ transform: 'translateY(-100%)' }}
+        >
+          Điều quyết định cuộc đời bạn<br />
+          không nằm ở những gì người khác nhìn thấy,<br />
+          mà ở gốc rễ bên trong bạn.
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          className="text-xs font-semibold"
+          style={{ color: PURPLE }}
+        >
+          - Nga Alchemist
+        </motion.p>
+      </div>
 
       <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-4 pb-10 lg:pt-5 lg:pb-16">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
