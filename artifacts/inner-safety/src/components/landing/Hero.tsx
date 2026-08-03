@@ -161,7 +161,8 @@ export function Hero() {
         </div>
         <span className="text-white font-extrabold text-2xl leading-none">4.9/5</span>
         <span className="text-white/70 text-[9px] font-semibold uppercase tracking-wide mt-2 leading-tight px-4">
-          500+ khách hàng đã bắt đầu <br /> hành động thay vì tiếp tục <br /> trì hoãn vì sợ
+        500+ người đã <br /> bước ra khỏi nỗi sợ
+          </span>
       </motion.div>
 
       <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-4 pb-10 lg:pt-5 lg:pb-16">
