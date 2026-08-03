@@ -252,43 +252,47 @@ export function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-2xl p-5 w-full lg:w-[46%] shrink-0"
+              className="rounded-2xl p-4 w-full lg:w-[46%] shrink-0"
               style={{
                 border: `1px solid rgba(192,132,252,0.35)`,
                 backgroundColor: 'rgba(13,11,24,0.6)',
                 backdropFilter: 'blur(6px)',
               }}
             >
-              <div className="flex items-center justify-between mb-1">
-                <p className="text-white/70 text-xs font-bold uppercase tracking-wide">
-                  Trải nghiệm 7 ngày
-                </p>
-                <span
-                  className="text-[11px] font-bold px-2 py-0.5 rounded-full"
-                  style={{ backgroundColor: 'rgba(251,191,36,0.15)', color: GOLD }}
+              <p className="text-white/70 text-xs font-bold uppercase tracking-wide mb-2">
+                Trải nghiệm 7 ngày
+              </p>
+
+              <div className="flex items-center flex-wrap gap-3 mb-4">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-white font-extrabold text-3xl sm:text-4xl">111.000đ</span>
+                  <span className="text-white/40 text-base line-through">1.111.000đ</span>
+                </div>
+                <motion.span
+                  animate={{ scale: [1, 1.06, 1] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                  className="font-extrabold px-4 py-1.5 rounded-full leading-none"
+                  style={{
+                    fontSize: 'clamp(1.15rem, 2.6vw, 1.75rem)',
+                    backgroundColor: 'rgba(251,191,36,0.18)',
+                    color: GOLD,
+                    border: '2px solid rgba(251,191,36,0.65)',
+                    boxShadow: '0 0 24px rgba(251,191,36,0.4)',
+                  }}
                 >
                   TIẾT KIỆM 90%
-                </span>
-              </div>
-              <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-white font-extrabold text-3xl sm:text-4xl">111.000đ</span>
-                <span className="text-white/40 text-base line-through">1.111.000đ</span>
+                </motion.span>
               </div>
 
               <button
                 onClick={scrollToCTA}
-                className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-[16px] px-6 font-bold text-sm transition-transform hover:scale-[1.02] shadow-2xl text-center"
+                className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-3 px-6 font-bold text-sm transition-transform hover:scale-[1.02] shadow-2xl text-center"
                 style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
                 data-testid="button-hero-cta"
               >
                 🔥 Tôi muốn bắt đầu 7 ngày ngay!
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-
-              <p className="flex items-center gap-1.5 text-white/50 text-[11px] mt-3">
-                <ShieldCheck className="w-3.5 h-3.5 shrink-0" style={{ color: PURPLE }} />
-                Hoàn tiền 100% trong 7 ngày nếu chương trình không phù hợp.
-              </p>
             </motion.div>
 
             {/* Feature grid — one continuous box with internal dividers, stretched to fill remaining width */}
@@ -308,13 +312,13 @@ export function Hero() {
                 <motion.div
                   variants={fadeInUp}
                   key={title}
-                  className="flex flex-1 flex-col items-center text-center gap-2.5 p-4"
+                  className="flex flex-1 flex-col items-center justify-center text-center gap-1 p-2.5"
                 >
-                  <Icon className="w-9 h-9 sm:w-10 sm:h-10 shrink-0" style={{ color: PURPLE }} strokeWidth={1.5} />
-                  <p className="text-white font-extrabold text-xs sm:text-[13px] uppercase tracking-wide leading-snug">
+                  <Icon className="w-7 h-7 sm:w-8 sm:h-8 shrink-0" style={{ color: PURPLE }} strokeWidth={1.5} />
+                  <p className="text-white font-extrabold text-xs sm:text-[13px] uppercase tracking-wide leading-tight">
                     {title}
                   </p>
-                  <p className="text-white/55 text-[11px] leading-snug">{desc}</p>
+                  <p className="text-white/55 text-[10px] leading-tight">{desc}</p>
                 </motion.div>
               ))}
             </motion.div>
