@@ -83,25 +83,27 @@ export function Hero() {
 
       {/* ── NAVBAR (single sticky header: logo + course name + CTA only) ── */}
       <nav
-        className="sticky top-0 z-30 flex items-center justify-between px-4 sm:px-10 lg:px-16 py-2"
+        className="sticky top-0 z-30 px-4 sm:px-10 lg:px-12 py-2"
         style={{ backgroundColor: 'rgba(13,11,24,0.7)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
       >
-        <div className="flex items-center gap-2.5">
-          <img src={logoImg} alt="Inner Safety Method™" className="h-6 sm:h-7 w-auto" />
-          <span className="hidden sm:inline text-white/80 text-xs font-semibold tracking-wide uppercase">
-            7 Ngày Vượt Trên Nỗi Sợ
-          </span>
-        </div>
+        <div className="max-w-[1280px] mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <img src={logoImg} alt="Inner Safety Method™" className="h-6 sm:h-7 w-auto" />
+            <span className="hidden sm:inline text-white/80 text-xs font-semibold tracking-wide uppercase">
+              7 Ngày Vượt Trên Nỗi Sợ
+            </span>
+          </div>
 
-        <button
-          onClick={scrollToCTA}
-          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold transition-transform hover:scale-105"
-          style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
-          data-testid="button-nav-cta"
-        >
-          ĐĂNG KÝ NGAY
-          <ArrowRight className="w-3.5 h-3.5" />
-        </button>
+          <button
+            onClick={scrollToCTA}
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold transition-transform hover:scale-105"
+            style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
+            data-testid="button-nav-cta"
+          >
+            ĐĂNG KÝ NGAY
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
       </nav>
 
       {/* ── SUBTLE QUOTE — bottom right, near the roots, no longer competing with the headline ── */}
@@ -116,15 +118,15 @@ export function Hero() {
         </p>
       </motion.div>
 
-      <div className="px-4 sm:px-10 lg:px-16 relative z-10 pt-6 pb-16 lg:pt-8 lg:pb-24">
-        <div className="flex flex-col gap-10">
+      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-6 pb-16 lg:pt-8 lg:pb-24">
+        <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
 
           {/* ── MAIN COLUMN ── */}
           <motion.div
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="flex flex-col text-left lg:max-w-[58%]"
+            className="flex flex-col text-left lg:max-w-[55%]"
           >
             {/* Eyebrow */}
             <motion.div variants={fadeInUp} className="mb-3">
