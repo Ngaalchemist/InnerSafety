@@ -104,19 +104,19 @@ export function Hero() {
         </button>
       </nav>
 
-      {/* ── SUBTLE QUOTE — right side of the tree ── */}
+      {/* ── SUBTLE QUOTE — bottom right, near the roots, no longer competing with the headline ── */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="hidden lg:block absolute z-20 top-[38%] right-[6%] xl:right-[9%] max-w-[240px] text-right"
+        className="hidden lg:block absolute z-20 bottom-[6%] right-[6%] xl:right-[9%] max-w-[200px] text-right"
       >
-        <p className="italic text-white/60 text-sm leading-relaxed">
+        <p className="italic text-white/40 text-xs leading-relaxed">
           Điều quyết định cuộc đời bạn không nằm ở những gì người khác nhìn thấy, mà ở gốc rễ bên trong bạn.
         </p>
       </motion.div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-6 pb-16 lg:pt-8 lg:pb-24">
+      <div className="px-4 sm:px-10 lg:px-16 relative z-10 pt-6 pb-16 lg:pt-8 lg:pb-24">
         <div className="flex flex-col gap-10">
 
           {/* ── MAIN COLUMN ── */}
@@ -124,7 +124,7 @@ export function Hero() {
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="flex flex-col text-left lg:max-w-[62%] lg:pl-[12%]"
+            className="flex flex-col text-left lg:max-w-[58%]"
           >
             {/* Eyebrow */}
             <motion.div variants={fadeInUp} className="mb-3">
@@ -173,10 +173,10 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Subheadline */}
+            {/* Subheadline — narrower than the headline block above it, so it reads as its own layer */}
             <motion.p
               variants={fadeInUp}
-              className="text-white/80 text-sm sm:text-base leading-relaxed mb-2 max-w-xl"
+              className="text-white/80 text-sm sm:text-base leading-relaxed mb-2 max-w-md"
             >
               Chỉ với{' '}
               <span className="font-semibold" style={{ color: PURPLE }}>
@@ -189,13 +189,21 @@ export function Hero() {
               mà mình sinh ra để trở thành.
             </motion.p>
 
-            {/* Checklist */}
-            <motion.ul variants={staggerContainer} className="space-y-2 max-w-xl mt-3">
+            {/* Checklist — each item is its own chip/card (like Kimedia), not plain stacked text */}
+            <motion.ul variants={staggerContainer} className="space-y-2.5 max-w-md mt-6">
               {checklist.map((item) => (
-                <motion.li variants={fadeInUp} key={item} className="flex items-start gap-2.5">
+                <motion.li
+                  variants={fadeInUp}
+                  key={item}
+                  className="flex items-center gap-2.5 rounded-full border px-4 py-2.5"
+                  style={{
+                    backgroundColor: 'rgba(255,255,255,0.05)',
+                    borderColor: 'rgba(255,255,255,0.08)',
+                  }}
+                >
                   <span
-                    className="flex items-center justify-center w-5 h-5 rounded-full border shrink-0 mt-0.5"
-                    style={{ borderColor: 'rgba(192,132,252,0.5)' }}
+                    className="flex items-center justify-center w-5 h-5 rounded-full shrink-0"
+                    style={{ backgroundColor: 'rgba(192,132,252,0.15)' }}
                   >
                     <Check className="w-3 h-3" style={{ color: PURPLE }} strokeWidth={3} />
                   </span>
@@ -210,7 +218,7 @@ export function Hero() {
             <motion.button
               variants={fadeInUp}
               onClick={scrollToCTA}
-              className="group w-full sm:w-auto self-start inline-flex items-center justify-center gap-2 rounded-full py-3 px-6 font-bold text-sm mt-5 transition-transform hover:scale-[1.02] shadow-2xl text-center"
+              className="group w-full sm:w-auto self-start inline-flex items-center justify-center gap-2 rounded-full py-3 px-6 font-bold text-sm mt-7 transition-transform hover:scale-[1.02] shadow-2xl text-center"
               style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
               data-testid="button-hero-cta"
             >
@@ -223,7 +231,7 @@ export function Hero() {
               variants={staggerContainer}
               initial="initial"
               animate="animate"
-              className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4"
+              className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5"
             >
               {trustStrip.map(({ icon: Icon, label }) => (
                 <motion.div variants={fadeInUp} key={label} className="flex items-center gap-2">
