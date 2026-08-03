@@ -119,7 +119,7 @@ export function Hero() {
           style={{
             objectPosition: 'right 10%',
             transform: 'scale(0.82)',
-            transformOrigin: 'right center',
+            transformOrigin: 'top right',
           }}
         />
       </div>
@@ -150,7 +150,7 @@ export function Hero() {
       </nav>
 
       <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-6 pb-8 lg:pt-8">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-5">
+        <div className="w-full flex flex-col gap-5">
 
           {/* ── TEXT COLUMN (eyebrow through avatar/rating) ── */}
           <motion.div
@@ -301,13 +301,13 @@ export function Hero() {
               initial="initial"
               whileInView="animate"
               viewport={{ once: true, amount: 0.3 }}
-              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 flex-1"
+              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 auto-rows-fr gap-3 flex-1"
             >
               {featureGrid.map(({ icon: Icon, title, desc }) => (
                 <motion.div
                   variants={fadeInUp}
                   key={title}
-                  className="flex flex-col items-center text-center gap-3 rounded-xl p-5"
+                  className="h-full flex flex-col items-center justify-center text-center gap-3 rounded-xl p-5"
                   style={{
                     border: '1px solid rgba(192,132,252,0.18)',
                     backgroundColor: 'rgba(255,255,255,0.03)',
@@ -334,7 +334,7 @@ export function Hero() {
           backdropFilter: 'blur(6px)',
         }}
       >
-        <div className="w-full px-4 sm:px-10 lg:px-16 py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-5 gap-x-4">
+        <div className="w-full px-4 sm:px-10 lg:px-12 py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-5 gap-x-4">
           {trustStrip.map(({ icon: Icon, label, sub }) => (
             <div key={label} className="flex items-center gap-3">
               <Icon className="w-6 h-6 shrink-0" style={{ color: PURPLE }} />
