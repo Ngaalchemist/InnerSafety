@@ -161,9 +161,9 @@ export function Hero() {
         </div>
         <span className="text-white font-extrabold text-2xl leading-none">4.9/5</span>
         <span className="text-white/70 text-[9px] font-semibold uppercase tracking-wide mt-2 leading-tight px-4">
-          500+ khách hàng và
+          500+ khách hàng và 
           <br />
-          học viên đã đồng hành
+          học viên đã bắt đầu<br /> hành động thay vì<br /> tiếp tục trì hoãn <br /> vì nỗi sợ
         </span>
       </motion.div>
 
