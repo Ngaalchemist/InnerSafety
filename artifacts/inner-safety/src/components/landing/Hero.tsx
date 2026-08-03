@@ -122,7 +122,8 @@ export function Hero() {
           </span>
           <p className="italic text-white/75 text-sm leading-snug -mt-2">
             Điều quyết định cuộc đời bạn<br />
-            không nằm ở những gì người khác nhìn thấy, mà ở gốc rễ bên trong bạn.
+            không nằm ở những gì người khác nhìn thấy,<br />
+            mà ở gốc rễ bên trong bạn.
           </p>
         </motion.div>
         <motion.p
@@ -225,7 +226,7 @@ export function Hero() {
             <motion.button
               variants={fadeInUp}
               onClick={scrollToCTA}
-              className="group w-full sm:w-auto self-start inline-flex items-center justify-center gap-2 rounded-full py-3 px-6 font-bold text-sm mt-5 transition-transform hover:scale-[1.02] shadow-2xl text-center"
+              className="group w-full sm:w-auto self-start inline-flex items-center justify-center gap-2 rounded-full py-[18px] px-9 font-bold text-sm mt-5 transition-transform hover:scale-[1.02] shadow-2xl text-center"
               style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
               data-testid="button-hero-cta"
             >
