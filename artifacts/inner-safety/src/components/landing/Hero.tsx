@@ -49,6 +49,8 @@ const checklist = [
   'Bình tĩnh khi bị trigger.',
   'Thay đổi niềm tin giới hạn.',
   'Dám hành động dù vẫn còn sợ.',
+  'Dừng tự trách móc bản thân.',
+  'Xây "gốc rễ an toàn" bền vững.',
 ];
 
 const trustStrip = [
@@ -77,7 +79,7 @@ export function Hero() {
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover"
-          style={{ objectPosition: 'right 30%' }}
+          style={{ objectPosition: 'right 10%' }}
         />
       </div>
 
@@ -137,15 +139,15 @@ export function Hero() {
         </motion.p>
       </div>
 
-      {/* ── TRUST STAMP — floating seal badge bridging the empty gap between the text column and the tree ── */}
+      {/* ── TRUST STAMP — floating seal badge, centered in the gap between subheadline / checklist / tree roots ── */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8, rotate: -14 }}
         animate={{ opacity: 1, scale: 1, rotate: -8 }}
         transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="hidden lg:flex absolute z-20 top-[44%] left-[54%] xl:left-[57%] flex-col items-center justify-center text-center"
+        className="hidden lg:flex absolute z-20 top-[52%] left-[66%] xl:left-[68%] flex-col items-center justify-center text-center"
         style={{
-          width: '150px',
-          height: '150px',
+          width: '170px',
+          height: '170px',
           borderRadius: '9999px',
           border: `2px solid ${PURPLE}`,
           boxShadow: `0 0 0 5px rgba(192,132,252,0.15), 0 10px 28px rgba(0,0,0,0.45)`,
@@ -159,10 +161,10 @@ export function Hero() {
           ))}
         </div>
         <span className="text-white font-extrabold text-2xl leading-none">4.9/5</span>
-        <span className="text-white/70 text-[10px] font-semibold uppercase tracking-wide mt-2 leading-tight px-3">
-          500+ học viên
+        <span className="text-white/70 text-[9px] font-semibold uppercase tracking-wide mt-2 leading-tight px-4">
+          500+ khách hàng và
           <br />
-          đã đồng hành
+          học viên đã đồng hành
         </span>
       </motion.div>
 
@@ -174,7 +176,7 @@ export function Hero() {
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="flex flex-col text-left lg:max-w-[55%]"
+            className="flex flex-col text-left lg:max-w-[65%]"
           >
             {/* Eyebrow */}
             <motion.div variants={fadeInUp} className="mb-2">
@@ -259,7 +261,7 @@ export function Hero() {
               style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
               data-testid="button-hero-cta"
             >
-              TÔI MUỐN LÀM CHỦ NỖI SỢ CỦA MÌNH
+              🔥 Tôi muốn bắt đầu hành trình 7 ngày - 111.000đ
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </motion.button>
 
