@@ -122,8 +122,7 @@ export function Hero() {
           </span>
           <p className="italic text-white/75 text-sm leading-snug -mt-2">
             Điều quyết định cuộc đời bạn<br />
-            không nằm ở những gì người khác nhìn thấy,<br />
-            mà ở gốc rễ bên trong bạn.
+            không nằm ở những gì người khác nhìn thấy, mà ở gốc rễ bên trong bạn.
           </p>
         </motion.div>
         <motion.p
