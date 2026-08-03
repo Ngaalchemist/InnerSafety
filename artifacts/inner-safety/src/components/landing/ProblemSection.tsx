@@ -90,7 +90,7 @@ export function ProblemSection() {
             className={`${T_DISPLAY} text-gradient-gold mb-6`}
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Có Phải Nỗi Sợ Đang Lặng Lẽ Quyết Định Cuộc Đời Bạn?
+            Có Phải Nỗi Sợ Đang Lặng Lẽ <br />Quyết Định Cuộc Đời Bạn?
             
           </h2>
 
