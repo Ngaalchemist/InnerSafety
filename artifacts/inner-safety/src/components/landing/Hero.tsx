@@ -116,11 +116,7 @@ export function Hero() {
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover"
-          style={{
-            objectPosition: 'right 10%',
-            transform: 'scale(0.82)',
-            transformOrigin: 'right center',
-          }}
+          style={{ objectPosition: 'right center' }}
         />
       </div>
 
@@ -149,7 +145,7 @@ export function Hero() {
         </div>
       </nav>
 
-      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-6 pb-8 lg:pt-8">
+      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-2 pb-8 lg:pt-3">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-5">
 
           {/* ── TEXT COLUMN (eyebrow through avatar/rating) ── */}
@@ -256,7 +252,7 @@ export function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-2xl p-5 w-full lg:w-[360px] shrink-0"
+              className="rounded-2xl p-5 w-full lg:w-[46%] shrink-0"
               style={{
                 border: `1px solid rgba(192,132,252,0.35)`,
                 backgroundColor: 'rgba(13,11,24,0.6)',
@@ -295,29 +291,30 @@ export function Hero() {
               </p>
             </motion.div>
 
-            {/* Feature grid — 5 icons matching the reassurance outcomes */}
+            {/* Feature grid — one continuous box with internal dividers, stretched to fill remaining width */}
             <motion.div
               variants={staggerContainer}
               initial="initial"
               whileInView="animate"
               viewport={{ once: true, amount: 0.3 }}
-              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 flex-1"
+              className="flex-1 rounded-2xl overflow-hidden flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-[rgba(192,132,252,0.18)]"
+              style={{
+                border: '1px solid rgba(192,132,252,0.35)',
+                backgroundColor: 'rgba(13,11,24,0.6)',
+                backdropFilter: 'blur(6px)',
+              }}
             >
               {featureGrid.map(({ icon: Icon, title, desc }) => (
                 <motion.div
                   variants={fadeInUp}
                   key={title}
-                  className="flex flex-col items-center text-center gap-3 rounded-xl p-5"
-                  style={{
-                    border: '1px solid rgba(192,132,252,0.18)',
-                    backgroundColor: 'rgba(255,255,255,0.03)',
-                  }}
+                  className="flex flex-1 flex-col items-center text-center gap-2.5 p-4"
                 >
-                  <Icon className="w-10 h-10 sm:w-11 sm:h-11 shrink-0" style={{ color: PURPLE }} strokeWidth={1.5} />
-                  <p className="text-white font-extrabold text-sm sm:text-[15px] uppercase tracking-wide leading-snug">
+                  <Icon className="w-9 h-9 sm:w-10 sm:h-10 shrink-0" style={{ color: PURPLE }} strokeWidth={1.5} />
+                  <p className="text-white font-extrabold text-xs sm:text-[13px] uppercase tracking-wide leading-snug">
                     {title}
                   </p>
-                  <p className="text-white/55 text-xs leading-snug">{desc}</p>
+                  <p className="text-white/55 text-[11px] leading-snug">{desc}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -334,7 +331,7 @@ export function Hero() {
           backdropFilter: 'blur(6px)',
         }}
       >
-        <div className="w-full px-4 sm:px-10 lg:px-16 py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-5 gap-x-4">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-10 lg:px-12 py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-5 gap-x-4">
           {trustStrip.map(({ icon: Icon, label, sub }) => (
             <div key={label} className="flex items-center gap-3">
               <Icon className="w-6 h-6 shrink-0" style={{ color: PURPLE }} />
