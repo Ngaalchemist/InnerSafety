@@ -206,9 +206,9 @@ export function Hero() {
                 letterSpacing: '1px',
               }}
             >
-              <span className="block text-white">ĐỪNG ĐỂ NỖI SỢ</span>
+              <span className="block text-white">ĐỪNG ĐỂ NỖI SỢ QUYẾT ĐỊNH</span>
               <span className="block" style={{ color: GOLD }}>
-                QUYẾT ĐỊNH CON NGƯỜI BẠN SẼ TRỞ THÀNH
+                CON NGƯỜI BẠN SẼ TRỞ THÀNH
               </span>
             </motion.h1>
 
