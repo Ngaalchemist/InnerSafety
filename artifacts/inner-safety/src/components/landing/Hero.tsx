@@ -264,7 +264,7 @@ export function Hero() {
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} className="w-3.5 h-3.5" style={{ color: GOLD, fill: GOLD }} />
                   ))}
-                  <span className="text-white text-xs font-bold ml-1">4.9/5 từ hơn 2.000 học viên</span>
+                  <span className="text-white text-xs font-bold ml-1">4.9/5 từ hơn 500+ khách hàng</span>
                 </div>
                 <p className="text-white/50 text-[11px] leading-snug mt-0.5">
                   Họ đã bắt đầu hành động thay vì tiếp tục trì hoãn vì nỗi sợ.
