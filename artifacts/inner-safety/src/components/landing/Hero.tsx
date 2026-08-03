@@ -307,17 +307,17 @@ export function Hero() {
                 <motion.div
                   variants={fadeInUp}
                   key={title}
-                  className="flex flex-col items-start gap-2 rounded-xl p-3.5"
+                  className="flex flex-col items-center text-center gap-3 rounded-xl p-5"
                   style={{
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    border: '1px solid rgba(192,132,252,0.18)',
                     backgroundColor: 'rgba(255,255,255,0.03)',
                   }}
                 >
-                  <Icon className="w-5 h-5 shrink-0" style={{ color: PURPLE }} strokeWidth={2} />
-                  <p className="text-white font-bold text-[11px] uppercase tracking-wide leading-snug">
+                  <Icon className="w-10 h-10 sm:w-11 sm:h-11 shrink-0" style={{ color: PURPLE }} strokeWidth={1.5} />
+                  <p className="text-white font-extrabold text-sm sm:text-[15px] uppercase tracking-wide leading-snug">
                     {title}
                   </p>
-                  <p className="text-white/50 text-[10px] leading-snug">{desc}</p>
+                  <p className="text-white/55 text-xs leading-snug">{desc}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -334,13 +334,13 @@ export function Hero() {
           backdropFilter: 'blur(6px)',
         }}
       >
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-10 lg:px-12 py-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-4 gap-x-4">
+        <div className="w-full px-4 sm:px-10 lg:px-16 py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-5 gap-x-4">
           {trustStrip.map(({ icon: Icon, label, sub }) => (
-            <div key={label} className="flex items-center gap-2.5">
-              <Icon className="w-5 h-5 shrink-0" style={{ color: PURPLE }} />
+            <div key={label} className="flex items-center gap-3">
+              <Icon className="w-6 h-6 shrink-0" style={{ color: PURPLE }} />
               <div>
-                <p className="text-white text-xs font-bold leading-tight">{label}</p>
-                <p className="text-white/50 text-[10px] leading-tight">{sub}</p>
+                <p className="text-white text-sm font-bold leading-tight">{label}</p>
+                <p className="text-white/50 text-xs leading-tight">{sub}</p>
               </div>
             </div>
           ))}
