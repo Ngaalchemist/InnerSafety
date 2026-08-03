@@ -147,34 +147,6 @@ export function Hero() {
       <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-2 pb-0 lg:pt-3">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-5 relative">
 
-          {/* ── QUOTE — sits lower, over the grass at the base of the tree, echoing the reference mockup ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden lg:block absolute z-10 text-right"
-            style={{ top: '28%', right: '2%', maxWidth: '220px' }}
-          >
-            <span
-              className="block text-4xl leading-none mb-1"
-              style={{ color: PURPLE, fontFamily: "'Playfair Display', serif", opacity: 0.6, fontWeight: 300 }}
-            >
-              &ldquo;
-            </span>
-            <p
-              className="italic text-white/80 text-xs leading-snug font-light"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Điều thay đổi cuộc đời bạn không nằm ở những gì người khác nhìn thấy, mà ở gốc rễ bên trong bạn.
-            </p>
-            <p
-              className="text-[11px] font-semibold tracking-widest uppercase mt-2"
-              style={{ color: PURPLE }}
-            >
-              – Nga Alchemist
-            </p>
-          </motion.div>
-
           {/* ── TEXT COLUMN (eyebrow through avatar/rating) ── */}
           <motion.div
             variants={staggerContainer}
