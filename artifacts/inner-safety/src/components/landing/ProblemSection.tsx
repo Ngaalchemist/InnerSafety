@@ -95,12 +95,11 @@ export function ProblemSection() {
           </h2>
 
           <div className={`max-w-3xl mx-auto ${LINE_GAP} ${T_BODY} text-foreground/80`}>
-            <p>Có thể bạn nghĩ mình chỉ đang lo lắng.</p>
+            <p>Bạn có thể nghĩ mình chỉ đang lo lắng.</p>
             <p>
               Nhưng có một sự thật mà rất ít người nhận ra:{' '}
               <strong className="text-foreground">
-                rất nhiều quyết định trong cuộc đời chúng ta không được đưa ra từ sự bình an — mà từ
-                những nỗi sợ vô hình.
+                rất nhiều quyết định trong cuộc đời chúng ta kkhông xuất phát từ điều mình thật sự mong muốn, mà từ nỗi sợ đang âm thầm điều khiển bên trong.
               </strong>
             </p>
           </div>
