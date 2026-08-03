@@ -145,7 +145,7 @@ export function Hero() {
         </div>
       </nav>
 
-      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-2 pb-8 lg:pt-3">
+      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-2 pb-0 lg:pt-3">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-5">
 
           {/* ── TEXT COLUMN (eyebrow through avatar/rating) ── */}
@@ -324,7 +324,7 @@ export function Hero() {
 
       {/* ── BOTTOM TRUST STRIP — full-bleed bar across the entire hero width ── */}
       <div
-        className="relative z-10 mt-6"
+        className="relative z-10 mt-0"
         style={{
           borderTop: '1px solid rgba(255,255,255,0.08)',
           backgroundColor: 'rgba(13,11,24,0.75)',
