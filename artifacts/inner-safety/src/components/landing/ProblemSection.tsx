@@ -36,28 +36,28 @@ const LINE_GAP = 'space-y-4 sm:space-y-5';
 
 const fears = [
   {
-    title: 'Sợ không đủ.',
-    desc: 'Bạn nhìn thấy điểm mạnh của mọi người, nhưng chỉ nhìn thấy điểm yếu của bản thân.',
+    title: 'Sợ mình không đủ.',
+    desc: 'Bạn luôn nhìn thấy điểm mạnh của người khác, nhưng chỉ nhìn thấy điểm yếu của chính mình.',
   },
   {
     title: 'Sợ thất bại.',
-    desc: 'Bạn chuẩn bị mãi và trì hoãn việc bắt đầu vì sợ mình không đủ giỏi.',
+    desc: 'Bạn chuẩn bị rất nhiều nhưng vẫn trì hoãn, vì trong lòng luôn có một tiếng nói rằng: "Mình chưa đủ giỏi."',
   },
   {
     title: 'Sợ mất tiền.',
-    desc: 'Mỗi quyết định đều bị nỗi lo "lỡ sai thì sao?" giữ chân.',
+    desc: 'Mỗi cơ hội đều bị chặn lại bởi một câu hỏi quen thuộc: "Lỡ sai thì sao?"',
   },
   {
     title: 'Sợ bị bỏ rơi.',
-    desc: 'Bạn sẽ kiểm soát, giận dỗi hoặc cố gắng làm hài lòng để giữ mối quan hệ.',
+    desc: 'Bạn cố gắng làm hài lòng, nhẫn nhịn hoặc kiểm soát người khác chỉ để giữ một mối quan hệ.',
   },
   {
     title: 'Sợ bị đánh giá.',
-    desc: 'Bạn luôn chỉnh sửa câu nói trong đầu trước khi dám mở miệng.',
+    desc: 'Bạn nghĩ rất nhiều trước khi nói, trước khi đăng một bài viết hay trước khi dám thể hiện chính mình.',
   },
   {
     title: 'Sợ bắt đầu lại.',
-    desc: 'Bạn tiếp tục chịu đựng vì nghĩ rằng bắt đầu lại còn đáng sợ hơn.',
+    desc: 'Bạn tiếp tục ở lại với một công việc, một mối quan hệ hoặc một cuộc sống không còn phù hợp... chỉ vì bắt đầu lại có vẻ còn đáng sợ hơn.',
   },
   {
     title: 'Sợ mình không còn giá trị.',
@@ -90,18 +90,22 @@ export function ProblemSection() {
             className={`${T_DISPLAY} text-gradient-gold mb-6`}
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Có Phải Nỗi Sợ Đang Lặng Lẽ <br />Quyết Định Cuộc Đời Bạn?
-            
+            Có Phải Nỗi Sợ Đang Âm Thầm
+            <br />
+            Điều Khiển Cuộc Đời Bạn?
           </h2>
 
           <div className={`max-w-3xl mx-auto ${LINE_GAP} ${T_BODY} text-foreground/80`}>
             <p>Bạn có thể nghĩ mình chỉ đang lo lắng.</p>
             <p>
-              Nhưng có một sự thật mà rất ít người nhận ra:{' '}
+              Nhưng rất nhiều quyết định trong cuộc sống không xuất phát từ điều bạn thật sự mong
+              muốn...
+              <br />
               <strong className="text-foreground">
-                rất nhiều quyết định trong cuộc đời chúng ta kkhông xuất phát từ điều mình thật sự mong muốn, mà từ nỗi sợ đang âm thầm điều khiển bên trong.
+                Mà từ những nỗi sợ đã âm thầm điều khiển bạn trong suốt nhiều năm.
               </strong>
             </p>
+            <p className="italic">Có thể đó là...</p>
           </div>
         </motion.div>
 
@@ -137,26 +141,37 @@ export function ProblemSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className={`max-w-3xl mx-auto ${BLOCK_GAP}`}
         >
-          <p className={`${T_QUOTE} text-foreground mb-4`}>
-            Những nỗi sợ ấy âm thầm quyết định thay bạn:
+          <p className={`${T_QUOTE} text-foreground mb-2`}>
+            Điều đáng sợ không phải là bạn có những nỗi sợ ấy.
           </p>
+          <p className={`${T_QUOTE} text-foreground mb-4`}>
+            Mà là chúng đang âm thầm đưa ra quyết định thay bạn.
+          </p>
+          <p className={`${T_BODY} italic text-foreground/70 mb-4`}>Thế nên...</p>
           <ul className={`${LINE_GAP} pl-4 sm:pl-6`}>
             <li className="flex items-start gap-2 sm:gap-3">
               <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
               <span className={`${T_BODY} text-foreground/80`}>
-                Bạn không dám bắt đầu điều mình thật sự muốn.
+                Bạn không dám bắt đầu điều mình thật sự mong muốn.
               </span>
             </li>
             <li className="flex items-start gap-2 sm:gap-3">
               <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
               <span className={`${T_BODY} text-foreground/80`}>
-                Bạn chọn sự an toàn thay vì bước ra khỏi vùng quen thuộc.
+                Bạn chọn sự an toàn thay vì cơ hội phát triển.
               </span>
             </li>
             <li className="flex items-start gap-2 sm:gap-3">
               <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
               <span className={`${T_BODY} text-foreground/80`}>
-                Bạn thu nhỏ mong muốn của mình để tránh cảm giác thất bại, bị từ chối hay bị đánh giá.
+                Bạn thu nhỏ ước mơ của mình để tránh thất bại, bị từ chối hoặc bị đánh giá.
+              </span>
+            </li>
+            <li className="flex items-start gap-2 sm:gap-3">
+              <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+              <span className={`${T_BODY} text-foreground/80`}>
+                Bạn tiếp tục sống theo những gì khiến mình bớt sợ, thay vì những gì khiến mình thật sự
+                hạnh phúc.
               </span>
             </li>
           </ul>
