@@ -129,7 +129,7 @@ export function Hero() {
             className="text-sm sm:text-base font-bold uppercase tracking-wide"
             style={{ color: GOLD, fontFamily: "'Playfair Display', serif" }}
           >
-            7 Ngày Vượt Trên Nỗi Sợ
+            7 Ngày Sống Vượt Trên Nỗi Sợ
           </span>
 
           <button
