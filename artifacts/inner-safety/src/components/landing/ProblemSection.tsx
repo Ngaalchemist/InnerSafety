@@ -242,7 +242,7 @@ export function ProblemSection() {
           className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto"
         >
           <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary/30">
-            <h3 className={`${T_SUBHEAD} text-primary mb-5`}>Hay bạn đã có rễ an toàn?</h3>
+            <h3 className={`${T_SUBHEAD} text-primary mb-5`}>Bạn có đang sống bằng rễ an toàn không?</h3>
             <ul className={LINE_GAP}>
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
@@ -267,7 +267,7 @@ export function ProblemSection() {
 
           <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-destructive/20 to-destructive/5 border-2 border-destructive/30">
             <h3 className={`${T_SUBHEAD} text-destructive mb-5`}>
-              Bạn có đang sống bằng rễ sợ hãi không?
+              Hay bạn đang sống bằng rễ sợ hãi?
             </h3>
             <ul className={LINE_GAP}>
               <li className="flex items-start gap-2">
