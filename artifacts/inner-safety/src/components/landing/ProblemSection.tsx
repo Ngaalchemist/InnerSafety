@@ -27,6 +27,7 @@ const T_QUOTE = 'text-xl sm:text-2xl font-medium italic'; // pull-quote / emphas
 const T_SUBHEAD = 'text-xl sm:text-2xl font-bold'; // h3-level section subheads
 const T_BODY = 'text-base sm:text-lg leading-relaxed'; // all paragraphs and list items
 const T_LABEL = 'text-sm sm:text-base font-bold uppercase tracking-wide'; // small tags/badges
+const T_CAPTION = 'text-sm sm:text-base text-foreground/55 leading-snug'; // secondary line under a list item
 
 // ── Spacing rhythm ─────────────────────────────────────────────────
 // Exactly 2 tiers: gap between major blocks, gap between lines inside a block.
@@ -34,13 +35,34 @@ const BLOCK_GAP = 'mb-12 sm:mb-16';
 const LINE_GAP = 'space-y-4 sm:space-y-5';
 
 const fears = [
-  'Sợ không đủ.',
-  'Sợ thất bại.',
-  'Sợ mất tiền.',
-  'Sợ bị bỏ rơi.',
-  'Sợ bị đánh giá.',
-  'Sợ bắt đầu lại.',
-  'Sợ mình không còn giá trị.',
+  {
+    title: 'Sợ không đủ.',
+    desc: 'Bạn nhìn thấy điểm mạnh của mọi người, nhưng chỉ nhìn thấy điểm yếu của bản thân.',
+  },
+  {
+    title: 'Sợ thất bại.',
+    desc: 'Bạn chuẩn bị mãi và trì hoãn việc bắt đầu vì sợ mình không đủ giỏi.',
+  },
+  {
+    title: 'Sợ mất tiền.',
+    desc: 'Mỗi quyết định đều bị nỗi lo "lỡ sai thì sao?" giữ chân.',
+  },
+  {
+    title: 'Sợ bị bỏ rơi.',
+    desc: 'Bạn sẽ kiểm soát, giận dỗi hoặc cố gắng làm hài lòng để giữ mối quan hệ.',
+  },
+  {
+    title: 'Sợ bị đánh giá.',
+    desc: 'Bạn luôn chỉnh sửa câu nói trong đầu trước khi dám mở miệng.',
+  },
+  {
+    title: 'Sợ bắt đầu lại.',
+    desc: 'Bạn tiếp tục chịu đựng vì nghĩ rằng bắt đầu lại còn đáng sợ hơn.',
+  },
+  {
+    title: 'Sợ mình không còn giá trị.',
+    desc: 'Bạn chỉ cảm thấy mình xứng đáng khi liên tục tạo ra kết quả hoặc được người khác công nhận.',
+  },
 ];
 
 export function ProblemSection() {
@@ -62,15 +84,15 @@ export function ProblemSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className={`text-center ${BLOCK_GAP}`}
+          className={`text-center mb-8 sm:mb-10`}
         >
           <h2
             className={`${T_DISPLAY} text-gradient-gold mb-6`}
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Nỗi sợ không chỉ tồn tại trong suy nghĩ.
+            Bạn Có Đang Sống Trong Giới Hạn
             <br />
-            Nó đang điều khiển những quyết định rất đời thường của bạn.
+            Của Nỗi Sợ?
           </h2>
 
           <div className={`max-w-3xl mx-auto ${LINE_GAP} ${T_BODY} text-foreground/80`}>
@@ -94,15 +116,18 @@ export function ProblemSection() {
         >
           {fears.map((fear, idx) => (
             <motion.div
-              key={idx}
+              key={fear.title}
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 + idx * 0.08 }}
-              className="flex items-center gap-3 py-3 sm:py-3.5 border-b border-border/30"
+              className="flex items-start gap-3 py-3 sm:py-3.5 border-b border-border/30"
               data-testid={`fear-item-${idx}`}
             >
-              <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0" />
-              <p className={`${T_BODY} text-foreground/90`}>{fear}</p>
+              <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+              <div>
+                <p className={`${T_BODY} text-foreground/90`}>{fear.title}</p>
+                <p className={`${T_CAPTION} mt-1`}>{fear.desc}</p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
