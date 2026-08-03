@@ -156,7 +156,7 @@ export function Hero() {
                 Inner Safety Method™
               </p>
               <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-md">
-                Chương trình thực hành 7 ngày dành cho những người biết mình sinh ra để làm nhiều điều hơn.
+                Chương trình thực hành 7 ngày dành cho những người biết mình sinh ra để làm nhiều điều hơn...nhưng vẫn đang bị nỗi sợ giữ chân.
               </p>
             </motion.div>
 
