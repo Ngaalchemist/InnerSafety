@@ -77,7 +77,7 @@ export function Hero() {
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover"
-          style={{ objectPosition: 'right 15%' }}
+          style={{ objectPosition: 'right 30%' }}
         />
       </div>
 
@@ -137,6 +137,35 @@ export function Hero() {
         </motion.p>
       </div>
 
+      {/* ── TRUST STAMP — floating seal badge bridging the empty gap between the text column and the tree ── */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, rotate: -14 }}
+        animate={{ opacity: 1, scale: 1, rotate: -8 }}
+        transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="hidden lg:flex absolute z-20 top-[44%] left-[54%] xl:left-[57%] flex-col items-center justify-center text-center"
+        style={{
+          width: '150px',
+          height: '150px',
+          borderRadius: '9999px',
+          border: `2px solid ${PURPLE}`,
+          boxShadow: `0 0 0 5px rgba(192,132,252,0.15), 0 10px 28px rgba(0,0,0,0.45)`,
+          backgroundColor: 'rgba(13,11,24,0.6)',
+          backdropFilter: 'blur(6px)',
+        }}
+      >
+        <div className="flex items-center gap-0.5 mb-1.5">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <Star key={i} className="w-3.5 h-3.5" style={{ color: GOLD, fill: GOLD }} />
+          ))}
+        </div>
+        <span className="text-white font-extrabold text-2xl leading-none">4.9/5</span>
+        <span className="text-white/70 text-[10px] font-semibold uppercase tracking-wide mt-2 leading-tight px-3">
+          500+ học viên
+          <br />
+          đã đồng hành
+        </span>
+      </motion.div>
+
       <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-4 pb-10 lg:pt-5 lg:pb-16">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
 
@@ -177,8 +206,8 @@ export function Hero() {
               </span>
             </motion.h1>
 
-            {/* Star rating social proof — directly under headline */}
-            <motion.div variants={fadeInUp} className="flex items-center gap-2 mb-2 flex-wrap">
+            {/* Star rating — simple inline row, mobile/tablet only (the floating stamp below covers lg+) */}
+            <motion.div variants={fadeInUp} className="flex lg:hidden items-center gap-2 mb-2 flex-wrap">
               <div className="flex items-center gap-0.5">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
