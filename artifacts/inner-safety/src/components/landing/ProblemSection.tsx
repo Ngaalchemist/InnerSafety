@@ -1,7 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import { AlertCircle } from 'lucide-react';
-import treeImage from '@assets/Gemini_Generated_Image_rz0f3rz0f3rz0f3r_1784884536664_17849928_1785305808666.jpg';
 import rootsCompareImage from '@assets/3a7a118b5aaf078c4cc85f9ecc99e6fb_1785305782800.jpg';
 
 // Self-loads both fonts so the section renders correctly even if the
@@ -147,27 +146,20 @@ export function ProblemSection() {
           </p>
         </motion.div>
 
-        {/* ── Tree metaphor ── */}
+        {/* ── Tree metaphor (text only — the tree image already lives in Hero) ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
           className={BLOCK_GAP}
         >
-          <div className="max-w-4xl mx-auto">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/20 mb-8">
-              <img src={treeImage} alt="Tree cross-section showing glowing roots" className="w-full h-auto" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-            </div>
-
-            <div className={`text-center max-w-2xl mx-auto ${LINE_GAP}`}>
-              <p className={`${T_QUOTE} text-foreground`}>Hãy hình dung cuộc đời bạn như một cái cây.</p>
-              <p className={`${T_BODY} text-foreground/80`}>
-                Phần mọi người nhìn thấy: công việc, gia đình, sự cố gắng mỗi ngày — chỉ là phần thân và
-                lá. Còn phần quyết định cái cây đó có đứng vững qua giông bão hay không,{' '}
-                <strong className="text-primary">nằm sâu dưới đất, nơi không ai nhìn thấy: bộ rễ.</strong>
-              </p>
-            </div>
+          <div className={`text-center max-w-2xl mx-auto ${LINE_GAP}`}>
+            <p className={`${T_QUOTE} text-foreground`}>Hãy hình dung cuộc đời bạn như một cái cây.</p>
+            <p className={`${T_BODY} text-foreground/80`}>
+              Phần mọi người nhìn thấy: công việc, gia đình, sự cố gắng mỗi ngày — chỉ là phần thân và
+              lá. Còn phần quyết định cái cây đó có đứng vững qua giông bão hay không,{' '}
+              <strong className="text-primary">nằm sâu dưới đất, nơi không ai nhìn thấy: bộ rễ.</strong>
+            </p>
           </div>
         </motion.div>
 
@@ -188,11 +180,11 @@ export function ProblemSection() {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
-              <div className="text-center p-4 rounded-xl bg-destructive/10 border border-destructive/30">
-                <p className={`${T_LABEL} text-destructive`}>Rễ Sợ Hãi</p>
-              </div>
               <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/30">
                 <p className={`${T_LABEL} text-primary`}>Rễ An Toàn</p>
+              </div>
+              <div className="text-center p-4 rounded-xl bg-destructive/10 border border-destructive/30">
+                <p className={`${T_LABEL} text-destructive`}>Rễ Sợ Hãi</p>
               </div>
             </div>
 
@@ -211,6 +203,30 @@ export function ProblemSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto"
         >
+          <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary/30">
+            <h3 className={`${T_SUBHEAD} text-primary mb-5`}>Hay bạn đã có rễ an toàn?</h3>
+            <ul className={LINE_GAP}>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>
+                  Bạn vẫn lo lắng, nhưng lo lắng không điều khiển quyết định của bạn.
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>
+                  Bạn nói "không" mà không cần giải thích dài dòng.
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>
+                  Bạn ra quyết định từ sự rõ ràng, không phải hoảng loạn.
+                </span>
+              </li>
+            </ul>
+          </div>
+
           <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-destructive/20 to-destructive/5 border-2 border-destructive/30">
             <h3 className={`${T_SUBHEAD} text-destructive mb-5`}>
               Bạn có đang sống bằng rễ sợ hãi không?
@@ -236,30 +252,6 @@ export function ProblemSection() {
                 <span className="text-destructive mt-1">•</span>
                 <span className={`${T_BODY} text-foreground/80`}>
                   Bạn từng đưa ra một quyết định lớn chỉ vì quá sợ, không phải vì thật sự muốn.
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary/30">
-            <h3 className={`${T_SUBHEAD} text-primary mb-5`}>Hay bạn đã có rễ an toàn?</h3>
-            <ul className={LINE_GAP}>
-              <li className="flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>
-                  Bạn vẫn lo lắng, nhưng lo lắng không điều khiển quyết định của bạn.
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>
-                  Bạn nói "không" mà không cần giải thích dài dòng.
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>
-                  Bạn ra quyết định từ sự rõ ràng, không phải hoảng loạn.
                 </span>
               </li>
             </ul>
