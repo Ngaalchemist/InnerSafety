@@ -109,17 +109,6 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: INK }}>
-      {/* Background image — scaled down so the tree reads smaller, matching the reference mockup */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <img
-          src={cosmicTreeBg}
-          alt=""
-          aria-hidden="true"
-          className="w-full h-full object-cover"
-          style={{ objectPosition: 'right center' }}
-        />
-      </div>
-
       {/* ── NAVBAR (unchanged: logo + course name + CTA only) ── */}
       <nav
         className="sticky top-0 z-30 px-4 sm:px-10 lg:px-12 py-2"
@@ -145,15 +134,19 @@ export function Hero() {
         </div>
       </nav>
 
-      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-2 pb-8 lg:pt-3">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-5">
+      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-4 pb-5 lg:pt-5">
+        {/* ── 65 / 35 SPLIT: content column left, tree image column right ── */}
+        <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row lg:items-stretch gap-6 lg:gap-8">
 
-          {/* ── TEXT COLUMN (eyebrow through avatar/rating) ── */}
+          {/* ══ LEFT: CONTENT COLUMN — ~65% ══ */}
+          <div className="w-full lg:w-[65%] flex flex-col gap-5 order-2 lg:order-1">
+
+          {/* ── TEXT BLOCK (eyebrow through avatar/rating) ── */}
           <motion.div
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="flex flex-col text-left lg:max-w-[46%]"
+            className="flex flex-col text-left max-w-xl"
           >
             {/* Eyebrow */}
             <motion.div variants={fadeInUp} className="mb-2">
@@ -252,7 +245,7 @@ export function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-2xl p-5 w-full lg:w-[46%] shrink-0"
+              className="rounded-2xl p-5 w-full lg:w-[300px] shrink-0"
               style={{
                 border: `1px solid rgba(192,132,252,0.35)`,
                 backgroundColor: 'rgba(13,11,24,0.6)',
@@ -319,12 +312,36 @@ export function Hero() {
               ))}
             </motion.div>
           </div>
+          </div>
+          {/* ══ /LEFT COLUMN ══ */}
+
+          {/* ══ RIGHT: TREE IMAGE COLUMN — ~35% ══ */}
+          <motion.div
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-full h-56 sm:h-72 lg:h-auto lg:w-[35%] rounded-2xl overflow-hidden order-1 lg:order-2"
+            style={{ border: '1px solid rgba(192,132,252,0.25)' }}
+          >
+            <img
+              src={cosmicTreeBg}
+              alt="Cây gốc rễ vững chãi dưới hoàng hôn — biểu tượng cho sự an toàn nội tại"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: 'center' }}
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: 'linear-gradient(180deg, rgba(13,11,24,0) 55%, rgba(13,11,24,0.55) 100%)' }}
+            />
+          </motion.div>
+          {/* ══ /RIGHT COLUMN ══ */}
+
         </div>
       </div>
 
-      {/* ── BOTTOM TRUST STRIP — full-bleed bar across the entire hero width ── */}
+      {/* ── BOTTOM TRUST STRIP — sits flush against the price/feature row above, no gap ── */}
       <div
-        className="relative z-10 mt-6"
+        className="relative z-10"
         style={{
           borderTop: '1px solid rgba(255,255,255,0.08)',
           backgroundColor: 'rgba(13,11,24,0.75)',
