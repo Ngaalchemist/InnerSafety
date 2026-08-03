@@ -1,8 +1,22 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { AlertCircle } from 'lucide-react';
 import treeImage from '@assets/Gemini_Generated_Image_rz0f3rz0f3rz0f3r_1784884536664_17849928_1785305808666.jpg';
 import rootsCompareImage from '@assets/3a7a118b5aaf078c4cc85f9ecc99e6fb_1785305782800.jpg';
+
+// Self-loads Manrope so the whole section uses a single, consistent
+// typeface even if the project's global CSS doesn't import it.
+const GOOGLE_FONT_ID = 'font-manrope';
+function useManropeFont() {
+  useEffect(() => {
+    if (document.getElementById(GOOGLE_FONT_ID)) return;
+    const link = document.createElement('link');
+    link.id = GOOGLE_FONT_ID;
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap';
+    document.head.appendChild(link);
+  }, []);
+}
 
 const fears = [
   'Sợ không đủ.',
@@ -15,11 +29,16 @@ const fears = [
 ];
 
 export function ProblemSection() {
+  useManropeFont();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-24 lg:py-32 relative">
+    <section
+      ref={sectionRef}
+      className="py-16 sm:py-24 lg:py-32 relative"
+      style={{ fontFamily: "'Manrope', sans-serif" }}
+    >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -29,7 +48,7 @@ export function ProblemSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold mb-6 sm:mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gradient-gold mb-6 sm:mb-8">
             Bạn Có Đang Sống Trong Giới Hạn<br />Của Nỗi Sợ?
           </h2>
           
@@ -69,7 +88,7 @@ export function ProblemSection() {
           transition={{ duration: 0.8, delay: 1 }}
           className="max-w-3xl mx-auto space-y-4 sm:space-y-6 text-base sm:text-lg text-foreground/80 leading-relaxed mb-16 sm:mb-24"
         >
-          <p className="text-xl sm:text-2xl font-serif text-foreground italic">
+          <p className="text-xl sm:text-2xl text-foreground italic">
             Những nỗi sợ ấy âm thầm quyết định thay bạn:
           </p>
           <ul className="space-y-3 sm:space-y-4 pl-4 sm:pl-6">
@@ -101,7 +120,7 @@ export function ProblemSection() {
             </div>
             
             <div className="text-center max-w-2xl mx-auto space-y-4 sm:space-y-6 text-base sm:text-lg text-foreground/80 leading-relaxed">
-              <p className="text-xl sm:text-2xl font-serif text-foreground italic">
+              <p className="text-xl sm:text-2xl text-foreground italic">
                 Hãy hình dung cuộc đời bạn như một cái cây.
               </p>
               <p>
@@ -129,10 +148,10 @@ export function ProblemSection() {
             
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
               <div className="text-center p-4 rounded-xl bg-destructive/10 border border-destructive/30">
-                <p className="text-lg sm:text-xl font-serif font-semibold text-destructive">Rễ Sợ Hãi</p>
+                <p className="text-lg sm:text-xl font-semibold text-destructive">Rễ Sợ Hãi</p>
               </div>
               <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/30">
-                <p className="text-lg sm:text-xl font-serif font-semibold text-primary">Rễ An Toàn</p>
+                <p className="text-lg sm:text-xl font-semibold text-primary">Rễ An Toàn</p>
               </div>
             </div>
             
@@ -152,7 +171,7 @@ export function ProblemSection() {
         >
           {/* Fear roots column */}
           <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-destructive/20 to-destructive/5 border-2 border-destructive/30">
-            <h3 className="text-xl sm:text-2xl font-serif font-semibold text-destructive mb-4 sm:mb-6">
+            <h3 className="text-xl sm:text-2xl font-semibold text-destructive mb-4 sm:mb-6">
               Bạn có đang sống bằng rễ sợ hãi không?
             </h3>
             <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base text-foreground/80">
@@ -177,7 +196,7 @@ export function ProblemSection() {
 
           {/* Safety roots column */}
           <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary/30">
-            <h3 className="text-xl sm:text-2xl font-serif font-semibold text-primary mb-4 sm:mb-6">
+            <h3 className="text-xl sm:text-2xl font-semibold text-primary mb-4 sm:mb-6">
               Hay bạn đã có rễ an toàn?
             </h3>
             <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base text-foreground/80">
