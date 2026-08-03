@@ -10,7 +10,6 @@ import {
   Star,
 } from 'lucide-react';
 import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
-import logoImg from '@assets/Logo_cay_transparent.png';
 
 // Self-loads the Google Font so the bold condensed headline renders
 // correctly even if the project's global CSS doesn't import it.
@@ -87,12 +86,12 @@ export function Hero() {
         style={{ backgroundColor: 'rgba(13,11,24,0.7)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
       >
         <div className="max-w-[1280px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <img src={logoImg} alt="Inner Safety Method™" className="h-6 sm:h-7 w-auto" />
-            <span className="hidden sm:inline text-white/80 text-xs font-semibold tracking-wide uppercase">
-              7 Ngày Vượt Trên Nỗi Sợ
-            </span>
-          </div>
+          <span
+            className="text-sm sm:text-base font-extrabold tracking-wide uppercase"
+            style={{ color: GOLD }}
+          >
+            7 Ngày Vượt Trên Nỗi Sợ
+          </span>
 
           <button
             onClick={scrollToCTA}
@@ -118,7 +117,7 @@ export function Hero() {
         </p>
       </motion.div>
 
-      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-6 pb-16 lg:pt-8 lg:pb-24">
+      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-4 pb-10 lg:pt-5 lg:pb-16">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
 
           {/* ── MAIN COLUMN ── */}
@@ -129,7 +128,7 @@ export function Hero() {
             className="flex flex-col text-left lg:max-w-[55%]"
           >
             {/* Eyebrow */}
-            <motion.div variants={fadeInUp} className="mb-3">
+            <motion.div variants={fadeInUp} className="mb-2">
               <p
                 className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] mb-1"
                 style={{ color: PURPLE }}
@@ -144,11 +143,11 @@ export function Hero() {
             {/* Headline */}
             <motion.h1
               variants={fadeInUp}
-              className="uppercase mb-3"
+              className="uppercase mb-2"
               style={{
                 fontFamily: "'Anton', sans-serif",
-                fontSize: 'clamp(2.2rem, 5.6vw, 4rem)',
-                lineHeight: 1.45,
+                fontSize: 'clamp(2rem, 5vw, 3.6rem)',
+                lineHeight: 1.25,
                 letterSpacing: '1px',
               }}
             >
@@ -159,7 +158,7 @@ export function Hero() {
             </motion.h1>
 
             {/* Star rating social proof — directly under headline */}
-            <motion.div variants={fadeInUp} className="flex items-center gap-2 mb-3 flex-wrap">
+            <motion.div variants={fadeInUp} className="flex items-center gap-2 mb-2 flex-wrap">
               <div className="flex items-center gap-0.5">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
@@ -191,24 +190,11 @@ export function Hero() {
               mà mình sinh ra để trở thành.
             </motion.p>
 
-            {/* Checklist — each item is its own chip/card (like Kimedia), not plain stacked text */}
-            <motion.ul variants={staggerContainer} className="space-y-2.5 max-w-md mt-6">
+            {/* Checklist — plain list, no chip background, tight spacing so the CTA sits above the fold */}
+            <motion.ul variants={staggerContainer} className="space-y-1.5 max-w-md mt-3">
               {checklist.map((item) => (
-                <motion.li
-                  variants={fadeInUp}
-                  key={item}
-                  className="flex items-center gap-2.5 rounded-full border px-4 py-2.5"
-                  style={{
-                    backgroundColor: 'rgba(255,255,255,0.05)',
-                    borderColor: 'rgba(255,255,255,0.08)',
-                  }}
-                >
-                  <span
-                    className="flex items-center justify-center w-5 h-5 rounded-full shrink-0"
-                    style={{ backgroundColor: 'rgba(192,132,252,0.15)' }}
-                  >
-                    <Check className="w-3 h-3" style={{ color: PURPLE }} strokeWidth={3} />
-                  </span>
+                <motion.li variants={fadeInUp} key={item} className="flex items-center gap-2.5">
+                  <Check className="w-4 h-4 shrink-0" style={{ color: PURPLE }} strokeWidth={3} />
                   <span className="font-bold text-sm leading-snug" style={{ color: '#E9D5FF' }}>
                     {item}
                   </span>
@@ -220,7 +206,7 @@ export function Hero() {
             <motion.button
               variants={fadeInUp}
               onClick={scrollToCTA}
-              className="group w-full sm:w-auto self-start inline-flex items-center justify-center gap-2 rounded-full py-3 px-6 font-bold text-sm mt-7 transition-transform hover:scale-[1.02] shadow-2xl text-center"
+              className="group w-full sm:w-auto self-start inline-flex items-center justify-center gap-2 rounded-full py-3 px-6 font-bold text-sm mt-5 transition-transform hover:scale-[1.02] shadow-2xl text-center"
               style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
               data-testid="button-hero-cta"
             >
@@ -233,7 +219,7 @@ export function Hero() {
               variants={staggerContainer}
               initial="initial"
               animate="animate"
-              className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-5"
+              className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4"
             >
               {trustStrip.map(({ icon: Icon, label }) => (
                 <motion.div variants={fadeInUp} key={label} className="flex items-center gap-2">
