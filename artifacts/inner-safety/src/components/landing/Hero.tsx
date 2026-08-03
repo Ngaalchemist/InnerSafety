@@ -175,10 +175,9 @@ export function Hero() {
       </div>
 
       <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-6 pb-8 lg:pt-8">
-        <div className="w-full flex flex-col gap-5">
+        <div className="max-w-[1280px] mx-auto w-full flex flex-col gap-5">
 
-          {/* ── TEXT COLUMN (badge, eyebrow through avatar/rating) — centered back to the original 1280px reading column ── */}
-          <div className="max-w-[1280px] mx-auto w-full">
+          {/* ── TEXT COLUMN (badge, eyebrow through avatar/rating) ── */}
           <motion.div
             variants={staggerContainer}
             initial="initial"
@@ -287,7 +286,6 @@ export function Hero() {
               </div>
             </motion.div>
           </motion.div>
-          </div>
 
           {/* ── PRICE BOX (left) + FEATURE GRID (right) — side by side, same row, like the mockup ── */}
           <div className="flex flex-col lg:flex-row gap-4 lg:items-stretch">
@@ -297,7 +295,7 @@ export function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-2xl p-3 w-full lg:w-[360px] shrink-0"
+              className="rounded-2xl p-3 w-full lg:w-[46%] shrink-0"
               style={{
                 border: `1px solid rgba(192,132,252,0.35)`,
                 backgroundColor: 'rgba(13,11,24,0.6)',
@@ -368,7 +366,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* ── BOTTOM TRUST STRIP — full-bleed bar across the entire hero width ── */}
+      {/* ── BOTTOM TRUST STRIP — same 1280px column as the content above, so edges line up ── */}
       <div
         className="relative z-10 mt-6"
         style={{
@@ -377,7 +375,7 @@ export function Hero() {
           backdropFilter: 'blur(6px)',
         }}
       >
-        <div className="w-full px-4 sm:px-10 lg:px-12 py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-5 gap-x-4">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-10 lg:px-12 py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-5 gap-x-4">
           {trustStrip.map(({ icon: Icon, label, sub }) => (
             <div key={label} className="flex items-center gap-3">
               <Icon className="w-6 h-6 shrink-0" style={{ color: PURPLE }} />
