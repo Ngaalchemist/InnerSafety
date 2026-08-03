@@ -90,9 +90,8 @@ export function ProblemSection() {
             className={`${T_DISPLAY} text-gradient-gold mb-6`}
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Bạn Có Đang Sống Trong Giới Hạn
-            <br />
-            Của Nỗi Sợ?
+            Có Phải Nỗi Sợ Đang Lặng Lẽ Quyết Định Cuộc Đời Bạn?
+            
           </h2>
 
           <div className={`max-w-3xl mx-auto ${LINE_GAP} ${T_BODY} text-foreground/80`}>
