@@ -6,7 +6,6 @@ import {
   Monitor,
   Users,
   Infinity as InfinityIcon,
-  Check,
   Star,
   Brain,
   RotateCcw,
@@ -14,12 +13,12 @@ import {
   Zap,
   Sprout,
   BookOpen,
+  Clock,
+  Calendar,
+  Laptop,
 } from 'lucide-react';
 import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
 
-// Self-loads the Google Fonts so the bold condensed headline and the
-// display-serif header text render correctly even if the project's
-// global CSS doesn't import them.
 const GOOGLE_FONT_ID = 'font-anton-playfair';
 function useAntonFont() {
   useEffect(() => {
@@ -27,66 +26,64 @@ function useAntonFont() {
     const link = document.createElement('link');
     link.id = GOOGLE_FONT_ID;
     link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@700&display=swap';
+    link.href =
+      'https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@700&display=swap';
     document.head.appendChild(link);
   }, []);
 }
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
 };
 
 const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
+  animate: { transition: { staggerChildren: 0.1 } },
 };
 
 const PURPLE = '#C084FC';
 const GOLD = '#FBBF24';
 const INK = '#0D0B18';
 
-// Short reassurance bullets under the subheadline
-const checklist = [
-  'Không cần ép bản thân.',
-  'Không cần "tích cực độc hại".',
-  'Không cần chờ đến lúc tự tin.',
+// 4-item horizontal stat row — compact replacement for the 3-item checklist
+const quickStats = [
+  { icon: Clock, label: '20 phút / ngày', sub: 'dễ thực hành' },
+  { icon: Calendar, label: '7 ngày', sub: 'thực hành liên tục' },
+  { icon: Laptop, label: 'Học online', sub: 'truy cập ngay' },
+  { icon: Users, label: 'Cộng đồng hỗ trợ', sub: 'đồng hành cùng bạn' },
 ];
 
-// 5 feature icons — mirrors the 5 checklist outcomes from the reference mockup
+// 5 feature boxes — match mockup icons & copy
 const featureGrid = [
   {
     icon: Brain,
-    title: 'Bình tĩnh khi bị trigger',
+    title: 'Bình tĩnh\nkhi bị trigger',
     desc: 'Làm dịu hệ thần kinh chỉ trong vài phút.',
   },
   {
     icon: RotateCcw,
-    title: 'Giảm overthinking',
+    title: 'Giảm\nOverthinking',
     desc: 'Ngừng suy nghĩ lặp lại vô tận.',
   },
   {
     icon: Unlock,
-    title: 'Tháo gỡ niềm tin giới hạn',
+    title: 'Tháo gỡ niềm tin\ngiới hạn',
     desc: 'Giải phóng những niềm tin kéo bạn lại.',
   },
   {
     icon: Zap,
-    title: 'Dám hành động dù còn sợ',
+    title: 'Dám hành động\ndù còn sợ',
     desc: 'Không chờ tự tin mới bắt đầu.',
   },
   {
     icon: Sprout,
-    title: 'Xây gốc rễ an toàn',
+    title: 'Xây gốc rễ\nan toàn',
     desc: 'Cảm giác an toàn bền vững từ bên trong.',
   },
 ];
 
-// Bottom trust strip — full-bleed bar at the base of the hero
+// Bottom trust strip
 const trustStrip = [
   { icon: Monitor, label: 'Học online', sub: 'mọi lúc, mọi nơi' },
   { icon: InfinityIcon, label: 'Truy cập ngay', sub: 'sau khi đăng ký' },
@@ -102,14 +99,12 @@ export function Hero() {
 
   const scrollToCTA = () => {
     const ctaSection = document.getElementById('final-cta');
-    if (ctaSection) {
-      ctaSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (ctaSection) ctaSection.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: INK }}>
-      {/* Background image — full-bleed cover, no transform (scaling caused a visible seam) */}
+      {/* Background image */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <img
           src={cosmicTreeBg}
@@ -120,10 +115,14 @@ export function Hero() {
         />
       </div>
 
-      {/* ── NAVBAR (unchanged: logo + course name + CTA only) ── */}
+      {/* ── NAVBAR ── */}
       <nav
         className="sticky top-0 z-30 px-4 sm:px-10 lg:px-12 py-2"
-        style={{ backgroundColor: 'rgba(13,11,24,0.7)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
+        style={{
+          backgroundColor: 'rgba(13,11,24,0.75)',
+          borderBottom: '1px solid rgba(255,255,255,0.06)',
+          backdropFilter: 'blur(6px)',
+        }}
       >
         <div className="max-w-[1280px] mx-auto flex items-center justify-between">
           <span
@@ -132,7 +131,6 @@ export function Hero() {
           >
             7 Ngày Vượt Trên Nỗi Sợ
           </span>
-
           <button
             onClick={scrollToCTA}
             className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold transition-transform hover:scale-105"
@@ -145,52 +143,52 @@ export function Hero() {
         </div>
       </nav>
 
-      {/* ── QUOTE — floating box on the right, near the tree/moon, restored from the original design ── */}
+      {/* ── QUOTE floating right ── */}
       <div
-        className="hidden lg:block absolute z-20 top-[36%] right-[6%] xl:right-[8%] text-left"
-        style={{ maxWidth: '260px' }}
+        className="hidden lg:block absolute z-20 text-left"
+        style={{ top: '38%', right: '6%', maxWidth: '240px' }}
       >
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1, delay: 0.9 }}
         >
           <span className="block text-2xl leading-none mb-1" style={{ color: PURPLE }}>
             &ldquo;
           </span>
-          <p className="italic text-white/75 text-sm leading-snug -mt-2">
-            Điều quyết định cuộc đời bạn<br />
-            không nằm ở những gì người khác nhìn thấy, mà ở gốc rễ bên trong bạn.
+          <p className="italic text-white/75 text-xs leading-snug -mt-2">
+            Không phải mọi điều quyết định cuộc đời bạn
+            <br />
+            đều có thể nhìn thấy.
           </p>
         </motion.div>
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-xs font-semibold tracking-wide uppercase mt-1"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.1 }}
+          className="text-[10px] font-semibold tracking-widest uppercase mt-1"
           style={{ color: PURPLE }}
         >
-          — Nga Alchemist
+          – Nga Alchemist
         </motion.p>
       </div>
 
-      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-6 pb-8 lg:pt-8">
-        <div className="max-w-[1280px] mx-auto w-full flex flex-col gap-5">
-
-          {/* ── TEXT COLUMN (badge, eyebrow through avatar/rating) ── */}
+      {/* ── TEXT COLUMN ── */}
+      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-4 pb-2 lg:pt-5">
+        <div className="max-w-[1280px] mx-auto w-full">
           <motion.div
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="flex flex-col text-left lg:max-w-[46%]"
+            className="flex flex-col text-left lg:max-w-[50%]"
           >
             {/* Badge */}
-            <motion.div variants={fadeInUp} className="mb-3">
+            <motion.div variants={fadeInUp} className="mb-2">
               <span
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wide text-white"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wide text-white"
                 style={{
                   border: `1px solid rgba(192,132,252,0.5)`,
-                  backgroundColor: 'rgba(192,132,252,0.1)',
+                  backgroundColor: 'rgba(192,132,252,0.12)',
                 }}
               >
                 <ShieldCheck className="w-3.5 h-3.5" style={{ color: PURPLE }} />
@@ -198,27 +196,31 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Eyebrow */}
-            <motion.div variants={fadeInUp} className="mb-2">
+            {/* Eyebrow — single short line */}
+            <motion.div variants={fadeInUp} className="mb-1">
               <p
-                className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] mb-1"
+                className="text-[11px] font-bold uppercase tracking-[0.18em]"
                 style={{ color: PURPLE }}
               >
                 Inner Safety Method™
               </p>
-              <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-md">
-                Chương trình thực hành 7 ngày dành cho những người biết mình sinh ra để làm nhiều điều hơn...nhưng vẫn đang bị nỗi sợ giữ chân.
+              <p className="text-white/55 text-[11px] italic leading-snug max-w-sm">
+                Inner Safety Method™ giúp bạn làm dịu hệ thần kinh, giảm overthinking và xây dựng
+                cảm giác an toàn từ bên trong để{' '}
+                <span style={{ color: GOLD }} className="not-italic font-semibold">
+                  hành động ngay cả khi vẫn còn sợ.
+                </span>
               </p>
             </motion.div>
 
             {/* Headline */}
             <motion.h1
               variants={fadeInUp}
-              className="uppercase mb-2"
+              className="uppercase mb-1.5"
               style={{
                 fontFamily: "'Anton', sans-serif",
-                fontSize: 'clamp(2rem, 5vw, 3.6rem)',
-                lineHeight: 1.25,
+                fontSize: 'clamp(1.9rem, 4.2vw, 3.2rem)',
+                lineHeight: 1.2,
                 letterSpacing: '1px',
               }}
             >
@@ -228,160 +230,183 @@ export function Hero() {
               </span>
             </motion.h1>
 
-            {/* Subheadline */}
-            <motion.p
+            {/* 4-item horizontal stat row — replaces checklist, matches mockup */}
+            <motion.div
               variants={fadeInUp}
-              className="text-white/80 text-sm sm:text-base leading-relaxed mb-2 max-w-md"
+              className="flex flex-wrap gap-x-4 gap-y-1.5 mb-2"
             >
-              Chỉ với{' '}
-              <span className="font-semibold" style={{ color: PURPLE }}>
-                20 phút
-              </span>{' '}
-              mỗi ngày trong 7 ngày.
-              <br />
-              Bạn sẽ làm dịu hệ thần kinh, tháo gỡ gốc rễ của nỗi sợ, và xây
-              dựng cảm giác an toàn nội tại để sống đúng với con người
-              mà mình sinh ra để trở thành.
-            </motion.p>
-
-            {/* Reassurance bullets — 3 short lines, plain list */}
-            <motion.ul variants={staggerContainer} className="space-y-1.5 max-w-md mt-3 mb-5">
-              {checklist.map((item) => (
-                <motion.li variants={fadeInUp} key={item} className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 shrink-0" style={{ color: PURPLE }} strokeWidth={3} />
-                  <span className="font-bold text-sm leading-snug" style={{ color: '#E9D5FF' }}>
-                    {item}
-                  </span>
-                </motion.li>
+              {quickStats.map(({ icon: Icon, label, sub }) => (
+                <div key={label} className="flex items-center gap-1.5">
+                  <Icon className="w-3.5 h-3.5 shrink-0" style={{ color: PURPLE }} strokeWidth={1.8} />
+                  <div>
+                    <span className="text-white text-[11px] font-bold leading-none">{label}</span>
+                    <span className="text-white/45 text-[10px] leading-none ml-1">{sub}</span>
+                  </div>
+                </div>
               ))}
-            </motion.ul>
+            </motion.div>
 
-            {/* ── AVATAR + RATING ROW ── */}
-            <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-4">
-              <div className="flex -space-x-2.5">
+            {/* Avatar + rating */}
+            <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-2">
+              <div className="flex -space-x-2">
                 {AVATAR_COLORS.map((c, i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold"
-                    style={{
-                      backgroundColor: c,
-                      color: INK,
-                      border: `2px solid ${INK}`,
-                    }}
+                    className="w-7 h-7 rounded-full flex items-center justify-center text-[9px] font-bold"
+                    style={{ backgroundColor: c, color: INK, border: `2px solid ${INK}` }}
                   >
                     {i + 1}
                   </div>
                 ))}
               </div>
               <div>
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5" style={{ color: GOLD, fill: GOLD }} />
+                    <Star key={i} className="w-3 h-3" style={{ color: GOLD, fill: GOLD }} />
                   ))}
-                  <span className="text-white text-xs font-bold ml-1">4.9/5 từ hơn 2.000 học viên</span>
+                  <span className="text-white text-[11px] font-bold ml-1">
+                    4.9/5 từ hơn 2.000 học viên
+                  </span>
                 </div>
-                <p className="text-white/50 text-[11px] leading-snug mt-0.5">
+                <p className="text-white/45 text-[10px] leading-snug">
                   Họ đã bắt đầu hành động thay vì tiếp tục trì hoãn vì nỗi sợ.
                 </p>
               </div>
             </motion.div>
           </motion.div>
-
-          {/* ── PRICE BOX (left) + FEATURE GRID (right) — side by side, same row, like the mockup ── */}
-          <div className="flex flex-col lg:flex-row gap-4 lg:items-stretch">
-            {/* Price box + CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-2xl p-3 w-full lg:w-[46%] shrink-0"
-              style={{
-                border: `1px solid rgba(192,132,252,0.35)`,
-                backgroundColor: 'rgba(13,11,24,0.6)',
-                backdropFilter: 'blur(6px)',
-              }}
-            >
-              <div className="flex items-center justify-between mb-0.5">
-                <p className="text-white/70 text-[10px] font-bold uppercase tracking-wide">
-                  Trải nghiệm 7 ngày
-                </p>
-                <span
-                  className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
-                  style={{ backgroundColor: 'rgba(251,191,36,0.15)', color: GOLD }}
-                >
-                  TIẾT KIỆM 90%
-                </span>
-              </div>
-              <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-white font-extrabold text-2xl sm:text-3xl">111.000đ</span>
-                <span className="text-white/40 text-xs line-through">1.111.000đ</span>
-              </div>
-
-              <button
-                onClick={scrollToCTA}
-                className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-2.5 px-5 font-bold text-xs transition-transform hover:scale-[1.02] shadow-2xl text-center"
-                style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
-                data-testid="button-hero-cta"
-              >
-                🔥 Tôi muốn bắt đầu 7 ngày ngay!
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              <p className="flex items-center gap-1.5 text-white/50 text-[10px] mt-1.5">
-                <ShieldCheck className="w-3 h-3 shrink-0" style={{ color: PURPLE }} />
-                Hoàn tiền 100% trong 7 ngày nếu chương trình không phù hợp.
-              </p>
-            </motion.div>
-
-            {/* Feature strip — one continuous block with dividers, matching the mockup */}
-            <motion.div
-              variants={staggerContainer}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true, amount: 0.3 }}
-              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-x divide-y lg:divide-y-0 rounded-2xl flex-1"
-              style={{
-                border: '1px solid rgba(192,132,252,0.18)',
-                backgroundColor: 'rgba(255,255,255,0.03)',
-                borderColor: 'rgba(192,132,252,0.18)',
-              }}
-            >
-              {featureGrid.map(({ icon: Icon, title, desc }) => (
-                <motion.div
-                  variants={fadeInUp}
-                  key={title}
-                  className="flex flex-col items-center justify-center text-center gap-1.5 px-2 py-3"
-                  style={{ borderColor: 'rgba(192,132,252,0.18)' }}
-                >
-                  <Icon className="w-6 h-6 sm:w-7 sm:h-7 shrink-0" style={{ color: PURPLE }} strokeWidth={1.5} />
-                  <p className="text-white font-extrabold text-[11px] sm:text-xs uppercase tracking-wide leading-snug">
-                    {title}
-                  </p>
-                  <p className="text-white/55 text-[10px] leading-snug hidden sm:block">{desc}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
         </div>
       </div>
 
-      {/* ── BOTTOM TRUST STRIP — same 1280px column as the content above, so edges line up ── */}
+      {/* ── PRICE BOX (left) + FEATURE GRID (right) — left-padded, feature grid bleeds to right edge ── */}
+      <div className="relative z-10 px-4 sm:px-10 lg:pl-12 lg:pr-0">
+        <div className="flex flex-col lg:flex-row gap-3 lg:items-stretch">
+
+          {/* ── PRICE BOX — matches mockup layout exactly ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-2xl p-4 w-full lg:w-[42%] shrink-0 flex flex-col justify-between"
+            style={{
+              border: `1px solid rgba(192,132,252,0.35)`,
+              backgroundColor: 'rgba(13,11,24,0.82)',
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            {/* Price label row */}
+            <div>
+              <div className="flex items-center justify-between mb-0.5">
+                <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest">
+                  Trải nghiệm 7 ngày · Chỉ với
+                </p>
+                <span
+                  className="text-[10px] font-extrabold px-2 py-0.5 rounded-full"
+                  style={{ backgroundColor: 'rgba(251,191,36,0.18)', color: GOLD, border: '1px solid rgba(251,191,36,0.35)' }}
+                >
+                  TIẾT KIỆM 86%
+                </span>
+              </div>
+
+              {/* Price row */}
+              <div className="flex items-baseline gap-2 mb-3">
+                <span
+                  className="font-extrabold leading-none"
+                  style={{ color: GOLD, fontFamily: "'Anton', sans-serif", fontSize: 'clamp(2rem, 3.5vw, 2.8rem)' }}
+                >
+                  111.000đ
+                </span>
+                <span className="text-white/35 text-sm line-through">799.000đ</span>
+              </div>
+
+              {/* CTA button — large, gradient, matches mockup */}
+              <button
+                onClick={scrollToCTA}
+                className="group w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 px-6 font-extrabold text-sm sm:text-base transition-all hover:scale-[1.02] hover:shadow-[0_0_24px_rgba(251,191,36,0.4)] shadow-xl mb-2"
+                style={{
+                  background: `linear-gradient(90deg, ${GOLD} 0%, #f59e0b 50%, ${PURPLE} 100%)`,
+                  color: INK,
+                  letterSpacing: '0.02em',
+                }}
+                data-testid="button-hero-cta"
+              >
+                TÔI MUỐN BẮT ĐẦU 7 NGÀY NGAY!
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform shrink-0" />
+              </button>
+
+              {/* Guarantee */}
+              <p className="flex items-center gap-1.5 text-white/45 text-[10px]">
+                <ShieldCheck className="w-3 h-3 shrink-0" style={{ color: PURPLE }} />
+                Hoàn tiền 100% trong 7 ngày nếu chương trình không phù hợp.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* ── FEATURE GRID — 5 columns, opaque dark bg, bleeds to right edge ── */}
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.3 }}
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 rounded-2xl lg:rounded-l-2xl lg:rounded-r-none flex-1"
+            style={{
+              border: '1px solid rgba(192,132,252,0.22)',
+              borderRight: 'none',
+              backgroundColor: 'rgba(13,11,24,0.88)',
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            {featureGrid.map(({ icon: Icon, title, desc }, idx) => (
+              <motion.div
+                variants={fadeInUp}
+                key={title}
+                className="flex flex-col items-center justify-center text-center gap-2 px-3 py-4"
+                style={{
+                  borderRight: idx < 4 ? '1px solid rgba(192,132,252,0.15)' : undefined,
+                }}
+              >
+                {/* Icon circle */}
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: 'rgba(192,132,252,0.12)', border: '1px solid rgba(192,132,252,0.2)' }}
+                >
+                  <Icon className="w-5 h-5" style={{ color: PURPLE }} strokeWidth={1.6} />
+                </div>
+                <p
+                  className="font-extrabold text-[11px] uppercase tracking-wide leading-snug text-white"
+                  style={{ whiteSpace: 'pre-line' }}
+                >
+                  {title}
+                </p>
+                <p className="text-white/50 text-[10px] leading-snug hidden sm:block">{desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* ── TRUST STRIP — left-padded, bleeds to right edge ── */}
       <div
-        className="relative z-10 mt-6"
+        className="relative z-10 px-4 sm:px-10 lg:pl-12 lg:pr-0"
         style={{
-          borderTop: '1px solid rgba(255,255,255,0.08)',
-          backgroundColor: 'rgba(13,11,24,0.75)',
-          backdropFilter: 'blur(6px)',
+          borderTop: '1px solid rgba(255,255,255,0.07)',
+          backgroundColor: 'rgba(13,11,24,0.88)',
+          backdropFilter: 'blur(10px)',
         }}
       >
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-10 lg:px-12 py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-5 gap-x-4">
-          {trustStrip.map(({ icon: Icon, label, sub }) => (
-            <div key={label} className="flex items-center gap-3">
-              <Icon className="w-6 h-6 shrink-0" style={{ color: PURPLE }} />
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-3 gap-x-4 py-3">
+          {trustStrip.map(({ icon: Icon, label, sub }, idx) => (
+            <div
+              key={label}
+              className="flex items-center gap-2.5"
+              style={{
+                borderRight: idx < 4 ? '1px solid rgba(255,255,255,0.06)' : undefined,
+              }}
+            >
+              <Icon className="w-5 h-5 shrink-0" style={{ color: PURPLE }} strokeWidth={1.6} />
               <div>
-                <p className="text-white text-sm font-bold leading-tight">{label}</p>
-                <p className="text-white/50 text-xs leading-tight">{sub}</p>
+                <p className="text-white text-xs font-bold leading-tight">{label}</p>
+                <p className="text-white/45 text-[10px] leading-tight">{sub}</p>
               </div>
             </div>
           ))}
