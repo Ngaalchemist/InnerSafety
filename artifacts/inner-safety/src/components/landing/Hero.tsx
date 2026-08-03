@@ -145,10 +145,39 @@ export function Hero() {
         </div>
       </nav>
 
+      {/* ── QUOTE — floating box on the right, near the tree/moon, restored from the original design ── */}
+      <div
+        className="hidden lg:block absolute z-20 top-[36%] right-[6%] xl:right-[8%] text-left"
+        style={{ maxWidth: '260px' }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <span className="block text-2xl leading-none mb-1" style={{ color: PURPLE }}>
+            &ldquo;
+          </span>
+          <p className="italic text-white/75 text-sm leading-snug -mt-2">
+            Điều quyết định cuộc đời bạn<br />
+            không nằm ở những gì người khác nhìn thấy, mà ở gốc rễ bên trong bạn.
+          </p>
+        </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          className="text-xs font-semibold tracking-wide uppercase mt-1"
+          style={{ color: PURPLE }}
+        >
+          — Nga Alchemist
+        </motion.p>
+      </div>
+
       <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-6 pb-8 lg:pt-8">
         <div className="w-full flex flex-col gap-5">
 
-          {/* ── TEXT COLUMN (eyebrow through avatar/rating) — centered back to the original 1280px reading column ── */}
+          {/* ── TEXT COLUMN (badge, eyebrow through avatar/rating) — centered back to the original 1280px reading column ── */}
           <div className="max-w-[1280px] mx-auto w-full">
           <motion.div
             variants={staggerContainer}
@@ -156,6 +185,20 @@ export function Hero() {
             animate="animate"
             className="flex flex-col text-left lg:max-w-[46%]"
           >
+            {/* Badge */}
+            <motion.div variants={fadeInUp} className="mb-3">
+              <span
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wide text-white"
+                style={{
+                  border: `1px solid rgba(192,132,252,0.5)`,
+                  backgroundColor: 'rgba(192,132,252,0.1)',
+                }}
+              >
+                <ShieldCheck className="w-3.5 h-3.5" style={{ color: PURPLE }} />
+                Chương trình thực hành 7 ngày
+              </span>
+            </motion.div>
+
             {/* Eyebrow */}
             <motion.div variants={fadeInUp} className="mb-2">
               <p
@@ -254,68 +297,70 @@ export function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-2xl p-5 w-full lg:w-[360px] shrink-0"
+              className="rounded-2xl p-3 w-full lg:w-[360px] shrink-0"
               style={{
                 border: `1px solid rgba(192,132,252,0.35)`,
                 backgroundColor: 'rgba(13,11,24,0.6)',
                 backdropFilter: 'blur(6px)',
               }}
             >
-              <div className="flex items-center justify-between mb-1">
-                <p className="text-white/70 text-xs font-bold uppercase tracking-wide">
+              <div className="flex items-center justify-between mb-0.5">
+                <p className="text-white/70 text-[10px] font-bold uppercase tracking-wide">
                   Trải nghiệm 7 ngày
                 </p>
                 <span
-                  className="text-[11px] font-bold px-2 py-0.5 rounded-full"
+                  className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
                   style={{ backgroundColor: 'rgba(251,191,36,0.15)', color: GOLD }}
                 >
                   TIẾT KIỆM 90%
                 </span>
               </div>
-              <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-white font-extrabold text-3xl sm:text-4xl">111.000đ</span>
-                <span className="text-white/40 text-base line-through">1.111.000đ</span>
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-white font-extrabold text-2xl sm:text-3xl">111.000đ</span>
+                <span className="text-white/40 text-xs line-through">1.111.000đ</span>
               </div>
 
               <button
                 onClick={scrollToCTA}
-                className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-[16px] px-6 font-bold text-sm transition-transform hover:scale-[1.02] shadow-2xl text-center"
+                className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-2.5 px-5 font-bold text-xs transition-transform hover:scale-[1.02] shadow-2xl text-center"
                 style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
                 data-testid="button-hero-cta"
               >
                 🔥 Tôi muốn bắt đầu 7 ngày ngay!
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </button>
 
-              <p className="flex items-center gap-1.5 text-white/50 text-[11px] mt-3">
-                <ShieldCheck className="w-3.5 h-3.5 shrink-0" style={{ color: PURPLE }} />
+              <p className="flex items-center gap-1.5 text-white/50 text-[10px] mt-1.5">
+                <ShieldCheck className="w-3 h-3 shrink-0" style={{ color: PURPLE }} />
                 Hoàn tiền 100% trong 7 ngày nếu chương trình không phù hợp.
               </p>
             </motion.div>
 
-            {/* Feature grid — 5 icons matching the reassurance outcomes */}
+            {/* Feature strip — one continuous block with dividers, matching the mockup */}
             <motion.div
               variants={staggerContainer}
               initial="initial"
               whileInView="animate"
               viewport={{ once: true, amount: 0.3 }}
-              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 auto-rows-fr gap-3 flex-1"
+              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-x divide-y lg:divide-y-0 rounded-2xl flex-1"
+              style={{
+                border: '1px solid rgba(192,132,252,0.18)',
+                backgroundColor: 'rgba(255,255,255,0.03)',
+                borderColor: 'rgba(192,132,252,0.18)',
+              }}
             >
               {featureGrid.map(({ icon: Icon, title, desc }) => (
                 <motion.div
                   variants={fadeInUp}
                   key={title}
-                  className="h-full flex flex-col items-center justify-center text-center gap-3 rounded-xl p-5"
-                  style={{
-                    border: '1px solid rgba(192,132,252,0.18)',
-                    backgroundColor: 'rgba(255,255,255,0.03)',
-                  }}
+                  className="flex flex-col items-center justify-center text-center gap-1.5 px-2 py-3"
+                  style={{ borderColor: 'rgba(192,132,252,0.18)' }}
                 >
-                  <Icon className="w-10 h-10 sm:w-11 sm:h-11 shrink-0" style={{ color: PURPLE }} strokeWidth={1.5} />
-                  <p className="text-white font-extrabold text-sm sm:text-[15px] uppercase tracking-wide leading-snug">
+                  <Icon className="w-6 h-6 sm:w-7 sm:h-7 shrink-0" style={{ color: PURPLE }} strokeWidth={1.5} />
+                  <p className="text-white font-extrabold text-[11px] sm:text-xs uppercase tracking-wide leading-snug">
                     {title}
                   </p>
-                  <p className="text-white/55 text-xs leading-snug">{desc}</p>
+                  <p className="text-white/55 text-[10px] leading-snug hidden sm:block">{desc}</p>
                 </motion.div>
               ))}
             </motion.div>
