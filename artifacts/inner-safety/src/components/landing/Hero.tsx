@@ -153,7 +153,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="hidden lg:block absolute z-10 text-right"
-            style={{ top: '35%', right: '4%', maxWidth: '240px' }}
+            style={{ top: '42%', right: '2%', maxWidth: '220px' }}
           >
             <span
               className="block text-4xl leading-none mb-1"
@@ -206,9 +206,9 @@ export function Hero() {
                 letterSpacing: '1px',
               }}
             >
-              <span className="block text-white">ĐỪNG ĐỂ NỖI SỢ QUYẾT ĐỊNH</span>
+              <span className="block text-white">ĐỪNG ĐỂ NỖI SỢ</span>
               <span className="block" style={{ color: GOLD }}>
-                CON NGƯỜI BẠN SẼ TRỞ THÀNH
+                QUYẾT ĐỊNH CON NGƯỜI BẠN SẼ TRỞ THÀNH
               </span>
             </motion.h1>
 
