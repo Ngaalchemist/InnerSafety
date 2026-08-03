@@ -153,7 +153,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="hidden lg:block absolute z-10 text-right"
-            style={{ top: '48%', right: '4%', maxWidth: '240px' }}
+            style={{ top: '35%', right: '4%', maxWidth: '240px' }}
           >
             <span
               className="block text-4xl leading-none mb-1"
@@ -198,17 +198,17 @@ export function Hero() {
             {/* Headline */}
             <motion.h1
               variants={fadeInUp}
-              className="uppercase mb-2"
+              className="uppercase mb-2 whitespace-nowrap"
               style={{
                 fontFamily: "'Anton', sans-serif",
-                fontSize: 'clamp(2.4rem, 6.2vw, 4.4rem)',
+                fontSize: 'clamp(1.9rem, 4.6vw, 3.4rem)',
                 lineHeight: 1.15,
                 letterSpacing: '1px',
               }}
             >
-              <span className="block text-white">ĐỪNG ĐỂ NỖI SỢ QUYẾT ĐỊNH</span>
+              <span className="block text-white">ĐỪNG ĐỂ NỖI SỢ</span>
               <span className="block" style={{ color: GOLD }}>
-                CON NGƯỜI BẠN SẼ TRỞ THÀNH
+                QUYẾT ĐỊNH CON NGƯỜI BẠN SẼ TRỞ THÀNH
               </span>
             </motion.h1>
 
