@@ -146,7 +146,29 @@ export function Hero() {
       </nav>
 
       <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-2 pb-0 lg:pt-3">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-5">
+        <div className="max-w-[1280px] mx-auto flex flex-col gap-5 relative">
+
+          {/* ── QUOTE — sits over the tree image, right side, echoing the reference mockup ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden lg:block absolute z-10 text-right"
+            style={{ top: '20%', right: '3%', maxWidth: '260px' }}
+          >
+            <span
+              className="block text-5xl leading-none mb-1"
+              style={{ color: PURPLE, fontFamily: "'Playfair Display', serif", opacity: 0.7 }}
+            >
+              &ldquo;
+            </span>
+            <p
+              className="italic text-white/85 text-sm leading-snug"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Điều thay đổi cuộc đời bạn không nằm ở những gì người khác nhìn thấy, mà ở gốc rễ bên trong bạn.
+            </p>
+          </motion.div>
 
           {/* ── TEXT COLUMN (eyebrow through avatar/rating) ── */}
           <motion.div
@@ -268,20 +290,16 @@ export function Hero() {
                   <span className="text-white font-extrabold text-3xl sm:text-4xl">111.000đ</span>
                   <span className="text-white/40 text-base line-through">1.111.000đ</span>
                 </div>
-                <motion.span
-                  animate={{ scale: [1, 1.06, 1] }}
-                  transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-                  className="font-extrabold px-4 py-1.5 rounded-full leading-none"
+                <span
+                  className="text-[11px] font-bold px-2.5 py-1 rounded-full tracking-wide"
                   style={{
-                    fontSize: 'clamp(1.15rem, 2.6vw, 1.75rem)',
-                    backgroundColor: 'rgba(251,191,36,0.18)',
+                    backgroundColor: 'rgba(251,191,36,0.12)',
                     color: GOLD,
-                    border: '2px solid rgba(251,191,36,0.65)',
-                    boxShadow: '0 0 24px rgba(251,191,36,0.4)',
+                    border: '1px solid rgba(251,191,36,0.4)',
                   }}
                 >
                   TIẾT KIỆM 90%
-                </motion.span>
+                </span>
               </div>
 
               <button
