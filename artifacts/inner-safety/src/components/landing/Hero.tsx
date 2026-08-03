@@ -106,30 +106,34 @@ export function Hero() {
         </div>
       </nav>
 
-      {/* ── QUOTE — anchored right at the grass/soil line by the tree: quote sits above ground, attribution sits below in purple ── */}
+      {/* ── QUOTE — right side of the tree, anchored at the grass/soil line (matches reference image position): quote above ground, purple attribution below ── */}
       <div
-        className="hidden lg:block absolute z-20 top-[63%] left-[60%] -translate-x-1/2 text-center"
-        style={{ maxWidth: '340px' }}
+        className="hidden lg:block absolute z-20 top-[43%] right-[6%] xl:right-[8%] text-left"
+        style={{ maxWidth: '280px' }}
       >
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="italic text-white/75 text-sm leading-snug mb-2"
           style={{ transform: 'translateY(-100%)' }}
         >
-          Điều quyết định cuộc đời bạn<br />
-          không nằm ở những gì người khác nhìn thấy,<br />
-          mà ở gốc rễ bên trong bạn.
-        </motion.p>
+          <span className="block text-2xl leading-none mb-1" style={{ color: PURPLE }}>
+            &ldquo;
+          </span>
+          <p className="italic text-white/75 text-sm leading-snug -mt-2">
+            Điều quyết định cuộc đời bạn<br />
+            không nằm ở những gì người khác nhìn thấy,<br />
+            mà ở gốc rễ bên trong bạn.
+          </p>
+        </motion.div>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-xs font-semibold"
+          className="text-xs font-semibold tracking-wide uppercase mt-1"
           style={{ color: PURPLE }}
         >
-          - Nga Alchemist
+          — Nga Alchemist
         </motion.p>
       </div>
 
