@@ -11,16 +11,17 @@ import {
 } from 'lucide-react';
 import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
 
-// Self-loads the Google Font so the bold condensed headline renders
-// correctly even if the project's global CSS doesn't import it.
-const GOOGLE_FONT_ID = 'font-anton';
+// Self-loads the Google Fonts so the bold condensed headline and the
+// display-serif header text render correctly even if the project's
+// global CSS doesn't import them.
+const GOOGLE_FONT_ID = 'font-anton-playfair';
 function useAntonFont() {
   useEffect(() => {
     if (document.getElementById(GOOGLE_FONT_ID)) return;
     const link = document.createElement('link');
     link.id = GOOGLE_FONT_ID;
     link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Anton&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@700&display=swap';
     document.head.appendChild(link);
   }, []);
 }
@@ -87,8 +88,8 @@ export function Hero() {
       >
         <div className="max-w-[1280px] mx-auto flex items-center justify-between">
           <span
-            className="text-sm sm:text-base font-extrabold tracking-wide uppercase"
-            style={{ color: GOLD }}
+            className="text-sm sm:text-base font-bold uppercase tracking-wide"
+            style={{ color: GOLD, fontFamily: "'Playfair Display', serif" }}
           >
             7 Ngày Vượt Trên Nỗi Sợ
           </span>
