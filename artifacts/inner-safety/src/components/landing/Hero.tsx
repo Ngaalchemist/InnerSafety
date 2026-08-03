@@ -124,8 +124,7 @@ export function Hero() {
           </span>
           <p className="italic text-white/75 text-sm leading-snug -mt-2">
             Điều quyết định cuộc đời bạn<br />
-            không nằm ở những gì người khác nhìn thấy,<br />
-            mà ở gốc rễ bên trong bạn.
+            không nằm ở những gì người khác nhìn thấy, mà ở gốc rễ bên trong bạn.
           </p>
         </motion.div>
         <motion.p
@@ -144,7 +143,7 @@ export function Hero() {
         initial={{ opacity: 0, scale: 0.8, rotate: -14 }}
         animate={{ opacity: 1, scale: 1, rotate: -8 }}
         transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="hidden lg:flex absolute z-20 top-[52%] left-[66%] xl:left-[68%] flex-col items-center justify-center text-center"
+        className="hidden lg:flex absolute z-20 top-[58%] left-[40%] xl:left-[42%] flex-col items-center justify-center text-center"
         style={{
           width: '170px',
           height: '170px',
