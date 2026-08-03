@@ -30,7 +30,7 @@ export function ProblemSection() {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold mb-6 sm:mb-8">
-            Bạn Đang Sống Trong Giới Hạn<br />Của Nỗi Sợ?
+            Bạn Có Đang Sống Trong Giới Hạn<br />Của Nỗi Sợ?
           </h2>
           
           <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6 text-base sm:text-lg text-foreground/80 leading-relaxed">
