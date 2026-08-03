@@ -68,9 +68,9 @@ export function ProblemSection() {
             className={`${T_DISPLAY} text-gradient-gold mb-6`}
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Bạn Có Đang Sống Trong Giới Hạn
+            Nỗi sợ không chỉ tồn tại trong suy nghĩ.
             <br />
-            Của Nỗi Sợ?
+            Nó đang điều khiển những quyết định rất đời thường của bạn.
           </h2>
 
           <div className={`max-w-3xl mx-auto ${LINE_GAP} ${T_BODY} text-foreground/80`}>
