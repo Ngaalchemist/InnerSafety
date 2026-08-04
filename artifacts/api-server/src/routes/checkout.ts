@@ -1,35 +1,17 @@
 import { Router } from 'express';
+import { eq, and } from 'drizzle-orm';
+import { db, checkoutOrders } from '@workspace/db';
 import { generateOrderId, getQRUrl, checkPayment } from '../lib/sepay';
 import { appendRegistration, markAsPaid } from '../lib/sheets';
 
 const router = Router();
-
-interface PendingOrder {
-  name: string;
-  phone: string;
-  email: string;
-  registrationUrl: string;
-  createdAt: number;
-  sheetsWritten?: boolean;
-}
-
-// In-memory order store (persists for the life of the server process)
-const pendingOrders = new Map<string, PendingOrder>();
-
-// Purge orders older than 2 hours every 10 minutes
-setInterval(() => {
-  const cutoff = Date.now() - 2 * 60 * 60 * 1000;
-  for (const [id, order] of pendingOrders.entries()) {
-    if (order.createdAt < cutoff) pendingOrders.delete(id);
-  }
-}, 10 * 60 * 1000);
 
 /**
  * POST /api/checkout/create
  * Body: { name, phone, email }
  * Returns: { orderId, qrUrl, amount }
  *
- * Also immediately writes a "Chưa thanh toán" row to Google Sheets.
+ * Writes a "Chưa thanh toán" row to Google Sheets and a pending row to the DB.
  */
 router.post('/checkout/create', async (req, res) => {
   const { name, phone, email } = req.body as Record<string, string>;
@@ -49,21 +31,20 @@ router.post('/checkout/create', async (req, res) => {
     `https://${req.headers.host ?? 'innersafety.vn'}`;
   const registrationUrl = `${origin}/#final-cta`;
 
-  const order: PendingOrder = {
+  await db.insert(checkoutOrders).values({
+    orderId,
     name: name.trim(),
     phone: phone.trim(),
     email: email.trim(),
     registrationUrl,
-    createdAt: Date.now(),
-  };
-
-  pendingOrders.set(orderId, order);
+    amount: 111000,
+  });
 
   // Write registration row to Google Sheets immediately (non-blocking)
   appendRegistration({
-    name: order.name,
-    phone: order.phone,
-    email: order.email,
+    name: name.trim(),
+    phone: phone.trim(),
+    email: email.trim(),
     orderId,
     registrationUrl,
     amount: 111000,
@@ -85,36 +66,50 @@ router.post('/checkout/create', async (req, res) => {
  */
 router.get('/checkout/status/:orderId', async (req, res) => {
   const { orderId } = req.params;
-  const order = pendingOrders.get(orderId);
+
+  const [order] = await db
+    .select()
+    .from(checkoutOrders)
+    .where(eq(checkoutOrders.orderId, orderId))
+    .limit(1);
 
   if (!order) {
     res.status(404).json({ status: 'not_found' });
     return;
   }
 
+  if (order.status === 'paid') {
+    res.json({ status: 'paid' });
+    return;
+  }
+
   try {
     const paid = await checkPayment(orderId);
 
-    if (paid && !order.sheetsWritten) {
-      // Mark before async ops to prevent double-writes on concurrent polls
-      order.sheetsWritten = true;
+    if (paid) {
+      // Only update (and only write to Sheets) if still 'pending' — guards
+      // against double-writes when multiple polls land at the same time.
+      const updated = await db
+        .update(checkoutOrders)
+        .set({ status: 'paid' })
+        .where(and(eq(checkoutOrders.orderId, orderId), eq(checkoutOrders.status, 'pending')))
+        .returning();
 
-      const confirmedAt = new Date().toISOString();
+      if (updated.length > 0) {
+        const confirmedAt = new Date().toISOString();
 
-      markAsPaid(orderId, confirmedAt).catch((err) => {
-        req.log.error({ err, orderId }, 'Failed to update payment status in Google Sheets');
-      });
+        markAsPaid(orderId, confirmedAt).catch((err) => {
+          req.log.error({ err, orderId }, 'Failed to update payment status in Google Sheets');
+        });
 
-      req.log.info({ orderId }, 'Payment confirmed — marking row as Đã thanh toán');
-
-      // Keep order a few minutes so repeated status polls still return 'paid'
-      setTimeout(() => pendingOrders.delete(orderId), 5 * 60 * 1000);
+        req.log.info({ orderId }, 'Payment confirmed — marking row as Đã thanh toán');
+      }
 
       res.json({ status: 'paid' });
       return;
     }
 
-    res.json({ status: paid ? 'paid' : 'pending' });
+    res.json({ status: 'pending' });
   } catch (err) {
     req.log.error({ err, orderId }, 'SePay status check failed');
     res.status(500).json({ error: 'Could not verify payment status' });
