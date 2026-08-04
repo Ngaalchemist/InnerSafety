@@ -1,7 +1,8 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Award, Users, Calendar, Target } from 'lucide-react';
-import ngaImage from '@assets/anh_nay_sac_net_1785304834134.jpg';
+import ngaPortrait from '@assets/nga-portrait.png';
+import ngaRmitImage from '@assets/anh_nay_sac_net_1785304834134.jpg';
 
 const credentials = [
   'Certified Hypnotherapist (CTAA Accredited)',
@@ -24,7 +25,7 @@ export function InstructorSection() {
   return (
     <section id="instructor" ref={sectionRef} className="py-16 sm:py-24 lg:py-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -38,19 +39,19 @@ export function InstructorSection() {
         </motion.div>
 
         <div className="max-w-5xl mx-auto">
-          {/* Photo */}
+          {/* Portrait — introduces Nga at the top of the section */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
-            className="mb-8 sm:mb-12"
+            className="mb-8 sm:mb-12 max-w-xs sm:max-w-sm mx-auto"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/20">
               <img
-                src={ngaImage}
-                alt="Nga Alchemist speaking at RMIT University"
+                src={ngaPortrait}
+                alt="Nga Alchemist - Founder Inner Safety Method"
                 className="w-full h-auto"
-                style={{ objectFit: 'contain' }}
+                style={{ objectFit: 'cover' }}
               />
             </div>
           </motion.div>
@@ -97,15 +98,15 @@ export function InstructorSection() {
             <p>
               Từ năm 2019, mình bước vào hành trình khám phá tâm trí, tiềm thức và bản chất của sự chuyển hóa con người.
             </p>
-            
+
             <p>
               Sau nhiều năm nghiên cứu, thực hành thôi miên trị liệu và đồng hành với hàng trăm khách hàng, mình nhận ra rằng <strong className="text-foreground">phần lớn chúng ta không thiếu kiến thức hay ý chí. Chúng ta chỉ đang cố xây một cuộc đời mới trên một hệ thần kinh vẫn còn sống trong nỗi sợ.</strong>
             </p>
-            
+
             <p>
               Khi bên trong chưa thật sự cảm thấy an toàn, mỗi lần muốn bước ra, chia sẻ giá trị hay tạo nên điều mới, tâm trí sẽ lập tức kích hoạt những vòng lặp quen thuộc: Sợ thất bại. Sợ bị phán xét. Sợ không đủ. Overthinking. Đóng băng. Trì hoãn.
             </p>
-            
+
             <p>
               Từ những nghiên cứu về thôi miên trị liệu, điều hòa hệ thần kinh, somatic healing và tái lập trình niềm tin vô thức, Nga phát triển <strong className="text-primary">Inner Safety Method™</strong> — phương pháp giúp tháo gỡ bộ rễ của nỗi sợ ở nhiều tầng nhận thức để xây dựng cảm giác an toàn nội tại, nền tảng giúp con người hành động từ sự bình an thay vì từ cơ chế sinh tồn.
             </p>
@@ -116,7 +117,7 @@ export function InstructorSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16"
           >
             {stats.map((stat, idx) => (
               <div
@@ -135,6 +136,25 @@ export function InstructorSection() {
                 </p>
               </div>
             ))}
+          </motion.div>
+
+          {/* RMIT speaking photo — closes the section as social proof */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/20">
+              <img
+                src={ngaRmitImage}
+                alt="Nga Alchemist speaking at RMIT University"
+                className="w-full h-auto"
+                style={{ objectFit: 'contain' }}
+              />
+            </div>
+            <p className="text-center text-xs sm:text-sm text-foreground/60 mt-3">
+              Nga Alchemist chia sẻ tại Đại học RMIT
+            </p>
           </motion.div>
         </div>
       </div>
