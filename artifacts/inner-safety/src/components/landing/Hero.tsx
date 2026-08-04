@@ -26,7 +26,7 @@ function useAntonFont() {
     const link = document.createElement('link');
     link.id = GOOGLE_FONT_ID;
     link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@700&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap';
     document.head.appendChild(link);
   }, []);
 }
@@ -312,10 +312,18 @@ export function Hero() {
                   className="flex flex-1 flex-col items-center justify-center text-center gap-1 p-2.5"
                 >
                   <Icon className="w-7 h-7 sm:w-8 sm:h-8 shrink-0" style={{ color: PURPLE }} strokeWidth={1.5} />
-                  <p className="text-white font-extrabold text-xs sm:text-[13px] uppercase tracking-wide leading-tight">
+                  <p
+                    className="text-white text-xs sm:text-[13px] uppercase tracking-wide leading-tight"
+                    style={{ fontFamily: "'Be Vietnam Pro', sans-serif", fontWeight: 600, letterSpacing: '0.3px' }}
+                  >
                     {title}
                   </p>
-                  <p className="text-white/55 text-[10px] leading-tight">{desc}</p>
+                  <p
+                    className="text-white/55 text-[10px] leading-tight"
+                    style={{ fontFamily: "'Be Vietnam Pro', sans-serif", fontWeight: 300 }}
+                  >
+                    {desc}
+                  </p>
                 </motion.div>
               ))}
             </motion.div>
@@ -337,8 +345,18 @@ export function Hero() {
             <div key={label} className="flex items-center gap-3">
               <Icon className="w-6 h-6 shrink-0" style={{ color: PURPLE }} />
               <div>
-                <p className="text-white text-sm font-bold leading-tight">{label}</p>
-                <p className="text-white/50 text-xs leading-tight">{sub}</p>
+                <p
+                  className="text-white text-sm leading-tight"
+                  style={{ fontFamily: "'Be Vietnam Pro', sans-serif", fontWeight: 600, letterSpacing: '0.2px' }}
+                >
+                  {label}
+                </p>
+                <p
+                  className="text-white/50 text-xs leading-tight"
+                  style={{ fontFamily: "'Be Vietnam Pro', sans-serif", fontWeight: 300 }}
+                >
+                  {sub}
+                </p>
               </div>
             </div>
           ))}
