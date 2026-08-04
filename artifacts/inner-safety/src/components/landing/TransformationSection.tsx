@@ -13,7 +13,7 @@ const before = [
 
 const after = [
   'Ra quyết định từ sự rõ ràng và tự tin',
-  'Sống vượt trên nỗi sợ, dám bước ra ngoài vùng co cụm',
+  'Sống vượt trên nỗi sợ, dám bước ra ngoài vùng an toàn',
   'Làm dịu hệ thần kinh chỉ trong vài phút',
   'Sống thật, tháo bỏ áp lực, nói "Không" nhẹ nhàng',
   'Làm chủ tâm trí, chuyển overthinking thành hành động',
