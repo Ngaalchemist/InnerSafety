@@ -7,7 +7,7 @@ import { TransformationSection } from '@/components/landing/TransformationSectio
 import { InstructorSection } from '@/components/landing/InstructorSection';
 import { TestimonialsSection } from '@/components/landing/TestimonialsSection';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { FinalCTASection } from '@/components/landing/FinalCTASection';
+import { CheckoutSection } from '@/components/landing/CheckoutSection';
 import { Footer } from '@/components/landing/Footer';
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
       <InstructorSection />
       <TestimonialsSection />
       <FAQSection />
-      <FinalCTASection />
+      <CheckoutSection />
       <Footer />
     </div>
   );
