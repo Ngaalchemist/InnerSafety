@@ -1,4 +1,4 @@
-import { logger } from './logger';
+import { logger } from './logger.js';
 
 const SEPAY_API_BASE = 'https://my.sepay.vn/userapi';
 const COURSE_AMOUNT = 111000;

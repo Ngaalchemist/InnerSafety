@@ -1,5 +1,5 @@
 import { google } from 'googleapis';
-import { logger } from './logger';
+import { logger } from './logger.js';
 
 const SPREADSHEET_ID = '1_1J-ei7a0bPeqZNG6IynJZuGOj1LkGIwtAyBEBqVkuc';
 const SHEET = 'Sheet1';
