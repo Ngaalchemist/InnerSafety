@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
@@ -12,18 +12,20 @@ import {
   FileText,
   Headphones,
   Users,
-  ChevronDown,
   ArrowRight,
   BadgeCheck,
   Smartphone,
   Mail,
+  RefreshCw,
+  QrCode,
+  CheckCircle2,
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 // ────────────────────────────────────────────────────────────────
-// PHẦN 3 — CẤU TRÚC CHECKOUT: nội dung tĩnh cho từng khối
+// Static content
 // ────────────────────────────────────────────────────────────────
 
 const included = [
@@ -78,17 +80,40 @@ const microTestimonials = [
   { name: 'Tuấn Anh', title: 'Startup Founder', quote: 'Sau 7 ngày, tôi mới hiểu "sống từ bình an" nghĩa là gì. Vẫn làm việc chăm chỉ, nhưng vì yêu thích, không vì sợ.' },
 ];
 
+// ────────────────────────────────────────────────────────────────
+// Types
+// ────────────────────────────────────────────────────────────────
+
+type Step = 'form' | 'qr' | 'success';
+
+interface OrderData {
+  orderId: string;
+  qrUrl: string;
+}
+
+// ────────────────────────────────────────────────────────────────
+// Component
+// ────────────────────────────────────────────────────────────────
+
 export function CheckoutSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   // Countdown — urgency block
   const [timeLeft, setTimeLeft] = useState({ hours: 24, minutes: 0, seconds: 0 });
+
+  // Form state
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
   const [errors, setErrors] = useState({ name: '', phone: '', email: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [apiError, setApiError] = useState('');
 
+  // Checkout flow
+  const [step, setStep] = useState<Step>('form');
+  const [orderData, setOrderData] = useState<OrderData | null>(null);
+  const [pollError, setPollError] = useState('');
+
+  // ── Countdown timer ──────────────────────────────────────────
   useEffect(() => {
     const getTargetTime = () => {
       let target = localStorage.getItem('checkout_timer_target');
@@ -118,6 +143,30 @@ export function CheckoutSection() {
     return () => clearInterval(timer);
   }, []);
 
+  // ── SePay payment polling ─────────────────────────────────────
+  const pollStatus = useCallback(async (orderId: string) => {
+    try {
+      const res = await fetch(`/api/checkout/status/${orderId}`);
+      if (!res.ok) return;
+      const data = await res.json() as { status: string };
+      if (data.status === 'paid') {
+        setStep('success');
+      }
+    } catch {
+      // silent — poll will retry
+    }
+  }, []);
+
+  useEffect(() => {
+    if (step !== 'qr' || !orderData) return;
+    setPollError('');
+    const interval = setInterval(() => pollStatus(orderData.orderId), 4000);
+    // Also poll immediately
+    pollStatus(orderData.orderId);
+    return () => clearInterval(interval);
+  }, [step, orderData, pollStatus]);
+
+  // ── Form validation ───────────────────────────────────────────
   const validate = () => {
     const newErrors = { name: '', phone: '', email: '' };
     let ok = true;
@@ -130,16 +179,113 @@ export function CheckoutSection() {
     return ok;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // ── Form submit → create order → show QR ─────────────────────
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
     setIsSubmitting(true);
-    setTimeout(() => {
+    setApiError('');
+
+    try {
+      const res = await fetch('/api/checkout/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({})) as { error?: string };
+        throw new Error(body.error ?? 'Không thể tạo đơn hàng. Vui lòng thử lại.');
+      }
+
+      const data = await res.json() as { orderId: string; qrUrl: string };
+      setOrderData({ orderId: data.orderId, qrUrl: data.qrUrl });
+      setStep('qr');
+    } catch (err) {
+      setApiError(err instanceof Error ? err.message : 'Có lỗi xảy ra, vui lòng thử lại.');
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 1000);
+    }
   };
 
+  // ── QR step ───────────────────────────────────────────────────
+  const QRStep = () => (
+    <div className="space-y-5 text-center text-[#1b1918]">
+      <div className="flex items-center justify-center gap-2 text-sm font-bold text-primary mb-1">
+        <QrCode className="w-4 h-4" />
+        Quét mã QR để thanh toán
+      </div>
+
+      {orderData && (
+        <div className="flex justify-center">
+          <div className="p-2 rounded-xl border-2 border-primary/30 bg-white shadow-md">
+            <img
+              src={orderData.qrUrl}
+              alt="Mã QR thanh toán"
+              className="w-52 h-52 object-contain rounded-lg"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src =
+                  `https://api.qrserver.com/v1/create-qr-code/?size=208x208&data=${encodeURIComponent(orderData.orderId)}`;
+              }}
+            />
+          </div>
+        </div>
+      )}
+
+      <div className="text-left space-y-1.5 bg-muted/40 rounded-xl p-4 text-sm">
+        <p className="font-semibold text-foreground/80 text-center mb-2">Thông tin chuyển khoản</p>
+        <div className="flex justify-between">
+          <span className="text-foreground/60">Số tiền</span>
+          <span className="font-bold text-primary">111.000đ</span>
+        </div>
+        <div className="flex justify-between gap-4">
+          <span className="text-foreground/60 shrink-0">Nội dung CK</span>
+          <span className="font-mono font-bold text-right break-all">{orderData?.orderId}</span>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-center gap-2 text-sm text-foreground/60 animate-pulse">
+        <RefreshCw className="w-4 h-4 animate-spin" />
+        Đang chờ xác nhận thanh toán…
+      </div>
+
+      {pollError && (
+        <p className="text-xs text-destructive">{pollError}</p>
+      )}
+
+      <p className="text-[11px] text-muted-foreground">
+        Sau khi chuyển khoản thành công, hệ thống sẽ tự xác nhận trong vòng vài giây.<br />
+        Không cần chụp màn hình hay liên hệ thủ công.
+      </p>
+
+      <button
+        onClick={() => { setStep('form'); setOrderData(null); }}
+        className="text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground transition-colors"
+      >
+        Quay lại chỉnh sửa thông tin
+      </button>
+    </div>
+  );
+
+  // ── Success step ──────────────────────────────────────────────
+  const SuccessStep = () => (
+    <div className="bg-green-50 border border-green-200 text-green-800 rounded-xl p-8 text-center animate-in fade-in zoom-in duration-300">
+      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <CheckCircle2 className="w-8 h-8 text-green-600" />
+      </div>
+      <h4 className="text-xl font-bold mb-2">Thanh toán thành công! 🎉</h4>
+      <p className="text-sm leading-relaxed">
+        Cảm ơn <strong>{formData.name}</strong>!<br />
+        Kiểm tra email <strong>{formData.email}</strong> trong vài phút<br />
+        để nhận link truy cập khóa học ngay lập tức.
+      </p>
+      <p className="text-xs text-green-700/70 mt-4">
+        Không thấy email? Kiểm tra hộp thư Spam hoặc liên hệ hotro@innersafety.vn
+      </p>
+    </div>
+  );
+
+  // ── Render ────────────────────────────────────────────────────
   return (
     <section id="final-cta" ref={sectionRef} className="py-16 sm:py-24 lg:py-28 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/10 to-transparent pointer-events-none" />
@@ -147,7 +293,7 @@ export function CheckoutSection() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
 
-        {/* 1 — CHECKOUT HERO / DECISION CONFIRMATION */}
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -166,14 +312,14 @@ export function CheckoutSection() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
-          {/* LEFT COLUMN — order summary, what you get, bonuses, trust, objections, testimonials, faq */}
+          {/* LEFT — order details */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="space-y-6"
           >
-            {/* 2 — ORDER SUMMARY */}
+            {/* ORDER SUMMARY */}
             <div className="p-6 sm:p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/30">
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
@@ -198,7 +344,7 @@ export function CheckoutSection() {
               </div>
             </div>
 
-            {/* 3 — WHAT YOU GET TODAY */}
+            {/* WHAT YOU GET */}
             <div className="p-6 sm:p-8 rounded-2xl bg-card/40 backdrop-blur-sm border border-border/30">
               <h4 className="text-lg font-serif font-bold text-primary mb-4">Bạn nhận được ngay hôm nay:</h4>
               <ul className="space-y-3">
@@ -209,8 +355,7 @@ export function CheckoutSection() {
                   </li>
                 ))}
               </ul>
-
-              {/* 4 — BONUS STACK */}
+              {/* BONUS STACK */}
               <div className="mt-6 pt-6 border-t border-border/30">
                 <p className="text-sm font-bold text-foreground/70 uppercase tracking-wide mb-3">+ 3 quà tặng độc quyền</p>
                 <div className="space-y-2">
@@ -229,7 +374,7 @@ export function CheckoutSection() {
               </div>
             </div>
 
-            {/* 6 — TRUST & SECURITY */}
+            {/* TRUST BADGES */}
             <div className="flex flex-wrap gap-3">
               <div className="flex items-center gap-2 text-xs sm:text-sm text-foreground/70 bg-card/40 border border-border/30 rounded-full px-3.5 py-2">
                 <ShieldCheck className="w-4 h-4 text-primary" /> Hoàn tiền 100% trong 7 ngày
@@ -242,7 +387,7 @@ export function CheckoutSection() {
               </div>
             </div>
 
-            {/* 8 — SHORT TESTIMONIALS */}
+            {/* MICRO TESTIMONIALS */}
             <div className="grid sm:grid-cols-3 gap-3">
               {microTestimonials.map((t, idx) => (
                 <div key={idx} className="p-4 rounded-xl bg-card/40 border border-border/30">
@@ -257,7 +402,7 @@ export function CheckoutSection() {
               ))}
             </div>
 
-            {/* 7 — OBJECTION HANDLING */}
+            {/* OBJECTION HANDLING */}
             <div className="rounded-2xl bg-card/30 border border-border/30 px-2">
               <p className="text-sm font-bold text-foreground/70 uppercase tracking-wide px-4 pt-4">Còn băn khoăn?</p>
               <Accordion type="single" collapsible className="w-full">
@@ -270,7 +415,7 @@ export function CheckoutSection() {
               </Accordion>
             </div>
 
-            {/* 9 — FAQ BEFORE PAYMENT */}
+            {/* FAQ */}
             <div className="rounded-2xl bg-card/30 border border-border/30 px-2">
               <p className="text-sm font-bold text-foreground/70 uppercase tracking-wide px-4 pt-4">Câu hỏi trước khi thanh toán</p>
               <Accordion type="single" collapsible className="w-full">
@@ -284,7 +429,7 @@ export function CheckoutSection() {
             </div>
           </motion.div>
 
-          {/* RIGHT COLUMN — 5 urgency + 10 final checkout form (sticky) */}
+          {/* RIGHT — sticky form / QR / success */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -293,35 +438,28 @@ export function CheckoutSection() {
           >
             <div className="rounded-2xl bg-white text-[#1b1918] p-6 sm:p-8 shadow-2xl border-2 border-primary/30">
 
-              {/* 5 — URGENCY */}
-              <div className="flex flex-col items-center mb-6 pb-6 border-b border-border">
-                <div className="text-xs sm:text-sm font-bold text-destructive uppercase tracking-wider mb-3 flex items-center gap-2">
+              {/* URGENCY COUNTDOWN */}
+              <div className="flex flex-col items-center mb-6 pb-6 border-b border-gray-200">
+                <div className="text-xs sm:text-sm font-bold text-red-600 uppercase tracking-wider mb-3 flex items-center gap-2">
                   <Clock className="w-4 h-4" /> Ưu đãi ra mắt kết thúc sau
                 </div>
                 <div className="flex gap-3">
                   {[['GIỜ', timeLeft.hours], ['PHÚT', timeLeft.minutes], ['GIÂY', timeLeft.seconds]].map(([label, val], i) => (
                     <React.Fragment key={label as string}>
-                      {i > 0 && <div className="text-xl font-bold mt-3">:</div>}
+                      {i > 0 && <div className="text-xl font-bold mt-3 text-gray-400">:</div>}
                       <div className="flex flex-col items-center">
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-muted rounded-xl flex items-center justify-center text-xl sm:text-2xl font-bold font-mono shadow-inner">
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gray-100 rounded-xl flex items-center justify-center text-xl sm:text-2xl font-bold font-mono shadow-inner">
                           {(val as number).toString().padStart(2, '0')}
                         </div>
-                        <span className="text-[10px] sm:text-xs text-muted-foreground mt-1 font-medium">{label}</span>
+                        <span className="text-[10px] sm:text-xs text-gray-500 mt-1 font-medium">{label}</span>
                       </div>
                     </React.Fragment>
                   ))}
                 </div>
               </div>
 
-              {isSuccess ? (
-                <div className="bg-green-50 border border-green-200 text-green-800 rounded-xl p-8 text-center animate-in fade-in zoom-in duration-300">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600 text-2xl font-bold">
-                    ✓
-                  </div>
-                  <h4 className="text-xl font-bold mb-2">Đăng ký thành công!</h4>
-                  <p className="text-sm">Kiểm tra email trong vài phút để nhận link truy cập khóa học ngay lập tức.</p>
-                </div>
-              ) : (
+              {/* STEP: FORM */}
+              {step === 'form' && (
                 <form onSubmit={handleSubmit} className="space-y-4" data-testid="form-checkout">
                   <div className="space-y-1.5">
                     <Label htmlFor="checkout-name">Họ và tên *</Label>
@@ -330,10 +468,10 @@ export function CheckoutSection() {
                       placeholder="Nguyễn Văn A"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className={`h-12 bg-background ${errors.name ? 'border-destructive' : ''}`}
+                      className={`h-12 bg-gray-50 border-gray-200 ${errors.name ? 'border-red-500' : ''}`}
                       data-testid="input-checkout-name"
                     />
-                    {errors.name && <p className="text-destructive text-xs">{errors.name}</p>}
+                    {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
                   </div>
 
                   <div className="space-y-1.5">
@@ -344,10 +482,10 @@ export function CheckoutSection() {
                       placeholder="0912 345 678"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className={`h-12 bg-background ${errors.phone ? 'border-destructive' : ''}`}
+                      className={`h-12 bg-gray-50 border-gray-200 ${errors.phone ? 'border-red-500' : ''}`}
                       data-testid="input-checkout-phone"
                     />
-                    {errors.phone && <p className="text-destructive text-xs">{errors.phone}</p>}
+                    {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
                   </div>
 
                   <div className="space-y-1.5">
@@ -358,49 +496,64 @@ export function CheckoutSection() {
                       placeholder="email@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className={`h-12 bg-background ${errors.email ? 'border-destructive' : ''}`}
+                      className={`h-12 bg-gray-50 border-gray-200 ${errors.email ? 'border-red-500' : ''}`}
                       data-testid="input-checkout-email"
                     />
-                    {errors.email && <p className="text-destructive text-xs">{errors.email}</p>}
-                    <p className="text-[11px] text-muted-foreground flex items-center gap-1">
+                    {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
+                    <p className="text-[11px] text-gray-500 flex items-center gap-1">
                       <Mail className="w-3 h-3" /> Link truy cập khóa học sẽ được gửi tới email này
                     </p>
                   </div>
 
+                  {apiError && (
+                    <p className="text-xs text-red-500 bg-red-50 border border-red-200 rounded-lg px-3 py-2">{apiError}</p>
+                  )}
+
                   <div className="pt-1">
-                    <div className="flex items-center justify-between text-sm mb-3 text-foreground/70">
+                    <div className="flex items-center justify-between text-sm mb-3 text-gray-600">
                       <span>Tổng thanh toán</span>
                       <span className="text-xl font-bold text-[#1b1918]">111.000đ</span>
                     </div>
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold text-base sm:text-lg text-primary-foreground bg-gradient-to-r from-primary via-primary to-accent hover:shadow-2xl hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
+                      className="group w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold text-base sm:text-lg text-white bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 hover:shadow-2xl hover:shadow-amber-400/40 transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
                       data-testid="button-checkout-submit"
                     >
-                      {isSubmitting ? 'Đang xử lý...' : 'HOÀN TẤT THANH TOÁN — 111.000đ'}
-                      {!isSubmitting && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
+                      {isSubmitting ? (
+                        <><RefreshCw className="w-5 h-5 animate-spin" /> Đang xử lý…</>
+                      ) : (
+                        <> TIẾP TỤC THANH TOÁN — 111.000đ <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></>
+                      )}
                     </button>
-                    <p className="text-center text-[11px] text-muted-foreground mt-3 flex items-center justify-center gap-1.5">
-                      <Lock className="w-3 h-3" /> Thanh toán an toàn, mã hoá bảo mật · Truy cập tức thì sau khi hoàn tất
+                    <p className="text-center text-[11px] text-gray-500 mt-3 flex items-center justify-center gap-1.5">
+                      <Lock className="w-3 h-3" /> Bước tiếp theo: quét mã QR chuyển khoản · Truy cập tức thì sau khi hoàn tất
                     </p>
                   </div>
                 </form>
               )}
+
+              {/* STEP: QR CODE */}
+              {step === 'qr' && <QRStep />}
+
+              {/* STEP: SUCCESS */}
+              {step === 'success' && <SuccessStep />}
             </div>
 
-            {/* trust micro-copy row under form */}
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mt-6 text-xs sm:text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-primary" /> Hoàn tiền 7 ngày, không cần lý do
+            {/* Trust micro-copy */}
+            {step !== 'success' && (
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mt-6 text-xs sm:text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-primary" /> Hoàn tiền 7 ngày, không cần lý do
+                </div>
+                <div className="flex items-center gap-2">
+                  <Smartphone className="w-4 h-4 text-primary" /> Học được trên điện thoại
+                </div>
+                <div className="flex items-center gap-2">
+                  <Lock className="w-4 h-4 text-primary" /> Không phí ẩn
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Smartphone className="w-4 h-4 text-primary" /> Học được trên điện thoại
-              </div>
-              <div className="flex items-center gap-2">
-                <Lock className="w-4 h-4 text-primary" /> Không phí ẩn
-              </div>
-            </div>
+            )}
           </motion.div>
         </div>
       </div>
