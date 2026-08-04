@@ -15,7 +15,7 @@ const after = [
   'Ra quyết định từ sự rõ ràng và tự tin',
   'Sống vượt trên nỗi sợ, dám bước ra ngoài vùng an toàn',
   'Làm dịu hệ thần kinh chỉ trong vài phút',
-  'Sống thật, tháo bỏ áp lực, dám nói "Không" nhẹ nhàng',
+  'Sống thật, tháo bỏ áp lực, dám nói "Không" một cách nhẹ nhàng',
   'Làm chủ tâm trí, chuyển overthinking thành hành động',
   'Xây dựng "Bộ rễ an toàn" — cảm giác "Tôi đã đủ"'
 ];
