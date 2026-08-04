@@ -163,7 +163,7 @@ export function Hero() {
                 Inner Safety Method™
               </p>
               <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
-                Chương trình thực hành 7 ngày dành cho những người biết mình sinh ra để làm nhiều điều hơn...nhưng vẫn đang bị nỗi sợ giữ chân.
+                Chương trình thực hành 7 ngày dành cho những người biết mình sinh ra để làm nhiều điều hơn...nhưng <br />vẫn đang bị nỗi sợ giữ chân.
               </p>
             </motion.div>
 
@@ -196,7 +196,7 @@ export function Hero() {
               mỗi ngày trong 7 ngày.
               <br />
               Bạn sẽ làm dịu hệ thần kinh, tháo gỡ gốc rễ của nỗi sợ, và xây
-              dựng cảm giác an toàn nội tại để sống đúng với con người
+              dựng cảm giác an toàn nội tại<br /> để sống đúng với con người
               mà mình sinh ra để trở thành.
             </motion.p>
 
