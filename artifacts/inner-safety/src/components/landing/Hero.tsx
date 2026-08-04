@@ -287,7 +287,7 @@ export function Hero() {
                 style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
                 data-testid="button-hero-cta"
               >
-                🔥 Tôi muốn làm chủ nỗi sợ của mình
+                🔥 TÔI MUỐN LÀM CHỦ NỖI SỢ CỦA MÌNH
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </motion.div>
