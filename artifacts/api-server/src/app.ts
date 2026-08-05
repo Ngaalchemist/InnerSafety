@@ -29,6 +29,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Mounted at both paths: Vercel's catch-all function may or may not strip
+// the "/api" prefix from req.url depending on routing config, so we handle
+// both cases to avoid depending on that undocumented behavior.
 app.use("/api", router);
+app.use("/", router);
 
 export default app;
