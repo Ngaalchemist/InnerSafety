@@ -1,5 +1,5 @@
 {
-  "buildCommand": "vite build",
+  "buildCommand": "pnpm --filter @workspace/api-server run build && vite build",
   "outputDirectory": "dist/public",
   "installCommand": "cd ../.. && pnpm install"
 }
