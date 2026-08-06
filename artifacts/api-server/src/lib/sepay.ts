@@ -1,4 +1,4 @@
-import { logger } from './logger.js';
+import { logger } from './logger';
 
 const SEPAY_API_BASE = 'https://my.sepay.vn/userapi';
 const COURSE_AMOUNT = 111000;
@@ -10,12 +10,15 @@ export function generateOrderId(): string {
   return `ISE${ts}${rand}`;
 }
 
-/** VietQR URL that shows a pre-filled bank QR inside SePay's network. */
+/** VietQR URL — prefers SePay Virtual Account (VA) for reliable payment detection. */
 export function getQRUrl(orderId: string): string {
-  const bankCode = process.env.SEPAY_BANK_CODE ?? '';
-  const accountNumber = process.env.SEPAY_ACCOUNT_NUMBER ?? '';
+  // Use VA number if configured (SePay monitors VA transactions automatically)
+  const bankCode = process.env.SEPAY_VA_BANK_CODE ?? process.env.SEPAY_BANK_CODE ?? '';
+  const accountNumber = process.env.SEPAY_VA_NUMBER ?? process.env.SEPAY_ACCOUNT_NUMBER ?? '';
   const accountName = encodeURIComponent(process.env.SEPAY_ACCOUNT_NAME ?? '');
   const description = encodeURIComponent(orderId);
+
+  logger.info({ bankCode, accountNumber: accountNumber.slice(-4) }, 'Generating QR URL');
 
   return (
     `https://img.vietqr.io/image/${bankCode}-${accountNumber}-compact2.png` +

@@ -19,6 +19,8 @@ import {
   RefreshCw,
   QrCode,
   CheckCircle2,
+  MessageCircle,
+  Users2,
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -67,11 +69,14 @@ const objections = [
 
 const checkoutFaqs = [
   { q: 'Tôi nhận sản phẩm bằng cách nào sau khi thanh toán?', a: 'Hệ thống gửi email xác nhận tự động kèm hướng dẫn truy cập ngay sau khi thanh toán thành công.' },
+  { q: 'Tôi có quyền truy cập trong bao lâu?', a: 'Trọn đời. Bạn có thể xem lại toàn bộ bài học bất cứ khi nào cần, không giới hạn thời gian.' },
+  { q: 'Mua xong tôi bắt đầu từ đâu?', a: 'Email xác nhận có sẵn đường link vào khóa học và hướng dẫn buổi học đầu tiên — chỉ cần bấm vào là bắt đầu được ngay.' },
   { q: 'Tôi có thể học trên điện thoại không?', a: 'Có. Toàn bộ nền tảng học được tối ưu cho điện thoại, máy tính bảng và máy tính.' },
   { q: 'Nếu tôi không nhận được email thì sao?', a: 'Kiểm tra hộp thư Spam/Quảng cáo trước. Nếu vẫn không thấy, liên hệ hotro@innersafety.vn để được hỗ trợ trong ngày.' },
   { q: 'Chính sách hoàn tiền như thế nào?', a: 'Hoàn tiền 100% trong 7 ngày đầu tiên nếu bạn cảm thấy không phù hợp, không cần giải trình lý do.' },
   { q: 'Tôi có cần kỹ năng gì trước khi học không?', a: 'Không cần. Khóa học phù hợp với cả người mới bắt đầu.' },
-  { q: 'Thanh toán có bảo mật không?', a: 'Có, giao dịch được mã hoá và xử lý qua cổng thanh toán đạt chuẩn bảo mật quốc tế.' },
+  { q: 'Thanh toán có bảo mật không?', a: 'Có, giao dịch được xử lý qua chuyển khoản ngân hàng chuẩn. Hệ thống không lưu trữ thông tin tài khoản của bạn.' },
+  { q: 'Tôi có được cập nhật nội dung mới sau này không?', a: 'Có. Mọi bài học hoặc tài liệu bổ sung trong tương lai đều miễn phí cho học viên đã đăng ký.' },
 ];
 
 const microTestimonials = [
@@ -89,6 +94,11 @@ type Step = 'form' | 'qr' | 'success';
 interface OrderData {
   orderId: string;
   qrUrl: string;
+}
+
+interface InviteLinks {
+  zaloInviteUrl: string | null;
+  skoolInviteUrl: string | null;
 }
 
 // ────────────────────────────────────────────────────────────────
@@ -112,6 +122,7 @@ export function CheckoutSection() {
   const [step, setStep] = useState<Step>('form');
   const [orderData, setOrderData] = useState<OrderData | null>(null);
   const [pollError, setPollError] = useState('');
+  const [inviteLinks, setInviteLinks] = useState<InviteLinks>({ zaloInviteUrl: null, skoolInviteUrl: null });
 
   // ── Countdown timer ──────────────────────────────────────────
   useEffect(() => {
@@ -148,8 +159,16 @@ export function CheckoutSection() {
     try {
       const res = await fetch(`/api/checkout/status/${orderId}`);
       if (!res.ok) return;
-      const data = await res.json() as { status: string };
+      const data = await res.json() as {
+        status: string;
+        zaloInviteUrl?: string | null;
+        skoolInviteUrl?: string | null;
+      };
       if (data.status === 'paid') {
+        setInviteLinks({
+          zaloInviteUrl: data.zaloInviteUrl ?? null,
+          skoolInviteUrl: data.skoolInviteUrl ?? null,
+        });
         setStep('success');
       }
     } catch {
@@ -268,22 +287,54 @@ export function CheckoutSection() {
   );
 
   // ── Success step ──────────────────────────────────────────────
-  const SuccessStep = () => (
-    <div className="bg-green-50 border border-green-200 text-green-800 rounded-xl p-8 text-center animate-in fade-in zoom-in duration-300">
-      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-        <CheckCircle2 className="w-8 h-8 text-green-600" />
+  const SuccessStep = () => {
+    const hasInvites = inviteLinks.zaloInviteUrl || inviteLinks.skoolInviteUrl;
+    return (
+      <div className="bg-green-50 border border-green-200 text-green-800 rounded-xl p-8 text-center animate-in fade-in zoom-in duration-300">
+        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <CheckCircle2 className="w-8 h-8 text-green-600" />
+        </div>
+        <h4 className="text-xl font-bold mb-2">Thanh toán thành công!</h4>
+        <p className="text-sm leading-relaxed">
+          Cảm ơn <strong>{formData.name}</strong>!<br />
+          Kiểm tra email <strong>{formData.email}</strong> trong vài phút<br />
+          để nhận link truy cập khóa học ngay lập tức.
+        </p>
+
+        {hasInvites && (
+          <div className="mt-6 pt-6 border-t border-green-200 space-y-2.5">
+            <p className="text-sm font-semibold text-green-900">Tham gia cộng đồng ngay để không bỏ lỡ:</p>
+            {inviteLinks.zaloInviteUrl && (
+              <a
+                href={inviteLinks.zaloInviteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full font-semibold text-sm text-white bg-[#0068FF] hover:brightness-110 transition-all"
+                data-testid="link-join-zalo"
+              >
+                <MessageCircle className="w-4 h-4" /> Tham gia nhóm Zalo
+              </a>
+            )}
+            {inviteLinks.skoolInviteUrl && (
+              <a
+                href={inviteLinks.skoolInviteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full font-semibold text-sm text-white bg-[#1b1918] hover:brightness-125 transition-all"
+                data-testid="link-join-skool"
+              >
+                <Users2 className="w-4 h-4" /> Tham gia cộng đồng Skool
+              </a>
+            )}
+          </div>
+        )}
+
+        <p className="text-xs text-green-700/70 mt-4">
+          Không thấy email? Kiểm tra hộp thư Spam hoặc liên hệ hotro@innersafety.vn
+        </p>
       </div>
-      <h4 className="text-xl font-bold mb-2">Thanh toán thành công! 🎉</h4>
-      <p className="text-sm leading-relaxed">
-        Cảm ơn <strong>{formData.name}</strong>!<br />
-        Kiểm tra email <strong>{formData.email}</strong> trong vài phút<br />
-        để nhận link truy cập khóa học ngay lập tức.
-      </p>
-      <p className="text-xs text-green-700/70 mt-4">
-        Không thấy email? Kiểm tra hộp thư Spam hoặc liên hệ hotro@innersafety.vn
-      </p>
-    </div>
-  );
+    );
+  };
 
   // ── Render ────────────────────────────────────────────────────
   return (

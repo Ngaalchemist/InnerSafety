@@ -1,17 +1,34 @@
 import { Router } from 'express';
-import { eq, and } from 'drizzle-orm';
-import { db, checkoutOrders } from '@workspace/db';
-import { generateOrderId, getQRUrl, checkPayment } from '../lib/sepay.js';
-import { appendRegistration, markAsPaid } from '../lib/sheets.js';
+import { eq } from 'drizzle-orm';
+import { db, pendingOrdersTable } from '@workspace/db';
+import { generateOrderId, getQRUrl, checkPayment } from '../lib/sepay';
+import { appendRegistration, markAsPaid } from '../lib/sheets';
 
 const router = Router();
+
+const COURSE_AMOUNT = 111000;
+
+/**
+ * Zalo does not allow proactively messaging or adding a phone number that
+ * hasn't interacted with your Official Account first, so there is no
+ * automated "send invite" step here. Instead we surface a static join link
+ * (a normal Zalo group invite link / Skool community link) once payment is
+ * confirmed. Configure these in Vercel env vars — leave unset to hide the
+ * corresponding button.
+ */
+function getInviteUrls(): { zaloInviteUrl: string | null; skoolInviteUrl: string | null } {
+  return {
+    zaloInviteUrl: process.env.ZALO_GROUP_INVITE_URL?.trim() || null,
+    skoolInviteUrl: process.env.SKOOL_GROUP_INVITE_URL?.trim() || null,
+  };
+}
 
 /**
  * POST /api/checkout/create
  * Body: { name, phone, email }
  * Returns: { orderId, qrUrl, amount }
  *
- * Writes a "Chưa thanh toán" row to Google Sheets and a pending row to the DB.
+ * Also immediately writes a "Chưa thanh toán" row to Google Sheets.
  */
 router.post('/checkout/create', async (req, res) => {
   const { name, phone, email } = req.body as Record<string, string>;
@@ -24,30 +41,28 @@ router.post('/checkout/create', async (req, res) => {
   const orderId = generateOrderId();
   const qrUrl = getQRUrl(orderId);
 
-  // Build the registration URL from the incoming request
   const origin =
     req.headers.origin ??
     req.headers.referer?.replace(/\/$/, '') ??
     `https://${req.headers.host ?? 'innersafety.vn'}`;
   const registrationUrl = `${origin}/#final-cta`;
 
-  await db.insert(checkoutOrders).values({
+  await db.insert(pendingOrdersTable).values({
     orderId,
     name: name.trim(),
     phone: phone.trim(),
     email: email.trim(),
     registrationUrl,
-    amount: 111000,
+    amount: COURSE_AMOUNT,
   });
 
-  // Write registration row to Google Sheets immediately (non-blocking)
   appendRegistration({
     name: name.trim(),
     phone: phone.trim(),
     email: email.trim(),
     orderId,
     registrationUrl,
-    amount: 111000,
+    amount: COURSE_AMOUNT,
     registeredAt: new Date().toISOString(),
   }).catch((err) => {
     req.log.error({ err, orderId }, 'Failed to write registration row to Google Sheets');
@@ -55,7 +70,7 @@ router.post('/checkout/create', async (req, res) => {
 
   req.log.info({ orderId }, 'Checkout order created');
 
-  res.json({ orderId, qrUrl, amount: 111000 });
+  res.json({ orderId, qrUrl, amount: COURSE_AMOUNT });
 });
 
 /**
@@ -69,8 +84,8 @@ router.get('/checkout/status/:orderId', async (req, res) => {
 
   const [order] = await db
     .select()
-    .from(checkoutOrders)
-    .where(eq(checkoutOrders.orderId, orderId))
+    .from(pendingOrdersTable)
+    .where(eq(pendingOrdersTable.orderId, orderId))
     .limit(1);
 
   if (!order) {
@@ -78,38 +93,28 @@ router.get('/checkout/status/:orderId', async (req, res) => {
     return;
   }
 
-  if (order.status === 'paid') {
-    res.json({ status: 'paid' });
-    return;
-  }
-
   try {
     const paid = await checkPayment(orderId);
 
-    if (paid) {
-      // Only update (and only write to Sheets) if still 'pending' — guards
-      // against double-writes when multiple polls land at the same time.
-      const updated = await db
-        .update(checkoutOrders)
-        .set({ status: 'paid' })
-        .where(and(eq(checkoutOrders.orderId, orderId), eq(checkoutOrders.status, 'pending')))
-        .returning();
+    if (paid && !order.sheetsWritten) {
+      await db
+        .update(pendingOrdersTable)
+        .set({ sheetsWritten: true })
+        .where(eq(pendingOrdersTable.orderId, orderId));
 
-      if (updated.length > 0) {
-        const confirmedAt = new Date().toISOString();
+      const confirmedAt = new Date().toISOString();
 
-        markAsPaid(orderId, confirmedAt).catch((err) => {
-          req.log.error({ err, orderId }, 'Failed to update payment status in Google Sheets');
-        });
+      markAsPaid(orderId, confirmedAt).catch((err) => {
+        req.log.error({ err, orderId }, 'Failed to update payment status in Google Sheets');
+      });
 
-        req.log.info({ orderId }, 'Payment confirmed — marking row as Đã thanh toán');
-      }
+      req.log.info({ orderId }, 'Payment confirmed — marking row as Đã thanh toán');
 
-      res.json({ status: 'paid' });
+      res.json({ status: 'paid', ...getInviteUrls() });
       return;
     }
 
-    res.json({ status: 'pending' });
+    res.json(paid ? { status: 'paid', ...getInviteUrls() } : { status: 'pending' });
   } catch (err) {
     req.log.error({ err, orderId }, 'SePay status check failed');
     res.status(500).json({ error: 'Could not verify payment status' });

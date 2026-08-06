@@ -1,23 +1,62 @@
 import { google } from 'googleapis';
-import { logger } from './logger.js';
+import { logger } from './logger';
 
 const SPREADSHEET_ID = '1_1J-ei7a0bPeqZNG6IynJZuGOj1LkGIwtAyBEBqVkuc';
 const SHEET = 'Sheet1';
 
-function getAuth() {
-  const email = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
-  const rawKey = process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY;
+/**
+ * The secret may contain:
+ *   (a) just the raw PEM key (ideal)
+ *   (b) the PEM key with JSON-escaped \\n sequences
+ *   (c) the entire service-account JSON blob (user pasted the whole file)
+ *
+ * This function handles all three and returns a clean PEM string with real newlines.
+ */
+function extractCredentials(rawKeyEnv: string, rawEmailEnv: string): { private_key: string; client_email: string } {
+  let raw = rawKeyEnv.trim();
 
-  if (!email || !rawKey) {
-    throw new Error('Google Sheets credentials not configured');
+  // ── Try to parse as JSON first (case c) ──────────────────────────────────
+  // The value might start mid-JSON if it was truncated; try a regex extraction.
+  const jsonKeyMatch = raw.match(/"private_key"\s*:\s*"((?:[^"\\]|\\.)*)"/);
+  const jsonEmailMatch = raw.match(/"client_email"\s*:\s*"([^"]+)"/);
+
+  let keyStr: string;
+  if (jsonKeyMatch) {
+    // Extracted from embedded JSON — the JSON uses \n as escape, so unescape it
+    keyStr = jsonKeyMatch[1].replace(/\\n/g, '\n');
+    logger.info('Google Sheets: extracted private_key from JSON blob in secret');
+  } else {
+    // ── Case (a) or (b): treat the whole value as the PEM key ────────────
+    keyStr = raw.replace(/^["']|["']$/g, ''); // strip surrounding quotes
+    keyStr = keyStr.replace(/\\n/g, '\n');      // convert escaped newlines
   }
 
-  // Secrets storage may escape newlines as \\n — normalise them
-  const key = rawKey.replace(/\\n/g, '\n');
+  // Ensure the PEM is well-formed
+  keyStr = keyStr.trim();
 
-  return new google.auth.JWT({
-    email,
-    key,
+  const client_email = (jsonEmailMatch ? jsonEmailMatch[1] : rawEmailEnv).trim();
+
+  return { private_key: keyStr, client_email };
+}
+
+function getAuth() {
+  const rawKey = process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY ?? '';
+  const rawEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL ?? '';
+
+  if (!rawKey) {
+    throw new Error('GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY is not set');
+  }
+
+  const { private_key, client_email } = extractCredentials(rawKey, rawEmail);
+
+  if (!client_email) {
+    throw new Error('GOOGLE_SERVICE_ACCOUNT_EMAIL is not set and could not be extracted from the key JSON');
+  }
+
+  logger.info({ client_email }, 'Google Sheets auth initialised');
+
+  return new google.auth.GoogleAuth({
+    credentials: { client_email, private_key },
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 }
