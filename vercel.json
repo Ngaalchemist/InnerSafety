@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/inner-safety run build",
-  "installCommand": "pnpm install",
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "outputDirectory": "artifacts/inner-safety/dist/public",
   "functions": {
     "api/index.ts": {
