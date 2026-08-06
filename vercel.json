@@ -1,0 +1,13 @@
+{
+  "buildCommand": "pnpm --filter @workspace/inner-safety run build",
+  "installCommand": "pnpm install",
+  "outputDirectory": "artifacts/inner-safety/dist/public",
+  "functions": {
+    "api/index.ts": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" }
+  ]
+}
