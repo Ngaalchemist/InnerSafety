@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { eq } from 'drizzle-orm';
 import { db, pendingOrdersTable } from '@workspace/db';
-import { generateOrderId, getQRUrl, checkPayment } from '../lib/sepay';
-import { appendRegistration, markAsPaid } from '../lib/sheets';
+import { generateOrderId, getQRUrl, checkPayment } from '../lib/sepay.js';
+import { appendRegistration, markAsPaid } from '../lib/sheets.js';
 
 const router = Router();
 
