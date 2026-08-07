@@ -228,7 +228,7 @@ export function CheckoutSection() {
   };
 
   // ── QR step ───────────────────────────────────────────────────
-  const QRStep = () => (
+  const qrStepContent = (
     <div className="space-y-5 text-center text-[#1b1918]">
       <div className="flex items-center justify-center gap-2 text-sm font-bold text-primary mb-1">
         <QrCode className="w-4 h-4" />
@@ -287,9 +287,8 @@ export function CheckoutSection() {
   );
 
   // ── Success step ──────────────────────────────────────────────
-  const SuccessStep = () => {
-    const hasInvites = inviteLinks.zaloInviteUrl || inviteLinks.skoolInviteUrl;
-    return (
+  const hasInvites = inviteLinks.zaloInviteUrl || inviteLinks.skoolInviteUrl;
+  const successStepContent = (
       <div className="bg-green-50 border border-green-200 text-green-800 rounded-xl p-8 text-center animate-in fade-in zoom-in duration-300">
         <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
           <CheckCircle2 className="w-8 h-8 text-green-600" />
@@ -333,8 +332,7 @@ export function CheckoutSection() {
           Không thấy email? Kiểm tra hộp thư Spam hoặc liên hệ hotro@innersafety.vn
         </p>
       </div>
-    );
-  };
+  );
 
   // ── Render ────────────────────────────────────────────────────
   return (
@@ -585,10 +583,10 @@ export function CheckoutSection() {
               )}
 
               {/* STEP: QR CODE */}
-              {step === 'qr' && <QRStep />}
+              {step === 'qr' && qrStepContent}
 
               {/* STEP: SUCCESS */}
-              {step === 'success' && <SuccessStep />}
+              {step === 'success' && successStepContent}
             </div>
 
             {/* Trust micro-copy */}
