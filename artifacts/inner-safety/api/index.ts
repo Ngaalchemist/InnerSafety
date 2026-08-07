@@ -9,6 +9,6 @@
 // The app itself never calls app.listen() here (that only happens in
 // api-server/src/index.ts, which is used for local/VPS dev), so this is
 // safe to import in a serverless context.
-import app from "../../api-server/src/app.js";
+import app from "../../api-server/dist/app.mjs";
 
 export default app;
