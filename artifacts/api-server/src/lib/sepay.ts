@@ -5,9 +5,12 @@ const COURSE_AMOUNT = 111000;
 
 /** Generate a unique, short order reference that fits in a bank transfer description. */
 export function generateOrderId(): string {
-  const ts = Date.now().toString(36).toUpperCase();
-  const rand = Math.floor(Math.random() * 9999).toString().padStart(4, '0');
-  return `ISE${ts}${rand}`;
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // bỏ ký tự dễ nhầm: 0/O, 1/I/L
+  let code = '';
+  for (let i = 0; i < 5; i++) {
+    code += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return code;
 }
 
 /** VietQR URL — prefers SePay Virtual Account (VA) for reliable payment detection. */
