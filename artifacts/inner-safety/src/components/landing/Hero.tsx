@@ -193,7 +193,11 @@ export function Hero() {
               <span className="font-semibold" style={{ color: PURPLE }}>
                 20 phút
               </span>{' '}
-              mỗi ngày trong 7 ngày.
+              mỗi ngày trong 7 ngày, bằng phương pháp{' '}
+  <span className="font-bold" style={{ color: PURPLE }}>
+    Inner Safety Method™
+  </span>
+  . 
               <br />
               Bạn sẽ làm dịu hệ thần kinh, tháo gỡ gốc rễ của nỗi sợ, và xây
               dựng cảm giác an toàn nội tại<br /> để bạn tự tin bước ra, chia sẻ giá trị và sống đúng với con người
