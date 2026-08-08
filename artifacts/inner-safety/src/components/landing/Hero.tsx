@@ -126,10 +126,10 @@ export function Hero() {
       >
         <div className="max-w-[1280px] mx-auto flex items-center justify-between">
           <span
-            className="text-sm sm:text-base font-bold uppercase tracking-wide"
+            className="text-sm sm:text-base font-bold tracking-wide"
             style={{ color: GOLD, fontFamily: "'Inter', sans-serif" }}
           >
-            Beyond Fear - Từ Lo Âu Đến Bình An Trong 7 Ngày
+            BEYOND FEAR - Từ Lo Âu Đến Bình An Trong 7 Ngày
           </span>
 
           <button
