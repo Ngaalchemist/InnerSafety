@@ -1,60 +1,88 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Check } from 'lucide-react';
 
 const curriculum = [
   {
     day: 1,
-    title: 'GIẢI MÃ MA TRẬN NỖI SỢ',
+    title: 'NHÌN THẤY NỖI SỢ THAY VÌ BỊ NỖI SỢ ĐIỀU KHIỂN',
     subtitle: 'Awareness',
-    content: 'Nỗi sợ là "Tín hiệu", không phải kẻ thù. Công cụ: "Chiếc xe Sợ hãi" (Fear Bus) — nhận diện ai đang cầm lái và "hành lý" bạn mang theo.',
-    result: 'Ngừng tự phán xét; chuyển từ vị thế nạn nhân sang "Người quan sát".'
+    learns: [
+      'Vì sao bạn cứ muốn làm rồi lại chùn bước',
+      'Cách nhận ra nỗi sợ đang xuất hiện',
+      'Biết đâu là tiếng nói của nỗi sợ, đâu là sự thật'
+    ],
+    result: 'Bạn sẽ không còn nghĩ "mình yếu đuối", mà hiểu đây chỉ là phản ứng bình thường của não bộ.'
   },
   {
     day: 2,
-    title: 'LÀM DỊU HỆ THẦN KINH',
+    title: 'BÌNH TĨNH LẠI KHI LO LẮNG XUẤT HIỆN',
     subtitle: 'Regulation',
-    content: 'Quy luật 90 giây của cảm xúc. Công cụ: Pattern Interrupt vật lý — rung lắc cơ thể, hơi thở 4-7-8, Tapping.',
-    result: 'Biết cách tự "cắt cơn" đóng băng/trì hoãn trong vài phút.'
+    learns: [
+      'Cách dừng cơn hoảng loạn',
+      'Cách đưa cơ thể về trạng thái bình an trong vài phút',
+      'Không còn bị cảm xúc kéo đi'
+    ],
+    result: 'Khi lo lắng xuất hiện, bạn biết cách làm dịu bản thân thay vì hoảng sợ.'
   },
   {
     day: 3,
-    title: 'THÁO GỠ TRIGGER & NHU CẦU ẨN',
+    title: 'HIỂU VÌ SAO BẠN LUÔN SỢ',
     subtitle: 'Healing',
-    content: '"Nhu cầu là vị thầy". Phương pháp STRO để truy tìm câu chuyện tự kể.',
-    result: 'Hiểu rõ nhu cầu gốc rễ (được yêu thương, an toàn, công nhận) đằng sau nỗi sợ.'
+    learns: [
+      'Điều gì thật sự đứng sau nỗi sợ',
+      'Vì sao cùng một chuyện nhưng người khác không sợ',
+      'Tìm ra "gốc rễ" khiến bạn mắc kẹt'
+    ],
+    result: 'Bạn hiểu nỗi sợ của mình đến từ đâu, thay vì chỉ cố gắng chống lại nó.'
   },
   {
     day: 4,
-    title: 'VIẾT LẠI NIỀM TIN GỐC',
+    title: 'THAY ĐỔI NHỮNG SUY NGHĨ ĐANG GIỮ CHÂN BẠN',
     subtitle: 'Reprogramming',
-    content: '"Believing is Seeing". Facting (Đối diện sự thật) & Rewriting Rules.',
-    result: 'Xóa bỏ các "lời nói dối" trong hệ niềm tin cũ và ghi đè mã lệnh mới.'
+    learns: [
+      'Nhận diện những câu nói đang giới hạn bản thân',
+      'Thay thế bằng cách nhìn mới',
+      'Không còn tự hạ thấp chính mình'
+    ],
+    result: 'Bạn bắt đầu tin rằng mình có thể thay đổi.'
   },
   {
     day: 5,
-    title: 'CẮM RỄ AN TOÀN',
+    title: 'XÂY LẠI CẢM GIÁC AN TOÀN TỪ BÊN TRONG',
     subtitle: 'Integration',
-    content: 'Luân xa 1 — Tòa tháp của sự an toàn. Câu lệnh quyền năng "I am Word" & Thôi miên cắm rễ vào lòng đất.',
-    result: 'Cài đặt cảm giác "Tôi an toàn" vào tận cấp độ tế bào.'
+    learns: [
+      'Không còn phải cố gồng',
+      'Không cần kiểm soát mọi thứ',
+      'Tạo cảm giác bình an ngay trong chính mình'
+    ],
+    result: 'Bạn có một nơi an toàn để quay về mỗi khi cuộc sống trở nên hỗn loạn.'
   },
   {
     day: 6,
-    title: 'SỐNG TỪ BỘ RỄ AN TOÀN',
+    title: 'RA QUYẾT ĐỊNH MÀ KHÔNG BỊ NỖI SỢ DẪN DẮT',
     subtitle: 'Identity',
-    content: 'Phân biệt Nặng (Sợ hãi) và Nhẹ (Sự thật). Embody Your Future Self — nhập thân vào phiên bản đã thành công.',
-    result: 'Ra quyết định từ sự bình an và hào hứng.'
+    learns: [
+      'Phân biệt đâu là tiếng nói của nỗi sợ',
+      'Đâu là điều trái tim thật sự muốn',
+      'Hình dung phiên bản tự tin của chính mình'
+    ],
+    result: 'Bạn biết cách lựa chọn từ sự bình an thay vì lo lắng.'
   },
   {
     day: 7,
-    title: 'BƯỚC RA THẾ GIỚI',
+    title: 'BƯỚC RA KHỎI VÙNG AN TOÀN BẰNG NHỮNG HÀNH ĐỘNG NHỎ',
     subtitle: 'Action',
-    content: '"Hành động thay đổi sự thật". Manifestation Blueprint — 3 bước đi tí hon trong 72 giờ tới.',
-    result: 'Phá vỡ trì hoãn bằng hành động thực tế.'
+    learns: [
+      'Chọn 3 bước nhỏ để bắt đầu',
+      'Không còn trì hoãn',
+      'Duy trì động lực sau khóa học'
+    ],
+    result: 'Bạn kết thúc khóa học bằng hành động thật, thay vì chỉ có cảm hứng.'
   }
 ];
 
-function DayCard({ day, title, subtitle, content, result, index }: typeof curriculum[0] & { index: number }) {
+function DayCard({ day, title, subtitle, learns, result, index }: typeof curriculum[0] & { index: number }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -84,11 +112,11 @@ function DayCard({ day, title, subtitle, content, result, index }: typeof curric
               </div>
             </div>
           </div>
-          <ChevronDown 
+          <ChevronDown
             className={`w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
           />
         </div>
-        
+
         <motion.div
           initial={false}
           animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
@@ -97,11 +125,21 @@ function DayCard({ day, title, subtitle, content, result, index }: typeof curric
         >
           <div className="pt-4 sm:pt-6 space-y-3 sm:space-y-4 border-t border-border/30 mt-4">
             <div>
-              <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">{content}</p>
+              <p className="text-xs sm:text-sm font-semibold text-primary mb-2 sm:mb-3">
+                Bạn sẽ học
+              </p>
+              <ul className="space-y-2">
+                {learns.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 sm:gap-3">
+                    <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base text-foreground/80 leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className="p-3 sm:p-4 rounded-lg bg-primary/10 border-l-4 border-primary">
               <p className="text-xs sm:text-sm font-medium text-foreground">
-                <strong className="text-primary">Kết quả:</strong> {result}
+                <strong className="text-primary">🎯 Chiến thắng:</strong> {result}
               </p>
             </div>
           </div>
@@ -118,7 +156,7 @@ export function CurriculumSection() {
   return (
     <section id="curriculum" ref={sectionRef} className="py-16 sm:py-24 lg:py-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -127,10 +165,10 @@ export function CurriculumSection() {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold mb-4 sm:mb-6">
-            Lộ Trình 7 Ngày Chuyển Hóa
+            Sau 7 Ngày, Bạn Sẽ Không Còn Để Nỗi Sợ Quyết Định Cuộc Đời Mình
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-foreground/80">
-            Awareness → Regulation → Healing → Reprogramming → Integration → Identity → Action
+            Một lộ trình rõ ràng, từng bước một, để bạn tìm lại sự bình an và tự tin trong chính mình.
           </p>
         </motion.div>
 
