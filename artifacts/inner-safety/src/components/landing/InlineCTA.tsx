@@ -1,5 +1,12 @@
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import {
+  ArrowRight,
+  Monitor,
+  Infinity as InfinityIcon,
+  ShieldCheck,
+  Users,
+  BookOpen,
+} from 'lucide-react';
 
 const PURPLE = '#C084FC';
 const GOLD = '#FBBF24';
@@ -10,6 +17,14 @@ interface InlineCTAProps {
   subtext?: string;
   buttonLabel?: string;
 }
+
+const trustBadges = [
+  { icon: Monitor, label: 'Học online', sub: 'mọi lúc, mọi nơi' },
+  { icon: InfinityIcon, label: 'Truy cập ngay', sub: 'sau khi đăng ký' },
+  { icon: ShieldCheck, label: 'Hoàn tiền 7 ngày', sub: 'nếu không phù hợp' },
+  { icon: Users, label: 'Cộng đồng riêng', sub: 'hỗ trợ 24/7' },
+  { icon: BookOpen, label: 'Bài học ngắn gọn', sub: 'dễ hiểu, dễ áp dụng' },
+];
 
 export function InlineCTA({
   headline,
@@ -30,7 +45,7 @@ export function InlineCTA({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="max-w-2xl mx-auto text-center rounded-2xl p-6 sm:p-8"
+        className="max-w-3xl mx-auto text-center rounded-2xl p-6 sm:p-8"
         style={{
           border: '1px solid rgba(192,132,252,0.35)',
           backgroundColor: 'rgba(192,132,252,0.06)',
@@ -55,6 +70,30 @@ export function InlineCTA({
           {buttonLabel}
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </button>
+
+        {/* Trust badges row */}
+        <div
+          className="mt-6 pt-5 grid grid-cols-2 sm:grid-cols-5 gap-y-4 gap-x-3"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
+        >
+          {trustBadges.map(({ icon: Icon, label, sub }) => (
+            <div key={label} className="flex flex-col items-center text-center gap-1">
+              <Icon className="w-5 h-5 shrink-0" style={{ color: PURPLE }} />
+              <p
+                className="text-white text-[11px] sm:text-xs leading-tight"
+                style={{ fontFamily: "'Be Vietnam Pro', sans-serif", fontWeight: 600 }}
+              >
+                {label}
+              </p>
+              <p
+                className="text-white/50 text-[10px] leading-tight"
+                style={{ fontFamily: "'Be Vietnam Pro', sans-serif", fontWeight: 300 }}
+              >
+                {sub}
+              </p>
+            </div>
+          ))}
+        </div>
       </motion.div>
     </section>
   );
