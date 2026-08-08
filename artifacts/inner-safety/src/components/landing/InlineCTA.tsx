@@ -29,7 +29,7 @@ const trustBadges = [
 export function InlineCTA({
   headline,
   subtext,
-  buttonLabel = 'ĐĂNG KÝ NGAY — 111.000đ',
+  buttonLabel = 'ĐĂNG KÝ NGAY — 444.000đ',
 }: InlineCTAProps) {
   const scrollToCTA = () => {
     const ctaSection = document.getElementById('final-cta');
