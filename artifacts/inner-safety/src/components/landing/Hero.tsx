@@ -26,7 +26,7 @@ function useAntonFont() {
     const link = document.createElement('link');
     link.id = GOOGLE_FONT_ID;
     link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap';
     document.head.appendChild(link);
   }, []);
 }
@@ -125,11 +125,20 @@ export function Hero() {
         style={{ backgroundColor: 'rgba(13,11,24,0.7)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
       >
         <div className="max-w-[1280px] mx-auto flex items-center justify-between">
-          <span
-            className="text-sm sm:text-base font-bold tracking-wide"
-            style={{ color: GOLD, fontFamily: "'Inter', sans-serif" }}
-          >
-            BEYOND FEAR - Từ Lo Âu Đến Bình An Trong 7 Ngày
+          <span className="flex items-baseline gap-2 min-w-0">
+            <span
+              className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.12em] shrink-0"
+              style={{ color: GOLD, fontFamily: "'Inter', sans-serif" }}
+            >
+              Beyond Fear
+            </span>
+            <span className="hidden sm:inline w-px h-3.5 shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.25)' }} />
+            <span
+              className="hidden sm:inline text-sm sm:text-base italic truncate"
+              style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Playfair Display', serif", fontWeight: 600, letterSpacing: '0.2px' }}
+            >
+              Từ Lo Âu Đến Bình An Trong 7 Ngày
+            </span>
           </span>
 
           <button
