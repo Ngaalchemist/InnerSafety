@@ -6,7 +6,7 @@ import { appendRegistration, markAsPaid } from '../lib/sheets.js';
 
 const router = Router();
 
-const COURSE_AMOUNT = 111000;
+const COURSE_AMOUNT = 444000;
 
 /**
  * Zalo does not allow proactively messaging or adding a phone number that
