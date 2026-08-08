@@ -165,7 +165,7 @@ export function CurriculumSection() {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold mb-4 sm:mb-6">
-            Sau 7 Ngày, Bạn Sẽ Không Còn Để Nỗi Sợ Quyết Định Cuộc Đời Mình
+            Sau 7 Ngày, Bạn Sẽ Không Còn Để Nỗi Sợ <br /> Quyết Định Cuộc Đời Mình
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-foreground/80">
             Một lộ trình rõ ràng, từng bước một, để bạn tìm lại sự bình an và tự tin trong chính mình.
