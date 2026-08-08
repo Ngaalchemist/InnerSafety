@@ -270,8 +270,8 @@ export function Hero() {
 
               <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-white font-extrabold text-3xl sm:text-4xl">111.000đ</span>
-                  <span className="text-white/40 text-base line-through">1.111.000đ</span>
+                  <span className="text-white font-extrabold text-3xl sm:text-4xl">444.000đ</span>
+                  <span className="text-white/40 text-base line-through">1.480.000đ</span>
                 </div>
                 <span
                   className="text-[11px] font-bold px-2.5 py-1 rounded-full tracking-wide ml-auto"
@@ -281,7 +281,7 @@ export function Hero() {
                     border: '1px solid rgba(251,191,36,0.4)',
                   }}
                 >
-                  TIẾT KIỆM 90%
+                  TIẾT KIỆM 70%
                 </span>
               </div>
 
