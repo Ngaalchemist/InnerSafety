@@ -52,7 +52,7 @@ export function Footer() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center text-xs sm:text-sm text-muted-foreground"
           >
-            <p className="mb-2">© 2025 Nga Alchemist · Inner Safety Method™</p>
+            <p className="mb-2">© 2026 Nga Alchemist · Inner Safety Method™</p>
           </motion.div>
 
           {/* Disclaimer */}
