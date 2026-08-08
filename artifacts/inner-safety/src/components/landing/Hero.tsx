@@ -127,9 +127,9 @@ export function Hero() {
         <div className="max-w-[1280px] mx-auto flex items-center justify-between">
           <span
             className="text-sm sm:text-base font-bold uppercase tracking-wide"
-            style={{ color: GOLD, fontFamily: "'Playfair Display', serif" }}
+            style={{ color: GOLD, fontFamily: "'Inter', sans-serif" }}
           >
-            7 Ngày Sống Vượt Trên Nỗi Sợ
+            Beyond Fear - Từ Lo Âu Đến Bình An Trong 7 Ngày
           </span>
 
           <button
@@ -160,10 +160,10 @@ export function Hero() {
                 className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] mb-1"
                 style={{ color: PURPLE }}
               >
-                Beyond Fear
+                Inner Safety Method™
               </p>
               <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
-                Inner Safety Method™ — Phương pháp độc quyền kết hợp điều hòa hệ thần kinh, chữa lành gốc rễ cảm xúc và thực hành chuyển hóa để bạn không chỉ hiểu nỗi sợ, mà còn biết cách bước qua nó một cách an toàn.
+                Phương pháp độc quyền kết hợp điều hòa hệ thần kinh, chữa lành gốc rễ cảm xúc và thực hành chuyển hóa để bạn không chỉ hiểu nỗi sợ, mà còn biết cách bước qua nó một cách an toàn.
               </p>
             </motion.div>
 
@@ -189,12 +189,21 @@ export function Hero() {
               variants={fadeInUp}
               className="text-white/80 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
             >
-              Chương trình thực hành 20 phút mỗi ngày giúp bạn thôi để nỗi sợ điều
-              khiển cuộc sống, lấy lại cảm giác an toàn từ bên trong và tự tin hành
-              động.
+              Chương trình thực hành{' '}
+              <strong className="font-bold" style={{ color: PURPLE }}>
+                20 phút mỗi ngày
+              </strong>{' '}
+              giúp bạn thôi để nỗi sợ điều khiển cuộc sống, lấy lại{' '}
+              <strong className="font-bold" style={{ color: PURPLE }}>
+                cảm giác an toàn từ bên trong
+              </strong>{' '}
+              và tự tin hành động.
               <br />
               Nếu bạn đã mệt mỏi vì luôn suy nghĩ quá nhiều, trì hoãn và để nỗi sợ
-              quyết định thay mình, đây là hành trình dành cho bạn.
+              quyết định thay mình,{' '}
+              <strong className="font-bold text-white">
+                đây là hành trình dành cho bạn.
+              </strong>
             </motion.p>
 
             {/* Reassurance bullets — 3 short lines, plain list */}
