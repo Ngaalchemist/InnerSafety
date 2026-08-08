@@ -1,7 +1,7 @@
 import { logger } from './logger.js';
 
 const SEPAY_API_BASE = 'https://my.sepay.vn/userapi';
-const COURSE_AMOUNT = 111000;
+const COURSE_AMOUNT = 444000;
 
 /** Generate a unique, short order reference that fits in a bank transfer description. */
 export function generateOrderId(): string {
