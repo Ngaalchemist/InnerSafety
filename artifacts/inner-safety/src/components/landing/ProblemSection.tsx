@@ -179,10 +179,9 @@ export function ProblemSection() {
           </ul>
           <p className={`${T_BODY} font-medium text-foreground mt-4 sm:mt-5`}>
             Theo thời gian, bạn không còn sống cuộc đời mình mong muốn.
-            <br />
-            <strong className="text-gradient-gold">
-              Bạn chỉ đang sống trong giới hạn mà nỗi sợ cho phép.
-            </strong>
+          </p>
+          <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-snug mt-3 sm:mt-4 text-gradient-gold">
+            Bạn chỉ đang sống trong giới hạn mà nỗi sợ cho phép.
           </p>
         </motion.div>
 
