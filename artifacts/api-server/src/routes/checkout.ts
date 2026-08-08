@@ -39,7 +39,15 @@ router.post('/checkout/create', async (req, res) => {
   }
 
   const orderId = generateOrderId();
-  const qrUrl = getQRUrl(orderId);
+
+  let qrUrl: string;
+  try {
+    qrUrl = getQRUrl(orderId);
+  } catch (err) {
+    req.log.error({ err }, 'Failed to generate QR — VA config missing');
+    res.status(500).json({ error: 'Hệ thống thanh toán chưa được cấu hình đầy đủ. Vui lòng liên hệ hỗ trợ.' });
+    return;
+  }
 
   const origin =
     req.headers.origin ??
@@ -104,7 +112,7 @@ router.get('/checkout/status/:orderId', async (req, res) => {
 
       const confirmedAt = new Date().toISOString();
 
-      markAsPaid(orderId, confirmedAt).catch((err) => {
+      markAsPaid(orderId, order.amount, confirmedAt).catch((err) => {
         req.log.error({ err, orderId }, 'Failed to update payment status in Google Sheets');
       });
 
