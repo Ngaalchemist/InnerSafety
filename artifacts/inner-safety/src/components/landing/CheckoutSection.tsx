@@ -255,7 +255,7 @@ export function CheckoutSection() {
         <p className="font-semibold text-foreground/80 text-center mb-2">Thông tin chuyển khoản</p>
         <div className="flex justify-between">
           <span className="text-foreground/60">Số tiền</span>
-          <span className="font-bold text-primary">111.000đ</span>
+          <span className="font-bold text-primary">444.000đ</span>
         </div>
         <div className="flex justify-between gap-4">
           <span className="text-foreground/60 shrink-0">Nội dung CK</span>
@@ -378,12 +378,12 @@ export function CheckoutSection() {
                   <p className="text-sm text-muted-foreground">7 Ngày Sống Vượt Trên Nỗi Sợ</p>
                 </div>
                 <span className="shrink-0 text-[11px] font-bold px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 tracking-wide">
-                  TIẾT KIỆM 90%
+                  TIẾT KIỆM 70%
                 </span>
               </div>
               <div className="flex items-baseline gap-3 py-4 border-y border-border/30">
-                <span className="text-3xl sm:text-4xl font-extrabold text-primary">111.000đ</span>
-                <span className="text-base text-muted-foreground line-through">1.111.000đ</span>
+                <span className="text-3xl sm:text-4xl font-extrabold text-primary">444.000đ</span>
+                <span className="text-base text-muted-foreground line-through">1.480.000đ</span>
               </div>
               <div className="flex items-center gap-1 mt-4">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -418,7 +418,7 @@ export function CheckoutSection() {
                   ))}
                 </div>
                 <p className="text-xs text-muted-foreground mt-3">
-                  Tổng giá trị: <span className="line-through">3.991.000đ</span> — Hôm nay chỉ: <span className="text-primary font-bold">111.000đ</span>
+                  Tổng giá trị: <span className="line-through">3.991.000đ</span> — Hôm nay chỉ: <span className="text-primary font-bold">444.000đ</span>
                 </p>
               </div>
             </div>
@@ -561,7 +561,7 @@ export function CheckoutSection() {
                   <div className="pt-1">
                     <div className="flex items-center justify-between text-sm mb-3 text-gray-600">
                       <span>Tổng thanh toán</span>
-                      <span className="text-xl font-bold text-[#1b1918]">111.000đ</span>
+                      <span className="text-xl font-bold text-[#1b1918]">444.000đ</span>
                     </div>
                     <button
                       type="submit"
@@ -572,7 +572,7 @@ export function CheckoutSection() {
                       {isSubmitting ? (
                         <><RefreshCw className="w-5 h-5 animate-spin" /> Đang xử lý…</>
                       ) : (
-                        <> TIẾP TỤC THANH TOÁN — 111.000đ <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></>
+                        <> TIẾP TỤC THANH TOÁN — 444.000đ <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></>
                       )}
                     </button>
                     <p className="text-center text-[11px] text-gray-500 mt-3 flex items-center justify-center gap-1.5">
