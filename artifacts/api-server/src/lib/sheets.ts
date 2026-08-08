@@ -139,7 +139,7 @@ export async function markAsPaid(orderId: string, amount: number, confirmedAt: s
     range: `${SHEET}!G${sheetRow}:I${sheetRow}`,
     valueInputOption: 'RAW',
     requestBody: {
-      values: [[amount, 'Đã thanh toán', confirmedAt]],
+      values: [[amount, 'DONE', confirmedAt]],
     },
   });
 
