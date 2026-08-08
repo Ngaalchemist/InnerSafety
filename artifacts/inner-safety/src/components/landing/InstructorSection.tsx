@@ -34,7 +34,7 @@ export function InstructorSection() {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold mb-4 sm:mb-6">
-            Người Dẫn Đường<br />Của Bạn
+            Người Dẫn Đường Của Bạn
           </h2>
         </motion.div>
 
