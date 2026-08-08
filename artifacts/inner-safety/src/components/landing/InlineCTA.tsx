@@ -63,12 +63,12 @@ export function InlineCTA({
         )}
         <button
           onClick={scrollToCTA}
-          className="group inline-flex items-center justify-center gap-2 rounded-full py-3 px-7 font-bold text-sm transition-transform hover:scale-[1.03] shadow-xl"
+          className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-4 sm:py-5 px-8 font-bold text-base sm:text-lg transition-transform hover:scale-[1.02] shadow-xl"
           style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
           data-testid="button-inline-cta"
         >
           {buttonLabel}
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </button>
 
         {/* Trust badges row */}
