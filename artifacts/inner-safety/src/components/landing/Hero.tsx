@@ -205,7 +205,7 @@ export function Hero() {
             </motion.p>
 
             {/* Reassurance bullets — 3 short lines, plain list */}
-            <motion.ul variants={staggerContainer} className="space-y-1.5 max-w-md mt-3 mb-5">
+            <motion.ul variants={staggerContainer} className="space-y-1.5 max-w-2x1 mt-3 mb-5">
               {checklist.map((item) => (
                 <motion.li variants={fadeInUp} key={item} className="flex items-center gap-2.5">
                   <span className="shrink-0 text-base leading-none" style={{ color: PURPLE }}>
