@@ -145,7 +145,7 @@ export function Hero() {
       </nav>
 
       <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-2 pb-0 lg:pt-3">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-5 relative">
+        <div className="max-w-[1280px] mx-auto flex flex-col gap-3 relative">
 
           {/* ── TEXT COLUMN (eyebrow through avatar/rating) ── */}
           <motion.div
@@ -155,7 +155,7 @@ export function Hero() {
             className="flex flex-col text-left lg:max-w-[58%]"
           >
             {/* Eyebrow */}
-            <motion.div variants={fadeInUp} className="mb-2">
+            <motion.div variants={fadeInUp} className="mb-5">
               <p
                 className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] mb-1"
                 style={{ color: PURPLE }}
@@ -170,7 +170,7 @@ export function Hero() {
             {/* Headline */}
             <motion.h1
               variants={fadeInUp}
-              className="uppercase mb-2 whitespace-nowrap"
+              className="uppercase mb-5 whitespace-nowrap"
               style={{
                 fontFamily: "'Anton', sans-serif",
                 fontSize: 'clamp(1.9rem, 4.6vw, 3.4rem)',
@@ -221,7 +221,7 @@ export function Hero() {
             </motion.ul>
 
             {/* ── AVATAR + RATING ROW ── */}
-            <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-4">
+            <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-0">
               <div className="flex -space-x-2.5">
                 {AVATAR_COLORS.map((c, i) => (
                   <div
