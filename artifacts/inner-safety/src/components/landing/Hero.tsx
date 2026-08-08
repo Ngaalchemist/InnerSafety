@@ -163,7 +163,7 @@ export function Hero() {
                 Inner Safety Method™
               </p>
               <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
-                Phương pháp độc quyền kết hợp điều hòa hệ thần kinh, chữa lành gốc rễ cảm xúc và thực hành chuyển hóa để bạn không chỉ hiểu nỗi sợ, mà còn biết cách bước qua nó một cách an toàn.
+                Phương pháp độc quyền kết hợp điều hòa hệ thần kinh, chữa lành gốc rễ cảm xúc và thực hành chuyển hóa<br />để bạn không chỉ hiểu nỗi sợ, mà còn biết cách bước qua nó một cách an toàn.
               </p>
             </motion.div>
 
@@ -193,14 +193,14 @@ export function Hero() {
               <strong className="font-bold" style={{ color: PURPLE }}>
                 20 phút mỗi ngày
               </strong>{' '}
-              giúp bạn thôi để nỗi sợ điều khiển cuộc sống, lấy lại{' '}
+              giúp bạn thôi để nỗi sợ điều khiển cuộc sống,<br /> lấy lại{' '}
               <strong className="font-bold" style={{ color: PURPLE }}>
                 cảm giác an toàn từ bên trong
               </strong>{' '}
               và tự tin hành động.
               <br />
               Nếu bạn đã mệt mỏi vì luôn suy nghĩ quá nhiều, trì hoãn và để nỗi sợ
-              quyết định thay mình,{' '}
+              quyết định thay mình,<br />{' '}
               <strong className="font-bold text-white">
                 đây là hành trình dành cho bạn.
               </strong>
