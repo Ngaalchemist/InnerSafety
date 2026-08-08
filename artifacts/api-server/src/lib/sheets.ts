@@ -62,13 +62,13 @@ function getAuth() {
 }
 
 /**
- * Column layout (A–I):
+ * Column layout (A–I) — confirmed against the real connected sheet:
  * A  Thời gian đăng ký
- * B  Họ tên
+ * B  Họ và tên
  * C  Số điện thoại
  * D  Email
  * E  Mã đơn hàng
- * F  Đường link đăng ký
+ * F  Link đăng ký
  * G  Số tiền
  * H  Trạng thái
  * I  Thời gian thanh toán
@@ -96,15 +96,15 @@ export async function appendRegistration(data: RegistrationRow): Promise<void> {
     insertDataOption: 'INSERT_ROWS',
     requestBody: {
       values: [[
-        data.registeredAt,       // A
-        data.name,               // B
-        data.phone,              // C
-        data.email,              // D
-        data.orderId,            // E
-        data.registrationUrl,    // F
-        data.amount,             // G
-        'Chưa thanh toán',       // H
-        '',                      // I (blank until paid)
+        data.registeredAt,       // A  Thời gian đăng ký
+        data.name,               // B  Họ và tên
+        data.phone,              // C  Số điện thoại
+        data.email,              // D  Email
+        data.orderId,            // E  Mã đơn hàng
+        data.registrationUrl,    // F  Link đăng ký
+        '',                      // G  Số tiền (để trống cho đến khi thanh toán thành công)
+        '',                      // H  Trạng thái (để trống cho đến khi thanh toán thành công)
+        '',                      // I  Thời gian thanh toán (để trống cho đến khi thanh toán thành công)
       ]],
     },
   });
@@ -112,8 +112,8 @@ export async function appendRegistration(data: RegistrationRow): Promise<void> {
   logger.info({ orderId: data.orderId }, 'Registration row written to Google Sheets');
 }
 
-/** Find the row by orderId (column E) and mark it as paid. */
-export async function markAsPaid(orderId: string, confirmedAt: string): Promise<void> {
+/** Find the row by orderId (column E) and fill in G (Số tiền), H (Trạng thái), I (Thời gian thanh toán). */
+export async function markAsPaid(orderId: string, amount: number, confirmedAt: string): Promise<void> {
   const auth = getAuth();
   const sheets = google.sheets({ version: 'v4', auth });
 
@@ -136,10 +136,10 @@ export async function markAsPaid(orderId: string, confirmedAt: string): Promise<
 
   await sheets.spreadsheets.values.update({
     spreadsheetId: SPREADSHEET_ID,
-    range: `${SHEET}!H${sheetRow}:I${sheetRow}`,
+    range: `${SHEET}!G${sheetRow}:I${sheetRow}`,
     valueInputOption: 'RAW',
     requestBody: {
-      values: [['Đã thanh toán', confirmedAt]],
+      values: [[amount, 'Đã thanh toán', confirmedAt]],
     },
   });
 
