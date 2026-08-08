@@ -52,8 +52,8 @@ const INK = '#0D0B18';
 // Short reassurance bullets under the subheadline
 const checklist = [
   'Dám xuất hiện mà không còn bị nỗi sợ kéo lùi.',
-  'Ra quyết định từ sự bình an thay vì lo âu và overthinking".',
-  'Xây dựng cảm giác "Tôi đã đủ" để sống, yêu và cống hiến một cách tự do.',
+  'Ra quyết định từ sự bình an thay vì lo âu hay suy nghĩ quá nhiều.',
+  'Tin vào chính mình và cảm thấy: "Tôi đã đủ."',
 ];
 
 // 5 feature icons — mirrors the 5 checklist outcomes from the reference mockup
@@ -160,10 +160,10 @@ export function Hero() {
                 className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] mb-1"
                 style={{ color: PURPLE }}
               >
-                Inner Safety Method™
+                Beyond Fear
               </p>
               <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
-                Chương trình thực hành 7 ngày dành cho những người biết mình sinh ra để làm nhiều điều hơn...nhưng <br />vẫn đang bị nỗi sợ giữ chân.
+                Inner Safety Method™ — Phương pháp độc quyền kết hợp điều hòa hệ thần kinh, chữa lành gốc rễ cảm xúc và thực hành chuyển hóa để bạn không chỉ hiểu nỗi sợ, mà còn biết cách bước qua nó một cách an toàn.
               </p>
             </motion.div>
 
@@ -178,9 +178,9 @@ export function Hero() {
                 letterSpacing: '1px',
               }}
             >
-              <span className="block text-white">ĐỪNG ĐỂ NỖI SỢ QUYẾT ĐỊNH</span>
+              <span className="block text-white">TỪ LO ÂU ĐẾN BÌNH AN</span>
               <span className="block" style={{ color: GOLD }}>
-                CON NGƯỜI BẠN SẼ TRỞ THÀNH
+                TRONG 7 NGÀY
               </span>
             </motion.h1>
 
@@ -189,19 +189,12 @@ export function Hero() {
               variants={fadeInUp}
               className="text-white/80 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
             >
-              Chỉ với{' '}
-              <span className="font-semibold" style={{ color: PURPLE }}>
-                20 phút
-              </span>{' '}
-              mỗi ngày trong 7 ngày, bằng phương pháp{' '}
-  <span className="font-bold" style={{ color: PURPLE }}>
-    Inner Safety Method™
-  </span>
-  . 
+              Chương trình thực hành 20 phút mỗi ngày giúp bạn thôi để nỗi sợ điều
+              khiển cuộc sống, lấy lại cảm giác an toàn từ bên trong và tự tin hành
+              động.
               <br />
-              Bạn sẽ làm dịu hệ thần kinh, tháo gỡ gốc rễ của nỗi sợ, và xây
-              dựng cảm giác an toàn nội tại<br /> để bạn tự tin bước ra, chia sẻ giá trị và sống đúng với con người
-              mà mình sinh ra để trở thành.
+              Nếu bạn đã mệt mỏi vì luôn suy nghĩ quá nhiều, trì hoãn và để nỗi sợ
+              quyết định thay mình, đây là hành trình dành cho bạn.
             </motion.p>
 
             {/* Reassurance bullets — 3 short lines, plain list */}
