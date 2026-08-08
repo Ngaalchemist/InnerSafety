@@ -24,8 +24,8 @@ const faqs = [
     answer: 'Có. Chúng tôi cam kết hoàn tiền 100% trong vòng 7 ngày nếu bạn cảm thấy khóa học không phù hợp.'
   },
   {
-    question: 'Giá 111.000đ có đúng không? Sao rẻ vậy?',
-    answer: 'Đúng vậy. Đây là giá ra mắt đặc biệt — Nga muốn nhiều người nhất có thể tiếp cận được phương pháp này. Giá gốc sẽ là 1.297.000 VNĐ sau đợt ra mắt.'
+    question: 'Giá 444.000đ có đúng không? Sao rẻ vậy?',
+    answer: 'Đúng vậy. Đây là giá ra mắt đặc biệt — Nga muốn nhiều người nhất có thể tiếp cận được phương pháp này. Giá gốc sẽ là 1.480.000 VNĐ sau đợt ra mắt.'
   }
 ];
 
