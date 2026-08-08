@@ -51,9 +51,9 @@ const INK = '#0D0B18';
 
 // Short reassurance bullets under the subheadline
 const checklist = [
-  'Không cần ép bản thân.',
-  'Không cần "tích cực độc hại".',
-  'Không cần chờ đến lúc tự tin.',
+  'Dám xuất hiện mà không còn bị nỗi sợ kéo lùi.',
+  'Ra quyết định từ sự bình an thay vì lo âu và overthinking".',
+  'Xây dựng cảm giác "Tôi đã đủ" để sống, yêu và cống hiến một cách tự do.',
 ];
 
 // 5 feature icons — mirrors the 5 checklist outcomes from the reference mockup
@@ -196,7 +196,7 @@ export function Hero() {
               mỗi ngày trong 7 ngày.
               <br />
               Bạn sẽ làm dịu hệ thần kinh, tháo gỡ gốc rễ của nỗi sợ, và xây
-              dựng cảm giác an toàn nội tại<br /> để sống đúng với con người
+              dựng cảm giác an toàn nội tại<br /> để bạn tự tin bước ra, chia sẻ giá trị và sống đúng với con người
               mà mình sinh ra để trở thành.
             </motion.p>
 
