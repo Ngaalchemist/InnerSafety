@@ -98,8 +98,10 @@ export function ProblemSection() {
           <div className={`max-w-3xl mx-auto ${LINE_GAP} ${T_BODY} text-foreground/80`}>
             <p>Bạn có thể nghĩ mình chỉ đang lo lắng.</p>
             <p>
-              Nhưng rất nhiều quyết định trong cuộc sống không xuất phát từ điều bạn thật sự mong
-              muốn...
+              <span className="sm:whitespace-nowrap">
+                Nhưng rất nhiều quyết định trong cuộc sống không xuất phát từ điều bạn thật sự mong
+                muốn...
+              </span>
               <br />
               <strong className="text-foreground">
                 Mà từ những nỗi sợ đã âm thầm điều khiển bạn trong suốt nhiều năm.
