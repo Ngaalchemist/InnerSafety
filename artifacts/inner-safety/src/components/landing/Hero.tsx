@@ -172,7 +172,7 @@ export function Hero() {
                 Inner Safety Method™
               </p>
               <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
-                Phương pháp độc quyền kết hợp điều hòa hệ thần kinh, chữa lành gốc rễ cảm xúc và thực hành chuyển hóa để bạn không chỉ hiểu nỗi sợ, mà còn biết cách bước qua nó một cách an toàn.
+                Phương pháp độc quyền giúp bạn tháo gỡ bộ rễ của nỗi sợ để xây dựng cảm giác an toàn từ bên trong.
               </p>
             </motion.div>
 
@@ -187,9 +187,9 @@ export function Hero() {
                 letterSpacing: '1px',
               }}
             >
-              <span className="block text-white">TỪ LO ÂU ĐẾN BÌNH AN</span>
+              <span className="block text-white">BEYOND FEAR</span>
               <span className="block" style={{ color: GOLD }}>
-                TRONG 7 NGÀY
+                7 NGÀY TỪ SỢ HÃI ĐẾN BÌNH AN
               </span>
             </motion.h1>
 
@@ -198,20 +198,15 @@ export function Hero() {
               variants={fadeInUp}
               className="text-white/80 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
             >
-              Chương trình thực hành{' '}
-              <strong className="font-bold" style={{ color: PURPLE }}>
-                20 phút mỗi ngày
-              </strong>{' '}
-              giúp bạn thôi để nỗi sợ điều khiển cuộc sống, lấy lại{' '}
-              <strong className="font-bold" style={{ color: PURPLE }}>
-                cảm giác an toàn từ bên trong
-              </strong>{' '}
-              và tự tin hành động.
+              Đừng để nỗi sợ tiếp tục quyết định cuộc sống của bạn.
               <br />
-              Nếu bạn đã mệt mỏi vì luôn suy nghĩ quá nhiều, trì hoãn và để nỗi sợ
-              quyết định thay mình,{' '}
+              Nếu bạn đã mệt mỏi vì overthinking, trì hoãn và luôn bị một lực vô hình kéo lùi mỗi khi muốn sống đúng với con người mình thật sự là,{' '}
+              <strong className="font-bold" style={{ color: PURPLE }}>
+                Beyond Fear™
+              </strong>{' '}
+              sẽ giúp bạn từng bước tháo gỡ bộ rễ của nỗi sợ để hành động từ{' '}
               <strong className="font-bold text-white">
-                đây là hành trình dành cho bạn.
+                sự bình an thay vì sự sợ hãi.
               </strong>
             </motion.p>
 
