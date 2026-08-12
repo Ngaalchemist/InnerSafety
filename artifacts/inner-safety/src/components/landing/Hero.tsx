@@ -56,7 +56,7 @@ const INK = '#0D0B18';
 // QUOTE_RIGHT: '%' distance from the right edge. Bigger number = further LEFT (closer to the tree).
 //              Smaller number (or negative) = further RIGHT (closer to the screen edge).
 // QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
-const QUOTE_TOP = '40%';
+const QUOTE_TOP = '36%';
 const QUOTE_RIGHT = '-11%';
 const QUOTE_WIDTH = 340;
 
@@ -267,14 +267,15 @@ export function Hero() {
               className="italic leading-snug"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: '15px',
-                color: 'rgba(255,255,255,0.55)',
+                fontWeight: 300,
+                fontSize: '14px',
+                color: 'rgba(251,191,36,0.75)',
                 textShadow: '0 1px 8px rgba(0,0,0,0.6)',
               }}
             >
-              "Bạn không bị mắc kẹt bởi cuộc đời.
+              <span style={{ whiteSpace: 'nowrap' }}>"Bạn không bị mắc kẹt bởi cuộc đời.</span>
               <br />
-              Bạn đang bị mắc kẹt bởi những gốc rễ vô hình."
+              <span style={{ whiteSpace: 'nowrap' }}>Bạn đang bị mắc kẹt bởi những gốc rễ vô hình."</span>
             </p>
             <p
               className="mt-2 text-xs tracking-wide"
