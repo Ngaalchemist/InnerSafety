@@ -187,16 +187,8 @@ export function Hero() {
               }}
             >
               <span className="block text-white">BEYOND FEAR</span>
-              <span
-                className="block normal-case"
-                style={{
-                  color: GOLD,
-                  fontFamily: "'Bodoni Moda', serif",
-                  fontStyle: 'normal',
-                  fontWeight: 700,
-                }}
-              >
-                7 Ngày Từ Sợ Hãi Đến Bình An
+              <span className="block" style={{ color: GOLD }}>
+                7 NGÀY TỪ SỢ HÃI ĐẾN BÌNH AN
               </span>
             </motion.h1>
 
@@ -233,19 +225,11 @@ export function Hero() {
 
             {/* ── AVATAR + RATING ROW ── */}
             <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-0">
-              <div
-                className="w-11 h-11 rounded-full flex items-center justify-center shrink-0 overflow-hidden"
-                style={{
-                  backgroundColor: 'rgba(255,255,255,0.06)',
-                  border: `1.5px solid ${GOLD}`,
-                }}
-              >
-                <img
-                  src={ratingBadge}
-                  alt="4.9 sao đánh giá"
-                  className="w-9 h-9 object-contain"
-                />
-              </div>
+              <img
+                src={ratingBadge}
+                alt="4.9 sao đánh giá"
+                className="w-11 h-11 shrink-0"
+              />
               <div>
                 <div className="flex items-center gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
