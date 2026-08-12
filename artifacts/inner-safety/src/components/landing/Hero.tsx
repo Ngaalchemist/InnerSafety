@@ -282,7 +282,7 @@ export function Hero() {
             >
               <span style={{ whiteSpace: 'nowrap' }}>"Bạn không bị mắc kẹt bởi cuộc đời.</span>
               <br />
-              <span style={{ whiteSpace: 'nowrap' }}>Bạn đang bị mắc kẹt bởi những gốc rễ vô hình."</span>
+              <span style={{ whiteSpace: 'nowrap' }}>Bạn đang bị mắc kẹt bởi những bộ rễ vô hình của nỗi sợ."</span>
             </p>
             <p
               className="mt-2 text-xs tracking-wide"
