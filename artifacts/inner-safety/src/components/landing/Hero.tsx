@@ -58,7 +58,7 @@ const INK = '#0D0B18';
 // QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
 const QUOTE_TOP = '36%';
 const QUOTE_RIGHT = '-11%';
-const QUOTE_WIDTH = 300;
+const QUOTE_WIDTH = 340;
 
 // Short reassurance bullets under the subheadline
 const checklist = [
