@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import {
   ArrowRight,
   ShieldCheck,
+  CheckCircle2,
   Monitor,
   Users,
   Infinity as InfinityIcon,
@@ -202,19 +203,37 @@ export function Hero() {
               </span>
             </motion.h1>
 
+            {/* Differentiator — practice, not just theory */}
+            <motion.p
+              variants={fadeInUp}
+              className="text-xs sm:text-sm font-bold uppercase tracking-wide mb-3"
+              style={{ color: GOLD }}
+            >
+              Không phải lý thuyết chữa lành — mà là hành trình{' '}
+              <span style={{ color: PURPLE }}>thực hành tự thôi miên</span>{' '}
+              từng bước, để bạn trải nghiệm sự chuyển hóa thật sự.
+            </motion.p>
+
             {/* Subheadline */}
             <motion.p
               variants={fadeInUp}
-              className="text-white/80 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
+              className="text-white/75 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
             >
-              Đừng để nỗi sợ tiếp tục quyết định cuộc đời của bạn.
+              <strong className="font-bold text-white">
+                Đừng để nỗi sợ tiếp tục quyết định cuộc đời của bạn.
+              </strong>
               <br />
-              Nếu bạn đã mệt mỏi vì overthinking, trì hoãn và luôn bị một lực vô hình kéo lùi mỗi khi muốn sống đúng với con người thật của mình,{' '} hành trình
+              Nếu bạn đã mệt mỏi vì{' '}
+              <strong className="font-bold text-white">overthinking, trì hoãn</strong> và luôn bị một lực vô hình kéo lùi mỗi khi muốn sống đúng với con người thật của mình, hành trình{' '}
               <strong className="font-bold" style={{ color: PURPLE }}>
                 Beyond Fear™
               </strong>{' '}
-              chỉ 20 phút mỗi ngày sẽ giúp bạn từng bước tháo gỡ bộ rễ của nỗi sợ để hành động từ{' '}
-              <strong className="font-bold text-white">
+              chỉ <strong className="font-bold text-white">20 phút mỗi ngày</strong> sẽ giúp bạn từng bước{' '}
+              <strong className="font-bold" style={{ color: PURPLE }}>
+                tháo gỡ bộ rễ của nỗi sợ
+              </strong>{' '}
+              để hành động từ{' '}
+              <strong className="font-bold" style={{ color: GOLD }}>
                 sự bình an thay vì sự sợ hãi.
               </strong>
             </motion.p>
@@ -330,6 +349,20 @@ export function Hero() {
                 🔥 TÔI MUỐN THÁO GỠ GỐC RỄ NỖI SỢ
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
+
+              {/* Grand Slam Offer — stacks the strongest proof points right under the CTA */}
+              <ul className="mt-3 space-y-1">
+                {[
+                  '500+ học viên đã trải nghiệm',
+                  'Chỉ 20 phút/ngày',
+                  'Hoàn tiền 7 ngày',
+                ].map((point) => (
+                  <li key={point} className="flex items-center gap-2 text-xs text-white/70">
+                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0" style={{ color: PURPLE }} />
+                    {point}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
 
             {/* Feature grid — one continuous box with internal dividers, stretched to fill remaining width */}
