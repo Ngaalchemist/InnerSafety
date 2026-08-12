@@ -27,7 +27,7 @@ function useAntonFont() {
     const link = document.createElement('link');
     link.id = GOOGLE_FONT_ID;
     link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;1,600&family=Bodoni+Moda:wght@600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap';
     document.head.appendChild(link);
   }, []);
 }
@@ -191,8 +191,8 @@ export function Hero() {
                 className="block normal-case"
                 style={{
                   color: GOLD,
-                  fontFamily: "'Playfair Display', serif",
-                  fontStyle: 'italic',
+                  fontFamily: "'Bodoni Moda', serif",
+                  fontStyle: 'normal',
                   fontWeight: 700,
                 }}
               >
@@ -233,11 +233,19 @@ export function Hero() {
 
             {/* ── AVATAR + RATING ROW ── */}
             <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-0">
-              <img
-                src={ratingBadge}
-                alt="4.9 sao đánh giá"
-                className="w-11 h-11 shrink-0"
-              />
+              <div
+                className="w-11 h-11 rounded-full flex items-center justify-center shrink-0 overflow-hidden"
+                style={{
+                  backgroundColor: 'rgba(255,255,255,0.06)',
+                  border: `1.5px solid ${GOLD}`,
+                }}
+              >
+                <img
+                  src={ratingBadge}
+                  alt="4.9 sao đánh giá"
+                  className="w-9 h-9 object-contain"
+                />
+              </div>
               <div>
                 <div className="flex items-center gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
