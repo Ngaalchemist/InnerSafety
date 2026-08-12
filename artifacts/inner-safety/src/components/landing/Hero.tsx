@@ -244,6 +244,36 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
+          {/* ── QUOTE OVERLAY — sits subtly on the background image, at the ground line under the tree ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+            className="hidden lg:block absolute z-[5] pointer-events-none text-right"
+            style={{ right: '3%', top: '46%', maxWidth: '300px' }}
+          >
+            <p
+              className="italic leading-snug"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: '15px',
+                color: 'rgba(255,255,255,0.55)',
+                textShadow: '0 1px 8px rgba(0,0,0,0.6)',
+              }}
+            >
+              "Bạn không bị mắc kẹt bởi cuộc đời.
+              <br />
+              Bạn đang bị mắc kẹt bởi những gốc rễ vô hình."
+            </p>
+            <p
+              className="mt-2 text-xs tracking-wide"
+              style={{ color: 'rgba(251,191,36,0.6)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
+            >
+              — Nga Alchemist
+            </p>
+          </motion.div>
+
           {/* ── PRICE BOX (left) + FEATURE GRID (right) — side by side, same row, like the mockup ── */}
           <div className="flex flex-col lg:flex-row gap-4 lg:items-stretch">
             {/* Price box + CTA */}
