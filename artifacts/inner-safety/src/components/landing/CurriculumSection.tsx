@@ -1,13 +1,13 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { ChevronDown, Check } from 'lucide-react';
-import day1Image from '../../../../attached_assets/day-1.jpg';
-import day2Image from '../../../../attached_assets/day-2.jpg';
-import day3Image from '../../../../attached_assets/day-3.jpg';
-import day4Image from '../../../../attached_assets/day-4.jpg';
-import day5Image from '../../../../attached_assets/day-5.jpg';
-import day6Image from '../../../../attached_assets/day-6.jpg';
-import day7Image from '../../../../attached_assets/day-7.jpg';
+import day1Image from '../../../../../attached_assets/day-1.jpg';
+import day2Image from '../../../../../attached_assets/day-2.jpg';
+import day3Image from '../../../../../attached_assets/day-3.jpg';
+import day4Image from '../../../../../attached_assets/day-4.jpg';
+import day5Image from '../../../../../attached_assets/day-5.jpg';
+import day6Image from '../../../../../attached_assets/day-6.jpg';
+import day7Image from '../../../../../attached_assets/day-7.jpg';
 
 const curriculum = [
   {
