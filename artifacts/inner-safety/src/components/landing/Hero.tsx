@@ -207,9 +207,9 @@ export function Hero() {
               variants={fadeInUp}
               className="text-white/80 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
             >
-              Đừng để nỗi sợ tiếp tục quyết định cuộc sống của bạn.
+              Đừng để nỗi sợ tiếp tục quyết định cuộc đời của bạn.
               <br />
-              Nếu bạn đã mệt mỏi vì overthinking, trì hoãn và luôn bị một lực vô hình kéo lùi mỗi khi muốn sống đúng với con người mình thật sự là,{' '}
+              Nếu bạn đã mệt mỏi vì overthinking, trì hoãn và luôn bị một lực vô hình kéo lùi mỗi khi muốn sống đúng với con người thật của mình,{' '}
               <strong className="font-bold" style={{ color: PURPLE }}>
                 Beyond Fear™
               </strong>{' '}
