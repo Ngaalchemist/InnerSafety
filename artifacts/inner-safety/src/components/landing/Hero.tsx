@@ -209,11 +209,11 @@ export function Hero() {
             >
               Đừng để nỗi sợ tiếp tục quyết định cuộc đời của bạn.
               <br />
-              Nếu bạn đã mệt mỏi vì overthinking, trì hoãn và luôn bị một lực vô hình kéo lùi mỗi khi muốn sống đúng với con người thật của mình,{' '}
+              Nếu bạn đã mệt mỏi vì overthinking, trì hoãn và luôn bị một lực vô hình kéo lùi mỗi khi muốn sống đúng với con người thật của mình,{' '} hành trình
               <strong className="font-bold" style={{ color: PURPLE }}>
                 Beyond Fear™
               </strong>{' '}
-              sẽ giúp bạn từng bước tháo gỡ bộ rễ của nỗi sợ để hành động từ{' '}
+              chỉ 20 phút mỗi ngày sẽ giúp bạn từng bước tháo gỡ bộ rễ của nỗi sợ để hành động từ{' '}
               <strong className="font-bold text-white">
                 sự bình an thay vì sự sợ hãi.
               </strong>
