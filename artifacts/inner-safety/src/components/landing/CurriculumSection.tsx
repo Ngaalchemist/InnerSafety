@@ -1,11 +1,18 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { ChevronDown, Check } from 'lucide-react';
+import day1Image from '../../../../attached_assets/day-1.jpg';
+import day2Image from '../../../../attached_assets/day-2.jpg';
+import day3Image from '../../../../attached_assets/day-3.jpg';
+import day4Image from '../../../../attached_assets/day-4.jpg';
+import day5Image from '../../../../attached_assets/day-5.jpg';
+import day6Image from '../../../../attached_assets/day-6.jpg';
+import day7Image from '../../../../attached_assets/day-7.jpg';
 
 const curriculum = [
   {
     day: 1,
-    image: '/images/day-1.jpg',
+    image: day1Image,
     title: 'NHÌN THẤY NỖI SỢ THAY VÌ BỊ NỖI SỢ ĐIỀU KHIỂN',
     subtitle: 'Awareness',
     learns: [
@@ -17,7 +24,7 @@ const curriculum = [
   },
   {
     day: 2,
-    image: '/images/day-2.jpg',
+    image: day2Image,
     title: 'BÌNH TĨNH LẠI KHI LO LẮNG XUẤT HIỆN',
     subtitle: 'Regulation',
     learns: [
@@ -29,7 +36,7 @@ const curriculum = [
   },
   {
     day: 3,
-    image: '/images/day-3.jpg',
+    image: day3Image,
     title: 'HIỂU VÌ SAO BẠN LUÔN SỢ',
     subtitle: 'Healing',
     learns: [
@@ -41,7 +48,7 @@ const curriculum = [
   },
   {
     day: 4,
-    image: '/images/day-4.jpg',
+    image: day4Image,
     title: 'THAY ĐỔI NHỮNG SUY NGHĨ ĐANG GIỮ CHÂN BẠN',
     subtitle: 'Reprogramming',
     learns: [
@@ -53,7 +60,7 @@ const curriculum = [
   },
   {
     day: 5,
-    image: '/images/day-5.jpg',
+    image: day5Image,
     title: 'XÂY LẠI CẢM GIÁC AN TOÀN TỪ BÊN TRONG',
     subtitle: 'Integration',
     learns: [
@@ -65,7 +72,7 @@ const curriculum = [
   },
   {
     day: 6,
-    image: '/images/day-6.jpg',
+    image: day6Image,
     title: 'RA QUYẾT ĐỊNH MÀ KHÔNG BỊ NỖI SỢ DẪN DẮT',
     subtitle: 'Identity',
     learns: [
@@ -77,7 +84,7 @@ const curriculum = [
   },
   {
     day: 7,
-    image: '/images/day-7.jpg',
+    image: day7Image,
     title: 'BƯỚC RA KHỎI VÙNG AN TOÀN BẰNG NHỮNG HÀNH ĐỘNG NHỎ',
     subtitle: 'Action',
     learns: [
