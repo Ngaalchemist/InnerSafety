@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { ChevronDown, Check } from 'lucide-react';
+import { useRef } from 'react';
+import { Check } from 'lucide-react';
 import day1Image from '../../../../../attached_assets/day-1.jpg';
 import day2Image from '../../../../../attached_assets/day-2.jpg';
 import day3Image from '../../../../../attached_assets/day-3.jpg';
@@ -97,8 +97,6 @@ const curriculum = [
 ];
 
 function DayCard({ day, image, title, subtitle, learns, result, index }: typeof curriculum[0] & { index: number }) {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -119,8 +117,7 @@ function DayCard({ day, image, title, subtitle, learns, result, index }: typeof 
         </div>
       )}
 
-      <button
-        onClick={() => setIsOpen(!isOpen)}
+      <div
         className="w-full text-left p-4 sm:p-6"
         data-testid={`curriculum-day-${day}`}
       >
@@ -138,39 +135,29 @@ function DayCard({ day, image, title, subtitle, learns, result, index }: typeof 
               </div>
             </div>
           </div>
-          <ChevronDown
-            className={`w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
-          />
         </div>
 
-        <motion.div
-          initial={false}
-          animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-          className="overflow-hidden"
-        >
-          <div className="pt-4 sm:pt-6 space-y-3 sm:space-y-4 border-t border-border/30 mt-4">
-            <div>
-              <p className="text-xs sm:text-sm font-semibold text-primary mb-2 sm:mb-3">
-                Bạn sẽ học
-              </p>
-              <ul className="space-y-2">
-                {learns.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 sm:gap-3">
-                    <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm sm:text-base text-foreground/80 leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="p-3 sm:p-4 rounded-lg bg-primary/10 border-l-4 border-primary">
-              <p className="text-xs sm:text-sm font-medium text-foreground">
-                <strong className="text-primary">🎯 Chiến thắng:</strong> {result}
-              </p>
-            </div>
+        <div className="pt-4 sm:pt-6 space-y-3 sm:space-y-4 border-t border-border/30 mt-4">
+          <div>
+            <p className="text-xs sm:text-sm font-semibold text-primary mb-2 sm:mb-3">
+              Bạn sẽ học
+            </p>
+            <ul className="space-y-2">
+              {learns.map((item, i) => (
+                <li key={i} className="flex items-start gap-2 sm:gap-3">
+                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-sm sm:text-base text-foreground/80 leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </motion.div>
-      </button>
+          <div className="p-3 sm:p-4 rounded-lg bg-primary/10 border-l-4 border-primary">
+            <p className="text-xs sm:text-sm font-medium text-foreground">
+              <strong className="text-primary">🎯 Chiến thắng:</strong> {result}
+            </p>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 }
