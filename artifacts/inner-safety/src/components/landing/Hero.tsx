@@ -15,6 +15,7 @@ import {
   BookOpen,
 } from 'lucide-react';
 import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
+import ratingBadge from '@assets/rating_badge.webp';
 
 // Self-loads the Google Fonts so the bold condensed headline and the
 // display-serif header text render correctly even if the project's
@@ -93,8 +94,6 @@ const trustStrip = [
   { icon: Users, label: 'Cộng đồng riêng', sub: 'hỗ trợ 24/7' },
   { icon: BookOpen, label: 'Bài học ngắn gọn', sub: 'dễ hiểu, dễ áp dụng' },
 ];
-
-const AVATAR_COLORS = ['#C084FC', '#FBBF24', '#F472B6', '#60A5FA'];
 
 export function Hero() {
   useAntonFont();
@@ -188,8 +187,16 @@ export function Hero() {
               }}
             >
               <span className="block text-white">BEYOND FEAR</span>
-              <span className="block" style={{ color: GOLD }}>
-                7 NGÀY TỪ SỢ HÃI ĐẾN BÌNH AN
+              <span
+                className="block normal-case"
+                style={{
+                  color: GOLD,
+                  fontFamily: "'Playfair Display', serif",
+                  fontStyle: 'italic',
+                  fontWeight: 700,
+                }}
+              >
+                7 Ngày Từ Sợ Hãi Đến Bình An
               </span>
             </motion.h1>
 
@@ -226,21 +233,11 @@ export function Hero() {
 
             {/* ── AVATAR + RATING ROW ── */}
             <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-0">
-              <div className="flex -space-x-2.5">
-                {AVATAR_COLORS.map((c, i) => (
-                  <div
-                    key={i}
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold"
-                    style={{
-                      backgroundColor: c,
-                      color: INK,
-                      border: `2px solid ${INK}`,
-                    }}
-                  >
-                    {i + 1}
-                  </div>
-                ))}
-              </div>
+              <img
+                src={ratingBadge}
+                alt="4.9 sao đánh giá"
+                className="w-11 h-11 shrink-0"
+              />
               <div>
                 <div className="flex items-center gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
