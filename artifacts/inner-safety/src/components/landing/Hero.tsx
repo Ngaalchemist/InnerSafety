@@ -134,11 +134,11 @@ export function Hero() {
         </div>
       </nav>
 
-      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-10 pb-10 lg:pt-14">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
+      <div className="px-4 sm:px-10 lg:px-12 relative z-10 pt-6 pb-8 lg:pt-8">
+        <div className="max-w-[1280px] mx-auto flex flex-col gap-7">
 
           {/* ── TOP ROW: text column + meditation image ── */}
-          <div className="flex flex-col lg:flex-row gap-8 lg:items-stretch">
+          <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
             {/* Text column */}
             <motion.div
               variants={staggerContainer}
@@ -147,7 +147,7 @@ export function Hero() {
               className="flex flex-col text-left lg:w-[54%]"
             >
               {/* Badge */}
-              <motion.div variants={fadeInUp} className="mb-5">
+              <motion.div variants={fadeInUp} className="mb-3">
                 <span
                   className="inline-block text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] px-3.5 py-1.5 rounded-full"
                   style={{
@@ -161,7 +161,7 @@ export function Hero() {
               </motion.div>
 
               {/* Headline */}
-              <motion.h1 variants={fadeInUp} className="mb-4">
+              <motion.h1 variants={fadeInUp} className="mb-3">
                 <span
                   className="block italic"
                   style={{
@@ -193,7 +193,7 @@ export function Hero() {
               {/* Intro line with heart icon */}
               <motion.p
                 variants={fadeInUp}
-                className="flex items-start gap-2 text-white/80 text-sm sm:text-base leading-relaxed mb-5"
+                className="flex items-start gap-2 text-white/80 text-sm sm:text-base leading-relaxed mb-4"
               >
                 <Heart className="w-4 h-4 mt-1 shrink-0" style={{ color: PURPLE }} />
                 <span>
@@ -208,7 +208,7 @@ export function Hero() {
               {/* Method pillars */}
               <motion.div
                 variants={staggerContainer}
-                className="grid grid-cols-3 gap-2.5 mb-5"
+                className="grid grid-cols-3 gap-2.5 mb-4"
               >
                 {methodPillars.map(({ icon: Icon, line1, line2 }) => (
                   <motion.div
@@ -243,19 +243,19 @@ export function Hero() {
               </motion.p>
             </motion.div>
 
-            {/* Meditation image */}
+            {/* Meditation image — fixed aspect ratio so it never grows past the text column's natural height */}
             <motion.div
               initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:w-[46%] rounded-2xl overflow-hidden"
+              className="lg:w-[44%] aspect-[3/2] lg:aspect-auto lg:h-[420px] rounded-2xl overflow-hidden shrink-0"
               style={{ border: '1px solid rgba(192,132,252,0.25)' }}
             >
               <img
                 src={meditationImg}
                 alt="Người phụ nữ thiền định trước hoàng hôn bên hồ, biểu tượng cho sự bình an nội tại"
-                className="w-full h-full object-cover min-h-[280px]"
+                className="w-full h-full object-cover"
               />
             </motion.div>
           </div>
