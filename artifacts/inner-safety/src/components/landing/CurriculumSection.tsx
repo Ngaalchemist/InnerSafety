@@ -5,6 +5,7 @@ import { ChevronDown, Check } from 'lucide-react';
 const curriculum = [
   {
     day: 1,
+    image: '/images/day-1.jpg',
     title: 'NHÌN THẤY NỖI SỢ THAY VÌ BỊ NỖI SỢ ĐIỀU KHIỂN',
     subtitle: 'Awareness',
     learns: [
@@ -16,6 +17,7 @@ const curriculum = [
   },
   {
     day: 2,
+    image: '/images/day-2.jpg',
     title: 'BÌNH TĨNH LẠI KHI LO LẮNG XUẤT HIỆN',
     subtitle: 'Regulation',
     learns: [
@@ -27,6 +29,7 @@ const curriculum = [
   },
   {
     day: 3,
+    image: '/images/day-3.jpg',
     title: 'HIỂU VÌ SAO BẠN LUÔN SỢ',
     subtitle: 'Healing',
     learns: [
@@ -38,6 +41,7 @@ const curriculum = [
   },
   {
     day: 4,
+    image: '/images/day-4.jpg',
     title: 'THAY ĐỔI NHỮNG SUY NGHĨ ĐANG GIỮ CHÂN BẠN',
     subtitle: 'Reprogramming',
     learns: [
@@ -49,6 +53,7 @@ const curriculum = [
   },
   {
     day: 5,
+    image: '/images/day-5.jpg',
     title: 'XÂY LẠI CẢM GIÁC AN TOÀN TỪ BÊN TRONG',
     subtitle: 'Integration',
     learns: [
@@ -60,6 +65,7 @@ const curriculum = [
   },
   {
     day: 6,
+    image: '/images/day-6.jpg',
     title: 'RA QUYẾT ĐỊNH MÀ KHÔNG BỊ NỖI SỢ DẪN DẮT',
     subtitle: 'Identity',
     learns: [
@@ -71,6 +77,7 @@ const curriculum = [
   },
   {
     day: 7,
+    image: '/images/day-7.jpg',
     title: 'BƯỚC RA KHỎI VÙNG AN TOÀN BẰNG NHỮNG HÀNH ĐỘNG NHỎ',
     subtitle: 'Action',
     learns: [
@@ -82,7 +89,7 @@ const curriculum = [
   }
 ];
 
-function DayCard({ day, title, subtitle, learns, result, index }: typeof curriculum[0] & { index: number }) {
+function DayCard({ day, image, title, subtitle, learns, result, index }: typeof curriculum[0] & { index: number }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -91,11 +98,23 @@ function DayCard({ day, title, subtitle, learns, result, index }: typeof curricu
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group"
+      className="group overflow-hidden rounded-xl bg-card/40 backdrop-blur-sm border border-border/30 hover:border-primary/50 transition-all duration-300"
     >
+      {image && (
+        <div className="relative aspect-video w-full overflow-hidden">
+          <img
+            src={image}
+            alt={`${title} - ${subtitle}`}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+        </div>
+      )}
+
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full text-left p-4 sm:p-6 rounded-xl bg-card/40 backdrop-blur-sm border border-border/30 hover:border-primary/50 transition-all duration-300"
+        className="w-full text-left p-4 sm:p-6"
         data-testid={`curriculum-day-${day}`}
       >
         <div className="flex items-start justify-between gap-4">
