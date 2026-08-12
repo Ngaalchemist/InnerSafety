@@ -91,7 +91,7 @@ const featureGrid = [
   },
   {
     icon: Sprout,
-    title: 'Xây gốc rễ an toàn',
+    title: 'Tháo gỡ gốc rễ nỗi sợ',
     desc: 'Cảm giác an toàn bền vững từ bên trong.',
   },
 ];
@@ -327,7 +327,7 @@ export function Hero() {
                 style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
                 data-testid="button-hero-cta"
               >
-                🔥 TÔI MUỐN LÀM CHỦ NỖI SỢ CỦA MÌNH
+                🔥 TÔI MUỐN THÁO GỠ GỐC RỄ NỖI SỢ
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </motion.div>
