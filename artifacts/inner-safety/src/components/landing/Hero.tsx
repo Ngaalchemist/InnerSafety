@@ -50,6 +50,16 @@ const PURPLE = '#C084FC';
 const GOLD = '#FBBF24';
 const INK = '#0D0B18';
 
+// ── QUOTE OVERLAY POSITION ──
+// Tune these 3 values yourself to move the quote — no need to touch the JSX below.
+// QUOTE_TOP:   '%' from the top of the hero section. Bigger number = lower on the page.
+// QUOTE_RIGHT: '%' distance from the right edge. Bigger number = further LEFT (closer to the tree).
+//              Smaller number (or negative) = further RIGHT (closer to the screen edge).
+// QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
+const QUOTE_TOP = '44%';
+const QUOTE_RIGHT = '-1%';
+const QUOTE_WIDTH = 220;
+
 // Short reassurance bullets under the subheadline
 const checklist = [
   'Dám xuất hiện mà không còn bị nỗi sợ kéo lùi.',
@@ -251,7 +261,7 @@ export function Hero() {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
             className="hidden lg:block absolute z-[5] pointer-events-none text-left"
-            style={{ right: '2%', top: '38%', maxWidth: '240px' }}
+            style={{ right: QUOTE_RIGHT, top: QUOTE_TOP, maxWidth: `${QUOTE_WIDTH}px` }}
           >
             <p
               className="italic leading-snug"
