@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import {
   ArrowRight,
   ShieldCheck,
-  CheckCircle2,
   Monitor,
   Users,
   Infinity as InfinityIcon,
@@ -203,17 +202,6 @@ export function Hero() {
               </span>
             </motion.h1>
 
-            {/* Differentiator — practice, not just theory */}
-            <motion.p
-              variants={fadeInUp}
-              className="text-xs sm:text-sm font-bold uppercase tracking-wide mb-3"
-              style={{ color: GOLD }}
-            >
-              Không phải lý thuyết chữa lành — mà là hành trình{' '}
-              <span style={{ color: PURPLE }}>thực hành tự thôi miên</span>{' '}
-              từng bước, để bạn trải nghiệm sự chuyển hóa thật sự.
-            </motion.p>
-
             {/* Subheadline */}
             <motion.p
               variants={fadeInUp}
@@ -288,7 +276,7 @@ export function Hero() {
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 300,
                 fontSize: '14px',
-                color: 'rgba(251,191,36,0.75)',
+                color: 'rgba(255,255,255,0.62)',
                 textShadow: '0 1px 8px rgba(0,0,0,0.6)',
               }}
             >
@@ -298,7 +286,7 @@ export function Hero() {
             </p>
             <p
               className="mt-2 text-xs tracking-wide"
-              style={{ color: 'rgba(251,191,36,0.6)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
+              style={{ color: 'rgba(192,132,252,0.65)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
             >
               — Nga Alchemist
             </p>
@@ -349,20 +337,6 @@ export function Hero() {
                 🔥 TÔI MUỐN THÁO GỠ GỐC RỄ NỖI SỢ
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-
-              {/* Grand Slam Offer — stacks the strongest proof points right under the CTA */}
-              <ul className="mt-3 space-y-1">
-                {[
-                  '500+ học viên đã trải nghiệm',
-                  'Chỉ 20 phút/ngày',
-                  'Hoàn tiền 7 ngày',
-                ].map((point) => (
-                  <li key={point} className="flex items-center gap-2 text-xs text-white/70">
-                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0" style={{ color: PURPLE }} />
-                    {point}
-                  </li>
-                ))}
-              </ul>
             </motion.div>
 
             {/* Feature grid — one continuous box with internal dividers, stretched to fill remaining width */}
