@@ -251,7 +251,7 @@ export function Hero() {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
             className="hidden lg:block absolute z-[5] pointer-events-none text-left"
-            style={{ right: '13%', top: '34%', maxWidth: '280px' }}
+            style={{ right: '2%', top: '38%', maxWidth: '240px' }}
           >
             <p
               className="italic leading-snug"
