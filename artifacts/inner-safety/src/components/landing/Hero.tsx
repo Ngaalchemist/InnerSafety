@@ -56,9 +56,9 @@ const INK = '#0D0B18';
 // QUOTE_RIGHT: '%' distance from the right edge. Bigger number = further LEFT (closer to the tree).
 //              Smaller number (or negative) = further RIGHT (closer to the screen edge).
 // QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
-const QUOTE_TOP = '38%';
-const QUOTE_RIGHT = '-10%';
-const QUOTE_WIDTH = 260;
+const QUOTE_TOP = '35%';
+const QUOTE_RIGHT = '-9%';
+const QUOTE_WIDTH = 280;
 
 // Short reassurance bullets under the subheadline
 const checklist = [
