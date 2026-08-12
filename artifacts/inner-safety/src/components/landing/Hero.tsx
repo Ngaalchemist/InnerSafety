@@ -56,7 +56,7 @@ const INK = '#0D0B18';
 // QUOTE_RIGHT: '%' distance from the right edge. Bigger number = further LEFT (closer to the tree).
 //              Smaller number (or negative) = further RIGHT (closer to the screen edge).
 // QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
-const QUOTE_TOP = '40%';
+const QUOTE_TOP = '50%';
 const QUOTE_RIGHT = '-11%';
 const QUOTE_WIDTH = 340;
 
@@ -282,7 +282,7 @@ export function Hero() {
             >
               <span style={{ whiteSpace: 'nowrap' }}>"Bạn không bị mắc kẹt bởi cuộc đời.</span>
               <br />
-              <span style={{ whiteSpace: 'nowrap' }}>Bạn đang bị mắc kẹt bởi những bộ rễ vô hình của nỗi sợ."</span>
+              <span style={{ whiteSpace: 'nowrap' }}>Bạn đang bị mắc kẹt bởi những bộ rễ vô hình<br /> của nỗi sợ."</span>
             </p>
             <p
               className="mt-2 text-xs tracking-wide"
