@@ -52,7 +52,7 @@ export function SolutionSection() {
             Khám Phá Inner Safety Method™
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl font-sans text-foreground/80">
-            Phương pháp giúp bạn không còn phải chiến đấu với nỗi sợ.
+            Phương pháp giúp bạn tháo gỡ bộ rễ sợ hãi đa tầng.
           </p>
         </motion.div>
 
