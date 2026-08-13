@@ -1,21 +1,21 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Award, Users, Calendar, Target } from 'lucide-react';
+import { Award, Users, Calendar } from 'lucide-react';
 import ngaPortrait from '@assets/nga-portrait.png';
-import ngaRmitImage from '@assets/anh_nay_sac_net_1785304834134.jpg';
+import ngaRmitImage from '@assets/nga-rmit-cleaned.jpg';
 
+// Formal, verifiable credentials only — no brand nicknames mixed in
 const credentials = [
   'Certified Hypnotherapist (CTAA Accredited)',
-  'Pattern Breaker',
-  '3+ năm thực hành',
+  '3+ năm thực hành thôi miên trị liệu',
   '500+ người đồng hành'
 ];
 
+// Only real, concrete numbers — no filler stats
 const stats = [
   { icon: Users, value: '500+', label: 'Học viên & khách hàng đồng hành' },
   { icon: Calendar, value: '3+', label: 'Năm nghiên cứu & thực hành thôi miên trị liệu' },
-  { icon: Award, value: '7', label: 'Ngày chuyển hóa chuyên sâu' },
-  { icon: Target, value: '1', label: 'Sứ mệnh: Giúp con người tìm lại sự an toàn từ bên trong' }
+  { icon: Award, value: '7', label: 'Ngày chuyển hóa chuyên sâu trong khóa học' }
 ];
 
 export function InstructorSection() {
@@ -39,85 +39,69 @@ export function InstructorSection() {
         </motion.div>
 
         <div className="max-w-5xl mx-auto">
-          {/* Portrait — introduces Nga at the top of the section */}
+          {/* Profile card — portrait + identity + bio side by side, editorial style */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="mb-8 sm:mb-12 max-w-xs sm:max-w-sm mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="rounded-2xl bg-card/40 backdrop-blur-sm border border-border/30 p-6 sm:p-10 lg:p-12 mb-12 sm:mb-16"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/20">
-              <img
-                src={ngaPortrait}
-                alt="Nga Alchemist - Founder Inner Safety Method"
-                className="w-full h-auto"
-                style={{ objectFit: 'cover' }}
-              />
+            <div className="grid md:grid-cols-[220px_1fr] gap-8 sm:gap-10 items-start">
+              {/* Portrait */}
+              <div className="mx-auto md:mx-0 w-40 sm:w-48 md:w-full">
+                <div className="relative rounded-2xl overflow-hidden shadow-xl border border-border/20 aspect-square">
+                  <img
+                    src={ngaPortrait}
+                    alt="Nga Alchemist - Founder Inner Safety Method"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Identity + credentials + bio */}
+              <div>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gradient-gold mb-1">
+                  Nga Alchemist
+                </h3>
+                <p className="text-sm sm:text-base md:text-lg text-foreground/80 mb-5 sm:mb-6">
+                  Hypnotherapist • Founder, Inner Safety Method™
+                </p>
+
+                <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
+                  {credentials.map((cred, idx) => (
+                    <div
+                      key={idx}
+                      className="px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-xs sm:text-sm text-foreground/80"
+                    >
+                      {cred}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="space-y-4 text-sm sm:text-base text-foreground/80 leading-relaxed">
+                  <p>
+                    Từ năm 2019, mình bước vào hành trình khám phá tâm trí, tiềm thức và bản chất của sự chuyển hóa con người.
+                  </p>
+                  <p>
+                    Sau nhiều năm nghiên cứu, thực hành thôi miên trị liệu và đồng hành với hàng trăm khách hàng, mình nhận ra rằng <strong className="text-foreground">phần lớn chúng ta không thiếu kiến thức hay ý chí. Chúng ta chỉ đang cố xây một cuộc đời mới trên một hệ thần kinh vẫn còn sống trong nỗi sợ.</strong>
+                  </p>
+                  <p>
+                    Khi bên trong chưa thật sự cảm thấy an toàn, mỗi lần muốn bước ra, chia sẻ giá trị hay tạo nên điều mới, tâm trí sẽ lập tức kích hoạt những vòng lặp quen thuộc: Sợ thất bại. Sợ bị phán xét. Sợ không đủ. Overthinking. Đóng băng. Trì hoãn.
+                  </p>
+                  <p>
+                    Từ những nghiên cứu về thôi miên trị liệu, điều hòa hệ thần kinh, somatic healing và tái lập trình niềm tin vô thức, Nga phát triển <strong className="text-primary">Inner Safety Method™</strong> — phương pháp giúp tháo gỡ bộ rễ của nỗi sợ ở nhiều tầng nhận thức để xây dựng cảm giác an toàn nội tại, nền tảng giúp con người hành động từ sự bình an thay vì từ cơ chế sinh tồn.
+                  </p>
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Name & title */}
+          {/* Stats — real numbers only */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center mb-6 sm:mb-8"
-          >
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gradient-gold mb-2 sm:mb-3">
-              Nga Alchemist
-            </h3>
-            <p className="text-base sm:text-lg md:text-xl text-foreground/80">
-              Hypnotherapist • Founder · Inner Safety Method™
-            </p>
-          </motion.div>
-
-          {/* Credentials */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12"
-          >
-            {credentials.map((cred, idx) => (
-              <div
-                key={idx}
-                className="px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-xs sm:text-sm text-foreground/80"
-              >
-                {cred}
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Bio */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="max-w-3xl mx-auto space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg text-foreground/80 leading-relaxed mb-12 sm:mb-16"
-          >
-            <p>
-              Từ năm 2019, mình bước vào hành trình khám phá tâm trí, tiềm thức và bản chất của sự chuyển hóa con người.
-            </p>
-
-            <p>
-              Sau nhiều năm nghiên cứu, thực hành thôi miên trị liệu và đồng hành với hàng trăm khách hàng, mình nhận ra rằng <strong className="text-foreground">phần lớn chúng ta không thiếu kiến thức hay ý chí. Chúng ta chỉ đang cố xây một cuộc đời mới trên một hệ thần kinh vẫn còn sống trong nỗi sợ.</strong>
-            </p>
-
-            <p>
-              Khi bên trong chưa thật sự cảm thấy an toàn, mỗi lần muốn bước ra, chia sẻ giá trị hay tạo nên điều mới, tâm trí sẽ lập tức kích hoạt những vòng lặp quen thuộc: Sợ thất bại. Sợ bị phán xét. Sợ không đủ. Overthinking. Đóng băng. Trì hoãn.
-            </p>
-
-            <p>
-              Từ những nghiên cứu về thôi miên trị liệu, điều hòa hệ thần kinh, somatic healing và tái lập trình niềm tin vô thức, Nga phát triển <strong className="text-primary">Inner Safety Method™</strong> — phương pháp giúp tháo gỡ bộ rễ của nỗi sợ ở nhiều tầng nhận thức để xây dựng cảm giác an toàn nội tại, nền tảng giúp con người hành động từ sự bình an thay vì từ cơ chế sinh tồn.
-            </p>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16"
+            className="grid sm:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16"
           >
             {stats.map((stat, idx) => (
               <div
@@ -142,14 +126,13 @@ export function InstructorSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/20">
               <img
                 src={ngaRmitImage}
                 alt="Nga Alchemist speaking at RMIT University"
-                className="w-full h-auto"
-                style={{ objectFit: 'contain' }}
+                className="w-full h-auto object-cover"
               />
             </div>
             <p className="text-center text-xs sm:text-sm text-foreground/60 mt-3">
