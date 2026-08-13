@@ -40,6 +40,9 @@ export function TransformationSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold mb-4 sm:mb-6">
             Cuộc Đời Bạn<br />Trước Và Sau
           </h2>
+          <p className="text-base sm:text-lg text-foreground/70 max-w-2xl mx-auto">
+            Hai trạng thái. Hai cách sống. Bạn đang ở đâu, và bạn muốn đi về đâu?
+          </p>
         </motion.div>
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 sm:gap-8">
@@ -53,11 +56,16 @@ export function TransformationSection() {
             <div className="relative">
               <img
                 src={fearRootImage}
-                alt="Rễ Sợ Hãi — sống trong hoảng loạn, căng thẳng, overthinking"
-                className="w-full h-48 sm:h-56 object-cover"
+                alt="Rễ Sợ Hãi — sống trong hoảng loạn, overthinking, căng thẳng, áp lực triền miên"
+                className="w-full h-72 sm:h-80 lg:h-96 object-cover object-top"
                 data-testid="img-fear-root"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-destructive/40 via-transparent to-transparent" />
+              {/* Light bottom-only fade so the full emotional image stays visible */}
+              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background/90 to-transparent" />
+              <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/60 backdrop-blur-sm border border-destructive/40">
+                <X className="w-4 h-4 text-destructive" />
+                <span className="text-xs sm:text-sm font-semibold tracking-wide text-destructive uppercase">Trước</span>
+              </div>
             </div>
 
             <div className="p-6 sm:p-8">
@@ -97,11 +105,16 @@ export function TransformationSection() {
             <div className="relative">
               <img
                 src={safeRootImage}
-                alt="Rễ An Toàn — bình an nội tại, tự tin, kết nối với bản thân"
-                className="w-full h-48 sm:h-56 object-cover"
+                alt="Rễ An Toàn — bình an, tự tin, yêu thương, sống thật, làm chủ tâm trí"
+                className="w-full h-72 sm:h-80 lg:h-96 object-cover object-top"
                 data-testid="img-safe-root"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
+              {/* Light bottom-only fade so the full emotional image stays visible */}
+              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background/90 to-transparent" />
+              <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/60 backdrop-blur-sm border border-primary/40">
+                <Check className="w-4 h-4 text-primary" />
+                <span className="text-xs sm:text-sm font-semibold tracking-wide text-primary uppercase">Sau</span>
+              </div>
             </div>
 
             <div className="p-6 sm:p-8">
