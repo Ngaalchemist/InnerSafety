@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Video, FileText, Headphones, Sparkles, ListChecks, Coins, Users } from 'lucide-react';
+import bundleImage from '../../../../../attached_assets/beyond-fear-healing-bundle.jpg';
 
 const included = [
   {
@@ -51,6 +52,20 @@ export function IncludedSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold mb-4 sm:mb-6">
             Bạn Nhận Được Gì<br />Trong Khóa Học?
           </h2>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.15 }}
+          className="max-w-5xl mx-auto mb-12 sm:mb-16"
+        >
+          <img
+            src={bundleImage}
+            alt="Beyond Fear Healing Bundle — trọn bộ 7 công cụ chuyển hóa"
+            className="w-full h-auto rounded-2xl shadow-2xl border border-border/30"
+            data-testid="img-included-bundle"
+          />
         </motion.div>
 
         <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-4 sm:gap-6">
