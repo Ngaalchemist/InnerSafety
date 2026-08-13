@@ -33,8 +33,8 @@ export default function Home() {
         headline="500+ người đã làm chủ nỗi sợ của họ. Bạn thì sao?"
         buttonLabel="TÔI MUỐN THAM GIA NGAY"
       />
-      <FAQSection />
       <CheckoutSection />
+      <FAQSection />
       <Footer />
     </div>
   );
