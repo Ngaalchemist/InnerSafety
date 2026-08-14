@@ -58,7 +58,7 @@ const INK = '#0D0B18';
 // QUOTE_RIGHT: '%' distance from the right edge. Bigger number = further LEFT (closer to the tree).
 //              Smaller number (or negative) = further RIGHT (closer to the screen edge).
 // QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
-const QUOTE_TOP = '35%';
+const QUOTE_TOP = '30%';
 const QUOTE_RIGHT = '-7%';
 const QUOTE_WIDTH = 340;
 
@@ -67,7 +67,7 @@ const QUOTE_WIDTH = 340;
 // negative margin. Make MORE negative to close the gap further; less negative
 // (closer to 0) to open it back up.
 const OPEN_QUOTE_MARGIN_BOTTOM = '-18px';
-const CLOSE_QUOTE_MARGIN_TOP = '-46px';
+const CLOSE_QUOTE_MARGIN_TOP = '-56px';
 
 // Quick-facts pill row — surfaces the 3 things people scan for first
 // (time cost, format, difficulty) right next to the headline instead of
