@@ -59,7 +59,7 @@ const INK = '#0D0B18';
 //              Smaller number (or negative) = further RIGHT (closer to the screen edge).
 // QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
 const QUOTE_TOP = '37%';
-const QUOTE_RIGHT = '-7%';
+const QUOTE_RIGHT = '-10%';
 const QUOTE_WIDTH = 340;
 
 // Quick-facts pill row — surfaces the 3 things people scan for first
@@ -305,14 +305,14 @@ export function Hero() {
                 textShadow: '0 1px 8px rgba(0,0,0,0.6)',
               }}
             >
-              "Điều bạn cần chữa không phải cuộc đời.
+              "Điều bạn cần chữa<br />không phải cuộc đời.
               <br />
               Mà là{' '}
               <span style={{ color: GOLD, fontWeight: 600 }}>
                 gốc rễ của nỗi sợ
               </span>
               <br />
-              đang điều khiển mọi quyết định của bạn."
+              đang điều khiển mọi<br />quyết định của bạn."
             </p>
             <div className="mt-3 flex items-center gap-2 pointer-events-auto">
               <img
