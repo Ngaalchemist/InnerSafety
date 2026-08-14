@@ -43,11 +43,7 @@ const fears = [
     title: 'Sợ thất bại.',
     desc: 'Bạn chuẩn bị rất nhiều nhưng vẫn trì hoãn, vì trong lòng luôn có một tiếng nói rằng: "Mình chưa đủ giỏi."',
   },
-  {
-    title: 'Sợ mất tiền.',
-    desc: 'Mỗi cơ hội đều bị chặn lại bởi một câu hỏi quen thuộc: "Lỡ sai thì sao?"',
-  },
-  {
+   {
     title: 'Sợ bị bỏ rơi.',
     desc: 'Bạn cố gắng làm hài lòng, nhẫn nhịn hoặc kiểm soát người khác chỉ để giữ một mối quan hệ.',
   },
@@ -59,11 +55,7 @@ const fears = [
     title: 'Sợ bắt đầu lại.',
     desc: 'Bạn tiếp tục ở lại với một công việc, một mối quan hệ hoặc một cuộc sống không còn phù hợp... chỉ vì bắt đầu lại có vẻ còn đáng sợ hơn.',
   },
-  {
-    title: 'Sợ mình không còn giá trị.',
-    desc: 'Bạn chỉ cảm thấy mình xứng đáng khi liên tục tạo ra kết quả hoặc được người khác công nhận.',
-  },
-];
+  ];
 
 export function ProblemSection() {
   useSectionFonts();
