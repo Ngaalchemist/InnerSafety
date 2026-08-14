@@ -332,7 +332,7 @@ export function Hero() {
                   className="text-[11px] leading-tight"
                   style={{ color: 'rgba(192,132,252,0.65)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
                 >
-                  Hypnotherapist <br /> Founder Inner Safety Method™
+                  Hypnotherapist - Founder <br /> Inner Safety Method™
                 </p>
               </div>
             </div>
