@@ -59,8 +59,15 @@ const INK = '#0D0B18';
 //              Smaller number (or negative) = further RIGHT (closer to the screen edge).
 // QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
 const QUOTE_TOP = '30%';
-const QUOTE_RIGHT = '-9%';
+const QUOTE_RIGHT = '-11%';
 const QUOTE_WIDTH = 340;
+
+// Decorative " " marks — Playfair Display renders these glyphs with a lot of
+// empty space baked into the character itself, so pull them closer with a
+// negative margin. Make MORE negative to close the gap further; less negative
+// (closer to 0) to open it back up.
+const OPEN_QUOTE_MARGIN_BOTTOM = '-18px';
+const CLOSE_QUOTE_MARGIN_TOP = '-46px';
 
 // Quick-facts pill row — surfaces the 3 things people scan for first
 // (time cost, format, difficulty) right next to the headline instead of
@@ -304,7 +311,7 @@ export function Hero() {
                 fontSize: '64px',
                 color: PURPLE,
                 opacity: 0.9,
-                marginBottom: '-18px',
+                marginBottom: OPEN_QUOTE_MARGIN_BOTTOM,
               }}
             >
               “
@@ -337,7 +344,7 @@ export function Hero() {
                 fontSize: '64px',
                 color: PURPLE,
                 opacity: 0.9,
-                marginTop: '-24px',
+                marginTop: CLOSE_QUOTE_MARGIN_TOP,
               }}
             >
               ”
