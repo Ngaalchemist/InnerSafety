@@ -140,7 +140,7 @@ export function ProblemSection() {
           <p className={`${T_QUOTE} text-foreground mb-4`}>
             Mà là chúng đang âm thầm đưa ra quyết định thay bạn.
           </p>
-          <p className={`${T_BODY} italic text-foreground/70 mb-4`}>Thế nên...</p>
+          <p className={`${T_BODY} italic text-foreground/70 mb-4`}>Thế nên bạn...</p>
           <ul className={`${LINE_GAP} pl-4 sm:pl-6`}>
             <li className="flex items-start gap-2 sm:gap-3">
               <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -186,8 +186,8 @@ export function ProblemSection() {
             <p className={`${T_QUOTE} text-foreground`}>Hãy hình dung cuộc đời bạn như một cái cây.</p>
             <p className={`${T_BODY} text-foreground/80`}>
               Phần mọi người nhìn thấy: công việc, gia đình, sự cố gắng mỗi ngày — chỉ là phần thân và
-              lá. Nhưng thứ quyết định cái cây đứng vững hay gục ngã...{' '}
-              <strong className="text-gradient-gold">(lại là bộ rễ nằm sâu dưới mặt đất).</strong>
+              lá. Nhưng thứ quyết định cái cây đứng vững hay gục ngã...<br />{' '}
+              <strong className="text-gradient-gold"> lại là bộ rễ nằm sâu dưới mặt đất.</strong>
             </p>
             <p className={`${T_QUOTE} text-foreground`}>Cuộc sống của bạn cũng vậy.</p>
           </div>
