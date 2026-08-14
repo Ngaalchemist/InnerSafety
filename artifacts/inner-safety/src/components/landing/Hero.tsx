@@ -189,7 +189,7 @@ export function Hero() {
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="flex flex-col text-left lg:max-w-[58%]"
+            className="flex flex-col text-left lg:max-w-[62%]"
           >
             {/* Eyebrow 1 — rating */}
             <motion.div variants={fadeInUp} className="mb-3">
@@ -270,23 +270,25 @@ export function Hero() {
               </strong>{' '}
               điều khiển cuộc sống.
               <br />
-              Hành trình{' '}
-              <strong className="font-bold" style={{ color: PURPLE }}>
-                Beyond Fear™
-              </strong>{' '}
-              giúp bạn{' '}
-              <strong className="font-bold text-white">
-                tháo gỡ gốc rễ của nỗi sợ
-              </strong>{' '}
-              để hành động từ{' '}
-              <strong className="font-bold" style={{ color: GOLD }}>
-                Bình an
-              </strong>{' '}
-              thay vì{' '}
-              <strong className="font-bold" style={{ color: GOLD }}>
-                Sợ hãi
-              </strong>
-              .
+              <span className="block lg:whitespace-nowrap lg:text-[13px] xl:text-sm">
+                Hành trình{' '}
+                <strong className="font-bold" style={{ color: PURPLE }}>
+                  Beyond Fear™
+                </strong>{' '}
+                giúp bạn{' '}
+                <strong className="font-bold text-white">
+                  tháo gỡ gốc rễ của nỗi sợ
+                </strong>{' '}
+                để hành động từ{' '}
+                <strong className="font-bold" style={{ color: GOLD }}>
+                  Bình an
+                </strong>{' '}
+                thay vì{' '}
+                <strong className="font-bold" style={{ color: GOLD }}>
+                  Sợ hãi
+                </strong>
+                .
+              </span>
             </motion.p>
 
             {/* Reassurance bullets — 3 short lines, plain list */}
