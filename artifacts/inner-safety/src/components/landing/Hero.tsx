@@ -15,7 +15,6 @@ import {
   BookOpen,
 } from 'lucide-react';
 import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
-import ratingBadge from '@assets/rating_badge.webp';
 // TODO: replace with the real portrait already used in the "Người dẫn đường" section
 // (same file/import as used there) so the founder appears early in the page too.
 import ngaAvatar from '@assets/nga_alchemist_avatar.png';
@@ -184,8 +183,8 @@ export function Hero() {
             animate="animate"
             className="flex flex-col text-left lg:max-w-[58%]"
           >
-            {/* Eyebrow */}
-            <motion.div variants={fadeInUp} className="mb-5">
+            {/* Eyebrow 1 — rating */}
+            <motion.div variants={fadeInUp} className="mb-3">
               <div className="flex items-center gap-1.5 mb-1">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="w-4 h-4" style={{ color: GOLD, fill: GOLD }} />
@@ -196,6 +195,19 @@ export function Hero() {
               </div>
               <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
                 Đã giúp hàng trăm người giảm overthinking và tìm lại bình an
+              </p>
+            </motion.div>
+
+            {/* Eyebrow 2 — Inner Safety Method */}
+            <motion.div variants={fadeInUp} className="mb-5">
+              <p
+                className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] mb-1"
+                style={{ color: PURPLE }}
+              >
+                Inner Safety Method™
+              </p>
+              <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
+                Phương pháp độc quyền giúp bạn tháo gỡ bộ rễ của nỗi sợ để xây dựng cảm giác an toàn từ bên trong.
               </p>
             </motion.div>
 
@@ -272,26 +284,6 @@ export function Hero() {
                 </motion.li>
               ))}
             </motion.ul>
-
-            {/* ── AVATAR + RATING ROW ── */}
-            <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-0">
-              <img
-                src={ratingBadge}
-                alt="4.9 sao đánh giá"
-                className="w-11 h-11 shrink-0"
-              />
-              <div>
-                <div className="flex items-center gap-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5" style={{ color: GOLD, fill: GOLD }} />
-                  ))}
-                  <span className="text-white text-xs font-bold ml-1">4.9/5 từ hơn 500+ khách hàng</span>
-                </div>
-                <p className="text-white/50 text-[12px] leading-snug mt-0.5">
-        
-                </p>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* ── QUOTE OVERLAY — sits subtly on the background image, at the ground line under the tree ── */}
@@ -326,18 +318,18 @@ export function Hero() {
               <img
                 src={ngaAvatar}
                 alt="Nga Alchemist"
-                className="w-9 h-9 rounded-full object-cover shrink-0"
-                style={{ border: '1.5px solid rgba(192,132,252,0.6)' }}
+                className="w-16 h-16 rounded-full object-cover shrink-0"
+                style={{ border: '2px solid rgba(192,132,252,0.6)' }}
               />
               <div className="text-left">
                 <p
-                  className="text-xs font-bold tracking-wide"
+                  className="text-sm font-bold tracking-wide"
                   style={{ color: 'rgba(233,213,255,0.9)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
                 >
                   Nga Alchemist
                 </p>
                 <p
-                  className="text-[10px] leading-tight"
+                  className="text-[11px] leading-tight"
                   style={{ color: 'rgba(192,132,252,0.65)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
                 >
                   Hypnotherapist · Founder Inner Safety Method™
