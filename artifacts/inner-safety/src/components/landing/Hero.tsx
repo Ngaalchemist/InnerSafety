@@ -18,7 +18,7 @@ import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
 import ratingBadge from '@assets/rating_badge.webp';
 // TODO: replace with the real portrait already used in the "Người dẫn đường" section
 // (same file/import as used there) so the founder appears early in the page too.
-import ngaAvatar from '@assets/nga_alchemist_avatar.jpg';
+import ngaAvatar from '@assets/nga_alchemist_avatar.png';
 
 // Self-loads the Google Fonts so the bold condensed headline and the
 // display-serif header text render correctly even if the project's
