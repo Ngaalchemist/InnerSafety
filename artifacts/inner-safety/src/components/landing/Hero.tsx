@@ -59,7 +59,7 @@ const INK = '#0D0B18';
 //              Smaller number (or negative) = further RIGHT (closer to the screen edge).
 // QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
 const QUOTE_TOP = '25%';
-const QUOTE_RIGHT = '-9%';
+const QUOTE_RIGHT = '-7%';
 const QUOTE_WIDTH = 340;
 
 // Decorative " " marks — Playfair Display renders these glyphs with a lot of
