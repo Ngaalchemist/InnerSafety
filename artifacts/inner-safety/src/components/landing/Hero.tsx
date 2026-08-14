@@ -62,12 +62,13 @@ const QUOTE_TOP = '25%';
 const QUOTE_RIGHT = '-7%';
 const QUOTE_WIDTH = 340;
 
-// Decorative " " marks — Playfair Display renders these glyphs with a lot of
-// empty space baked into the character itself, so pull them closer with a
-// negative margin. Make MORE negative to close the gap further; less negative
-// (closer to 0) to open it back up.
-const OPEN_QUOTE_MARGIN_BOTTOM = '-18px';
-const CLOSE_QUOTE_MARGIN_TOP = '-59px';
+// Decorative " " marks — positioned with `position: absolute` relative to the
+// quote block below, so their placement never depends on how many lines the
+// quote text wraps to or on font line-height quirks.
+// OPEN_QUOTE_TOP:    px offset from the top of the quote block. More negative = higher above the text.
+// CLOSE_QUOTE_BOTTOM: px offset from the bottom of the quote block. More negative = lower below the text.
+const OPEN_QUOTE_TOP = '-34px';
+const CLOSE_QUOTE_BOTTOM = '-34px';
 
 // Quick-facts pill row — surfaces the 3 things people scan for first
 // (time cost, format, difficulty) right next to the headline instead of
@@ -312,53 +313,61 @@ export function Hero() {
             className="hidden lg:block absolute z-[5] pointer-events-none text-left"
             style={{ right: QUOTE_RIGHT, top: QUOTE_TOP, maxWidth: `${QUOTE_WIDTH}px` }}
           >
-            <span
-              aria-hidden="true"
-              className="block leading-none select-none"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontWeight: 700,
-                fontSize: '64px',
-                color: PURPLE,
-                opacity: 0.9,
-                marginBottom: OPEN_QUOTE_MARGIN_BOTTOM,
-              }}
-            >
-              “
-            </span>
-            <p
-              className="italic leading-snug"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontWeight: 300,
-                fontSize: '14px',
-                color: '#FFFFFF',
-                textShadow: '0 1px 8px rgba(0,0,0,0.6)',
-              }}
-            >
-              Điều bạn cần chữa không phải cuộc đời.
-              <br />
-              Mà là{' '}
-              <span style={{ color: GOLD, fontWeight: 600 }}>
-                gốc rễ của nỗi sợ
+            <div className="relative pointer-events-auto" style={{ paddingTop: '30px', paddingBottom: '30px' }}>
+              <span
+                aria-hidden="true"
+                className="select-none"
+                style={{
+                  position: 'absolute',
+                  top: OPEN_QUOTE_TOP,
+                  left: 0,
+                  fontFamily: "'Playfair Display', serif",
+                  fontWeight: 700,
+                  fontSize: '56px',
+                  lineHeight: 1,
+                  color: PURPLE,
+                  opacity: 0.9,
+                }}
+              >
+                “
               </span>
-              <br />
-              đang điều khiển mọi quyết định của bạn.
-            </p>
-            <span
-              aria-hidden="true"
-              className="block leading-none select-none text-right"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontWeight: 700,
-                fontSize: '64px',
-                color: PURPLE,
-                opacity: 0.9,
-                marginTop: CLOSE_QUOTE_MARGIN_TOP,
-              }}
-            >
-              ”
-            </span>
+              <p
+                className="italic leading-snug"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontWeight: 300,
+                  fontSize: '14px',
+                  color: '#FFFFFF',
+                  textShadow: '0 1px 8px rgba(0,0,0,0.6)',
+                }}
+              >
+                Điều bạn cần chữa không phải cuộc đời.
+                <br />
+                Mà là{' '}
+                <span style={{ color: GOLD, fontWeight: 600 }}>
+                  gốc rễ của nỗi sợ
+                </span>
+                <br />
+                đang điều khiển mọi quyết định của bạn.
+              </p>
+              <span
+                aria-hidden="true"
+                className="select-none"
+                style={{
+                  position: 'absolute',
+                  bottom: CLOSE_QUOTE_BOTTOM,
+                  right: 0,
+                  fontFamily: "'Playfair Display', serif",
+                  fontWeight: 700,
+                  fontSize: '56px',
+                  lineHeight: 1,
+                  color: PURPLE,
+                  opacity: 0.9,
+                }}
+              >
+                ”
+              </span>
+            </div>
             <div className="mt-3 flex items-center gap-2 pointer-events-auto">
               <img
                 src={ngaAvatar}
