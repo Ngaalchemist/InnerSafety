@@ -164,7 +164,7 @@ export function Hero() {
               className="hidden sm:inline text-sm sm:text-base italic truncate"
               style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Playfair Display', serif", fontWeight: 600, letterSpacing: '0.2px' }}
             >
-              7 Ngày Từ Sợ Hãi Đến Bình An
+              7 Ngày Tháo Gỡ Gốc Rễ Của Nỗi Sợ
             </span>
           </span>
 
