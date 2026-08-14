@@ -16,6 +16,9 @@ import {
 } from 'lucide-react';
 import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
 import ratingBadge from '@assets/rating_badge.webp';
+// TODO: replace with the real portrait already used in the "Người dẫn đường" section
+// (same file/import as used there) so the founder appears early in the page too.
+import ngaAvatar from '@assets/nga_alchemist_avatar.jpg';
 
 // Self-loads the Google Fonts so the bold condensed headline and the
 // display-serif header text render correctly even if the project's
@@ -60,6 +63,15 @@ const QUOTE_TOP = '37%';
 const QUOTE_RIGHT = '-7%';
 const QUOTE_WIDTH = 340;
 
+// Quick-facts pill row — surfaces the 3 things people scan for first
+// (time cost, format, difficulty) right next to the headline instead of
+// being buried inside the long subheadline paragraph.
+const quickFacts = [
+  { icon: Zap, label: 'Chỉ 20 phút/ngày' },
+  { icon: Monitor, label: 'Học mọi lúc, mọi nơi' },
+  { icon: ShieldCheck, label: 'Không cần kinh nghiệm' },
+];
+
 // Short reassurance bullets under the subheadline
 const checklist = [
   'Dám xuất hiện mà không còn bị nỗi sợ kéo lùi.',
@@ -69,6 +81,11 @@ const checklist = [
 
 // 5 feature icons — mirrors the 5 checklist outcomes from the reference mockup
 const featureGrid = [
+  {
+    icon: Sprout,
+    title: 'Tháo gỡ gốc rễ nỗi sợ',
+    desc: 'Cảm giác an toàn bền vững từ bên trong.',
+  },
   {
     icon: Brain,
     title: 'Bình tĩnh khi bị trigger',
@@ -88,11 +105,6 @@ const featureGrid = [
     icon: Zap,
     title: 'Dám hành động dù còn sợ',
     desc: 'Không chờ tự tin mới bắt đầu.',
-  },
-  {
-    icon: Sprout,
-    title: 'Tháo gỡ gốc rễ nỗi sợ',
-    desc: 'Cảm giác an toàn bền vững từ bên trong.',
   },
 ];
 
@@ -202,6 +214,25 @@ export function Hero() {
               </span>
             </motion.h1>
 
+            {/* ── QUICK-FACTS PILLS — time / format / difficulty, answered in 2 seconds ── */}
+            <motion.div variants={fadeInUp} className="flex flex-wrap gap-2 mb-4">
+              {quickFacts.map(({ icon: Icon, label }) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] sm:text-xs font-bold"
+                  style={{
+                    backgroundColor: 'rgba(192,132,252,0.10)',
+                    border: '1px solid rgba(192,132,252,0.4)',
+                    color: '#E9D5FF',
+                    fontFamily: "'Be Vietnam Pro', sans-serif",
+                  }}
+                >
+                  <Icon className="w-3.5 h-3.5 shrink-0" style={{ color: GOLD }} />
+                  {label}
+                </span>
+              ))}
+            </motion.div>
+
             {/* Subheadline */}
             <motion.p
               variants={fadeInUp}
@@ -216,7 +247,7 @@ export function Hero() {
               <strong className="font-bold" style={{ color: PURPLE }}>
                 Beyond Fear™
               </strong>{' '}
-              chỉ <strong className="font-bold text-white">20 phút mỗi ngày</strong> sẽ giúp bạn từng bước{' '}
+              sẽ giúp bạn từng bước{' '}
               <strong className="font-bold" style={{ color: PURPLE }}>
                 tháo gỡ bộ rễ của nỗi sợ
               </strong>{' '}
@@ -284,12 +315,28 @@ export function Hero() {
               <br />
               <span style={{ whiteSpace: 'nowrap' }}>Bạn đang bị mắc kẹt bởi những<br /> bộ rễ vô hình của nỗi sợ."</span>
             </p>
-            <p
-              className="mt-2 text-xs tracking-wide"
-              style={{ color: 'rgba(192,132,252,0.65)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
-            >
-              — Nga Alchemist
-            </p>
+            <div className="mt-3 flex items-center gap-2 pointer-events-auto">
+              <img
+                src={ngaAvatar}
+                alt="Nga Alchemist"
+                className="w-9 h-9 rounded-full object-cover shrink-0"
+                style={{ border: '1.5px solid rgba(192,132,252,0.6)' }}
+              />
+              <div className="text-left">
+                <p
+                  className="text-xs font-bold tracking-wide"
+                  style={{ color: 'rgba(233,213,255,0.9)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
+                >
+                  Nga Alchemist
+                </p>
+                <p
+                  className="text-[10px] leading-tight"
+                  style={{ color: 'rgba(192,132,252,0.65)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
+                >
+                  Hypnotherapist · Founder Inner Safety Method™
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           {/* ── PRICE BOX (left) + FEATURE GRID (right) — side by side, same row, like the mockup ── */}
