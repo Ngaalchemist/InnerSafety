@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Check, Video, Headphones, NotebookPen } from 'lucide-react';
+import { Check, Video, Headphones, ClipboardList, BookOpen, Wind, Hand } from 'lucide-react';
 import day1Image from '../../../../../attached_assets/day-1.jpg';
 import day2Image from '../../../../../attached_assets/day-2.jpg';
 import day3Image from '../../../../../attached_assets/day-3.jpg';
@@ -8,6 +8,21 @@ import day4Image from '../../../../../attached_assets/day-4.jpg';
 import day5Image from '../../../../../attached_assets/day-5.jpg';
 import day6Image from '../../../../../attached_assets/day-6.jpg';
 import day7Image from '../../../../../attached_assets/day-7.jpg';
+
+// Practice-type icon/label map. Sourced directly from the "Thực hành đi kèm"
+// column of the course outline — no invented durations.
+const PRACTICE_META = {
+  video: { icon: Video, label: '3 bài giảng' },
+  somatic: { icon: Hand, label: 'Somatic / Grounding' },
+  breathwork: { icon: Wind, label: 'Breathwork' },
+  audio: { icon: Headphones, label: 'Audio Healing (thôi miên)' },
+  audioX2: { icon: Headphones, label: 'Audio Healing (thôi miên) — x2 phiên' },
+  audioTimed: { icon: Headphones, label: 'Audio Healing — 15–20 phút' },
+  exercise: { icon: ClipboardList, label: 'Bài thực hành' },
+  journal: { icon: BookOpen, label: 'Journaling' },
+} as const;
+
+type PracticeKey = keyof typeof PRACTICE_META;
 
 const curriculum = [
   {
@@ -21,7 +36,9 @@ const curriculum = [
       'Cách nhận ra nỗi sợ đang xuất hiện',
       'Biết đâu là tiếng nói của nỗi sợ, đâu là sự thật'
     ],
-    media: { videoMinutes: 18, audio: false, reflection: true },
+    // Bài 1: Thiền + Grounding + Energetic Check-in · Bài 2: Somatic scan
+    // Bài 3: Breathwork 4-7-8 + Grounding 5-4-3-2-1 + nhật ký
+    practices: ['video', 'exercise', 'somatic', 'breathwork', 'journal'] as PracticeKey[],
     result: `Lần đầu tiên bạn cảm thấy: "Có lẽ mình không bị mắc kẹt như mình từng nghĩ."`
   },
   {
@@ -35,7 +52,9 @@ const curriculum = [
       'Cách đưa cơ thể về trạng thái bình an trong vài phút',
       'Không còn bị cảm xúc kéo đi'
     ],
-    media: { videoMinutes: 15, audio: true, reflection: false },
+    // Bài 1: nhiệt kế thần kinh (bài thực hành) · Bài 2: shaking/tapping/thở xả
+    // Bài 3: Phiên thôi miên nhẹ 15–20 phút (Safe Place + Self-Love Anchor)
+    practices: ['video', 'exercise', 'somatic', 'breathwork', 'audioTimed'] as PracticeKey[],
     result: 'Thay vì hoảng loạn như trước... bạn biết cách đưa mình trở về bình tĩnh.'
   },
   {
@@ -49,7 +68,9 @@ const curriculum = [
       'Vì sao cùng một chuyện nhưng người khác không sợ',
       'Tìm ra "gốc rễ" khiến bạn mắc kẹt'
     ],
-    media: { videoMinutes: 20, audio: true, reflection: true },
+    // Bài 1: Subconscious journaling · Bài 2: Pattern Breaking + Hypnosis
+    // Bài 3: Trigger Log + Roleplay
+    practices: ['video', 'journal', 'exercise', 'audio'] as PracticeKey[],
     result: `Bạn nhận ra: "Hoá ra mình sợ không phải vì yếu — mà vì có một gốc rễ chưa từng được nhìn thấy."`
   },
   {
@@ -63,7 +84,9 @@ const curriculum = [
       'Thay thế bằng cách nhìn mới',
       'Không còn tự hạ thấp chính mình'
     ],
-    media: { videoMinutes: 17, audio: false, reflection: true },
+    // Bài 1: Decision clarity practice · Bài 2: Visibility activation + Phiên thôi miên sâu
+    // Bài 3: Phiên thôi miên sâu (Violet Flame + Cord cutting + Earthing)
+    practices: ['video', 'exercise', 'somatic', 'audioX2'] as PracticeKey[],
     result: `Thay vì tự nhủ "chắc mình không làm được đâu"... bạn bắt đầu tin rằng mình có thể.`
   },
   {
@@ -77,7 +100,9 @@ const curriculum = [
       'Không cần kiểm soát mọi thứ',
       'Tạo cảm giác bình an ngay trong chính mình'
     ],
-    media: { videoMinutes: 16, audio: true, reflection: false },
+    // Bài 1: Journaling có cấu trúc · Bài 2: thực hành nói "không" + somatic check
+    // Bài 3: Phiên thôi miên sâu — Money Ritual
+    practices: ['video', 'journal', 'exercise', 'somatic', 'audio'] as PracticeKey[],
     result: 'Dù mọi thứ xung quanh có hỗn loạn, bạn biết mình vẫn có một nơi an toàn để quay về — chính là bên trong mình.'
   },
   {
@@ -91,7 +116,9 @@ const curriculum = [
       'Đâu là điều trái tim thật sự muốn',
       'Hình dung phiên bản tự tin của chính mình'
     ],
-    media: { videoMinutes: 19, audio: false, reflection: true },
+    // Bài 1: Phiên thôi miên sâu — Control Room · Bài 2: Phiên thôi miên sâu — Embody Future Self
+    // Bài 3: nghỉ ngơi + đi bộ tiếp đất + viết nhật ký
+    practices: ['video', 'audioX2', 'somatic', 'journal'] as PracticeKey[],
     result: 'Thay vì để nỗi sợ chọn thay... lần này, chính bạn là người quyết định.'
   },
   {
@@ -105,7 +132,9 @@ const curriculum = [
       'Không còn trì hoãn',
       'Duy trì động lực sau khóa học'
     ],
-    media: { videoMinutes: 15, audio: false, reflection: true },
+    // Bài 1: Phiên thôi miên — hợp nhất Tính Nam/Nữ · Bài 2: Phiên thôi miên kết khoá + bản cam kết
+    // Bài 3: lập kế hoạch xuất hiện 7 ngày + chia sẻ cam kết công khai
+    practices: ['video', 'audioX2', 'journal', 'exercise'] as PracticeKey[],
     result: `Bạn không chỉ "có cảm hứng" — bạn đã thật sự bước những bước đầu tiên.`
   }
 ];
@@ -127,25 +156,21 @@ function ProgressDots({ day }: { day: number }) {
   );
 }
 
-function MediaBadges({ media }: { media: typeof curriculum[0]['media'] }) {
+function PracticeBadges({ practices }: { practices: PracticeKey[] }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-foreground/80">
-        <Video className="w-3.5 h-3.5 text-primary" />
-        Video {media.videoMinutes} phút
-      </span>
-      {media.audio && (
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-foreground/80">
-          <Headphones className="w-3.5 h-3.5 text-primary" />
-          Audio Healing
-        </span>
-      )}
-      {media.reflection && (
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-foreground/80">
-          <NotebookPen className="w-3.5 h-3.5 text-primary" />
-          Bài thực hành
-        </span>
-      )}
+      {practices.map((key) => {
+        const { icon: Icon, label } = PRACTICE_META[key];
+        return (
+          <span
+            key={key}
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-foreground/80"
+          >
+            <Icon className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+            {label}
+          </span>
+        );
+      })}
     </div>
   );
 }
@@ -157,7 +182,7 @@ function DayCard({
   milestone,
   learnLabel,
   learns,
-  media,
+  practices,
   result,
   index
 }: typeof curriculum[0] & { index: number }) {
@@ -216,7 +241,7 @@ function DayCard({
             </ul>
           </div>
 
-          <MediaBadges media={media} />
+          <PracticeBadges practices={practices} />
 
           <div className="p-3 sm:p-4 rounded-lg bg-primary/10 border-l-4 border-primary">
             <p className="text-xs sm:text-sm font-medium text-foreground">
