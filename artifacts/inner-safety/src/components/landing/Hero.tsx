@@ -58,8 +58,8 @@ const INK = '#0D0B18';
 // QUOTE_RIGHT: '%' distance from the right edge. Bigger number = further LEFT (closer to the tree).
 //              Smaller number (or negative) = further RIGHT (closer to the screen edge).
 // QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
-const QUOTE_TOP = '37%';
-const QUOTE_RIGHT = '-10%';
+const QUOTE_TOP = '30%';
+const QUOTE_RIGHT = '-20%';
 const QUOTE_WIDTH = 340;
 
 // Quick-facts pill row — surfaces the 3 things people scan for first
@@ -332,7 +332,7 @@ export function Hero() {
                   className="text-[11px] leading-tight"
                   style={{ color: 'rgba(192,132,252,0.65)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
                 >
-                  Hypnotherapist · Founder Inner Safety Method™
+                  Hypnotherapist <br /> Founder Inner Safety Method™
                 </p>
               </div>
             </div>
