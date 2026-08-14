@@ -58,7 +58,7 @@ const INK = '#0D0B18';
 // QUOTE_RIGHT: '%' distance from the right edge. Bigger number = further LEFT (closer to the tree).
 //              Smaller number (or negative) = further RIGHT (closer to the screen edge).
 // QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
-const QUOTE_TOP = '25%';
+const QUOTE_TOP = '28%';
 const QUOTE_RIGHT = '-7%';
 const QUOTE_WIDTH = 340;
 
@@ -165,7 +165,7 @@ export function Hero() {
               className="hidden sm:inline text-sm sm:text-base italic truncate"
               style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Playfair Display', serif", fontWeight: 600, letterSpacing: '0.2px' }}
             >
-              7 Ngày Tháo Gỡ Gốc Rễ Của Nỗi Sợ
+              7 Ngày Tháo Gỡ Gốc Rễ Nỗi Sợ
             </span>
           </span>
 
