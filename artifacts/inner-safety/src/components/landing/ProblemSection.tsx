@@ -88,15 +88,14 @@ export function ProblemSection() {
           </h2>
 
           <div className={`max-w-3xl mx-auto ${LINE_GAP} ${T_BODY} text-foreground/80`}>
-            <p>Bạn có thể nghĩ mình chỉ đang lo lắng.</p>
+            <p>Có thể bạn nghĩ mình chỉ đang lo lắng quá nhiều.</p>
             <p>
               <span className="sm:whitespace-nowrap">
-                Nhưng rất nhiều quyết định trong cuộc sống không xuất phát từ điều bạn thật sự mong
-                muốn...
+                Nhưng sự thật là rất nhiều quyết định trong cuộc sống không xuất phát từ điều bạn thật sự mong muốn...
               </span>
               <br />
               <strong className="text-foreground">
-                Mà từ những nỗi sợ đã âm thầm điều khiển bạn trong suốt nhiều năm.
+                Mà từ những nỗi sợ đã âm thầm điều khiển bạn suốt nhiều năm.
               </strong>
             </p>
             <p className="italic">Có thể đó là...</p>
