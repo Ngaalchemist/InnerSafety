@@ -231,7 +231,7 @@ export function Hero() {
             >
               <span className="block text-white">BEYOND FEAR</span>
               <span className="block" style={{ color: GOLD }}>
-                7 NGÀY TỪ SỢ HÃI ĐẾN BÌNH AN
+                7 NGÀY THÁO GỠ GỐC RỄ CỦA NỖI SỢ
               </span>
             </motion.h1>
 
