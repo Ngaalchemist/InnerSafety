@@ -24,45 +24,40 @@ const curriculum = [
     day: 1,
     image: day1Image,
     title: 'SỰ THỨC TỈNH',
-    milestone: 'Thức tỉnh',
-    learnLabel: 'Bạn sẽ nhìn thấy',
+    milestone: 'Thấy',
+    learnLabel: 'Bạn sẽ nhận ra',
     learns: [
-      'Nỗi sợ đang âm thầm cầm lái cuộc đời bạn ra sao',
-      '4 phản ứng sinh tồn: Đóng băng, Bỏ chạy, Chiều lòng, Chống lại',
-      'Vòng lặp nỗi sợ (Fear Loop) đang lặp lại trong chính bạn'
+      'Vì sao bạn cứ chuẩn bị rất kỹ mà đến phút cuối lại chùn bước',
+      '4 cách cơ thể phản ứng khi sợ hãi xuất hiện — và bạn đang mắc kẹt ở kiểu nào',
+      'Cách nhận ra ngay lập tức khi nỗi sợ đang "cầm lái" thay vì bạn'
     ],
-    journey: 'Gặp Người Quan Sát Bên Trong (Inner Observer) — nhìn lại toàn bộ cuộc đời mình từ một khoảng lặng, không phán xét.',
-    challenge: 'Viết ra 1 khoảnh khắc hôm nay bạn nhận ra mình đang phản ứng từ nỗi sợ. Chỉ cần thấy — chưa cần sửa.',
     result: 'Lần đầu tiên, bạn đứng lùi lại đủ xa để thấy: không phải mình yếu — mà nỗi sợ đã lái xe quá lâu.'
   },
   {
     day: 2,
     image: day2Image,
     title: 'TRỞ VỀ CƠ THỂ',
-    milestone: 'An trú',
-    learnLabel: 'Bạn sẽ cảm nhận',
+    milestone: 'Ổn định',
+    learnLabel: 'Bạn sẽ học cách',
     learns: [
-      'Thở, Grounding, Body Scan — ngôn ngữ của một cơ thể an toàn',
-      'Cảm giác an toàn không phải một ý nghĩ, mà là một cảm nhận vật lý',
-      '"Nơi an toàn" bên trong bạn luôn có sẵn, chỉ cần được đánh thức lại'
+      'Đưa cơ thể về trạng thái bình tĩnh chỉ trong vài phút, bất cứ khi nào cần',
+      'Vì sao "biết mình nên bình tĩnh" không giúp được gì, cho đến khi cơ thể thật sự cảm thấy an toàn',
+      'Tạo một "nơi an toàn" bên trong mà bạn có thể quay về bất cứ lúc nào'
     ],
-    journey: 'Hành trình thôi miên đưa bạn đến Safe Place — nơi cơ thể ghi nhớ cảm giác an toàn đầu tiên.',
-    challenge: 'Đi chân trần 10 phút, để cơ thể chạm đất và cảm nhận sự vững chãi.',
     result: 'Lần đầu tiên sau rất lâu, bạn cảm thấy: cơ thể mình thật sự an toàn.'
   },
   {
     day: 3,
     image: day3Image,
     title: 'GIẢI PHÓNG CẢM XÚC BỊ MẮC KẸT',
-    milestone: 'Giải phóng',
-    learnLabel: 'Bạn sẽ trải qua',
+    milestone: 'Buông',
+    learnLabel: 'Bạn sẽ giải phóng',
     learns: [
-      'Đền thiêng nội tâm (Inner Temple) và Vạc Ánh Sáng (Golden Cauldron)',
-      'Đốt đi những gì đã mang quá lâu, khóc, và học cách tha thứ',
-      'Cắt những sợi dây (Cord Cutting) đang níu bạn ở lại quá khứ'
+      'Vì sao có những cảm xúc bạn tưởng đã qua nhưng vẫn âm thầm điều khiển cuộc sống',
+      'Vì sao chỉ cần bị chê một câu là cơ thể lại phản ứng như nhiều năm trước',
+      'Cách giải phóng những cảm xúc còn mắc kẹt để chúng không tiếp tục kéo bạn về quá khứ'
     ],
-    journey: 'Temple → Golden Cauldron → Đốt → Khóc → Tha thứ → Cord Cutting → Inner Child → Nhận lấy tình yêu.',
-    challenge: 'Viết một lá thư tha thứ — cho người khác, hoặc cho chính mình. Không cần gửi đi.',
+    highlight: 'Phiên chữa lành sâu nhất trong 7 ngày',
     result: 'Bạn cảm thấy nhẹ đi một điều đã mang theo rất lâu, mà không hẳn biết vì sao nó lại nặng đến vậy.'
   },
   {
@@ -70,59 +65,54 @@ const curriculum = [
     image: day4Image,
     title: 'THÁO GỠ BỘ RỄ NIỀM TIN',
     milestone: 'Tái lập',
-    learnLabel: 'Bạn sẽ chất vấn',
+    learnLabel: 'Bạn sẽ tháo gỡ',
     learns: [
-      'Ai là người đầu tiên nói với bạn điều đó?',
-      'Niềm tin ấy có còn đúng với bạn hôm nay không?',
-      'Một sự thật lớn hơn (Higher Truth) đang chờ được cài đặt lại'
+      'Những niềm tin bạn đang gọi là "sự thật"... thật ra chỉ là điều bạn từng được dạy',
+      'Vì sao bạn luôn thấy mình chưa đủ, dù đã cố gắng rất nhiều',
+      'Cách thay thế những niềm tin cũ bằng một nền tảng mới vững chắc hơn'
     ],
-    journey: 'Phát hiện → Ai nói điều này? → Nó còn đúng không? → Higher Truth → Cài đặt niềm tin mới.',
-    challenge: 'Làm một việc nhỏ mà phiên bản cũ của bạn không bao giờ dám làm.',
     result: `Thay vì tự nhủ "chắc mình không làm được đâu"... bạn bắt đầu tin rằng mình có thể.`
   },
   {
     day: 5,
     image: day5Image,
-    title: 'HEALING MONEY',
-    milestone: 'Hoà giải',
-    learnLabel: 'Bạn sẽ đối thoại',
+    title: 'CHỮA LÀNH MỐI QUAN HỆ VỚI TIỀN',
+    milestone: 'Mở rộng',
+    learnLabel: 'Bạn sẽ hàn gắn',
     learns: [
-      'Mối quan hệ thật sự giữa bạn và Tiền — không phải mindset, mà là một mối quan hệ',
-      'Vì sao bạn từng né tránh, sợ hãi hoặc cố kiểm soát Tiền',
-      'Cách hoà giải và viết lại "hợp đồng" mới với Tiền'
+      'Vì sao bạn né tránh nhìn vào tài khoản, hoặc luôn thấy thiếu dù kiếm được bao nhiêu',
+      'Mối quan hệ thật sự giữa bạn và Tiền — không phải mindset, mà là một mối quan hệ cần được chữa lành',
+      'Cách viết lại "hợp đồng" mới với Tiền, để không còn né tránh hay sợ hãi'
     ],
-    journey: 'Gặp gỡ Tiền như một nhân vật có hình dạng, cảm xúc — hỏi, lắng nghe, và làm hoà.',
-    challenge: 'Viết ra 3 điều bạn thật lòng biết ơn Tiền đã mang lại, dù nhỏ đến đâu.',
     result: 'Bạn không còn né tránh nhìn vào tài khoản của mình — mà cảm thấy mình và Tiền đang ở cùng một phía.'
   },
   {
     day: 6,
     image: day6Image,
-    title: 'GẶP PHIÊN BẢN CAO NHẤT',
-    milestone: 'Hội ngộ',
+    title: 'BƯỚC VÀO DANH TÍNH MỚI',
+    subtitle: 'Higher Self Journey',
+    milestone: 'Trở thành',
     learnLabel: 'Bạn sẽ gặp',
     learns: [
-      'Phiên bản cao nhất của bạn — người đã đi qua hành trình này trước',
-      'Một món quà, một lời nhắn và một biểu tượng dành riêng cho bạn',
-      'Danh tính mới mà bạn được phép bước vào'
+      'Phiên bản của bạn — người đã đi qua tất cả những gì bạn đang trải qua',
+      'Một danh tính mới mà bạn được phép bước vào, thay vì tiếp tục là phiên bản cũ',
+      'Cảm giác thật sự khi biết mình có thể tin tưởng chính mình'
     ],
-    journey: 'Đi lên đỉnh núi trong tâm trí — nơi Higher Self đang chờ, trao cho bạn một món quà và một cái tên mới.',
-    challenge: 'Viết lại lời nhắn Higher Self gửi cho bạn. Đặt nó ở nơi bạn nhìn thấy mỗi ngày.',
+    highlight: 'Hành trình được yêu thích nhất',
     result: 'Bạn khóc — không phải vì đau, mà vì lần đầu tiên gặp được người mình luôn có thể trở thành.'
   },
   {
     day: 7,
     image: day7Image,
     title: 'BEYOND FEAR',
-    milestone: 'Khởi đầu mới',
-    learnLabel: 'Bạn sẽ bước qua',
+    milestone: 'Vượt qua',
+    learnLabel: 'Bạn sẽ bước vào',
     learns: [
-      'Một nghi thức trưởng thành — không còn là một bài học nữa',
-      'Đốt đi danh tính cũ, khoác lên danh tính mới',
-      'Một lời cam kết đưa bạn bước sang một dòng thời gian khác'
+      'Một nghi thức khép lại phiên bản cũ, thay vì chỉ "kết thúc khóa học"',
+      'Cách mang cảm giác an toàn này đi cùng bạn, ngay cả khi khóa học đã xong',
+      'Bước hành động đầu tiên để chính thức sống là con người mới của mình'
     ],
-    journey: 'Đi qua cánh cổng → Đốt Identity cũ → Khoác áo mới → Cam kết → Bước sang Timeline mới → Tương lai gọi tên bạn → Trở về.',
-    challenge: 'Đăng một điều thật về hành trình này. Hoặc nói một điều thật với một người bạn tin tưởng.',
+    highlight: 'Graduation Ceremony — buổi lễ khép lại hành trình',
     result: `Bạn không chỉ "học xong" — bạn bước ra là một người khác với người đã bước vào Ngày 1.`
   }
 ];
@@ -162,11 +152,11 @@ function DayCard({
   day,
   image,
   title,
+  subtitle,
   milestone,
   learnLabel,
   learns,
-  journey,
-  challenge,
+  highlight,
   result,
   index
 }: typeof curriculum[0] & { index: number }) {
@@ -187,6 +177,12 @@ function DayCard({
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+          {highlight && (
+            <div className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-accent/90 backdrop-blur-sm text-xs font-semibold text-accent-foreground shadow-lg">
+              <Flame className="w-3.5 h-3.5" />
+              {highlight}
+            </div>
+          )}
         </div>
       )}
 
@@ -201,6 +197,9 @@ function DayCard({
                 <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-gradient-gold">
                   {title}
                 </h3>
+                {subtitle && (
+                  <p className="text-xs sm:text-sm text-muted-foreground italic">{subtitle}</p>
+                )}
                 <div className="flex items-center gap-2 mt-1">
                   <p className="text-xs sm:text-sm text-muted-foreground">{milestone}</p>
                   <ProgressDots day={day} />
@@ -225,19 +224,7 @@ function DayCard({
             </ul>
           </div>
 
-          <div className="pl-1">
-            <p className="text-xs sm:text-sm font-semibold text-primary mb-1.5">Hành trình thôi miên</p>
-            <p className="text-sm text-foreground/70 leading-relaxed italic">{journey}</p>
-          </div>
-
           <DayFormatBar />
-
-          <div className="p-3 sm:p-4 rounded-lg bg-accent/10 border-l-4 border-accent">
-            <p className="text-xs sm:text-sm font-medium text-foreground flex items-start gap-2">
-              <Flame className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-              <span><strong className="text-accent">Thử thách hôm nay:</strong> {challenge}</span>
-            </p>
-          </div>
 
           <div className="p-3 sm:p-4 rounded-lg bg-primary/10 border-l-4 border-primary">
             <p className="text-xs sm:text-sm font-medium text-foreground">
