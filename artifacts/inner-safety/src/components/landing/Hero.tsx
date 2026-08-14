@@ -67,7 +67,7 @@ const QUOTE_WIDTH = 340;
 // negative margin. Make MORE negative to close the gap further; less negative
 // (closer to 0) to open it back up.
 const OPEN_QUOTE_MARGIN_BOTTOM = '-18px';
-const CLOSE_QUOTE_MARGIN_TOP = '-56px';
+const CLOSE_QUOTE_MARGIN_TOP = '-36px';
 
 // Quick-facts pill row — surfaces the 3 things people scan for first
 // (time cost, format, difficulty) right next to the headline instead of
