@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Brain, Heart, Waves, Sparkles, Check } from 'lucide-react';
+import { Brain, Heart, Waves, Sparkles, Check, X, AlertCircle } from 'lucide-react';
 import goldenRootsImage from '@assets/b7c36e0667cc4b981650a080f50a5cc8_1785305788815.jpg';
 
 const methods = [
@@ -27,9 +27,19 @@ const methods = [
 ];
 
 const outcomes = [
-  'Chia sẻ điều mình muốn nói.',
-  'Theo đuổi điều mình thật sự khao khát.',
-  'Sống đúng với con người mình vốn là.'
+  'Dám nói điều mình nghĩ mà không quá sợ bị đánh giá.',
+  'Bình tĩnh hơn khi gặp áp lực.',
+  'Ra quyết định mà không overthinking quá nhiều.',
+  'Theo đuổi điều mình thật sự mong muốn.'
+];
+
+const stillFeelings = ['Overthinking', 'Trì hoãn', 'Tự nghi ngờ', 'Sợ bị đánh giá'];
+
+const notList = ['Ép bản thân tích cực.', 'Cố mạnh mẽ hơn.', 'Đè nén nỗi sợ.'];
+const isList = [
+  'Xây dựng cảm giác an toàn từ bên trong.',
+  'Tháo gỡ bộ rễ tạo ra nỗi sợ.',
+  'Hành động từ sự bình an thay vì phải gồng mình.'
 ];
 
 export function SolutionSection() {
@@ -73,12 +83,59 @@ export function SolutionSection() {
           </div>
         </motion.div>
 
-        {/* Paradox callout */}
+        {/* Not / Is — makes the golden-roots image concrete right away */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.35 }}
+          className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto mb-8 sm:mb-10"
+        >
+          <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-destructive/15 to-destructive/5 border-2 border-destructive/25">
+            <p className="text-sm sm:text-base font-bold uppercase tracking-wide text-destructive mb-4">
+              Inner Safety Method™ không giúp bạn...
+            </p>
+            <ul className="space-y-3">
+              {notList.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <X className="w-4 h-4 text-destructive flex-shrink-0 mt-1" />
+                  <span className="text-sm sm:text-base text-foreground/80">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-primary/15 to-primary/5 border-2 border-primary/25">
+            <p className="text-sm sm:text-base font-bold uppercase tracking-wide text-primary mb-4">
+              Inner Safety Method™ giúp bạn...
+            </p>
+            <ul className="space-y-3">
+              {isList.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                  <span className="text-sm sm:text-base text-foreground/80">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
+
+        {/* One-line bridge — locks what the image means before explaining why it works */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-3xl mx-auto mb-12 sm:mb-16"
+          className="max-w-2xl mx-auto text-center text-base sm:text-lg text-foreground/80 leading-relaxed mb-12 sm:mb-16"
+        >
+          Inner Safety Method™ không chỉ giúp bạn bình tĩnh hơn trong chốc lát. Mục tiêu là
+          thay đổi <span className="text-primary font-semibold">"bộ rễ"</span> tạo ra nỗi sợ,
+          để sự bình an trở thành trạng thái tự nhiên.
+        </motion.p>
+
+        {/* Paradox callout — unchanged framing, only the explanation line is softened */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.45 }}
+          className="max-w-3xl mx-auto mb-8 sm:mb-10"
         >
           <div className="rounded-2xl border border-primary/20 bg-card/40 backdrop-blur-sm p-6 sm:p-8 text-center space-y-3">
             <p className="text-sm sm:text-base font-semibold tracking-wide uppercase text-primary">
@@ -88,11 +145,38 @@ export function SolutionSection() {
               Bạn càng cố loại bỏ nỗi sợ, nó càng trở nên mạnh hơn.
             </p>
             <p className="text-base sm:text-lg text-foreground/80 leading-relaxed pt-2">
-              Bởi vì nỗi sợ không phải là kẻ thù. Nó là tín hiệu cho thấy bên trong bạn
-              vẫn còn một phần đang tin rằng mình{' '}
-              <span className="text-primary font-semibold">chưa đủ an toàn để bước ra.</span>
+              Điều đó không có nghĩa là bạn yếu. Cũng không phải vì bạn thiếu ý chí.
+              <br className="hidden sm:block" />
+              Mà bởi vì bên trong bạn vẫn còn một phần{' '}
+              <span className="text-primary font-semibold">chưa thật sự cảm thấy an toàn.</span>
             </p>
           </div>
+        </motion.div>
+
+        {/* Bridge from Problem → Solution: names the daily symptoms of that unsafety */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="max-w-2xl mx-auto text-center mb-12 sm:mb-16"
+        >
+          <p className="text-base sm:text-lg text-foreground/80 leading-relaxed mb-4">
+            Khi bên trong vẫn còn cảm giác phải phòng vệ... bạn sẽ tiếp tục:
+          </p>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4">
+            {stillFeelings.map((item) => (
+              <span
+                key={item}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-destructive/10 border border-destructive/25 text-sm text-foreground/80"
+              >
+                <AlertCircle className="w-3.5 h-3.5 text-destructive" />
+                {item}
+              </span>
+            ))}
+          </div>
+          <p className="text-base sm:text-lg text-foreground/80 italic">
+            ...dù bạn đã cố thay đổi rất nhiều lần.
+          </p>
         </motion.div>
 
         {/* Core explanation */}
@@ -103,19 +187,20 @@ export function SolutionSection() {
           className="max-w-3xl mx-auto space-y-6 sm:space-y-8 text-base sm:text-lg text-foreground/80 leading-relaxed mb-12 sm:mb-16"
         >
           <p className="text-xl sm:text-2xl font-semibold text-foreground text-center">
-            Trong 7 ngày, bạn sẽ không học cách trở nên "dũng cảm hơn".
+            Trong 7 ngày, bạn sẽ không phải ép mình mạnh mẽ hơn.
           </p>
 
           <p className="text-center">
-            Bạn sẽ học cách giúp cơ thể, hệ thần kinh và vô thức cảm thấy đủ an toàn, để
-            việc hành động trở thành điều tự nhiên thay vì phải gồng mình.
+            Thay vào đó, bạn sẽ từng bước giúp cơ thể và bên trong mình cảm thấy đủ an toàn.
+            <br className="hidden sm:block" />
+            Khi cảm giác an toàn xuất hiện... việc hành động sẽ trở nên tự nhiên hơn rất nhiều.
           </p>
 
           <div className="pt-6 sm:pt-8 border-t border-border/30 space-y-6">
             <p className="text-lg sm:text-xl text-center text-foreground/80">
-              Khi bộ rễ được chữa lành, bạn sẽ không còn phải ép bản thân vượt qua nỗi sợ.
+              Khi <span className="text-primary font-semibold">"bộ rễ"</span> thay đổi...
               <br className="hidden sm:block" />
-              Bạn sẽ đơn giản thấy mình đủ bình an để:
+              bạn sẽ thấy mình dễ dàng hơn khi:
             </p>
 
             <ul className="space-y-3 max-w-xl mx-auto">
