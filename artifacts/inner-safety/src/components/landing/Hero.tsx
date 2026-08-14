@@ -295,25 +295,53 @@ export function Hero() {
             className="hidden lg:block absolute z-[5] pointer-events-none text-left"
             style={{ right: QUOTE_RIGHT, top: QUOTE_TOP, maxWidth: `${QUOTE_WIDTH}px` }}
           >
+            <span
+              aria-hidden="true"
+              className="block leading-none select-none"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontWeight: 700,
+                fontSize: '64px',
+                color: PURPLE,
+                opacity: 0.9,
+                marginBottom: '-18px',
+              }}
+            >
+              “
+            </span>
             <p
               className="italic leading-snug"
               style={{
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 300,
                 fontSize: '14px',
-                color: 'rgba(255,255,255,0.62)',
+                color: '#FFFFFF',
                 textShadow: '0 1px 8px rgba(0,0,0,0.6)',
               }}
             >
-              "Điều bạn cần chữa<br />không phải cuộc đời.
+              Điều bạn cần chữa<br />không phải cuộc đời.
               <br />
               Mà là{' '}
               <span style={{ color: GOLD, fontWeight: 600 }}>
                 gốc rễ của nỗi sợ
               </span>
               <br />
-              đang điều khiển mọi<br />quyết định của bạn."
+              đang điều khiển mọi<br />quyết định của bạn.
             </p>
+            <span
+              aria-hidden="true"
+              className="block leading-none select-none text-right"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontWeight: 700,
+                fontSize: '64px',
+                color: PURPLE,
+                opacity: 0.9,
+                marginTop: '-24px',
+              }}
+            >
+              ”
+            </span>
             <div className="mt-3 flex items-center gap-2 pointer-events-auto">
               <img
                 src={ngaAvatar}
