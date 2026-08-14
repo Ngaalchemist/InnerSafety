@@ -186,14 +186,16 @@ export function Hero() {
           >
             {/* Eyebrow */}
             <motion.div variants={fadeInUp} className="mb-5">
-              <p
-                className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] mb-1"
-                style={{ color: PURPLE }}
-              >
-                Inner Safety Method™
-              </p>
+              <div className="flex items-center gap-1.5 mb-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-4 h-4" style={{ color: GOLD, fill: GOLD }} />
+                ))}
+                <span className="text-white text-xs sm:text-sm font-bold ml-1">
+                  4.9/5 từ hơn 500+ học viên
+                </span>
+              </div>
               <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
-                Phương pháp độc quyền giúp bạn tháo gỡ bộ rễ của nỗi sợ để xây dựng cảm giác an toàn từ bên trong.
+                Đã giúp hàng trăm người giảm overthinking và tìm lại bình an
               </p>
             </motion.div>
 
@@ -311,9 +313,14 @@ export function Hero() {
                 textShadow: '0 1px 8px rgba(0,0,0,0.6)',
               }}
             >
-              <span style={{ whiteSpace: 'nowrap' }}>"Bạn không bị mắc kẹt bởi cuộc đời.</span>
+              "Điều bạn cần chữa không phải cuộc đời.
               <br />
-              <span style={{ whiteSpace: 'nowrap' }}>Bạn đang bị mắc kẹt bởi những<br /> bộ rễ vô hình của nỗi sợ."</span>
+              Mà là{' '}
+              <span style={{ color: GOLD, fontWeight: 600 }}>
+                gốc rễ của nỗi sợ
+              </span>
+              <br />
+              đang điều khiển mọi quyết định của bạn."
             </p>
             <div className="mt-3 flex items-center gap-2 pointer-events-auto">
               <img
