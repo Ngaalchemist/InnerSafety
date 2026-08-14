@@ -8,14 +8,21 @@ import {
   BookOpen,
 } from 'lucide-react';
 
-const PURPLE = '#C084FC';
-const GOLD = '#FBBF24';
-const INK = '#0D0B18';
+// ── Shares the exact type scale used by ProblemSection so the CTA reads as
+// the last block of the same section, not an imported widget. Keep these in
+// sync with ProblemSection.tsx if that file's scale ever changes. ──────────
+const T_BODY = 'text-base sm:text-lg leading-relaxed';
+const T_LABEL_SM = 'text-xs sm:text-sm font-semibold';
+const T_CAPTION = 'text-xs sm:text-sm text-foreground/55 leading-snug';
 
 interface InlineCTAProps {
   headline: string;
   subtext?: string;
   buttonLabel?: string;
+  /** Set false when embedded inside a parent block that already handles
+   *  its own top margin (e.g. continuing straight off a previous line)
+   *  so no extra gap/seam is introduced. */
+  withTopSpacing?: boolean;
 }
 
 const trustBadges = [
@@ -30,6 +37,7 @@ export function InlineCTA({
   headline,
   subtext,
   buttonLabel = 'ĐĂNG KÝ NGAY — 444.000đ',
+  withTopSpacing = true,
 }: InlineCTAProps) {
   const scrollToCTA = () => {
     const ctaSection = document.getElementById('final-cta');
@@ -39,62 +47,36 @@ export function InlineCTA({
   };
 
   return (
-    <section className="py-10 sm:py-14 px-4" style={{ backgroundColor: INK }}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="max-w-3xl mx-auto text-center rounded-2xl p-6 sm:p-8"
-        style={{
-          border: '1px solid rgba(192,132,252,0.35)',
-          backgroundColor: 'rgba(192,132,252,0.06)',
-          backdropFilter: 'blur(6px)',
-        }}
-      >
-        <p
-          className="text-white text-base sm:text-lg font-bold mb-1"
-          style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
-        >
-          {headline}
-        </p>
-        {subtext && (
-          <p className="text-white/60 text-sm mb-4">{subtext}</p>
-        )}
-        <button
-          onClick={scrollToCTA}
-          className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-4 sm:py-5 px-8 font-bold text-base sm:text-lg transition-transform hover:scale-[1.02] shadow-xl"
-          style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
-          data-testid="button-inline-cta"
-        >
-          {buttonLabel}
-          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-        </button>
+    // No own <section>, no background color, no border/blur card — this is
+    // meant to be dropped inside a parent section's existing container so
+    // it inherits that section's background, font, and rhythm exactly.
+    <div className={`max-w-2xl mx-auto text-center ${withTopSpacing ? 'mt-8 sm:mt-10' : ''}`}>
+      <p className={`${T_BODY} font-bold text-foreground mb-1`}>{headline}</p>
+      {subtext && <p className={`${T_CAPTION} mb-5 sm:mb-6`}>{subtext}</p>}
 
-        {/* Trust badges row */}
-        <div
-          className="mt-6 pt-5 grid grid-cols-2 sm:grid-cols-5 gap-y-4 gap-x-3"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
-        >
-          {trustBadges.map(({ icon: Icon, label, sub }) => (
-            <div key={label} className="flex flex-col items-center text-center gap-1">
-              <Icon className="w-5 h-5 shrink-0" style={{ color: PURPLE }} />
-              <p
-                className="text-white text-[11px] sm:text-xs leading-tight"
-                style={{ fontFamily: "'Be Vietnam Pro', sans-serif", fontWeight: 600 }}
-              >
-                {label}
-              </p>
-              <p
-                className="text-white/50 text-[10px] leading-tight"
-                style={{ fontFamily: "'Be Vietnam Pro', sans-serif", fontWeight: 300 }}
-              >
-                {sub}
-              </p>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-    </section>
+      <motion.button
+        onClick={scrollToCTA}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        className="group w-full inline-flex items-center justify-center gap-2 rounded-full py-4 sm:py-5 px-8 font-bold text-base sm:text-lg shadow-xl"
+        style={{ background: 'linear-gradient(90deg, #FBBF24, #C084FC)' }}
+        data-testid="button-inline-cta"
+      >
+        <span className="text-background">{buttonLabel}</span>
+        <ArrowRight className="w-5 h-5 text-background group-hover:translate-x-1 transition-transform" />
+      </motion.button>
+
+      {/* Trust badges — same caption scale + muted foreground as the rest
+          of ProblemSection, not a separate white/translucent palette. */}
+      <div className="mt-6 sm:mt-7 pt-5 sm:pt-6 grid grid-cols-2 sm:grid-cols-5 gap-y-4 gap-x-3 border-t border-border/30">
+        {trustBadges.map(({ icon: Icon, label, sub }) => (
+          <div key={label} className="flex flex-col items-center text-center gap-1">
+            <Icon className="w-5 h-5 shrink-0 text-primary" />
+            <p className={`${T_LABEL_SM} text-foreground/90 leading-tight`}>{label}</p>
+            <p className="text-[11px] sm:text-xs text-foreground/50 leading-tight">{sub}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
