@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import { AlertCircle, Check } from 'lucide-react';
 import rootsCompareImage from '@assets/3a7a118b5aaf078c4cc85f9ecc99e6fb_1785305782800.jpg';
+import { InlineCTA } from './InlineCTA';
 
 // Self-loads both fonts so the section renders correctly even if the
 // project's global CSS doesn't import them.
@@ -299,6 +300,13 @@ export function ProblemSection() {
           <p className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold leading-snug mt-3 sm:mt-4 text-gradient-gold">
             Và gốc rễ có thể được thay đổi.
           </p>
+
+          {/* CTA continues directly off the line above — same container,
+              same fade-in, no new background or card boundary. */}
+          <InlineCTA
+            headline="Bạn đã nhận ra vấn đề. Giờ là lúc thay đổi nó."
+            subtext="Chỉ 20 phút/ngày trong 7 ngày."
+          />
         </motion.div>
       </div>
     </section>
