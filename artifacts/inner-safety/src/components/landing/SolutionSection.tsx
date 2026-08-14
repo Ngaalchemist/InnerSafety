@@ -1,28 +1,38 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Brain, Heart, Waves, Sparkles, Check, X, AlertCircle } from 'lucide-react';
+import { Check, X, AlertCircle, Waves, Flame, BrainCircuit, Compass, Sunrise } from 'lucide-react';
 import goldenRootsImage from '@assets/b7c36e0667cc4b981650a080f50a5cc8_1785305788815.jpg';
 
-const methods = [
-  {
-    icon: Brain,
-    title: 'Thôi miên trị liệu',
-    text: 'Tháo gỡ những chương trình vô thức đang giữ bạn mắc kẹt.'
-  },
+const layers = [
   {
     icon: Waves,
-    title: 'Điều hòa hệ thần kinh',
-    text: 'Đưa cơ thể thoát khỏi chế độ sinh tồn và trở về trạng thái an toàn.'
+    stage: 'Regulate',
+    title: 'Làm dịu cơ thể & hệ thần kinh',
+    text: 'Đưa cơ thể thoát khỏi chế độ sinh tồn và trở về trạng thái an toàn — điểm bắt đầu của mọi thay đổi.'
   },
   {
-    icon: Heart,
-    title: 'Somatic Healing',
-    text: 'Giải phóng những cảm xúc còn mắc kẹt trong cơ thể.'
+    icon: Flame,
+    stage: 'Release',
+    title: 'Giải phóng cảm xúc mắc kẹt',
+    text: 'Buông bỏ những cảm xúc, ký ức và cả mối quan hệ với Tiền đã bị giữ lại quá lâu bên trong bạn.'
   },
   {
-    icon: Sparkles,
-    title: 'Tái lập trình niềm tin',
-    text: 'Xây dựng bộ rễ nội tại mới để hành động từ sự bình an thay vì nỗi sợ.'
+    icon: BrainCircuit,
+    stage: 'Rewrite',
+    title: 'Viết lại niềm tin giới hạn',
+    text: 'Tháo gỡ những niềm tin không còn đúng, và cài đặt một sự thật lớn hơn về chính bạn.'
+  },
+  {
+    icon: Compass,
+    stage: 'Reconnect',
+    title: 'Kết nối trực giác & nguồn lực bên trong',
+    text: 'Gặp lại phiên bản cao nhất của bạn — nơi câu trả lời cho mọi lựa chọn luôn có sẵn.'
+  },
+  {
+    icon: Sunrise,
+    stage: 'Rise',
+    title: 'Hành động từ danh tính mới',
+    text: 'Bước ra khỏi nỗi sợ bằng những hành động thật, từ con người bạn vừa trở thành.'
   }
 ];
 
@@ -222,37 +232,50 @@ export function SolutionSection() {
           </div>
         </motion.div>
 
-        {/* Methods grid */}
+        {/* 5-layer framework — an ordered flow, not a grid of loose techniques.
+            Every hypnosis/somatic/belief-work tool from the curriculum sits
+            inside one of these 5 stages, so Inner Safety Method™ reads as
+            one coherent method rather than a list of modalities. */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-2xl mx-auto"
         >
-          <p className="text-center text-lg sm:text-xl font-medium text-foreground mb-6 sm:mb-8">
-            Inner Safety Method™ kết hợp các phương pháp chuyển hóa đa tầng
+          <p className="text-center text-lg sm:text-xl font-medium text-foreground mb-2">
+            Inner Safety Method™ — hành trình chuyển hóa qua 5 tầng
+          </p>
+          <p className="text-center text-sm sm:text-base text-foreground/60 mb-8 sm:mb-10">
+            Mọi kỹ thuật (thôi miên, somatic, tái lập trình niềm tin...) đều chỉ là công cụ
+            phục vụ đúng một trong 5 tầng dưới đây.
           </p>
 
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-            {methods.map((method, idx) => (
+          <div className="relative space-y-6 sm:space-y-8">
+            {/* connecting line */}
+            <div
+              className="absolute left-6 sm:left-7 top-6 bottom-6 w-px bg-gradient-to-b from-primary/40 via-primary/20 to-transparent"
+              aria-hidden="true"
+            />
+            {layers.map((layer, idx) => (
               <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 + idx * 0.1 }}
-                className="flex items-start gap-4 p-4 sm:p-6 rounded-xl bg-card/40 backdrop-blur-sm border border-border/30 hover:border-primary/50 transition-all duration-300 hover:scale-105"
-                data-testid={`method-card-${idx}`}
+                key={layer.stage}
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.8 + idx * 0.12 }}
+                className="relative flex items-start gap-4 sm:gap-5"
+                data-testid={`method-layer-${idx}`}
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center flex-shrink-0">
-                  <method.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
+                <div className="relative z-10 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+                  <layer.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary-foreground" />
                 </div>
-                <div>
+                <div className="pt-1 sm:pt-2">
+                  <p className="text-xs font-bold uppercase tracking-wide text-primary mb-0.5">
+                    {idx + 1}. {layer.stage}
+                  </p>
                   <p className="text-sm sm:text-base font-semibold text-foreground mb-1">
-                    {method.title}
+                    {layer.title}
                   </p>
-                  <p className="text-sm text-foreground/70 leading-relaxed">
-                    {method.text}
-                  </p>
+                  <p className="text-sm text-foreground/70 leading-relaxed">{layer.text}</p>
                 </div>
               </motion.div>
             ))}
