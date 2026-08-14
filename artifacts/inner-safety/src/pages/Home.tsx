@@ -15,10 +15,6 @@ export default function Home() {
     <div className="min-h-[100dvh] w-full relative noise-texture">
       <Hero />
       <ProblemSection />
-      <InlineCTA
-        headline="Bạn đã nhận ra vấn đề. Giờ là lúc thay đổi nó."
-        subtext="Chỉ 20 phút/ngày trong 7 ngày."
-      />
       <SolutionSection />
       <CurriculumSection />
       <IncludedSection />
