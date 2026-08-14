@@ -238,21 +238,19 @@ export function ProblemSection() {
             <ul className={LINE_GAP}>
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>
-                  Bạn vẫn lo lắng, nhưng lo lắng không điều khiển quyết định của bạn.
-                </span>
+                <span className={`${T_BODY} text-foreground/80`}>Quyết định từ sự bình an.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>
-                  Bạn nói "không" mà không cần giải thích dài dòng.
-                </span>
+                <span className={`${T_BODY} text-foreground/80`}>Dám nói không.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>
-                  Bạn ra quyết định từ sự rõ ràng, không phải hoảng loạn.
-                </span>
+                <span className={`${T_BODY} text-foreground/80`}>Tin bản thân.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Dám thay đổi.</span>
               </li>
             </ul>
           </div>
@@ -264,28 +262,43 @@ export function ProblemSection() {
             <ul className={LINE_GAP}>
               <li className="flex items-start gap-2">
                 <span className="text-destructive mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>Bạn thấy phải kiểm soát mọi thứ.</span>
+                <span className={`${T_BODY} text-foreground/80`}>Quyết định vì sợ.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-destructive mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>
-                  Bạn nói "tôi ổn" khi bên trong đang rối bời.
-                </span>
+                <span className={`${T_BODY} text-foreground/80`}>Luôn làm hài lòng.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-destructive mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>
-                  Bạn làm rất nhiều, nghỉ ngơi thì thấy tội lỗi.
-                </span>
+                <span className={`${T_BODY} text-foreground/80`}>Luôn nghi ngờ.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-destructive mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>
-                  Bạn từng đưa ra một quyết định lớn chỉ vì quá sợ, không phải vì thật sự muốn.
-                </span>
+                <span className={`${T_BODY} text-foreground/80`}>Sợ bắt đầu.</span>
               </li>
             </ul>
           </div>
+        </motion.div>
+
+        {/* ── Bridge to Solution ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="max-w-2xl mx-auto text-center mt-12 sm:mt-16"
+        >
+          <p className={`${T_BODY} text-foreground/80 mb-2`}>
+            Nếu bạn nhận ra mình trong những điều trên...
+          </p>
+          <p className={`${T_QUOTE} text-foreground mb-2`}>
+            Tin vui là vấn đề không nằm ở ý chí.
+          </p>
+          <p className={`${T_QUOTE} text-foreground mb-2`}>
+            Vấn đề nằm ở gốc rễ.
+          </p>
+          <p className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold leading-snug mt-3 sm:mt-4 text-gradient-gold">
+            Và gốc rễ có thể được thay đổi.
+          </p>
         </motion.div>
       </div>
     </section>
