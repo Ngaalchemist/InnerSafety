@@ -304,8 +304,8 @@ export function ProblemSection() {
           {/* CTA continues directly off the line above — same container,
               same fade-in, no new background or card boundary. */}
           <InlineCTA
-            headline="Bạn đã nhận ra vấn đề. Giờ là lúc thay đổi nó."
-            subtext="Chỉ 20 phút/ngày trong 7 ngày."
+            headline="Bắt đầu thay đổi gốc rễ đó — ngay hôm nay."
+            subtext="Chỉ 20 phút mỗi ngày, trong 7 ngày."
           />
         </motion.div>
       </div>
