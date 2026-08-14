@@ -186,9 +186,10 @@ export function ProblemSection() {
             <p className={`${T_QUOTE} text-foreground`}>Hãy hình dung cuộc đời bạn như một cái cây.</p>
             <p className={`${T_BODY} text-foreground/80`}>
               Phần mọi người nhìn thấy: công việc, gia đình, sự cố gắng mỗi ngày — chỉ là phần thân và
-              lá. Còn phần quyết định cái cây đó có đứng vững qua giông bão hay không,{' '}
-              <strong className="text-primary">nằm sâu dưới đất, nơi không ai nhìn thấy: bộ rễ.</strong>
+              lá. Nhưng thứ quyết định cái cây đứng vững hay gục ngã...{' '}
+              <strong className="text-gradient-gold">(lại là bộ rễ nằm sâu dưới mặt đất).</strong>
             </p>
+            <p className={`${T_QUOTE} text-foreground`}>Cuộc sống của bạn cũng vậy.</p>
           </div>
         </motion.div>
 
