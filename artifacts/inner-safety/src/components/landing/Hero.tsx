@@ -326,14 +326,14 @@ export function Hero() {
                 textShadow: '0 1px 8px rgba(0,0,0,0.6)',
               }}
             >
-              Điều bạn cần chữa<br />không phải cuộc đời.
+              Điều bạn cần chữa không phải cuộc đời.
               <br />
               Mà là{' '}
               <span style={{ color: GOLD, fontWeight: 600 }}>
                 gốc rễ của nỗi sợ
               </span>
               <br />
-              đang điều khiển mọi<br />quyết định của bạn.
+              đang điều khiển mọi quyết định của bạn.
             </p>
             <span
               aria-hidden="true"
