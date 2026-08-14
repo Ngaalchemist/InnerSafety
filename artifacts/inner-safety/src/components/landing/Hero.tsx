@@ -259,23 +259,33 @@ export function Hero() {
               variants={fadeInUp}
               className="text-white/75 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
             >
-              <strong className="font-bold text-white">
-                Đừng để nỗi sợ tiếp tục quyết định cuộc đời của bạn.
-              </strong>
+              Dành cho những người luôn{' '}
+              <strong className="font-bold" style={{ color: PURPLE }}>
+                overthinking, lo âu
+              </strong>{' '}
+              và cảm thấy bị{' '}
+              <strong className="font-bold" style={{ color: PURPLE }}>
+                nỗi sợ
+              </strong>{' '}
+              điều khiển cuộc sống.
               <br />
-              Nếu bạn đã mệt mỏi vì{' '}
-              <strong className="font-bold text-white">overthinking, trì hoãn</strong> và luôn bị một lực vô hình kéo lùi mỗi khi muốn sống đúng với con người thật của mình, hành trình{' '}
+              Hành trình{' '}
               <strong className="font-bold" style={{ color: PURPLE }}>
                 Beyond Fear™
               </strong>{' '}
-              sẽ giúp bạn từng bước{' '}
-              <strong className="font-bold" style={{ color: PURPLE }}>
-                tháo gỡ bộ rễ của nỗi sợ
+              giúp bạn{' '}
+              <strong className="font-bold text-white">
+                tháo gỡ gốc rễ của nỗi sợ
               </strong>{' '}
               để hành động từ{' '}
               <strong className="font-bold" style={{ color: GOLD }}>
-                sự bình an thay vì sự sợ hãi.
+                Bình an
+              </strong>{' '}
+              thay vì{' '}
+              <strong className="font-bold" style={{ color: GOLD }}>
+                Sợ hãi
               </strong>
+              .
             </motion.p>
 
             {/* Reassurance bullets — 3 short lines, plain list */}
