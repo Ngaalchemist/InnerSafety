@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useEffect, useRef } from 'react';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, Check } from 'lucide-react';
 import rootsCompareImage from '@assets/3a7a118b5aaf078c4cc85f9ecc99e6fb_1785305782800.jpg';
 
 // Self-loads both fonts so the section renders correctly even if the
@@ -143,28 +143,27 @@ export function ProblemSection() {
           <p className={`${T_BODY} italic text-foreground/70 mb-4`}>Thế nên...</p>
           <ul className={`${LINE_GAP} pl-4 sm:pl-6`}>
             <li className="flex items-start gap-2 sm:gap-3">
-              <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+              <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <span className={`${T_BODY} text-foreground/80`}>
-                Bạn không dám bắt đầu điều mình thật sự mong muốn.
+                Không dám bắt đầu điều mình thật sự muốn.
               </span>
             </li>
             <li className="flex items-start gap-2 sm:gap-3">
-              <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+              <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <span className={`${T_BODY} text-foreground/80`}>
-                Bạn chọn sự an toàn thay vì cơ hội phát triển.
+                Chọn an toàn thay vì phát triển.
               </span>
             </li>
             <li className="flex items-start gap-2 sm:gap-3">
-              <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+              <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <span className={`${T_BODY} text-foreground/80`}>
-                Bạn thu nhỏ ước mơ của mình để tránh thất bại, bị từ chối hoặc bị đánh giá.
+                Thu nhỏ ước mơ của mình.
               </span>
             </li>
             <li className="flex items-start gap-2 sm:gap-3">
-              <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+              <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <span className={`${T_BODY} text-foreground/80`}>
-                Bạn tiếp tục sống theo những gì khiến mình bớt sợ, thay vì những gì khiến mình thật sự
-                hạnh phúc.
+                Sống để bớt sợ thay vì sống hạnh phúc.
               </span>
             </li>
           </ul>
