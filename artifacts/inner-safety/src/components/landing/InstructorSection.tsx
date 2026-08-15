@@ -7,6 +7,28 @@ import ngaPortrait from '@assets/nga-portrait.png';
 // read "nga-speaking.jpg" instead.
 import ngaSpeakingImage from '@assets/nga-rmit-cleaned.jpg';
 
+// ─────────────────────────────────────────────────────────────────────────
+// FONT SETUP — this section now uses:
+//   • "Quicksand"      → headline, name, quotes, numbers (round, soft, has presence)
+//   • "Be Vietnam Pro" → body copy, labels, captions (thin/light, full Vietnamese
+//                        diacritic support, reads gentle instead of heavy)
+//
+// Add this ONE TIME to your index.html <head> (not needed in every component):
+//
+//   <link rel="preconnect" href="https://fonts.googleapis.com">
+//   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+//   <link
+//     href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
+//     rel="stylesheet"
+//   >
+//
+// If your project already defines font-sans / font-serif in tailwind.config
+// to point at other families site-wide, it's cleaner to add these as new
+// named utilities there (e.g. font-round / font-light-vn) instead of the
+// arbitrary font-[...] classes used below — happy to wire that up if you
+// share tailwind.config.
+// ─────────────────────────────────────────────────────────────────────────
+
 // Formal, verifiable credentials only — no brand nicknames mixed in
 const credentials = [
   'Certified Hypnotherapist (CTAA Accredited)',
@@ -45,7 +67,7 @@ export function InstructorSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-10 sm:mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold">
+          <h2 className="font-['Quicksand'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-gradient-gold">
             Người Đứng Sau Beyond Fear
           </h2>
         </motion.div>
@@ -68,10 +90,10 @@ export function InstructorSection() {
               />
             </div>
 
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gradient-gold mb-1.5">
+            <h3 className="font-['Quicksand'] text-2xl sm:text-3xl md:text-4xl font-semibold text-gradient-gold mb-1.5">
               Nga Alchemist
             </h3>
-            <p className="text-sm sm:text-base md:text-lg text-foreground/80 mb-5 sm:mb-6">
+            <p className="font-['Be_Vietnam_Pro'] font-light text-sm sm:text-base md:text-lg text-foreground/80 mb-5 sm:mb-6">
               Hypnotherapist • Founder, Inner Safety Method™
             </p>
 
@@ -79,14 +101,14 @@ export function InstructorSection() {
               {credentials.map((cred, idx) => (
                 <div
                   key={idx}
-                  className="px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-xs sm:text-sm text-foreground/80"
+                  className="font-['Be_Vietnam_Pro'] font-light px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-xs sm:text-sm text-foreground/80"
                 >
                   {cred}
                 </div>
               ))}
             </div>
 
-            <p className="text-lg sm:text-xl md:text-2xl font-medium italic text-foreground max-w-xl mx-auto leading-snug">
+            <p className="font-['Quicksand'] font-light italic text-lg sm:text-xl md:text-2xl text-foreground max-w-xl mx-auto leading-snug">
               "Tôi không tạo ra Inner Safety Method™ vì tôi chưa từng biết sợ. Tôi tạo ra nó
               vì tôi đã từng để nỗi sợ cầm lái cuộc đời mình."
             </p>
@@ -101,9 +123,9 @@ export function InstructorSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="space-y-4 sm:space-y-5 text-sm sm:text-base text-foreground/80 leading-relaxed mb-10 sm:mb-14"
+            className="font-['Be_Vietnam_Pro'] font-light space-y-4 sm:space-y-5 text-sm sm:text-base text-foreground/80 leading-relaxed mb-10 sm:mb-14"
           >
-            <p className="text-base sm:text-lg font-medium text-foreground">
+            <p className="font-['Quicksand'] font-medium text-base sm:text-lg text-foreground">
               Tôi hiểu nỗi sợ vì tôi đã từng sống bên trong nó.
             </p>
             <p>
@@ -127,7 +149,7 @@ export function InstructorSection() {
             <p>
               Sau hơn 4 năm nghiên cứu, thực hành thôi miên trị liệu và đồng hành cùng khách
               hàng, tôi nhận ra:{' '}
-              <strong className="text-foreground">
+              <strong className="font-normal text-foreground">
                 chúng ta không phải lúc nào cũng thiếu ý chí. Nhiều khi, chúng ta chỉ đang cố
                 xây một cuộc đời mới trên một nền tảng bên trong vẫn còn sợ hãi.
               </strong>
@@ -136,7 +158,7 @@ export function InstructorSection() {
             <p>
               Phương pháp này không bắt bạn cố gắng hơn hay ép mình "vượt qua nỗi sợ". Thay vào
               đó, nó giúp bạn nhìn vào{' '}
-              <strong className="text-primary">4 nơi nỗi sợ thường để lại dấu vết</strong>: cơ
+              <strong className="font-normal text-primary">4 nơi nỗi sợ thường để lại dấu vết</strong>: cơ
               thể, cảm xúc, niềm tin và cách bạn nhìn chính mình. Khi những điều bên trong thay
               đổi, bạn không còn phải dùng ý chí để chiến đấu với chính mình mỗi ngày.
             </p>
@@ -148,7 +170,7 @@ export function InstructorSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="text-lg sm:text-xl md:text-2xl font-medium italic text-foreground text-center max-w-2xl mx-auto leading-snug mb-10 sm:mb-14"
+            className="font-['Quicksand'] font-light italic text-lg sm:text-xl md:text-2xl text-foreground text-center max-w-2xl mx-auto leading-snug mb-10 sm:mb-14"
           >
             Tôi hiểu nỗi sợ không chỉ vì tôi đã nghiên cứu nó.
             <br />
@@ -172,10 +194,10 @@ export function InstructorSection() {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-3 sm:mb-4">
                   <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
-                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient-gold mb-2">
+                <p className="font-['Quicksand'] font-semibold text-2xl sm:text-3xl md:text-4xl text-gradient-gold mb-2">
                   {stat.value}
                 </p>
-                <p className="text-xs sm:text-sm text-foreground/70 leading-relaxed">
+                <p className="font-['Be_Vietnam_Pro'] font-light text-xs sm:text-sm text-foreground/70 leading-relaxed">
                   {stat.label}
                 </p>
               </div>
@@ -197,15 +219,15 @@ export function InstructorSection() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-center mb-10 sm:mb-14"
           >
-            <p className="text-lg sm:text-xl font-bold text-gradient-gold mb-2">
+            <p className="font-['Quicksand'] font-semibold text-lg sm:text-xl text-gradient-gold mb-2">
               Inner Safety Method™
             </p>
-            <p className="text-sm sm:text-base text-foreground/70 mb-5 max-w-md mx-auto">
+            <p className="font-['Be_Vietnam_Pro'] font-light text-sm sm:text-base text-foreground/70 mb-5 max-w-md mx-auto">
               Tháo gỡ nỗi sợ từ nhiều tầng, thay vì chỉ cố vượt qua nó.
             </p>
             <button
               onClick={scrollToMethod}
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/40 text-sm font-semibold text-primary hover:bg-primary/10 transition-colors"
+              className="font-['Quicksand'] font-medium group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/40 text-sm text-primary hover:bg-primary/10 transition-colors"
               data-testid="button-explore-method"
             >
               Khám phá phương pháp
@@ -233,7 +255,7 @@ export function InstructorSection() {
               className="w-full h-auto object-cover"
             />
           </div>
-          <p className="text-center text-xs sm:text-sm text-foreground/60 mt-3">
+          <p className="font-['Be_Vietnam_Pro'] font-light text-center text-xs sm:text-sm text-foreground/60 mt-3">
             Nga Alchemist chia sẻ tại một sự kiện
           </p>
         </motion.div>
