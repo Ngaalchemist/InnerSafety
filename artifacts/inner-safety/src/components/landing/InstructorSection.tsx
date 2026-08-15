@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Award, Users, Calendar, ArrowRight } from 'lucide-react';
 import ngaPortrait from '@assets/nga-portrait.png';
-import ngaRmitImage from '@assets/nga-rmit-cleaned.jpg';
+import ngaSpeakingImage from '@assets/nga-speaking.jpg';
 
 // Formal, verifiable credentials only — no brand nicknames mixed in
 const credentials = [
@@ -11,11 +11,13 @@ const credentials = [
   '500+ người đồng hành'
 ];
 
-// Only real, concrete numbers — no filler stats
+// Only real, concrete numbers — no filler stats.
+// Kept to 2: one social-proof number, one authority number.
+// (The "7 ngày" product feature was moved out of instructor trust — it belongs
+// to the course/method section, not to "why trust this person".)
 const stats = [
-  { icon: Users, value: '500+', label: 'Học viên & khách hàng đồng hành' },
-  { icon: Calendar, value: '4+', label: 'Năm nghiên cứu & thực hành thôi miên trị liệu' },
-  { icon: Award, value: '7', label: 'Ngày chuyển hóa chuyên sâu trong khóa học' }
+  { icon: Users, value: '500+', label: 'Học viên & khách hàng đã đồng hành' },
+  { icon: Calendar, value: '4+', label: 'Năm nghiên cứu & thực hành thôi miên trị liệu' }
 ];
 
 function scrollToMethod() {
@@ -32,6 +34,8 @@ export function InstructorSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Headline — names the brand ("Beyond Fear") instead of a generic
+            "your guide" claim cold traffic has no reason to believe yet. */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -39,13 +43,14 @@ export function InstructorSection() {
           className="text-center mb-10 sm:mb-14"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold">
-            Người Dẫn Đường Của Bạn
+            Người Đứng Sau Beyond Fear
           </h2>
         </motion.div>
 
         <div className="max-w-3xl mx-auto">
-          {/* Hero identity block — centered, portrait leads, editorial-poster
-              style instead of a side-by-side "About Me" layout. */}
+          {/* PERSON block — portrait, name, role, credentials, hook quote.
+              This front-loads competence + identity before any story, so
+              cold traffic gets "why trust this person" in the first screen. */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -80,45 +85,42 @@ export function InstructorSection() {
 
             <p className="text-lg sm:text-xl md:text-2xl font-medium italic text-foreground max-w-xl mx-auto leading-snug">
               "Tôi không tạo ra Inner Safety Method™ vì tôi chưa từng biết sợ. Tôi tạo ra nó
-              vì tôi đã từng sống rất lâu với nỗi sợ."
+              vì tôi đã từng để nỗi sợ cầm lái cuộc đời mình."
             </p>
           </motion.div>
 
           <div className="border-t border-border/30 mb-10 sm:mb-14" />
 
-          {/* Personal story — the real "why trust her" answer, led by lived
-              experience rather than a research/methodology recap. */}
+          {/* STORY block — trimmed and given a clear lead-in line + a sharper
+              insight "bridge" sentence, instead of trailing through many
+              beats before getting to the method. */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="space-y-4 sm:space-y-5 text-sm sm:text-base text-foreground/80 leading-relaxed mb-10 sm:mb-14"
           >
-            <p>
-              Từ năm 2009, cuộc đời tôi thay đổi khi bố mẹ ly hôn.
+            <p className="text-base sm:text-lg font-medium text-foreground">
+              Tôi hiểu nỗi sợ vì tôi đã từng sống bên trong nó.
             </p>
             <p>
-              Từ một cô gái lớn lên trong sự đủ đầy, tôi bất ngờ phải bước ra khỏi tổ ấm của
-              mình và bắt đầu một hành trình mà ở đó, tôi liên tiếp trải qua những đổ vỡ và
-              thất bại.
+              Từ năm 2009, cuộc đời tôi thay đổi khi bố mẹ ly hôn. Từ một cô gái lớn lên trong
+              sự đủ đầy, tôi bất ngờ phải bước ra khỏi tổ ấm của mình và bắt đầu lại.
             </p>
-            <p>Những thất bại trong tình cảm khiến tôi từng tin rằng:</p>
+            <p>Những thất bại liên tiếp trong tình cảm khiến tôi từng tin:</p>
             <p className="pl-4 sm:pl-6 border-l-2 border-destructive/40 italic text-foreground/70 space-y-1">
               <span className="block">"Mình không xứng đáng."</span>
               <span className="block">"Mình không có giá trị."</span>
               <span className="block">"Không ai cần mình."</span>
             </p>
             <p>
-              Sau đó là những biến cố khác: phá sản, thất nghiệp, ly hôn, và những năm tháng
-              vừa chữa lành chính mình, vừa nuôi con nhỏ.
+              Rồi phá sản, thất nghiệp, ly hôn, và những năm tháng vừa chữa lành chính mình,
+              vừa nuôi con nhỏ tiếp tục đến.
             </p>
             <p>
               Tôi hiểu cảm giác rất muốn bước tiếp nhưng bên trong luôn có một thứ gì đó kéo
-              mình lại. Không chỉ là những tiếng nói giới hạn trong đầu. Mà còn là những tổn
-              thương, cảm xúc, phản ứng của cơ thể và cả môi trường xung quanh — tất cả cùng
-              góp phần khiến chúng ta thu nhỏ mình lại.
+              mình lại.
             </p>
-            <p>Và đây là lý do Inner Safety Method™ ra đời.</p>
             <p>
               Sau hơn 4 năm nghiên cứu, thực hành thôi miên trị liệu và đồng hành cùng khách
               hàng, tôi nhận ra:{' '}
@@ -127,18 +129,18 @@ export function InstructorSection() {
                 xây một cuộc đời mới trên một nền tảng bên trong vẫn còn sợ hãi.
               </strong>
             </p>
+            <p>Và đó là lý do Inner Safety Method™ ra đời.</p>
             <p>
-              Vì vậy, <strong className="text-primary">Inner Safety Method™</strong> không chỉ
-              dạy bạn cố gắng hơn, suy nghĩ tích cực hơn hay ép mình vượt qua nỗi sợ. Nó giúp
-              bạn đi xuống những tầng sâu hơn của nỗi sợ — nơi cơ thể, cảm xúc, niềm tin và
-              cách bạn nhìn chính mình đang cùng tạo nên vòng lặp cũ. Để bạn không còn phải
-              chiến đấu với chính mình, mà có thể bước đi từ một nền tảng bình an hơn.
+              Phương pháp này không bắt bạn cố gắng hơn hay ép mình "vượt qua nỗi sợ". Thay vào
+              đó, nó giúp bạn nhìn vào{' '}
+              <strong className="text-primary">4 nơi nỗi sợ thường để lại dấu vết</strong>: cơ
+              thể, cảm xúc, niềm tin và cách bạn nhìn chính mình. Khi những điều bên trong thay
+              đổi, bạn không còn phải dùng ý chí để chiến đấu với chính mình mỗi ngày.
             </p>
           </motion.div>
 
-          {/* Closing line — lands right before the method CTA. Deliberately
-              placed as its own beat rather than folded into the paragraph
-              above, since it's the emotional thesis of the whole section. */}
+          {/* Closing line — the emotional thesis, kept as its own beat and
+              echoing the hero's "đừng để nỗi sợ cầm lái" framing. */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -150,12 +152,13 @@ export function InstructorSection() {
             Tôi hiểu nó vì tôi đã từng để nó cầm lái cuộc đời mình.
           </motion.p>
 
-          {/* Stats — real numbers only */}
+          {/* Stats — 2 real numbers only: social proof + authority.
+              "7 ngày" moved out (that's a product feature, not instructor trust). */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid sm:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-14"
+            className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-xl mx-auto mb-10 sm:mb-14"
           >
             {stats.map((stat, idx) => (
               <div
@@ -175,6 +178,11 @@ export function InstructorSection() {
               </div>
             ))}
           </motion.div>
+
+          {/* TODO(testimonials): feedback recommends 2–3 short, real
+              testimonials here (one concrete sentence each, not a paragraph)
+              to back up the "500+" claim before moving into the method
+              teaser. Insert real customer quotes — do not fabricate. */}
 
           <div className="border-t border-border/30 mb-10 sm:mb-14" />
 
@@ -202,7 +210,10 @@ export function InstructorSection() {
             </button>
           </motion.div>
 
-          {/* RMIT speaking photo — closes the section as social proof */}
+          {/* Speaking photo — closes the section as social proof.
+              Deliberately no venue/institution name in the alt text or
+              caption, so the image is just "Nga speaking" and doesn't
+              imply an endorsement or affiliation that wasn't confirmed. */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -210,13 +221,13 @@ export function InstructorSection() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/20">
               <img
-                src={ngaRmitImage}
-                alt="Nga Alchemist speaking at RMIT University"
+                src={ngaSpeakingImage}
+                alt="Nga Alchemist chia sẻ trên sân khấu"
                 className="w-full h-auto object-cover"
               />
             </div>
             <p className="text-center text-xs sm:text-sm text-foreground/60 mt-3">
-              Nga Alchemist chia sẻ tại Đại học RMIT
+              Nga Alchemist chia sẻ tại một sự kiện
             </p>
           </motion.div>
         </div>
