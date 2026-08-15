@@ -1,284 +1,321 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { Check } from 'lucide-react';
-import day1Image from '../../../../../attached_assets/day-1.jpg';
-import day2Image from '../../../../../attached_assets/day-2.jpg';
-import day3Image from '../../../../../attached_assets/day-3.jpg';
-import day4Image from '../../../../../attached_assets/day-4.jpg';
-import day5Image from '../../../../../attached_assets/day-5.jpg';
-import day6Image from '../../../../../attached_assets/day-6.jpg';
-import day7Image from '../../../../../attached_assets/day-7.jpg';
+import { useEffect, useRef } from 'react';
+import { AlertCircle, Check } from 'lucide-react';
+import rootsCompareImage from '@assets/3a7a118b5aaf078c4cc85f9ecc99e6fb_1785305782800.jpg';
+import { InlineCTA } from './InlineCTA';
 
-// Every day follows the same 4-part rhythm, shown as a small "✨ Bao gồm"
-// card (emoji + label only, no minute counts) instead of a syllabus-style
-// "Giảng dạy · Reflection · Hypnosis · Integration" text bar — the latter
-// read like a course platform, not a premium transformation journey.
-const INCLUDES = [
-  { emoji: '📖', label: 'Bài học' },
-  { emoji: '📝', label: 'Journal' },
-  { emoji: '🌀', label: 'Healing Journey' },
-  { emoji: '🌱', label: 'Thực hành Integration' },
-] as const;
-
-const curriculum = [
-  {
-    day: 1,
-    image: day1Image,
-    title: 'SỰ THỨC TỈNH',
-    milestone: 'Thấy',
-    learnLabel: 'Bạn sẽ nhận ra',
-    learns: [
-      'Điều thật sự khiến bạn chùn bước ngay trước ngưỡng cửa thay đổi',
-      '4 phản ứng sinh tồn đang âm thầm điều khiển bạn — và bạn đang mắc kẹt ở đâu',
-      'Khoảnh khắc chính xác khi nỗi sợ "cầm lái" thay vì bạn'
-    ],
-    result: 'Lần đầu tiên, bạn đứng lùi lại đủ xa để thấy: không phải mình yếu — mà nỗi sợ đã lái xe quá lâu.'
-  },
-  {
-    day: 2,
-    image: day2Image,
-    title: 'TRỞ VỀ CƠ THỂ',
-    milestone: 'Ổn định',
-    learnLabel: 'Bạn sẽ học cách',
-    learns: [
-      'Đưa cơ thể về trạng thái bình tĩnh chỉ trong vài phút, bất cứ khi nào cần',
-      'Rút ngắn khoảng cách giữa "biết mình nên bình tĩnh" và cơ thể thật sự cảm thấy an toàn',
-      'Tạo một nơi an toàn bên trong mà bạn có thể quay về bất cứ lúc nào'
-    ],
-    highlight: '🌿 Ngày đầu tiên cơ thể thật sự được nghỉ ngơi.',
-    result: 'Lần đầu tiên sau rất lâu, bạn cảm thấy: cơ thể mình thật sự an toàn.'
-  },
-  {
-    day: 3,
-    image: day3Image,
-    title: 'GIẢI PHÓNG CẢM XÚC BỊ MẮC KẸT',
-    milestone: 'Buông',
-    learnLabel: 'Bạn sẽ giải phóng',
-    learns: [
-      'Những cảm xúc tưởng đã qua nhưng vẫn âm thầm điều khiển cuộc sống',
-      'Những ký ức khiến cơ thể luôn phản ứng như đang ở trong quá khứ',
-      'Gánh nặng cảm xúc bạn đã mang theo quá lâu'
-    ],
-    highlight: '⭐ Phiên chữa lành sâu nhất.',
-    result: 'Bạn cảm thấy nhẹ đi một điều đã mang theo rất lâu, mà không hẳn biết vì sao nó lại nặng đến vậy.'
-  },
-  {
-    day: 4,
-    image: day4Image,
-    title: 'THÁO GỠ BỘ RỄ NIỀM TIN',
-    milestone: 'Tái lập',
-    learnLabel: 'Bạn sẽ tháo gỡ',
-    learns: [
-      'Những niềm tin khiến bạn luôn thấy mình chưa đủ',
-      'Những "sự thật" bạn đã tin nhiều năm nhưng chưa từng kiểm chứng',
-      'Bộ rễ niềm tin mới giúp bạn hành động từ sự bình an'
-    ],
-    result: `Thay vì tự nhủ "chắc mình không làm được đâu"... bạn bắt đầu tin rằng mình có thể.`
-  },
-  {
-    day: 5,
-    image: day5Image,
-    title: 'CHỮA LÀNH MỐI QUAN HỆ VỚI TIỀN',
-    milestone: 'Mở rộng',
-    learnLabel: 'Bạn sẽ nhận ra',
-    learns: [
-      'Vì sao nỗi sợ thiếu hụt khiến bạn luôn lo lắng về tiền',
-      'Vì sao càng cố giữ tiền, bạn càng sống trong cảm giác không đủ',
-      'Cách xây dựng một mối quan hệ bình an hơn với tiền bạc'
-    ],
-    highlight: '💛 Journey được học viên yêu thích nhất.',
-    result: 'Bạn không còn né tránh nhìn vào tài khoản của mình — mà cảm thấy mình và Tiền đang ở cùng một phía.'
-  },
-  {
-    day: 6,
-    image: day6Image,
-    title: 'BƯỚC VÀO DANH TÍNH MỚI',
-    milestone: 'Trở thành',
-    learnLabel: 'Bạn sẽ gặp',
-    learns: [
-      'Phiên bản của bạn đã sống cuộc đời mà bạn vẫn đang mơ ước',
-      'Một danh tính mới mà bạn được phép bước vào, thay vì tiếp tục là phiên bản cũ',
-      'Cảm giác thật sự khi biết mình có thể tin tưởng chính mình'
-    ],
-    highlight: '✨ Journey giàu cảm xúc nhất.',
-    result: 'Bạn khóc — không phải vì đau, mà vì lần đầu tiên gặp được người mình luôn có thể trở thành.'
-  },
-  {
-    day: 7,
-    image: day7Image,
-    title: 'BEYOND FEAR',
-    milestone: 'Vượt qua',
-    learnLabel: 'Bạn sẽ bước vào',
-    learns: [
-      'Một nghi thức khép lại danh tính cũ',
-      'Một lời cam kết với phiên bản mới của chính mình',
-      'Cách tiếp tục sống từ sự bình an ngay cả khi hành trình 7 ngày kết thúc'
-    ],
-    highlight: '🎓 Graduation Ceremony.',
-    result: `Bạn không chỉ "học xong" — bạn bước ra là một người khác với người đã bước vào Ngày 1.`
-  }
-];
-
-const TOTAL_DAYS = curriculum.length;
-
-function ProgressDots({ day }: { day: number }) {
-  return (
-    <div className="flex items-center gap-1" aria-label={`Tiến độ ngày ${day} trên ${TOTAL_DAYS}`}>
-      {Array.from({ length: TOTAL_DAYS }).map((_, i) => (
-        <span
-          key={i}
-          className={`w-1.5 h-1.5 rounded-full ${
-            i < day ? 'bg-primary' : 'bg-border/50'
-          }`}
-        />
-      ))}
-    </div>
-  );
+// Self-loads both fonts so the section renders correctly even if the
+// project's global CSS doesn't import them.
+// - Manrope: body copy, quotes, labels, lists — everything but the headline.
+// - Playfair Display: reserved for the single H2 display moment only.
+const GOOGLE_FONT_ID = 'font-manrope-playfair';
+function useSectionFonts() {
+  useEffect(() => {
+    if (document.getElementById(GOOGLE_FONT_ID)) return;
+    const link = document.createElement('link');
+    link.id = GOOGLE_FONT_ID;
+    link.rel = 'stylesheet';
+    link.href =
+      'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap';
+    document.head.appendChild(link);
+  }, []);
 }
 
-function IncludesCard() {
-  return (
-    <div className="rounded-lg bg-primary/5 border border-primary/15 p-3 sm:p-3.5">
-      <p className="text-xs font-semibold text-primary mb-2">✨ Bao gồm</p>
-      <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
-        {INCLUDES.map(({ emoji, label }) => (
-          <span key={label} className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-foreground/75">
-            <span className="text-sm">{emoji}</span>
-            {label}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
+// ── Type scale ─────────────────────────────────────────────────────
+// Exactly 4 tiers, reused everywhere instead of ad-hoc sizes per block.
+const T_DISPLAY = 'text-4xl sm:text-5xl lg:text-6xl font-bold'; // the one headline
+const T_QUOTE = 'text-xl sm:text-2xl font-medium italic'; // pull-quote / emphasis lines
+const T_SUBHEAD = 'text-xl sm:text-2xl font-bold'; // h3-level section subheads
+const T_BODY = 'text-base sm:text-lg leading-relaxed'; // all paragraphs and list items
+const T_LABEL = 'text-sm sm:text-base font-bold uppercase tracking-wide'; // small tags/badges
+const T_CAPTION = 'text-sm sm:text-base text-foreground/55 leading-snug'; // secondary line under a list item
 
-function DayCard({
-  day,
-  image,
-  title,
-  milestone,
-  learnLabel,
-  learns,
-  highlight,
-  result,
-  index
-}: typeof curriculum[0] & { index: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group overflow-hidden rounded-xl bg-card/40 backdrop-blur-sm border border-border/30 hover:border-primary/50 transition-all duration-300"
-    >
-      {image && (
-        <div className="relative aspect-video w-full overflow-hidden">
-          <img
-            src={image}
-            alt={`${title} - ${milestone}`}
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
-          {highlight && (
-            <div className="absolute top-3 right-3 px-3 py-1.5 rounded-full bg-accent/90 backdrop-blur-sm text-xs font-semibold text-accent-foreground shadow-lg">
-              {highlight}
-            </div>
-          )}
-        </div>
-      )}
+// ── Spacing rhythm ─────────────────────────────────────────────────
+// Exactly 2 tiers: gap between major blocks, gap between lines inside a block.
+const BLOCK_GAP = 'mb-12 sm:mb-16';
+const LINE_GAP = 'space-y-4 sm:space-y-5';
 
-      <div className="w-full text-left p-4 sm:p-6" data-testid={`curriculum-day-${day}`}>
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex-1">
-            <div className="flex items-center gap-3 sm:gap-4 mb-2">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
-                <span className="text-base sm:text-lg font-bold text-primary-foreground">{day}</span>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-gradient-gold">
-                  {title}
-                </h3>
-                <div className="flex items-center gap-2 mt-1">
-                  <p className="text-xs sm:text-sm text-muted-foreground">{milestone}</p>
-                  <ProgressDots day={day} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+const fears = [
+  {
+    title: 'Sợ mình không đủ.',
+    desc: 'Bạn luôn nhìn thấy điểm mạnh của người khác, nhưng chỉ nhìn thấy điểm yếu của chính mình.',
+  },
+  {
+    title: 'Sợ thất bại.',
+    desc: 'Bạn chuẩn bị rất nhiều nhưng vẫn trì hoãn, vì trong lòng luôn có một tiếng nói rằng: "Mình chưa đủ giỏi."',
+  },
+   {
+    title: 'Sợ bị bỏ rơi.',
+    desc: 'Bạn cố gắng làm hài lòng, nhẫn nhịn hoặc kiểm soát người khác chỉ để giữ một mối quan hệ.',
+  },
+  {
+    title: 'Sợ bị đánh giá.',
+    desc: 'Bạn nghĩ rất nhiều trước khi nói, trước khi đăng một bài viết hay trước khi dám thể hiện chính mình.',
+  },
+  {
+    title: 'Sợ bắt đầu lại.',
+    desc: 'Bạn tiếp tục ở lại với một công việc, một mối quan hệ hoặc một cuộc sống không còn phù hợp... chỉ vì bắt đầu lại có vẻ còn đáng sợ hơn.',
+  },
+  ];
 
-        <div className="pt-4 sm:pt-6 space-y-4 sm:space-y-5 border-t border-border/30 mt-4">
-          <div>
-            <p className="text-xs sm:text-sm font-semibold text-primary mb-2 sm:mb-3">
-              {learnLabel}
-            </p>
-            <ul className="space-y-2">
-              {learns.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 sm:gap-3">
-                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm sm:text-base text-foreground/80 leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <IncludesCard />
-
-          <div className="p-3 sm:p-4 rounded-lg bg-primary/10 border-l-4 border-primary">
-            <p className="text-xs sm:text-sm font-medium text-foreground">
-              <strong className="text-primary">🎯 Chiến thắng:</strong> {result}
-            </p>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-export function CurriculumSection() {
+export function ProblemSection() {
+  useSectionFonts();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section id="curriculum" ref={sectionRef} className="py-16 sm:py-24 lg:py-32 relative">
+    <section
+      ref={sectionRef}
+      className="py-16 sm:py-20 lg:py-24 relative"
+      style={{ fontFamily: "'Manrope', sans-serif" }}
+    >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* ── Headline block — the one serif moment ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-8 sm:mb-10"
+          className={`text-center mb-8 sm:mb-10`}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold mb-4 sm:mb-6">
-            Sau 7 Ngày, Bạn Sẽ Không Còn Để Nỗi Sợ <br /> Quyết Định Cuộc Đời Mình
+          <h2
+            className={`${T_DISPLAY} text-gradient-gold mb-6`}
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Có Phải Nỗi Sợ Đang Âm Thầm
+            <br />
+            Điều Khiển Cuộc Đời Bạn?
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
-            Bạn không cần thay đổi cuộc đời trong một ngày. Chỉ cần đi từng bước, mỗi ngày
-            khoảng 20 phút.
-            <br className="hidden sm:block" />
-            Sau 7 ngày... bạn sẽ nhìn cuộc sống bằng một trạng thái hoàn toàn khác.
+
+          <div className={`max-w-3xl mx-auto ${LINE_GAP} ${T_BODY} text-foreground/80`}>
+            <p>Có thể bạn nghĩ mình chỉ đang lo lắng quá nhiều.</p>
+            <p>
+              <span className="sm:whitespace-nowrap">
+                Nhưng sự thật là rất nhiều quyết định trong cuộc sống không xuất phát từ điều bạn thật sự mong muốn...
+              </span>
+              <br />
+              <strong className="text-foreground">
+                Mà từ những nỗi sợ đã âm thầm điều khiển bạn suốt nhiều năm.
+              </strong>
+            </p>
+            <p className="italic">Có thể đó là...</p>
+          </div>
+        </motion.div>
+
+        {/* ── Fear list — same body scale as everything else, not oversized ── */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className={`max-w-2xl mx-auto ${BLOCK_GAP}`}
+        >
+          {fears.map((fear, idx) => (
+            <motion.div
+              key={fear.title}
+              initial={{ opacity: 0, x: -20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 + idx * 0.08 }}
+              className="flex items-start gap-3 py-3 sm:py-3.5 border-b border-border/30"
+              data-testid={`fear-item-${idx}`}
+            >
+              <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+              <div>
+                <p className={`${T_BODY} text-foreground/90`}>{fear.title}</p>
+                <p className={`${T_CAPTION} mt-1`}>{fear.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* ── Consequence block ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className={`max-w-3xl mx-auto ${BLOCK_GAP}`}
+        >
+          <p className={`${T_QUOTE} text-foreground mb-2`}>
+            Điều đáng sợ không phải là bạn có những nỗi sợ ấy.
+          </p>
+          <p className={`${T_QUOTE} text-foreground mb-4`}>
+            Mà là chúng đang âm thầm đưa ra quyết định thay bạn.
+          </p>
+          <p className={`${T_BODY} italic text-foreground/70 mb-4`}>Thế nên bạn...</p>
+          <ul className={`${LINE_GAP} pl-4 sm:pl-6`}>
+            <li className="flex items-start gap-2 sm:gap-3">
+              <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+              <span className={`${T_BODY} text-foreground/80`}>
+                Không dám bắt đầu điều mình thật sự muốn.
+              </span>
+            </li>
+            <li className="flex items-start gap-2 sm:gap-3">
+              <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+              <span className={`${T_BODY} text-foreground/80`}>
+                Chọn an toàn thay vì phát triển.
+              </span>
+            </li>
+            <li className="flex items-start gap-2 sm:gap-3">
+              <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+              <span className={`${T_BODY} text-foreground/80`}>
+                Thu nhỏ ước mơ của mình.
+              </span>
+            </li>
+            <li className="flex items-start gap-2 sm:gap-3">
+              <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+              <span className={`${T_BODY} text-foreground/80`}>
+                Sống để bớt sợ thay vì sống hạnh phúc.
+              </span>
+            </li>
+          </ul>
+          <p className={`${T_BODY} font-medium text-foreground mt-4 sm:mt-5`}>
+            Theo thời gian, bạn không còn sống cuộc đời mình mong muốn.
+          </p>
+          <p className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold leading-snug mt-3 sm:mt-4 text-gradient-gold">
+            Bạn chỉ đang sống trong giới hạn mà nỗi sợ cho phép.
           </p>
         </motion.div>
 
-        {/* Story-arc teaser — frames the 7 days as one continuous journey,
-            not seven separate topics, before the day cards begin. */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
+        {/* ── Tree metaphor (text only — the tree image already lives in Hero) ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.15 }}
-          className="text-center text-sm sm:text-base text-foreground/60 italic max-w-xl mx-auto mb-12 sm:mb-16"
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className={BLOCK_GAP}
         >
-          Đây không phải một khóa học. Đây là một cuộc hành hương nội tâm 7 ngày — từ người
-          đang bị nỗi sợ cầm lái, đến người bước ra với một danh tính mới.
-        </motion.p>
+          <div className={`text-center max-w-2xl mx-auto ${LINE_GAP}`}>
+            <p className={`${T_QUOTE} text-foreground`}>Hãy hình dung cuộc đời bạn như một cái cây.</p>
+            <p className={`${T_BODY} text-foreground/80`}>
+              Phần mọi người nhìn thấy: công việc, gia đình, sự cố gắng mỗi ngày — chỉ là phần thân và
+              lá. Nhưng thứ quyết định cái cây đứng vững hay gục ngã...<br />{' '}
+              <strong className="text-gradient-gold"> lại là bộ rễ nằm sâu dưới mặt đất.</strong>
+            </p>
+            <p className={`${T_QUOTE} text-foreground`}>Cuộc sống của bạn cũng vậy.</p>
+          </div>
+        </motion.div>
 
-        <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
-          {curriculum.map((day, index) => (
-            <DayCard key={day.day} {...day} index={index} />
-          ))}
-        </div>
+        {/* ── Roots comparison ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className={BLOCK_GAP}
+        >
+          <div className="max-w-4xl mx-auto">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/20 mb-6">
+              <img
+                src={rootsCompareImage}
+                alt="Comparison between fear roots and safety roots"
+                className="w-full h-auto"
+              />
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
+              <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/30">
+                <p className={`${T_LABEL} text-primary`}>Rễ An Toàn</p>
+              </div>
+              <div className="text-center p-4 rounded-xl bg-destructive/10 border border-destructive/30">
+                <p className={`${T_LABEL} text-destructive`}>Rễ Sợ Hãi</p>
+              </div>
+            </div>
+
+            <p className={`text-center ${T_BODY} italic text-muted-foreground`}>
+              "Từ xa nhìn vào, hai cái cây trông giống hệt nhau.
+              <br />
+              Nhưng chỉ một cái sẽ đứng vững qua giông bão."
+            </p>
+          </div>
+        </motion.div>
+
+        {/* ── Two-column check ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto"
+        >
+          <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary/30">
+            <h3 className={`${T_SUBHEAD} text-primary mb-5`}>Bạn có đang sống bằng rễ an toàn không?</h3>
+            <ul className={LINE_GAP}>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Quyết định từ sự bình an.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Dám nói không.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Tin bản thân.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Dám thay đổi.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-destructive/20 to-destructive/5 border-2 border-destructive/30">
+            <h3 className={`${T_SUBHEAD} text-destructive mb-5`}>
+              Hay bạn đang sống bằng rễ sợ hãi?
+            </h3>
+            <ul className={LINE_GAP}>
+              <li className="flex items-start gap-2">
+                <span className="text-destructive mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Quyết định vì sợ.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-destructive mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Luôn làm hài lòng.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-destructive mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Luôn nghi ngờ.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-destructive mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Sợ bắt đầu.</span>
+              </li>
+            </ul>
+          </div>
+        </motion.div>
+
+        {/* ── Bridge to Solution ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="max-w-2xl mx-auto text-center mt-12 sm:mt-16"
+        >
+          <p className={`${T_BODY} text-foreground/80 mb-2`}>
+            Nếu bạn nhận ra mình trong những điều trên...
+          </p>
+          <p className={`${T_QUOTE} text-foreground mb-2`}>
+            Tin vui là vấn đề không nằm ở ý chí.
+          </p>
+          <p className={`${T_QUOTE} text-foreground mb-2`}>
+            Vấn đề nằm ở gốc rễ.
+          </p>
+          <p className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold leading-snug mt-3 sm:mt-4 text-gradient-gold">
+            Và gốc rễ có thể được thay đổi.
+          </p>
+
+          <p className={`${T_BODY} text-foreground mt-5 sm:mt-6`}>
+            Đó chính là điều <strong className="text-foreground">Inner Safety Method™</strong> được tạo ra để làm.
+          </p>
+          <p className={`${T_BODY} text-foreground/80 mt-2`}>
+            Thay vì dành cả đời cố kiểm soát những biểu hiện bên ngoài của nỗi sợ, bạn sẽ từng
+            bước đi xuống những gốc rễ đang khiến nó tiếp tục cầm lái.
+          </p>
+
+          {/* CTA continues directly off the line above — same container,
+              same fade-in, no new background or card boundary. */}
+          <InlineCTA
+            headline="Bắt đầu hành trình tháo gỡ gốc rễ của nỗi sợ — ngay hôm nay."
+            subtext="Chỉ 20 phút mỗi ngày, trong 7 ngày."
+          />
+        </motion.div>
       </div>
     </section>
   );
