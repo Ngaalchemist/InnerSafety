@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Check, BookOpen, PenLine, Headphones, Sparkles, Flame } from 'lucide-react';
+import { Check } from 'lucide-react';
 import day1Image from '../../../../../attached_assets/day-1.jpg';
 import day2Image from '../../../../../attached_assets/day-2.jpg';
 import day3Image from '../../../../../attached_assets/day-3.jpg';
@@ -9,14 +9,15 @@ import day5Image from '../../../../../attached_assets/day-5.jpg';
 import day6Image from '../../../../../attached_assets/day-6.jpg';
 import day7Image from '../../../../../attached_assets/day-7.jpg';
 
-// Every day follows the same 4-part format (Teaching → Reflection →
-// Hypnosis/Healing Journey → Integration), so it's rendered once per card
-// as a fixed rhythm bar instead of a different badge set per day.
-const DAY_FORMAT = [
-  { icon: BookOpen, label: 'Giảng dạy', time: '10 phút' },
-  { icon: PenLine, label: 'Reflection Journal', time: '5 phút' },
-  { icon: Headphones, label: 'Hypnosis / Healing Journey', time: '20–30 phút' },
-  { icon: Sparkles, label: 'Integration', time: '5 phút' },
+// Every day follows the same 4-part rhythm, shown as a small "✨ Bao gồm"
+// card (emoji + label only, no minute counts) instead of a syllabus-style
+// "Giảng dạy · Reflection · Hypnosis · Integration" text bar — the latter
+// read like a course platform, not a premium transformation journey.
+const INCLUDES = [
+  { emoji: '📖', label: 'Bài học' },
+  { emoji: '📝', label: 'Journal' },
+  { emoji: '🌀', label: 'Healing Journey' },
+  { emoji: '🌱', label: 'Thực hành Integration' },
 ] as const;
 
 const curriculum = [
@@ -27,9 +28,9 @@ const curriculum = [
     milestone: 'Thấy',
     learnLabel: 'Bạn sẽ nhận ra',
     learns: [
-      'Vì sao bạn cứ chuẩn bị rất kỹ mà đến phút cuối lại chùn bước',
-      '4 cách cơ thể phản ứng khi sợ hãi xuất hiện — và bạn đang mắc kẹt ở kiểu nào',
-      'Cách nhận ra ngay lập tức khi nỗi sợ đang "cầm lái" thay vì bạn'
+      'Điều thật sự khiến bạn chùn bước ngay trước ngưỡng cửa thay đổi',
+      '4 phản ứng sinh tồn đang âm thầm điều khiển bạn — và bạn đang mắc kẹt ở đâu',
+      'Khoảnh khắc chính xác khi nỗi sợ "cầm lái" thay vì bạn'
     ],
     result: 'Lần đầu tiên, bạn đứng lùi lại đủ xa để thấy: không phải mình yếu — mà nỗi sợ đã lái xe quá lâu.'
   },
@@ -41,9 +42,10 @@ const curriculum = [
     learnLabel: 'Bạn sẽ học cách',
     learns: [
       'Đưa cơ thể về trạng thái bình tĩnh chỉ trong vài phút, bất cứ khi nào cần',
-      'Vì sao "biết mình nên bình tĩnh" không giúp được gì, cho đến khi cơ thể thật sự cảm thấy an toàn',
-      'Tạo một "nơi an toàn" bên trong mà bạn có thể quay về bất cứ lúc nào'
+      'Rút ngắn khoảng cách giữa "biết mình nên bình tĩnh" và cơ thể thật sự cảm thấy an toàn',
+      'Tạo một nơi an toàn bên trong mà bạn có thể quay về bất cứ lúc nào'
     ],
+    highlight: '🌿 Ngày đầu tiên cơ thể thật sự được nghỉ ngơi.',
     result: 'Lần đầu tiên sau rất lâu, bạn cảm thấy: cơ thể mình thật sự an toàn.'
   },
   {
@@ -53,11 +55,11 @@ const curriculum = [
     milestone: 'Buông',
     learnLabel: 'Bạn sẽ giải phóng',
     learns: [
-      'Vì sao có những cảm xúc bạn tưởng đã qua nhưng vẫn âm thầm điều khiển cuộc sống',
-      'Vì sao chỉ cần bị chê một câu là cơ thể lại phản ứng như nhiều năm trước',
-      'Cách giải phóng những cảm xúc còn mắc kẹt để chúng không tiếp tục kéo bạn về quá khứ'
+      'Những cảm xúc tưởng đã qua nhưng vẫn âm thầm điều khiển cuộc sống',
+      'Những ký ức khiến cơ thể luôn phản ứng như đang ở trong quá khứ',
+      'Gánh nặng cảm xúc bạn đã mang theo quá lâu'
     ],
-    highlight: 'Phiên chữa lành sâu nhất trong 7 ngày',
+    highlight: '⭐ Phiên chữa lành sâu nhất.',
     result: 'Bạn cảm thấy nhẹ đi một điều đã mang theo rất lâu, mà không hẳn biết vì sao nó lại nặng đến vậy.'
   },
   {
@@ -67,9 +69,9 @@ const curriculum = [
     milestone: 'Tái lập',
     learnLabel: 'Bạn sẽ tháo gỡ',
     learns: [
-      'Những niềm tin bạn đang gọi là "sự thật"... thật ra chỉ là điều bạn từng được dạy',
-      'Vì sao bạn luôn thấy mình chưa đủ, dù đã cố gắng rất nhiều',
-      'Cách thay thế những niềm tin cũ bằng một nền tảng mới vững chắc hơn'
+      'Những niềm tin khiến bạn luôn thấy mình chưa đủ',
+      'Những "sự thật" bạn đã tin nhiều năm nhưng chưa từng kiểm chứng',
+      'Bộ rễ niềm tin mới giúp bạn hành động từ sự bình an'
     ],
     result: `Thay vì tự nhủ "chắc mình không làm được đâu"... bạn bắt đầu tin rằng mình có thể.`
   },
@@ -78,27 +80,27 @@ const curriculum = [
     image: day5Image,
     title: 'CHỮA LÀNH MỐI QUAN HỆ VỚI TIỀN',
     milestone: 'Mở rộng',
-    learnLabel: 'Bạn sẽ hàn gắn',
+    learnLabel: 'Bạn sẽ nhận ra',
     learns: [
-      'Vì sao bạn né tránh nhìn vào tài khoản, hoặc luôn thấy thiếu dù kiếm được bao nhiêu',
-      'Mối quan hệ thật sự giữa bạn và Tiền — không phải mindset, mà là một mối quan hệ cần được chữa lành',
-      'Cách viết lại "hợp đồng" mới với Tiền, để không còn né tránh hay sợ hãi'
+      'Vì sao nỗi sợ thiếu hụt khiến bạn luôn lo lắng về tiền',
+      'Vì sao càng cố giữ tiền, bạn càng sống trong cảm giác không đủ',
+      'Cách xây dựng một mối quan hệ bình an hơn với tiền bạc'
     ],
+    highlight: '💛 Journey được học viên yêu thích nhất.',
     result: 'Bạn không còn né tránh nhìn vào tài khoản của mình — mà cảm thấy mình và Tiền đang ở cùng một phía.'
   },
   {
     day: 6,
     image: day6Image,
     title: 'BƯỚC VÀO DANH TÍNH MỚI',
-    subtitle: 'Higher Self Journey',
     milestone: 'Trở thành',
     learnLabel: 'Bạn sẽ gặp',
     learns: [
-      'Phiên bản của bạn — người đã đi qua tất cả những gì bạn đang trải qua',
+      'Phiên bản của bạn đã sống cuộc đời mà bạn vẫn đang mơ ước',
       'Một danh tính mới mà bạn được phép bước vào, thay vì tiếp tục là phiên bản cũ',
       'Cảm giác thật sự khi biết mình có thể tin tưởng chính mình'
     ],
-    highlight: 'Hành trình được yêu thích nhất',
+    highlight: '✨ Journey giàu cảm xúc nhất.',
     result: 'Bạn khóc — không phải vì đau, mà vì lần đầu tiên gặp được người mình luôn có thể trở thành.'
   },
   {
@@ -108,11 +110,11 @@ const curriculum = [
     milestone: 'Vượt qua',
     learnLabel: 'Bạn sẽ bước vào',
     learns: [
-      'Một nghi thức khép lại phiên bản cũ, thay vì chỉ "kết thúc khóa học"',
-      'Cách mang cảm giác an toàn này đi cùng bạn, ngay cả khi khóa học đã xong',
-      'Bước hành động đầu tiên để chính thức sống là con người mới của mình'
+      'Một nghi thức khép lại danh tính cũ',
+      'Một lời cam kết với phiên bản mới của chính mình',
+      'Cách tiếp tục sống từ sự bình an ngay cả khi hành trình 7 ngày kết thúc'
     ],
-    highlight: 'Graduation Ceremony — buổi lễ khép lại hành trình',
+    highlight: '🎓 Graduation Ceremony.',
     result: `Bạn không chỉ "học xong" — bạn bước ra là một người khác với người đã bước vào Ngày 1.`
   }
 ];
@@ -134,16 +136,18 @@ function ProgressDots({ day }: { day: number }) {
   );
 }
 
-function DayFormatBar() {
+function IncludesCard() {
   return (
-    <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-foreground/60">
-      {DAY_FORMAT.map(({ icon: Icon, label, time }, i) => (
-        <span key={label} className="inline-flex items-center gap-1.5">
-          <Icon className="w-3.5 h-3.5 text-primary/70 flex-shrink-0" />
-          {label} <span className="text-foreground/40">· {time}</span>
-          {i < DAY_FORMAT.length - 1 && <span className="hidden sm:inline text-border ml-4">/</span>}
-        </span>
-      ))}
+    <div className="rounded-lg bg-primary/5 border border-primary/15 p-3 sm:p-3.5">
+      <p className="text-xs font-semibold text-primary mb-2">✨ Bao gồm</p>
+      <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
+        {INCLUDES.map(({ emoji, label }) => (
+          <span key={label} className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-foreground/75">
+            <span className="text-sm">{emoji}</span>
+            {label}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
@@ -152,7 +156,6 @@ function DayCard({
   day,
   image,
   title,
-  subtitle,
   milestone,
   learnLabel,
   learns,
@@ -178,8 +181,7 @@ function DayCard({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
           {highlight && (
-            <div className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-accent/90 backdrop-blur-sm text-xs font-semibold text-accent-foreground shadow-lg">
-              <Flame className="w-3.5 h-3.5" />
+            <div className="absolute top-3 right-3 px-3 py-1.5 rounded-full bg-accent/90 backdrop-blur-sm text-xs font-semibold text-accent-foreground shadow-lg">
               {highlight}
             </div>
           )}
@@ -197,9 +199,6 @@ function DayCard({
                 <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-gradient-gold">
                   {title}
                 </h3>
-                {subtitle && (
-                  <p className="text-xs sm:text-sm text-muted-foreground italic">{subtitle}</p>
-                )}
                 <div className="flex items-center gap-2 mt-1">
                   <p className="text-xs sm:text-sm text-muted-foreground">{milestone}</p>
                   <ProgressDots day={day} />
@@ -224,7 +223,7 @@ function DayCard({
             </ul>
           </div>
 
-          <DayFormatBar />
+          <IncludesCard />
 
           <div className="p-3 sm:p-4 rounded-lg bg-primary/10 border-l-4 border-primary">
             <p className="text-xs sm:text-sm font-medium text-foreground">
@@ -256,7 +255,7 @@ export function CurriculumSection() {
             Sau 7 Ngày, Bạn Sẽ Không Còn Để Nỗi Sợ <br /> Quyết Định Cuộc Đời Mình
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
-            Bạn không cần thay đổi cuộc đời trong một ngày. <br />Chỉ cần đi từng bước, mỗi ngày
+            Bạn không cần thay đổi cuộc đời trong một ngày. Chỉ cần đi từng bước, mỗi ngày
             khoảng 20 phút.
             <br className="hidden sm:block" />
             Sau 7 ngày... bạn sẽ nhìn cuộc sống bằng một trạng thái hoàn toàn khác.
