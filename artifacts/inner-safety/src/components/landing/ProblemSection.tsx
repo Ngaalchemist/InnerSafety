@@ -301,10 +301,18 @@ export function ProblemSection() {
             Và gốc rễ có thể được thay đổi.
           </p>
 
+          <p className={`${T_BODY} text-foreground mt-5 sm:mt-6`}>
+            Đó chính là điều <strong className="text-foreground">Inner Safety Method™</strong> được tạo ra để làm.
+          </p>
+          <p className={`${T_BODY} text-foreground/80 mt-2`}>
+            Thay vì dành cả đời cố kiểm soát những biểu hiện bên ngoài của nỗi sợ, bạn sẽ từng
+            bước đi xuống những gốc rễ đang khiến nó tiếp tục cầm lái.
+          </p>
+
           {/* CTA continues directly off the line above — same container,
               same fade-in, no new background or card boundary. */}
           <InlineCTA
-            headline="Bắt đầu thay đổi gốc rễ đó — ngay hôm nay."
+            headline="Bắt đầu hành trình tháo gỡ gốc rễ của nỗi sợ — ngay hôm nay."
             subtext="Chỉ 20 phút mỗi ngày, trong 7 ngày."
           />
         </motion.div>
