@@ -113,41 +113,56 @@ export function InstructorSection() {
             className="font-['Be_Vietnam_Pro'] font-light space-y-4 sm:space-y-5 text-sm sm:text-base text-foreground/80 leading-relaxed mb-10 sm:mb-14"
           >
             <p className="font-serif font-semibold text-base sm:text-lg text-foreground">
-              Tôi hiểu nỗi sợ vì tôi đã từng sống bên trong nó.
+              Tôi hiểu nỗi sợ đó… vì tôi đã từng sống bên trong nó.
             </p>
             <p>
-              Từ năm 2009, cuộc đời tôi thay đổi khi bố mẹ ly hôn. Từ một cô gái lớn lên trong
-              sự đủ đầy, tôi bất ngờ phải bước ra khỏi tổ ấm của mình và bắt đầu lại.
-            </p>
-            <p>Gia đình ly tán và những thất bại liên tiếp trong tình cảm khiến tôi từng tin rằng:</p>
-            <p className="pl-4 sm:pl-6 border-l-2 border-destructive/40 italic text-foreground/70 space-y-1">
-              <span className="block">"Mình không xứng đáng."</span>
-              <span className="block">"Mình không có giá trị."</span>
-              <span className="block">"Không ai cần mình."</span>
+              Năm 2009, biến cố bố mẹ ly hôn làm cuộc đời tôi thay đổi. Từ một cô gái lớn lên
+              trong sự ấm êm, tôi chới với bước ra khỏi tổ ấm an toàn và loay hoay bắt đầu lại
+              mọi thứ.
             </p>
             <p>
-              Rồi khi Covid-19 ập đến, tôi phá sản, thất nghiệp, ly hôn, và những năm tháng vừa
-              chữa lành chính mình, vừa nuôi con nhỏ tiếp tục đến.
+              Gia đình tan vỡ cùng những thất bại liên tiếp trong tình cảm dần mài mòn sự tự
+              tin, khiến tôi từng tin rằng:
+            </p>
+            <div className="py-2 sm:py-3 text-center space-y-2 sm:space-y-2.5">
+              <p className="italic text-foreground/70">"Mình không xứng đáng."</p>
+              <p className="italic text-foreground/70">"Mình chẳng có giá trị gì."</p>
+              <p className="italic text-foreground/70">"Sẽ chẳng một ai cần mình."</p>
+            </div>
+            <p>
+              Chưa dừng lại ở đó, biến cố Covid-19 bất ngờ ập đến{' '}
+              <span className="italic text-foreground/70">như một gáo nước lạnh</span>: phá
+              sản, thất nghiệp, ly hôn. Tôi rơi vào chuỗi ngày vừa ôm con nhỏ, vừa nhặt nhạnh
+              từng mảnh vỡ của chính mình để chữa lành.
             </p>
             <p>
-              Tôi hiểu cảm giác rất muốn bước tiếp nhưng bên trong luôn có một thứ gì đó kéo
-              mình lại.
+              Hơn ai hết, tôi thấu cảm trọn vẹn cảm giác: rất muốn bước tiếp, nhưng bên trong
+              luôn có một{' '}
+              <span className="italic text-foreground/70">lực cản vô hình</span> kéo ghì mình
+              lại.
             </p>
             <p>
-              Sau hơn 4 năm nghiên cứu, thực hành thôi miên trị liệu và đồng hành cùng khách
-              hàng, tôi nhận ra:{' '}
+              Sau hơn 4 năm nghiên cứu, thực hành thôi miên trị liệu và đồng hành cùng hàng trăm
+              khách hàng, tôi nhận ra:
+            </p>
+            <p className="text-center px-2 sm:px-4">
               <strong className="font-normal text-foreground">
-                chúng ta không phải lúc nào cũng thiếu ý chí. Nhiều khi, chúng ta chỉ đang cố
-                xây một cuộc đời mới trên một nền tảng bên trong vẫn còn sợ hãi.
+                Nhiều khi, chúng ta không thiếu ý chí. Chúng ta chỉ đang cố xây một cuộc đời mới
+                trên một nền tảng bên trong vẫn còn sợ hãi.
               </strong>
             </p>
             <p>Và đó là lý do Inner Safety Method™ ra đời.</p>
             <p>
-              Phương pháp này không bắt bạn cố gắng hơn hay ép mình "vượt qua nỗi sợ". Thay vào
-              đó, nó giúp bạn nhìn vào{' '}
-              <strong className="font-normal text-primary">4 nơi nỗi sợ thường để lại dấu vết</strong>: cơ
-              thể, cảm xúc, niềm tin và cách bạn nhìn chính mình. Khi những điều bên trong thay
-              đổi, bạn không còn phải dùng ý chí để chiến đấu với chính mình mỗi ngày.
+              Phương pháp này không ép bạn phải "mạnh mẽ lên", cũng không bắt bạn gồng mình
+              "vượt qua nỗi sợ". Thay vào đó, nó nhẹ nhàng dẫn dắt bạn soi chiếu vào{' '}
+              <strong className="font-normal text-primary">
+                4 nơi mà nỗi sợ thường để lại dấu vết
+              </strong>
+              : cơ thể, cảm xúc, niềm tin, và cách bạn tự nhìn nhận chính mình.
+            </p>
+            <p>
+              Khi sự an toàn từ bên trong được phục hồi, bạn sẽ không còn phải dùng ý chí để
+              chiến đấu với chính mình mỗi ngày nữa.
             </p>
           </motion.div>
 
