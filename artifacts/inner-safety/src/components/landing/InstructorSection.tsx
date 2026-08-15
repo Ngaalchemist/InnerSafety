@@ -2,6 +2,9 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Award, Users, Calendar, ArrowRight } from 'lucide-react';
 import ngaPortrait from '@assets/nga-portrait.png';
+// NOTE: pointing at the actual existing asset file (nga-rmit-cleaned.jpg) so the
+// build doesn't break — rename the physical file if you want the import path to
+// read "nga-speaking.jpg" instead.
 import ngaSpeakingImage from '@assets/nga-rmit-cleaned.jpg';
 
 // Formal, verifiable credentials only — no brand nicknames mixed in
@@ -57,7 +60,7 @@ export function InstructorSection() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="text-center mb-10 sm:mb-14"
           >
-            <div className="w-40 h-40 sm:w-52 sm:h-52 mx-auto mb-6 sm:mb-7 relative rounded-2xl overflow-hidden shadow-xl border border-border/20">
+            <div className="w-56 sm:w-72 md:w-80 aspect-[3/4] mx-auto mb-6 sm:mb-7 relative rounded-2xl overflow-hidden shadow-2xl border border-border/20">
               <img
                 src={ngaPortrait}
                 alt="Nga Alchemist - Founder Inner Safety Method"
@@ -209,28 +212,31 @@ export function InstructorSection() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </motion.div>
-
-          {/* Speaking photo — closes the section as social proof.
-              Deliberately no venue/institution name in the alt text or
-              caption, so the image is just "Nga speaking" and doesn't
-              imply an endorsement or affiliation that wasn't confirmed. */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/20">
-              <img
-                src={ngaSpeakingImage}
-                alt="Nga Alchemist chia sẻ trên sân khấu"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <p className="text-center text-xs sm:text-sm text-foreground/60 mt-3">
-              Nga Alchemist chia sẻ tại một sự kiện
-            </p>
-          </motion.div>
         </div>
+
+        {/* Speaking photo — closes the section as social proof. Deliberately
+            wider than the text column above (max-w-5xl instead of max-w-3xl)
+            so it reads as a large, confident image rather than a small
+            thumbnail. Also deliberately no venue/institution name in the alt
+            text or caption, so it doesn't imply an endorsement/affiliation
+            that wasn't confirmed. */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="max-w-5xl mx-auto"
+        >
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/20">
+            <img
+              src={ngaSpeakingImage}
+              alt="Nga Alchemist chia sẻ trên sân khấu"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <p className="text-center text-xs sm:text-sm text-foreground/60 mt-3">
+            Nga Alchemist chia sẻ tại một sự kiện
+          </p>
+        </motion.div>
       </div>
     </section>
   );
