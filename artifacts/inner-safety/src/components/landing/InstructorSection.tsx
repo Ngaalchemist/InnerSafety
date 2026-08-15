@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Award, Users, Calendar, ArrowRight } from 'lucide-react';
+import { Users, Calendar } from 'lucide-react';
 import ngaPortrait from '@assets/nga-portrait.png';
 // NOTE: pointing at the actual existing asset file (nga-rmit-cleaned.jpg) so the
 // build doesn't break — rename the physical file if you want the import path to
@@ -8,25 +8,17 @@ import ngaPortrait from '@assets/nga-portrait.png';
 import ngaSpeakingImage from '@assets/nga-rmit-cleaned.jpg';
 
 // ─────────────────────────────────────────────────────────────────────────
-// FONT SETUP — this section now uses:
-//   • "Quicksand"      → headline, name, quotes, numbers (round, soft, has presence)
-//   • "Be Vietnam Pro" → body copy, labels, captions (thin/light, full Vietnamese
-//                        diacritic support, reads gentle instead of heavy)
+// FONT SETUP:
+//   • Display type (headline, name, quotes, numbers, CTA) → back to the
+//     site's own `font-serif` so this section matches every other section's
+//     headline typography instead of introducing a new display font.
+//   • Body copy, labels, captions → "Be Vietnam Pro" at a light weight, for
+//     the softer/gentler reading feel, with full Vietnamese diacritic support.
 //
-// Add this ONE TIME to your index.html <head> (not needed in every component):
+// Only needs this in index.html <head> for the body font (font-serif is
+// presumably already wired up site-wide):
 //
-//   <link rel="preconnect" href="https://fonts.googleapis.com">
-//   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-//   <link
-//     href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
-//     rel="stylesheet"
-//   >
-//
-// If your project already defines font-sans / font-serif in tailwind.config
-// to point at other families site-wide, it's cleaner to add these as new
-// named utilities there (e.g. font-round / font-light-vn) instead of the
-// arbitrary font-[...] classes used below — happy to wire that up if you
-// share tailwind.config.
+//   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 // ─────────────────────────────────────────────────────────────────────────
 
 // Formal, verifiable credentials only — no brand nicknames mixed in
@@ -45,11 +37,6 @@ const stats = [
   { icon: Calendar, value: '4+', label: 'Năm nghiên cứu & thực hành thôi miên trị liệu' }
 ];
 
-function scrollToMethod() {
-  const el = document.getElementById('solution');
-  if (el) el.scrollIntoView({ behavior: 'smooth' });
-}
-
 export function InstructorSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
@@ -67,7 +54,7 @@ export function InstructorSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-10 sm:mb-14"
         >
-          <h2 className="font-['Quicksand'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-gradient-gold">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gradient-gold">
             Người Đứng Sau Beyond Fear
           </h2>
         </motion.div>
@@ -90,7 +77,7 @@ export function InstructorSection() {
               />
             </div>
 
-            <h3 className="font-['Quicksand'] text-2xl sm:text-3xl md:text-4xl font-semibold text-gradient-gold mb-1.5">
+            <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-gradient-gold mb-1.5">
               Nga Alchemist
             </h3>
             <p className="font-['Be_Vietnam_Pro'] font-light text-sm sm:text-base md:text-lg text-foreground/80 mb-5 sm:mb-6">
@@ -108,7 +95,7 @@ export function InstructorSection() {
               ))}
             </div>
 
-            <p className="font-['Quicksand'] font-light italic text-lg sm:text-xl md:text-2xl text-foreground max-w-xl mx-auto leading-snug">
+            <p className="font-serif italic font-medium text-lg sm:text-xl md:text-2xl text-foreground max-w-xl mx-auto leading-snug">
               "Tôi không tạo ra Inner Safety Method™ vì tôi chưa từng biết sợ. Tôi tạo ra nó
               vì tôi đã từng để nỗi sợ cầm lái cuộc đời mình."
             </p>
@@ -125,22 +112,22 @@ export function InstructorSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="font-['Be_Vietnam_Pro'] font-light space-y-4 sm:space-y-5 text-sm sm:text-base text-foreground/80 leading-relaxed mb-10 sm:mb-14"
           >
-            <p className="font-['Quicksand'] font-medium text-base sm:text-lg text-foreground">
+            <p className="font-serif font-semibold text-base sm:text-lg text-foreground">
               Tôi hiểu nỗi sợ vì tôi đã từng sống bên trong nó.
             </p>
             <p>
               Từ năm 2009, cuộc đời tôi thay đổi khi bố mẹ ly hôn. Từ một cô gái lớn lên trong
               sự đủ đầy, tôi bất ngờ phải bước ra khỏi tổ ấm của mình và bắt đầu lại.
             </p>
-            <p>Những thất bại liên tiếp trong tình cảm khiến tôi từng tin:</p>
+            <p>Gia đình ly tán và những thất bại liên tiếp trong tình cảm khiến tôi từng tin rằng:</p>
             <p className="pl-4 sm:pl-6 border-l-2 border-destructive/40 italic text-foreground/70 space-y-1">
               <span className="block">"Mình không xứng đáng."</span>
               <span className="block">"Mình không có giá trị."</span>
               <span className="block">"Không ai cần mình."</span>
             </p>
             <p>
-              Rồi phá sản, thất nghiệp, ly hôn, và những năm tháng vừa chữa lành chính mình,
-              vừa nuôi con nhỏ tiếp tục đến.
+              Rồi khi Covid-19 ập đến, tôi phá sản, thất nghiệp, ly hôn, và những năm tháng vừa
+              chữa lành chính mình, vừa nuôi con nhỏ tiếp tục đến.
             </p>
             <p>
               Tôi hiểu cảm giác rất muốn bước tiếp nhưng bên trong luôn có một thứ gì đó kéo
@@ -170,7 +157,7 @@ export function InstructorSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="font-['Quicksand'] font-light italic text-lg sm:text-xl md:text-2xl text-foreground text-center max-w-2xl mx-auto leading-snug mb-10 sm:mb-14"
+            className="font-serif italic font-medium text-lg sm:text-xl md:text-2xl text-foreground text-center max-w-2xl mx-auto leading-snug mb-10 sm:mb-14"
           >
             Tôi hiểu nỗi sợ không chỉ vì tôi đã nghiên cứu nó.
             <br />
@@ -194,7 +181,7 @@ export function InstructorSection() {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-3 sm:mb-4">
                   <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
-                <p className="font-['Quicksand'] font-semibold text-2xl sm:text-3xl md:text-4xl text-gradient-gold mb-2">
+                <p className="font-serif font-bold text-2xl sm:text-3xl md:text-4xl text-gradient-gold mb-2">
                   {stat.value}
                 </p>
                 <p className="font-['Be_Vietnam_Pro'] font-light text-xs sm:text-sm text-foreground/70 leading-relaxed">
@@ -208,45 +195,20 @@ export function InstructorSection() {
               testimonials here (one concrete sentence each, not a paragraph)
               to back up the "500+" claim before moving into the method
               teaser. Insert real customer quotes — do not fabricate. */}
-
-          <div className="border-t border-border/30 mb-10 sm:mb-14" />
-
-          {/* Method teaser — one line + a way back up to Solution, closing
-              the section with a clear next step instead of trailing off. */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-center mb-10 sm:mb-14"
-          >
-            <p className="font-['Quicksand'] font-semibold text-lg sm:text-xl text-gradient-gold mb-2">
-              Inner Safety Method™
-            </p>
-            <p className="font-['Be_Vietnam_Pro'] font-light text-sm sm:text-base text-foreground/70 mb-5 max-w-md mx-auto">
-              Tháo gỡ nỗi sợ từ nhiều tầng, thay vì chỉ cố vượt qua nó.
-            </p>
-            <button
-              onClick={scrollToMethod}
-              className="font-['Quicksand'] font-medium group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/40 text-sm text-primary hover:bg-primary/10 transition-colors"
-              data-testid="button-explore-method"
-            >
-              Khám phá phương pháp
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </motion.div>
         </div>
 
-        {/* Speaking photo — closes the section as social proof. Deliberately
-            wider than the text column above (max-w-5xl instead of max-w-3xl)
-            so it reads as a large, confident image rather than a small
-            thumbnail. Also deliberately no venue/institution name in the alt
-            text or caption, so it doesn't imply an endorsement/affiliation
-            that wasn't confirmed. */}
+        {/* Speaking photo — sits here (before the method CTA) as the closing
+            piece of visual proof for the story/credibility section, wider
+            than the text column above (max-w-5xl instead of max-w-3xl) so it
+            reads as a large, confident image rather than a small thumbnail.
+            Deliberately no venue/institution name in the alt text or
+            caption, so it doesn't imply an endorsement/affiliation that
+            wasn't confirmed. */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="max-w-5xl mx-auto"
+          transition={{ duration: 0.8, delay: 0.45 }}
+          className="max-w-5xl mx-auto mb-10 sm:mb-14"
         >
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/20">
             <img
