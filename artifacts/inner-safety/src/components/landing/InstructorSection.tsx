@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Award, Users, Calendar, ArrowRight } from 'lucide-react';
 import ngaPortrait from '@assets/nga-portrait.png';
-import ngaSpeakingImage from '@assets/nga-speaking.jpg';
+import ngaSpeakingImage from '@assets/nga-rmit-cleaned.jpg';
 
 // Formal, verifiable credentials only — no brand nicknames mixed in
 const credentials = [
