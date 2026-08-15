@@ -160,10 +160,7 @@ export function InstructorSection() {
               </strong>
               : cơ thể, cảm xúc, niềm tin, và cách bạn tự nhìn nhận chính mình.
             </p>
-            <p>
-              Khi sự an toàn từ bên trong được phục hồi, bạn sẽ không còn phải dùng ý chí để
-              chiến đấu với chính mình mỗi ngày nữa.
-            </p>
+         
           </motion.div>
 
           {/* Closing line — the emotional thesis, kept as its own beat and
@@ -174,9 +171,9 @@ export function InstructorSection() {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="font-serif italic font-medium text-lg sm:text-xl md:text-2xl text-foreground text-center max-w-2xl mx-auto leading-snug mb-10 sm:mb-14"
           >
-            Tôi hiểu nỗi sợ không chỉ vì tôi đã nghiên cứu nó.
+            Bạn không cần chiến đấu với chính mình để bước tiếp.
             <br />
-            Tôi hiểu nó vì tôi đã từng để nó cầm lái cuộc đời mình.
+            Bạn cần một nền tảng bên trong đủ an toàn để bước đi.
           </motion.p>
 
           {/* Stats — 2 real numbers only: social proof + authority.
