@@ -1,22 +1,27 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Award, Users, Calendar } from 'lucide-react';
+import { Award, Users, Calendar, ArrowRight } from 'lucide-react';
 import ngaPortrait from '@assets/nga-portrait.png';
 import ngaRmitImage from '@assets/nga-rmit-cleaned.jpg';
 
 // Formal, verifiable credentials only — no brand nicknames mixed in
 const credentials = [
   'Certified Hypnotherapist (CTAA Accredited)',
-  '3+ năm thực hành thôi miên trị liệu',
+  '4+ năm thực hành thôi miên trị liệu',
   '500+ người đồng hành'
 ];
 
 // Only real, concrete numbers — no filler stats
 const stats = [
   { icon: Users, value: '500+', label: 'Học viên & khách hàng đồng hành' },
-  { icon: Calendar, value: '3+', label: 'Năm nghiên cứu & thực hành thôi miên trị liệu' },
+  { icon: Calendar, value: '4+', label: 'Năm nghiên cứu & thực hành thôi miên trị liệu' },
   { icon: Award, value: '7', label: 'Ngày chuyển hóa chuyên sâu trong khóa học' }
 ];
+
+function scrollToMethod() {
+  const el = document.getElementById('solution');
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
 
 export function InstructorSection() {
   const sectionRef = useRef(null);
@@ -31,77 +36,126 @@ export function InstructorSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-10 sm:mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold">
             Người Dẫn Đường Của Bạn
           </h2>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto">
-          {/* Profile card — portrait + identity + bio side by side, editorial style */}
+        <div className="max-w-3xl mx-auto">
+          {/* Hero identity block — centered, portrait leads, editorial-poster
+              style instead of a side-by-side "About Me" layout. */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="rounded-2xl bg-card/40 backdrop-blur-sm border border-border/30 p-6 sm:p-10 lg:p-12 mb-12 sm:mb-16"
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="text-center mb-10 sm:mb-14"
           >
-            <div className="grid md:grid-cols-[220px_1fr] gap-8 sm:gap-10 items-start">
-              {/* Portrait */}
-              <div className="mx-auto md:mx-0 w-40 sm:w-48 md:w-full">
-                <div className="relative rounded-2xl overflow-hidden shadow-xl border border-border/20 aspect-square">
-                  <img
-                    src={ngaPortrait}
-                    alt="Nga Alchemist - Founder Inner Safety Method"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-
-              {/* Identity + credentials + bio */}
-              <div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gradient-gold mb-1">
-                  Nga Alchemist
-                </h3>
-                <p className="text-sm sm:text-base md:text-lg text-foreground/80 mb-5 sm:mb-6">
-                  Hypnotherapist • Founder, Inner Safety Method™
-                </p>
-
-                <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
-                  {credentials.map((cred, idx) => (
-                    <div
-                      key={idx}
-                      className="px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-xs sm:text-sm text-foreground/80"
-                    >
-                      {cred}
-                    </div>
-                  ))}
-                </div>
-
-                <div className="space-y-4 text-sm sm:text-base text-foreground/80 leading-relaxed">
-                  <p>
-                    Từ năm 2019, mình bước vào hành trình khám phá tâm trí, tiềm thức và bản chất của sự chuyển hóa con người.
-                  </p>
-                  <p>
-                    Sau nhiều năm nghiên cứu, thực hành thôi miên trị liệu và đồng hành với hàng trăm khách hàng, mình nhận ra rằng <strong className="text-foreground">phần lớn chúng ta không thiếu kiến thức hay ý chí. Chúng ta chỉ đang cố xây một cuộc đời mới trên một hệ thần kinh vẫn còn sống trong nỗi sợ.</strong>
-                  </p>
-                  <p>
-                    Khi bên trong chưa thật sự cảm thấy an toàn, mỗi lần muốn bước ra, chia sẻ giá trị hay tạo nên điều mới, tâm trí sẽ lập tức kích hoạt những vòng lặp quen thuộc: Sợ thất bại. Sợ bị phán xét. Sợ không đủ. Overthinking. Đóng băng. Trì hoãn.
-                  </p>
-                  <p>
-                    Từ những nghiên cứu về thôi miên trị liệu, điều hòa hệ thần kinh, somatic healing và tái lập trình niềm tin vô thức, Nga phát triển <strong className="text-primary">Inner Safety Method™</strong> — phương pháp giúp tháo gỡ bộ rễ của nỗi sợ ở nhiều tầng nhận thức để xây dựng cảm giác an toàn nội tại, nền tảng giúp con người hành động từ sự bình an thay vì từ cơ chế sinh tồn.
-                  </p>
-                </div>
-              </div>
+            <div className="w-40 h-40 sm:w-52 sm:h-52 mx-auto mb-6 sm:mb-7 relative rounded-2xl overflow-hidden shadow-xl border border-border/20">
+              <img
+                src={ngaPortrait}
+                alt="Nga Alchemist - Founder Inner Safety Method"
+                className="w-full h-full object-cover"
+              />
             </div>
+
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gradient-gold mb-1.5">
+              Nga Alchemist
+            </h3>
+            <p className="text-sm sm:text-base md:text-lg text-foreground/80 mb-5 sm:mb-6">
+              Hypnotherapist • Founder, Inner Safety Method™
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-7 sm:mb-9">
+              {credentials.map((cred, idx) => (
+                <div
+                  key={idx}
+                  className="px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-xs sm:text-sm text-foreground/80"
+                >
+                  {cred}
+                </div>
+              ))}
+            </div>
+
+            <p className="text-lg sm:text-xl md:text-2xl font-medium italic text-foreground max-w-xl mx-auto leading-snug">
+              "Tôi không tạo ra Inner Safety Method™ vì tôi chưa từng biết sợ. Tôi tạo ra nó
+              vì tôi đã từng sống rất lâu với nỗi sợ."
+            </p>
           </motion.div>
+
+          <div className="border-t border-border/30 mb-10 sm:mb-14" />
+
+          {/* Personal story — the real "why trust her" answer, led by lived
+              experience rather than a research/methodology recap. */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="space-y-4 sm:space-y-5 text-sm sm:text-base text-foreground/80 leading-relaxed mb-10 sm:mb-14"
+          >
+            <p>
+              Từ năm 2009, cuộc đời tôi thay đổi khi bố mẹ ly hôn.
+            </p>
+            <p>
+              Từ một cô gái lớn lên trong sự đủ đầy, tôi bất ngờ phải bước ra khỏi tổ ấm của
+              mình và bắt đầu một hành trình mà ở đó, tôi liên tiếp trải qua những đổ vỡ và
+              thất bại.
+            </p>
+            <p>Những thất bại trong tình cảm khiến tôi từng tin rằng:</p>
+            <p className="pl-4 sm:pl-6 border-l-2 border-destructive/40 italic text-foreground/70 space-y-1">
+              <span className="block">"Mình không xứng đáng."</span>
+              <span className="block">"Mình không có giá trị."</span>
+              <span className="block">"Không ai cần mình."</span>
+            </p>
+            <p>
+              Sau đó là những biến cố khác: phá sản, thất nghiệp, ly hôn, và những năm tháng
+              vừa chữa lành chính mình, vừa nuôi con nhỏ.
+            </p>
+            <p>
+              Tôi hiểu cảm giác rất muốn bước tiếp nhưng bên trong luôn có một thứ gì đó kéo
+              mình lại. Không chỉ là những tiếng nói giới hạn trong đầu. Mà còn là những tổn
+              thương, cảm xúc, phản ứng của cơ thể và cả môi trường xung quanh — tất cả cùng
+              góp phần khiến chúng ta thu nhỏ mình lại.
+            </p>
+            <p>Và đây là lý do Inner Safety Method™ ra đời.</p>
+            <p>
+              Sau hơn 4 năm nghiên cứu, thực hành thôi miên trị liệu và đồng hành cùng khách
+              hàng, tôi nhận ra:{' '}
+              <strong className="text-foreground">
+                chúng ta không phải lúc nào cũng thiếu ý chí. Nhiều khi, chúng ta chỉ đang cố
+                xây một cuộc đời mới trên một nền tảng bên trong vẫn còn sợ hãi.
+              </strong>
+            </p>
+            <p>
+              Vì vậy, <strong className="text-primary">Inner Safety Method™</strong> không chỉ
+              dạy bạn cố gắng hơn, suy nghĩ tích cực hơn hay ép mình vượt qua nỗi sợ. Nó giúp
+              bạn đi xuống những tầng sâu hơn của nỗi sợ — nơi cơ thể, cảm xúc, niềm tin và
+              cách bạn nhìn chính mình đang cùng tạo nên vòng lặp cũ. Để bạn không còn phải
+              chiến đấu với chính mình, mà có thể bước đi từ một nền tảng bình an hơn.
+            </p>
+          </motion.div>
+
+          {/* Closing line — lands right before the method CTA. Deliberately
+              placed as its own beat rather than folded into the paragraph
+              above, since it's the emotional thesis of the whole section. */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.35 }}
+            className="text-lg sm:text-xl md:text-2xl font-medium italic text-foreground text-center max-w-2xl mx-auto leading-snug mb-10 sm:mb-14"
+          >
+            Tôi hiểu nỗi sợ không chỉ vì tôi đã nghiên cứu nó.
+            <br />
+            Tôi hiểu nó vì tôi đã từng để nó cầm lái cuộc đời mình.
+          </motion.p>
 
           {/* Stats — real numbers only */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid sm:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16"
+            className="grid sm:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-14"
           >
             {stats.map((stat, idx) => (
               <div
@@ -120,6 +174,32 @@ export function InstructorSection() {
                 </p>
               </div>
             ))}
+          </motion.div>
+
+          <div className="border-t border-border/30 mb-10 sm:mb-14" />
+
+          {/* Method teaser — one line + a way back up to Solution, closing
+              the section with a clear next step instead of trailing off. */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="text-center mb-10 sm:mb-14"
+          >
+            <p className="text-lg sm:text-xl font-bold text-gradient-gold mb-2">
+              Inner Safety Method™
+            </p>
+            <p className="text-sm sm:text-base text-foreground/70 mb-5 max-w-md mx-auto">
+              Tháo gỡ nỗi sợ từ nhiều tầng, thay vì chỉ cố vượt qua nó.
+            </p>
+            <button
+              onClick={scrollToMethod}
+              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/40 text-sm font-semibold text-primary hover:bg-primary/10 transition-colors"
+              data-testid="button-explore-method"
+            >
+              Khám phá phương pháp
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
           </motion.div>
 
           {/* RMIT speaking photo — closes the section as social proof */}
