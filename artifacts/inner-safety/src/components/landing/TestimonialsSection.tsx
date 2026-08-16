@@ -1,45 +1,93 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Star } from 'lucide-react';
 
-const testimonials = [
+import review6 from '@/assets/testimonials/review-6.jpg';
+import review4 from '@/assets/testimonials/review-4.jpg';
+import review2 from '@/assets/testimonials/review-2.jpg';
+import review3 from '@/assets/testimonials/review-3.jpg';
+import review1 from '@/assets/testimonials/review-1.jpg';
+import review5 from '@/assets/testimonials/review-5.jpg';
+
+// Order + sizing follows the "4 strong + 2 short" trust formula:
+//   Review 6 (large) → Review 4 + Review 2 (small pair)
+//   Review 3 (large) → Review 1 + Review 5 (small pair)
+const featuredTop = {
+  src: review6,
+  alt: 'Học viên chia sẻ: em nghĩ do em may mắn mọi thứ đến nhanh, nhưng giờ em thấy khác biệt nhất ở em là không sợ hãi điều gì bất ý'
+};
+
+const pairTop = [
   {
-    name: 'Minh Anh',
-    title: 'Content Creator, 32 tuổi',
-    rating: 5,
-    quote: 'Trước đây mình luôn nghĩ là mình thiếu tự tin. Nhưng sau khóa học này mình mới nhận ra, mình không thiếu tự tin, mình chỉ chưa cảm thấy an toàn với chính mình thôi. Bài "Cắm rễ an toàn" ngày 5 làm mình khóc... cảm giác được chạm vào phần sâu nhất của bản thân. Giờ mình có công cụ để tự sơ cứu khi bị trigger, không còn phải chạy trốn nữa.'
+    src: review4,
+    alt: 'Học viên chia sẻ về bài làm dịu hệ thần kinh ngày 2 và kết quả áp dụng cụ thể'
   },
   {
-    name: 'Thanh Hằng',
-    title: 'Freelance Designer, 28 tuổi',
-    rating: 5,
-    quote: 'Mình từng học nhiều khóa mindset, NLP, coaching... nhưng vẫn cảm thấy "thiếu thiếu cái gì đó". Inner Safety Method chính là mảnh ghép còn thiếu. Nó không dạy mình nghĩ tích cực, mà dạy mình làm dịu hệ thần kinh để không còn phải sống trong chế độ sinh tồn nữa. Ngày 2 về điều hòa hệ thần kinh đã thay đổi cách mình đối mặt với lo lắng.'
-  },
-  {
-    name: 'Quang Huy',
-    title: 'Chuyên viên tư vấn tài chính, 35 tuổi',
-    rating: 5,
-    quote: 'Tôi nghĩ chỉ phụ nữ mới cần những thứ này. Nhưng sau khi vợ tôi học xong và thay đổi rõ rệt, tôi mới quyết định thử. Bất ngờ nhất là phần "Hợp đồng mới với Tiền" — tôi mới nhận ra nỗi sợ thiếu hụt đã khiến tôi làm việc như một cái máy suốt 10 năm qua. Giờ tôi có thể nói "không" với khách hàng mà không cảm thấy tội lỗi.'
-  },
-  {
-    name: 'Linh Chi',
-    title: 'Yoga teacher, 29 tuổi',
-    rating: 5,
-    quote: 'Mình dạy yoga, thiền, breathwork... nhưng bản thân vẫn bị overthinking nặng. Khóa học này giúp mình hiểu rằng overthinking không phải là tính cách, mà là cơ chế tự bảo vệ của hệ thần kinh. Công cụ Pattern Interrupt trong ngày 2 cực kỳ hữu ích — giờ mình dạy luôn cho học viên của mình.'
-  },
-  {
-    name: 'Tuấn Anh',
-    title: 'Startup founder, 38 tuổi',
-    rating: 5,
-    quote: 'Tôi từng nghĩ nỗi sợ là động lực để thành công. Nhưng thực ra nỗi sợ chỉ khiến tôi làm việc điên cuồng để chứng minh giá trị. Sau 7 ngày, tôi mới thật sự hiểu "sống từ bình an" nghĩa là gì. Tôi vẫn làm việc chăm chỉ, nhưng giờ tôi làm vì yêu thích, không phải vì sợ thất bại.'
-  },
-  {
-    name: 'Mai Phương',
-    title: 'Nhân viên văn phòng, 27 tuổi',
-    rating: 5,
-    quote: 'Mình hay tự so sánh với người khác và cảm thấy mình "chưa đủ". Khóa học giúp mình nhìn thấy những niềm tin gốc rễ đã hình thành từ nhỏ — "phải giỏi mới được yêu", "phải hoàn hảo mới có giá trị". Ngày 4 về viết lại niềm tin gốc thật sự là bước ngoặt. Mình bắt đầu sống cho chính mình, không phải cho sự kỳ vọng của người khác.'
+    src: review2,
+    alt: 'Học viên chia sẻ trải nghiệm giải phóng cảm xúc và cảm nhận trước/sau buổi học'
   }
 ];
+
+const featuredBottom = {
+  src: review3,
+  alt: 'Học viên chia sẻ: em cảm nhận được sự hồi sinh, những chương trình cũ được xoá và lập trình mới đang hoạt động'
+};
+
+const pairBottom = [
+  {
+    src: review1,
+    alt: 'Học viên chia sẻ: em thấy kết nối với bản thân mình hơn, tim không còn bị nặng nữa'
+  },
+  {
+    src: review5,
+    alt: 'Học viên chia sẻ cảm nhận về buổi thiền và tác động lên cơ thể, cảm xúc'
+  }
+];
+
+// The 6 source screenshots have very different aspect ratios (e.g. review-6 is
+// wide/landscape at 1122×656, review-3 is tall/portrait at 980×1436). Sizing
+// purely by the image's own aspect ratio (w-full h-auto) makes the two
+// "large" cards read as different visual weights — one short & wide, one
+// tall & narrow — which breaks the "these are the 2 biggest, strongest
+// reviews" signal the layout is going for.
+//
+// Fix: give every card in the same tier (large / small) a fixed-height
+// frame and letterbox the screenshot inside with object-contain. This keeps
+// every card in a tier visually equal in size — and, just as importantly,
+// never crops any of the review text.
+function ScreenshotCard({
+  src,
+  alt,
+  large = false,
+  delay = 0,
+  isInView
+}: {
+  src: string;
+  alt: string;
+  large?: boolean;
+  delay?: number;
+  isInView: boolean;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay }}
+      className={`rounded-xl overflow-hidden bg-card/40 backdrop-blur-sm border border-border/30 hover:border-primary/50 transition-all duration-300 flex items-center justify-center p-3 sm:p-4 ${
+        large
+          ? 'h-[420px] sm:h-[480px] lg:h-[520px] shadow-lg shadow-primary/5'
+          : 'h-[300px] sm:h-[340px]'
+      }`}
+      data-testid={large ? 'testimonial-featured' : 'testimonial-small'}
+    >
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg"
+      />
+    </motion.div>
+  );
+}
 
 export function TestimonialsSection() {
   const sectionRef = useRef(null);
@@ -48,45 +96,66 @@ export function TestimonialsSection() {
   return (
     <section id="testimonials" ref={sectionRef} className="py-16 sm:py-24 lg:py-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-6 sm:mb-8"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold mb-4 sm:mb-6">
-            Học Viên Nói Gì?
+            Đây là điều học viên thực sự nói sau khi học
           </h2>
+          <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">
+            Không phải lời mình nói. Đây là những gì học viên nhắn lại sau khi trải nghiệm chương trình.
+          </p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {testimonials.map((testimonial, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="p-4 sm:p-6 rounded-xl bg-card/40 backdrop-blur-sm border border-border/30 hover:border-primary/50 transition-all duration-300"
-              data-testid={`testimonial-${idx}`}
-            >
-              <div className="flex items-center gap-1 mb-3 sm:mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                ))}
-              </div>
-              
-              <p className="text-sm sm:text-base text-foreground/80 leading-relaxed mb-4 sm:mb-6 italic">
-                "{testimonial.quote}"
-              </p>
-              
-              <div className="border-t border-border/30 pt-3 sm:pt-4">
-                <p className="font-semibold text-foreground text-sm sm:text-base">{testimonial.name}</p>
-                <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.title}</p>
-              </div>
-            </motion.div>
-          ))}
+        <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
+          {/* Review 6 — featured, large */}
+          <ScreenshotCard
+            src={featuredTop.src}
+            alt={featuredTop.alt}
+            large
+            delay={0}
+            isInView={isInView}
+          />
+
+          {/* Review 4 + Review 2 — small pair */}
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+            {pairTop.map((item, idx) => (
+              <ScreenshotCard
+                key={item.src}
+                src={item.src}
+                alt={item.alt}
+                delay={0.1 + idx * 0.1}
+                isInView={isInView}
+              />
+            ))}
+          </div>
+
+          {/* Review 3 — featured, large */}
+          <ScreenshotCard
+            src={featuredBottom.src}
+            alt={featuredBottom.alt}
+            large
+            delay={0.3}
+            isInView={isInView}
+          />
+
+          {/* Review 1 + Review 5 — small pair */}
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+            {pairBottom.map((item, idx) => (
+              <ScreenshotCard
+                key={item.src}
+                src={item.src}
+                alt={item.alt}
+                delay={0.4 + idx * 0.1}
+                isInView={isInView}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
