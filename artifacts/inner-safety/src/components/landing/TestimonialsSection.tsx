@@ -8,15 +8,22 @@ import review3 from '@/assets/testimonials/review-3.jpg';
 import review1 from '@/assets/testimonials/review-1.jpg';
 import review5 from '@/assets/testimonials/review-5.jpg';
 
-// Order + sizing follows the "4 strong + 2 short" trust formula:
-//   Review 6 (large) → Review 4 + Review 2 (small pair)
-//   Review 3 (large) → Review 1 + Review 5 (small pair)
-const featuredTop = {
-  src: review6,
-  alt: 'Học viên chia sẻ: em nghĩ do em may mắn mọi thứ đến nhanh, nhưng giờ em thấy khác biệt nhất ở em là không sợ hãi điều gì bất ý'
-};
-
-const pairTop = [
+// All 6 source screenshots are portrait chat/DM captures. Rather than
+// building a size hierarchy (which only works cleanly when shapes are
+// consistent), every card here is styled identically — same width, same
+// border radius, same gap, same background. The only thing that carries
+// priority is READING ORDER, not size:
+//   Row 1: Review 6 → Review 4 → Review 2
+//   Row 2: Review 3 → Review 1 → Review 5
+// Each screenshot keeps its own natural aspect ratio (no cropping to force
+// a uniform height) — cards are equal-width, not equal-height, and that's
+// intentional: it reads like a real screenshot gallery, not a stretched
+// stock-photo grid.
+const reviews = [
+  {
+    src: review6,
+    alt: 'Học viên chia sẻ: em nghĩ do em may mắn mọi thứ đến nhanh, nhưng giờ em thấy khác biệt nhất ở em là không sợ hãi điều gì bất ý'
+  },
   {
     src: review4,
     alt: 'Học viên chia sẻ về bài làm dịu hệ thần kinh ngày 2 và kết quả áp dụng cụ thể'
@@ -24,15 +31,11 @@ const pairTop = [
   {
     src: review2,
     alt: 'Học viên chia sẻ trải nghiệm giải phóng cảm xúc và cảm nhận trước/sau buổi học'
-  }
-];
-
-const featuredBottom = {
-  src: review3,
-  alt: 'Học viên chia sẻ: em cảm nhận được sự hồi sinh, những chương trình cũ được xoá và lập trình mới đang hoạt động'
-};
-
-const pairBottom = [
+  },
+  {
+    src: review3,
+    alt: 'Học viên chia sẻ: em cảm nhận được sự hồi sinh, những chương trình cũ được xoá và lập trình mới đang hoạt động'
+  },
   {
     src: review1,
     alt: 'Học viên chia sẻ: em thấy kết nối với bản thân mình hơn, tim không còn bị nặng nữa'
@@ -43,28 +46,15 @@ const pairBottom = [
   }
 ];
 
-// The 6 source screenshots have very different aspect ratios (e.g. review-6 is
-// wide/landscape at 1122×656, review-3 is tall/portrait at 980×1436). Sizing
-// purely by the image's own aspect ratio (w-full h-auto) makes the two
-// "large" cards read as different visual weights — one short & wide, one
-// tall & narrow — which breaks the "these are the 2 biggest, strongest
-// reviews" signal the layout is going for.
-//
-// Fix: give every card in the same tier (large / small) a fixed-height
-// frame and letterbox the screenshot inside with object-contain. This keeps
-// every card in a tier visually equal in size — and, just as importantly,
-// never crops any of the review text.
-function ScreenshotCard({
+function ReviewCard({
   src,
   alt,
-  large = false,
-  delay = 0,
+  delay,
   isInView
 }: {
   src: string;
   alt: string;
-  large?: boolean;
-  delay?: number;
+  delay: number;
   isInView: boolean;
 }) {
   return (
@@ -72,19 +62,10 @@ function ScreenshotCard({
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay }}
-      className={`rounded-xl overflow-hidden bg-card/40 backdrop-blur-sm border border-border/30 hover:border-primary/50 transition-all duration-300 flex items-center justify-center p-3 sm:p-4 ${
-        large
-          ? 'h-[420px] sm:h-[480px] lg:h-[520px] shadow-lg shadow-primary/5'
-          : 'h-[300px] sm:h-[340px]'
-      }`}
-      data-testid={large ? 'testimonial-featured' : 'testimonial-small'}
+      className="rounded-xl overflow-hidden bg-card/40 backdrop-blur-sm border border-border/30 hover:border-primary/50 transition-all duration-300 p-3 sm:p-4"
+      data-testid="testimonial-card"
     >
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg"
-      />
+      <img src={src} alt={alt} loading="lazy" className="w-full h-auto rounded-lg block" />
     </motion.div>
   );
 }
@@ -112,50 +93,16 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
-          {/* Review 6 — featured, large */}
-          <ScreenshotCard
-            src={featuredTop.src}
-            alt={featuredTop.alt}
-            large
-            delay={0}
-            isInView={isInView}
-          />
-
-          {/* Review 4 + Review 2 — small pair */}
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-            {pairTop.map((item, idx) => (
-              <ScreenshotCard
-                key={item.src}
-                src={item.src}
-                alt={item.alt}
-                delay={0.1 + idx * 0.1}
-                isInView={isInView}
-              />
-            ))}
-          </div>
-
-          {/* Review 3 — featured, large */}
-          <ScreenshotCard
-            src={featuredBottom.src}
-            alt={featuredBottom.alt}
-            large
-            delay={0.3}
-            isInView={isInView}
-          />
-
-          {/* Review 1 + Review 5 — small pair */}
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-            {pairBottom.map((item, idx) => (
-              <ScreenshotCard
-                key={item.src}
-                src={item.src}
-                alt={item.alt}
-                delay={0.4 + idx * 0.1}
-                isInView={isInView}
-              />
-            ))}
-          </div>
+        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {reviews.map((item, idx) => (
+            <ReviewCard
+              key={item.src}
+              src={item.src}
+              alt={item.alt}
+              delay={idx * 0.08}
+              isInView={isInView}
+            />
+          ))}
         </div>
       </div>
     </section>
