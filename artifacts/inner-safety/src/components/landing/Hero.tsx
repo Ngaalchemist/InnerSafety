@@ -260,7 +260,7 @@ export function Hero() {
                 nỗi sợ, lo lắng và những suy nghĩ quá nhiều
               </strong>{' '}
               vẫn khiến bạn  {' '}
-              <strong className="font-bold" style={{ color: PURPLE }}>
+              <strong className="font-bold" style={{ color: PURPLE }}> <br />
                chần chừ, tự nghi ngờ
               </strong>{' '}
               và không dám bước tới.
@@ -272,8 +272,7 @@ export function Hero() {
                 </strong>{' '}
               là hành trình 7 ngày giúp bạn {' '}
                 <strong className="font-bold text-white">
-                 hiểu điều gì đang khiến mình sợ và mắc kẹt, <br /> bình tĩnh lại khi nỗi sợ xuất hiện, từng bước tin tưởng vào chính mình và dám hành động. 
-                         .
+                 hiểu điều gì đang khiến mình sợ và <br /> mắc kẹt, bình tĩnh lại khi nỗi sợ xuất hiện, từng bước tin tưởng vào chính mình và dám hành động.
                 </strong>
               </span>
             </motion.p>
