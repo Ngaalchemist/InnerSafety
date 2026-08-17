@@ -96,8 +96,9 @@ export function InstructorSection() {
             </div>
 
             <p className="font-serif italic font-medium text-lg sm:text-xl md:text-2xl text-foreground max-w-xl mx-auto leading-snug">
-              "Tôi không tạo ra Inner Safety Method™ vì tôi chưa từng biết sợ. Tôi tạo ra nó
-              vì tôi đã từng để nỗi sợ cầm lái cuộc đời mình."
+              "Tôi không tạo ra Inner Safety Method™ vì tôi chưa từng biết sợ.
+              <br className="hidden sm:block" /> Tôi tạo ra nó vì tôi đã từng để nỗi sợ cầm lái
+              cuộc đời mình."
             </p>
           </motion.div>
 
@@ -112,43 +113,39 @@ export function InstructorSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="font-['Be_Vietnam_Pro'] font-light space-y-4 sm:space-y-5 text-sm sm:text-base text-foreground/80 leading-relaxed mb-10 sm:mb-14"
           >
-            <p className="font-serif font-semibold text-base sm:text-2g text-foreground">
-              Tôi hiểu những nỗi sợ đó, vì tôi đã từng sống trong đó rất lâu...
+            <p className="font-serif font-semibold text-base sm:text-lg text-foreground">
+              Tôi biết rất rõ cảm giác ấy.
             </p>
             <p>
-              Năm 2009, biến cố bố mẹ ly hôn làm cuộc đời tôi thay đổi. Từ một cô gái lớn lên
-              trong sự ấm êm, tôi chới với bước ra khỏi tổ ấm an toàn và loay hoay bắt đầu lại
-              mọi thứ.
-            </p>
-            <p>
-              Gia đình tan vỡ cùng những thất bại liên tiếp trong tình cảm dần mài mòn sự tự
-              tin, khiến tôi từng tin rằng:
+              Năm 2009, khi bố mẹ ly hôn, thế giới vốn an toàn mà tôi quen thuộc hoàn toàn sụp
+              đổ. Bật gốc khỏi sự bao bọc, tôi bước ra đời với một sự chới với không đáy. Sự
+              rạn nứt từ gia đình, cùng những đổ vỡ liên tiếp trong tình cảm sau đó, dần bào
+              mòn chút tự tin còn lại — để rồi gieo vào tâm trí tôi một niềm tin độc hại:
             </p>
             <div className="py-2 sm:py-3 text-center space-y-2 sm:space-y-2.5">
-              <p className="italic text-foreground/70">"Mình không xứng đáng."</p>
-              <p className="italic text-foreground/70">"Mình chẳng có giá trị gì."</p>
-              <p className="italic text-foreground/70">"Sẽ chẳng một ai cần mình."</p>
+              <p className="italic text-foreground/70">"Mình không đủ tốt."</p>
+              <p className="italic text-foreground/70">"Sẽ chẳng ai cần mình."</p>
             </div>
             <p>
-              Chưa dừng lại ở đó, biến cố Covid-19 bất ngờ ập đến{' '}
-              <span className="italic text-foreground/70">như một gáo nước lạnh</span>: phá
-              sản, thất nghiệp, ly hôn. Tôi rơi vào chuỗi ngày vừa ôm con nhỏ, vừa nhặt nhạnh
-              từng mảnh vỡ của chính mình để chữa lành.
+              Nhưng đỉnh điểm là khi Covid-19 ập đến. Cùng một lúc: phá sản, mất việc, và lại
+              một lần nữa... ly hôn.
             </p>
             <p>
-              Hơn ai hết, tôi thấu cảm trọn vẹn cảm giác: rất muốn bước tiếp, nhưng bên trong
-              luôn có một{' '}
-              <span className="italic text-foreground/70">lực cản vô hình</span> kéo ghì mình
-              lại.
+              Tôi nhớ những đêm một tay bế con nhỏ, một tay vuốt lồng ngực đang thắt lại vì
+              hoảng loạn. Đó không chỉ là nỗi đau — đó là cảm giác toàn bộ cơ thể bị tê liệt
+              bởi sự mất an toàn. Rất muốn bước tiếp, nhưng mọi tế bào bên trong đều kéo ghì
+              tôi lại.
             </p>
             <p>
-              Sau hơn 4 năm nghiên cứu, thực hành thôi miên trị liệu và đồng hành cùng hàng trăm
-              khách hàng, tôi nhận ra:
+              Phải mất nhiều năm tự chữa lành, rồi nghiên cứu và đồng hành cùng hàng trăm
+              người, tôi mới hiểu ra một điều:
             </p>
-            <p className="text-center px-2 sm:px-4">
+            <p className="text-center px-2 sm:px-4 leading-relaxed">
               <strong className="font-normal text-foreground">
-                Nhiều khi, chúng ta không thiếu ý chí. Chúng ta chỉ đang cố xây một cuộc đời mới
-                trên một nền tảng bên trong vẫn còn sợ hãi.
+                Chúng ta không hề thiếu ý chí.
+                <br />
+                Chúng ta chỉ đang cố gồng mình xây một ngôi nhà trên một nền đất đang rung
+                chuyển.
               </strong>
             </p>
             <p>Và đó là lý do Inner Safety Method™ ra đời.</p>
@@ -160,7 +157,7 @@ export function InstructorSection() {
               </strong>
               : cơ thể, cảm xúc, niềm tin, và cách bạn tự nhìn nhận chính mình.
             </p>
-         
+            <p className="text-right text-foreground/60 italic pr-2 sm:pr-4">— Nga</p>
           </motion.div>
 
           {/* Closing line — the emotional thesis, kept as its own beat and
