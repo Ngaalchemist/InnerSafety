@@ -46,31 +46,6 @@ function useCountdown(target: Date) {
   return Math.max(0, msLeft);
 }
 
-function CountdownTimer({ target }: { target: Date }) {
-  const msLeft = useCountdown(target);
-  const totalSeconds = Math.floor(msLeft / 1000);
-  const days = Math.floor(totalSeconds / 86400);
-  const hours = Math.floor((totalSeconds % 86400) / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
-  const pad = (n: number) => n.toString().padStart(2, '0');
-
-  return (
-    <div className="flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-primary bg-primary/10 border border-primary/40 rounded-full px-4 py-2 mb-3 shadow-[0_0_20px_-6px] shadow-primary/40 animate-pulse">
-      <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-      <span>4 quà tặng kết thúc sau</span>
-      <span className="font-mono tabular-nums text-foreground text-sm sm:text-base">
-        {days > 0 && <>{days}n </>}
-        {pad(hours)}
-        <span className="animate-pulse">:</span>
-        {pad(minutes)}
-        <span className="animate-pulse">:</span>
-        {pad(seconds)}
-      </span>
-    </div>
-  );
-}
-
 const included = [
   { icon: Video, text: '7 buổi video thực hành hàng ngày' },
   { icon: FileText, text: 'Healing Workbook đầy đủ' },
@@ -136,6 +111,39 @@ function BonusDaysLeftBadge({ target }: { target: Date }) {
     >
       Còn {daysLeft} ngày
     </span>
+  );
+}
+
+function CountdownBanner({ target }: { target: Date }) {
+  const msLeft = useCountdown(target);
+  const totalSeconds = Math.floor(msLeft / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  const pad = (n: number) => n.toString().padStart(2, '0');
+
+  return (
+    <div className="relative mb-10 sm:mb-14 rounded-2xl border-2 border-primary/50 bg-gradient-to-r from-primary/15 via-accent/15 to-primary/15 px-6 py-6 sm:py-8 text-center shadow-[0_0_60px_-10px] shadow-primary/50 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 animate-pulse" />
+      <p className="relative flex items-center justify-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">
+        <Clock className="w-4 h-4 sm:w-5 sm:h-5 animate-pulse" />
+        4 quà tặng đi kèm kết thúc sau
+      </p>
+      <div className="relative font-mono font-black tabular-nums text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider">
+        {days > 0 && (
+          <span className="mr-2">
+            {days}
+            <span className="text-primary text-xl sm:text-2xl md:text-3xl align-top ml-0.5">n</span>
+          </span>
+        )}
+        {pad(hours)}
+        <span className="text-primary animate-pulse mx-0.5 sm:mx-1">:</span>
+        {pad(minutes)}
+        <span className="text-primary animate-pulse mx-0.5 sm:mx-1">:</span>
+        {pad(seconds)}
+      </div>
+    </div>
   );
 }
 
@@ -361,6 +369,8 @@ export function CheckoutSection() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
 
+        <CountdownBanner target={BONUS_DEADLINE} />
+
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -488,9 +498,14 @@ export function CheckoutSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:sticky lg:top-6 h-fit"
+            className="lg:sticky lg:top-6 h-fit relative"
           >
-            <div className="rounded-2xl bg-card text-foreground p-6 sm:p-8 shadow-2xl shadow-primary/10 border-2 border-primary/30">
+            {/* Ánh sáng lan tỏa phía sau, giúp mắt bị hút về khối form ngay cả khi lướt nhanh */}
+            <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-primary/25 via-accent/15 to-primary/25 blur-2xl opacity-60" />
+
+            {/* Viền gradient vàng→tím bao ngoài — cùng công thức màu với nút CTA, để mắt hiểu ngay đây là nơi hành động */}
+            <div className="relative rounded-2xl p-[2px] bg-gradient-to-br from-primary via-accent to-primary shadow-2xl shadow-primary/30">
+              <div className="rounded-2xl bg-card text-foreground p-6 sm:p-8">
 
               {/* STEP: FORM */}
               {step === 'form' && (
@@ -544,7 +559,6 @@ export function CheckoutSection() {
                   )}
 
                   <div className="pt-1">
-                    <CountdownTimer target={BONUS_DEADLINE} />
                     <div className="flex items-center justify-between text-sm mb-3 text-muted-foreground">
                       <span>Tổng thanh toán</span>
                       <span className="text-xl font-bold text-foreground">444.000đ</span>
@@ -576,6 +590,7 @@ export function CheckoutSection() {
 
               {/* STEP: SUCCESS */}
               {step === 'success' && successStepContent}
+              </div>
             </div>
 
             {/* Trust micro-copy */}
