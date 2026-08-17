@@ -252,7 +252,7 @@ export function CurriculumSection() {
             Sau 7 Ngày, Bạn Sẽ Không Còn Để Nỗi Sợ <br /> Quyết Định Cuộc Đời Mình
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
-            Bạn không cần thay đổi cuộc đời trong một ngày. Chỉ cần đi từng bước, mỗi ngày
+            Bạn không cần thay đổi cuộc đời trong một ngày.<br /> Chỉ cần đi từng bước, mỗi ngày
             khoảng 20 phút.
             <br className="hidden sm:block" />
             Sau 7 ngày, bạn có một cách rõ ràng hơn để nhận ra nỗi sợ, bình tĩnh lại và bắt đầu hành động..
