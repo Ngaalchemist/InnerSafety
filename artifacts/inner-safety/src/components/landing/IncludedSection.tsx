@@ -139,7 +139,7 @@ export function IncludedSection() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+    <section ref={sectionRef} className="pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10 lg:pb-12 relative overflow-hidden">
       {/* Ambient cosmic glow — echoes the starfield already on the body */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 left-[10%] w-[420px] h-[420px] rounded-full bg-accent/15 blur-[110px]" />
@@ -224,7 +224,7 @@ export function IncludedSection() {
         </div>
 
         {/* QUÀ TẶNG ĐỘC QUYỀN — lighter, staggered, something unlocked */}
-        <div className="max-w-4xl mx-auto mb-10 sm:mb-14">
+        <div className="max-w-4xl mx-auto mb-6 sm:mb-8">
           <p className="text-xs sm:text-sm tracking-[0.3em] uppercase text-accent font-bold mb-8 text-center">
             ✦ Quà Tặng Độc Quyền ✦
           </p>
@@ -248,7 +248,7 @@ export function IncludedSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="max-w-2xl mx-auto text-center text-base sm:text-lg font-serif italic text-foreground/60 leading-relaxed"
+          className="max-w-2xl mx-auto text-center text-lg sm:text-xl font-serif italic text-foreground/70 leading-relaxed"
         >
           "Giá trị của toàn bộ chương trình không nằm ở số lượng tài liệu bạn nhận được — mà ở
           việc bạn có một hệ thống để tiếp tục làm việc với nỗi sợ, ngay cả sau khi 7 ngày kết thúc."
