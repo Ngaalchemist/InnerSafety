@@ -124,23 +124,22 @@ function CountdownBanner({ target }: { target: Date }) {
   const pad = (n: number) => n.toString().padStart(2, '0');
 
   return (
-    <div className="relative mb-10 sm:mb-14 rounded-2xl border-2 border-primary/50 bg-gradient-to-r from-primary/15 via-accent/15 to-primary/15 px-6 py-6 sm:py-8 text-center shadow-[0_0_60px_-10px] shadow-primary/50 overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 animate-pulse" />
-      <p className="relative flex items-center justify-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">
-        <Clock className="w-4 h-4 sm:w-5 sm:h-5 animate-pulse" />
+    <div className="relative mb-4 rounded-2xl bg-gradient-to-r from-primary via-accent to-primary px-5 py-4 sm:py-5 text-center shadow-2xl shadow-primary/40 overflow-hidden">
+      <p className="relative flex items-center justify-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-background/80 mb-1.5">
+        <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-pulse" />
         4 quà tặng đi kèm kết thúc sau
       </p>
-      <div className="relative font-mono font-black tabular-nums text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider">
+      <div className="relative font-mono font-black tabular-nums text-background text-3xl sm:text-4xl md:text-5xl tracking-wider">
         {days > 0 && (
           <span className="mr-2">
             {days}
-            <span className="text-primary text-xl sm:text-2xl md:text-3xl align-top ml-0.5">n</span>
+            <span className="text-background/70 text-lg sm:text-xl align-top ml-0.5">n</span>
           </span>
         )}
         {pad(hours)}
-        <span className="text-primary animate-pulse mx-0.5 sm:mx-1">:</span>
+        <span className="animate-pulse mx-0.5">:</span>
         {pad(minutes)}
-        <span className="text-primary animate-pulse mx-0.5 sm:mx-1">:</span>
+        <span className="animate-pulse mx-0.5">:</span>
         {pad(seconds)}
       </div>
     </div>
@@ -369,8 +368,6 @@ export function CheckoutSection() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
 
-        <CountdownBanner target={BONUS_DEADLINE} />
-
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -502,6 +499,9 @@ export function CheckoutSection() {
           >
             {/* Ánh sáng lan tỏa phía sau, giúp mắt bị hút về khối form ngay cả khi lướt nhanh */}
             <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-primary/25 via-accent/15 to-primary/25 blur-2xl opacity-60" />
+
+            {/* Đếm ngược — đặt ngay trên đầu khung form, nền đặc để tương phản mạnh với khung form bên dưới */}
+            <CountdownBanner target={BONUS_DEADLINE} />
 
             {/* Viền gradient vàng→tím bao ngoài — cùng công thức màu với nút CTA, để mắt hiểu ngay đây là nơi hành động */}
             <div className="relative rounded-2xl p-[2px] bg-gradient-to-br from-primary via-accent to-primary shadow-2xl shadow-primary/30">
