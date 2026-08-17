@@ -81,7 +81,7 @@ export function InstructorSection() {
               Nga Alchemist
             </h3>
             <p className="font-['Be_Vietnam_Pro'] font-light text-sm sm:text-base md:text-lg text-foreground/80 mb-5 sm:mb-6">
-              Hypnotherapist • Founder, Inner Safety Method™
+              Hypnotherapist • Founder of Inner Safety Method™
             </p>
 
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-7 sm:mb-9">
