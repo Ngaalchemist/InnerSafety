@@ -55,7 +55,7 @@ const INK = '#0D0B18';
 // QUOTE_RIGHT: '%' distance from the right edge. Bigger number = further LEFT (closer to the tree).
 //              Smaller number (or negative) = further RIGHT (closer to the screen edge).
 // QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
-const QUOTE_TOP = '28%';
+const QUOTE_TOP = '26%';
 const QUOTE_RIGHT = '-11%';
 const QUOTE_WIDTH = 340;
 
@@ -358,7 +358,7 @@ export function Hero() {
               </span>
             </div>
             <p
-              className="mt-3 text-sm font-bold tracking-wide pointer-events-auto text-right"
+              className="mt-3 text-sm font-tracking-wide pointer-events-auto text-right"
               style={{ color: 'rgba(233,213,255,0.9)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
             >
               — Nga Alchemist
