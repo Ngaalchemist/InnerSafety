@@ -1,73 +1,49 @@
-import { motion } from 'framer-motion';
+export function FooterSection() {
+  const year = new Date().getFullYear();
 
-export function Footer() {
   return (
-    <footer className="py-12 sm:py-16 border-t border-border/30 relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          {/* Main footer content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-12"
-          >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="text-sm font-bold text-primary-foreground">NA</span>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-serif font-semibold text-foreground">
-                Inner Safety Method™
-              </h3>
-            </div>
-            
-            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Phương pháp tháo gỡ bộ rễ sợ hãi và xây dựng sự an toàn nội tại
-            </p>
-          </motion.div>
+    <footer className="bg-[#0c0420] border-t border-white/10 py-10">
+      <div className="container mx-auto px-4 lg:px-8 max-w-3xl text-center">
+        {/* Branding */}
+        <p className="font-serif font-bold text-[#F5D78E] text-sm md:text-base tracking-wide mb-2">
+          BEYOND FEAR
+        </p>
+        <p className="text-gray-400 text-xs md:text-sm mb-5">
+          7 Ngày Từ Sợ Hãi Đến Bình An · Nga Alchemist
+        </p>
 
-          {/* Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-6 sm:mb-8 text-sm text-muted-foreground"
-          >
-            <button className="hover:text-primary transition-colors">
-              Chính sách bảo mật
-            </button>
-            <span className="text-border">•</span>
-            <button className="hover:text-primary transition-colors">
-              Điều khoản
-            </button>
-          </motion.div>
-
-          {/* Copyright */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center text-xs sm:text-sm text-muted-foreground"
-          >
-            <p className="mb-2">© 2026 Nga Alchemist · Inner Safety Method™</p>
-          </motion.div>
-
-          {/* Disclaimer */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border/20"
-          >
-            <p className="text-xs text-muted-foreground/70 text-center max-w-3xl mx-auto leading-relaxed">
-              Kết quả học tập có thể khác nhau tùy từng cá nhân. Khóa học này không thay thế cho tư vấn y tế hoặc tâm lý chuyên nghiệp.
-            </p>
-          </motion.div>
+        {/* Link pháp lý */}
+        <div className="flex items-center justify-center gap-3 text-gray-400 text-xs md:text-sm mb-5">
+          <a href="/chinh-sach-bao-mat" className="hover:text-[#F5D78E] transition-colors">
+            Chính sách bảo mật
+          </a>
+          <span className="text-gray-600">•</span>
+          <a href="/dieu-khoan" className="hover:text-[#F5D78E] transition-colors">
+            Điều khoản
+          </a>
         </div>
+
+        {/* Copyright */}
+        <p className="text-gray-500 text-[11px] md:text-xs leading-relaxed mb-3">
+          Bản quyền © {year} Nga Alchemist. Tất cả các quyền được bảo lưu.
+        </p>
+
+        {/* Disclaimer kết quả */}
+        <p className="text-gray-500 text-[11px] md:text-xs leading-relaxed mb-3">
+          <span className="text-gray-400 font-semibold">Miễn trừ trách nhiệm:</span> Kết quả chia sẻ
+          trong trang này không đại diện cho kết quả điển hình. Kết quả của bạn sẽ khác nhau tùy thuộc
+          vào hoàn cảnh cá nhân, mức độ cam kết thực hành và nhiều yếu tố khác. Khóa học mang tính chất
+          giáo dục và hỗ trợ phát triển bản thân, không thay thế cho tham vấn hoặc điều trị tâm lý/y tế
+          chuyên sâu khi cần thiết.
+        </p>
+
+        {/* Disclaimer y tế / tâm lý / pháp lý */}
+        <p className="text-gray-500 text-[11px] md:text-xs leading-relaxed mb-3">
+          Nội dung trên trang này, cũng như trong chương trình học, không phải là lời khuyên y tế, tâm
+          lý lâm sàng hay pháp lý. Nếu bạn đang gặp khủng hoảng tâm lý nghiêm trọng, vui lòng tìm đến
+          chuyên gia tâm lý hoặc cơ sở y tế phù hợp để được hỗ trợ trực tiếp. Bạn là người chịu trách
+          nhiệm cho các quyết định và hành động của mình sau khi tham gia chương trình.
+        </p>
       </div>
     </footer>
   );
