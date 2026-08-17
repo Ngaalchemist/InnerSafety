@@ -112,8 +112,8 @@ export function InstructorSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="font-['Be_Vietnam_Pro'] font-light space-y-4 sm:space-y-5 text-sm sm:text-base text-foreground/80 leading-relaxed mb-10 sm:mb-14"
           >
-            <p className="font-serif font-semibold text-base sm:text-lg text-foreground">
-              Tôi hiểu nỗi sợ đó… vì tôi đã từng sống bên trong nó.
+            <p className="font-serif font-semibold text-base sm:text-2g text-foreground">
+              Tôi hiểu những nỗi sợ đó, vì tôi đã từng sống trong đó rất lâu...
             </p>
             <p>
               Năm 2009, biến cố bố mẹ ly hôn làm cuộc đời tôi thay đổi. Từ một cô gái lớn lên
