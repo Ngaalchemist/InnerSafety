@@ -8,6 +8,7 @@ import {
   Check,
   Star,
   Zap,
+  Scale,
   Video,
   FileText,
   Headphones,
@@ -32,16 +33,17 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 
 const included = [
   { icon: Video, text: '7 buổi video thực hành hàng ngày (28+ bài học)' },
-  { icon: FileText, text: 'Workbook & Bộ công cụ T.P.P đầy đủ' },
-  { icon: Headphones, text: 'Audio "Emergency Reset 5 Phút" — sơ cứu hệ thần kinh tức thì' },
+  { icon: FileText, text: 'Healing Workbook đầy đủ' },
+  { icon: Headphones, text: 'Audio "21 Ngày Duy Trì Tần Số An Toàn" — thực hành sau khóa học' },
   { icon: Users, text: 'Cộng đồng học viên đồng hành suốt hành trình' },
   { icon: Clock, text: 'Truy cập trọn đời — học lại bất cứ khi nào cần' },
 ];
 
 const bonuses = [
-  { title: 'Emergency Reset 5 Phút', value: '497.000đ', icon: Clock },
-  { title: 'Sleep Healing Audio', value: '297.000đ', icon: Headphones },
-  { title: 'Trigger Tracker (30 ngày)', value: '197.000đ', icon: Zap },
+  { title: 'Emergency Reset 5 Phút', icon: Clock },
+  { title: 'Sleep Healing Audio — "Tôi Đủ"', icon: Headphones },
+  { title: 'Nặng vs Nhẹ — Công Cụ Ra Quyết Định', icon: Scale },
+  { title: 'Pattern Interrupt — Công Cụ Ngắt Vòng Lặp Phản Ứng', icon: Zap },
 ];
 
 const objections = [
@@ -406,14 +408,12 @@ export function CheckoutSection() {
               </ul>
               {/* BONUS STACK */}
               <div className="mt-6 pt-6 border-t border-border/30">
-                <p className="text-sm font-bold text-foreground/70 uppercase tracking-wide mb-3">+ 3 quà tặng độc quyền</p>
+                <p className="text-sm font-bold text-foreground/70 uppercase tracking-wide mb-3">+ 4 quà tặng độc quyền</p>
                 <div className="space-y-2">
                   {bonuses.map((b, idx) => (
-                    <div key={idx} className="flex items-center justify-between gap-3 text-sm bg-background/40 rounded-lg px-3 py-2.5">
-                      <span className="flex items-center gap-2 text-foreground/80">
-                        <b.icon className="w-4 h-4 text-primary" /> {b.title}
-                      </span>
-                      <span className="text-muted-foreground line-through whitespace-nowrap">{b.value}</span>
+                    <div key={idx} className="flex items-center gap-3 text-sm bg-background/40 rounded-lg px-3 py-2.5">
+                      <b.icon className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-foreground/80">{b.title}</span>
                     </div>
                   ))}
                 </div>
