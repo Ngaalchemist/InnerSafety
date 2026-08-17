@@ -106,10 +106,10 @@ export function TestimonialsSection() {
           className="text-center mb-6 sm:mb-8"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold mb-4 sm:mb-6">
-            Đây là điều học viên thực sự nói sau khi học
+            Sau 7 Ngày, Điều Gì Đã Thay Đổi?
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">
-            Không phải lời mình nói. Đây là những gì học viên nhắn lại sau khi trải nghiệm chương trình.
+            Chia sẻ từ những học viên đã trải nghiệm Beyond Fear.
           </p>
         </motion.div>
 
