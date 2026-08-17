@@ -78,9 +78,9 @@ const quickFacts = [
 
 // Short reassurance bullets under the subheadline
 const checklist = [
-  'Dám xuất hiện mà không còn bị nỗi sợ kéo lùi.',
-  'Ra quyết định từ sự bình an thay vì lo âu hay suy nghĩ quá nhiều.',
-  'Tin vào chính mình và cảm thấy: "Tôi đã đủ."',
+  'Dám làm điều mình muốn mà không còn bị nỗi sợ kéo lùi.',
+  'Ra quyết định mà không còn bị lo âu hay suy nghĩ quá nhiều chi phối.',
+  'Tin vào chính mình và không còn luôn tự hỏi: “Mình có đủ tốt không?”."',
 ];
 
 // 5 feature icons — mirrors the 5 checklist outcomes from the reference mockup
@@ -162,7 +162,7 @@ export function Hero() {
               className="hidden sm:inline text-sm sm:text-base italic truncate"
               style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Playfair Display', serif", fontWeight: 600, letterSpacing: '0.2px' }}
             >
-              7 Ngày Tháo Gỡ Gốc Rễ Nỗi Sợ
+              7 Ngày Từ Sợ Hãi Đến Bình An
             </span>
           </span>
 
@@ -265,14 +265,14 @@ export function Hero() {
               </strong>{' '}
               và không dám bước tới.
               <br />
-              <span className="block lg:whitespace-nowrap lg:text-[13px] xl:text-sm">
-                {' '}
+              <span className="block lg:whitespace-nowrap">
+                Hành trình{' '}
                 <strong className="font-bold" style={{ color: PURPLE }}>
                   Beyond Fear™
                 </strong>{' '}
               là hành trình 7 ngày giúp bạn {' '}
                 <strong className="font-bold text-white">
-                 hiểu điều gì đang khiến mình mắc kẹt, bình tĩnh lại khi nỗi sợ xuất hiện, <br /> từng bước tin tưởng vào chính mình và dám hành động. 
+                 hiểu điều gì đang khiến mình sợ và mắc kẹt, bình tĩnh lại khi nỗi sợ xuất hiện, <br /> từng bước tin tưởng vào chính mình và dám hành động. 
                          .
                 </strong>
               </span>
