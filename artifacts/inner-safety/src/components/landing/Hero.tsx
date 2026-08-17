@@ -260,15 +260,15 @@ export function Hero() {
               variants={fadeInUp}
               className="text-white/75 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
             >
-              Dành cho những người luôn{' '}
+              Dành cho những người thường xuyên{' '}
               <strong className="font-bold" style={{ color: PURPLE }}>
-                overthinking, lo âu
+                suy nghĩ quá nhiều, lo lắng
               </strong>{' '}
-              và cảm thấy bị{' '}
+              và biết mình {' '}
               <strong className="font-bold" style={{ color: PURPLE }}>
-                nỗi sợ
+                muốn thay đổi
               </strong>{' '}
-              điều khiển cuộc sống.
+              nhưng vẫn không thể bước ra.
               <br />
               <span className="block lg:whitespace-nowrap lg:text-[13px] xl:text-sm">
                 Hành trình{' '}
