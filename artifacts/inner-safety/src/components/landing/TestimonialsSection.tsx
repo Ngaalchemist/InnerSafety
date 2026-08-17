@@ -30,7 +30,7 @@ const reviews = [
     src: review4,
     alt: 'Học viên chia sẻ về bài làm dịu hệ thần kinh ngày 2 và kết quả áp dụng cụ thể',
     name: 'Thanh Hằng',
-    title: 'Coach, 34 tuổi'
+    title: 'Tarot Reader, Healer, 34 tuổi'
   },
   {
     src: review2,
@@ -42,19 +42,19 @@ const reviews = [
     src: review3,
     alt: 'Học viên chia sẻ: em cảm nhận được sự hồi sinh, những chương trình cũ được xoá và lập trình mới đang hoạt động',
     name: 'Ngọc Mai',
-    title: 'Yoga Instructor, 36 tuổi'
+    title: 'Coach, 36 tuổi'
   },
   {
     src: review1,
     alt: 'Học viên chia sẻ: em thấy kết nối với bản thân mình hơn, tim không còn bị nặng nữa',
     name: 'Thùy Dương',
-    title: 'Reiki Healer, 33 tuổi'
+    title: 'Content Creator, 33 tuổi'
   },
   {
     src: review5,
     alt: 'Học viên chia sẻ cảm nhận về buổi thiền và tác động lên cơ thể, cảm xúc',
     name: 'Thanh Thủy',
-    title: 'Content Creator, 38 tuổi'
+    title: 'Healer, 38 tuổi'
   }
 ];
 
