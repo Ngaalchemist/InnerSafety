@@ -21,7 +21,7 @@ const coreProgram = [
   {
     icon: Users,
     title: 'Private Community',
-    desc: 'Cộng đồng đồng hành trong suốt hành trình 7 ngày — bạn không đi một mình.'
+    desc: 'Cộng đồng riêng dành cho học viên — tham gia miễn phí, trọn đời, không chỉ trong 7 ngày học.'
   },
   {
     icon: Repeat,
