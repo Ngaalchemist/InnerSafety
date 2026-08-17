@@ -80,7 +80,7 @@ const quickFacts = [
 const checklist = [
   'Dám làm điều mình muốn mà không còn bị nỗi sợ kéo lùi.',
   'Ra quyết định mà không còn bị lo âu hay suy nghĩ quá nhiều chi phối.',
-  'Tin vào chính mình và không còn luôn tự hỏi: “Mình có đủ tốt không?”."',
+  'Tin vào chính mình và không còn luôn tự hỏi: “Mình có đủ tốt không?”.',
 ];
 
 // 5 feature icons — mirrors the 5 checklist outcomes from the reference mockup
