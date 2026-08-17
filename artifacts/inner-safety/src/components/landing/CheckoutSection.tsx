@@ -105,9 +105,6 @@ export function CheckoutSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
-  // Countdown — urgency block
-  const [timeLeft, setTimeLeft] = useState({ hours: 24, minutes: 0, seconds: 0 });
-
   // Form state
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
   const [errors, setErrors] = useState({ name: '', phone: '', email: '' });
@@ -119,36 +116,6 @@ export function CheckoutSection() {
   const [orderData, setOrderData] = useState<OrderData | null>(null);
   const [pollError, setPollError] = useState('');
   const [inviteLinks, setInviteLinks] = useState<InviteLinks>({ zaloInviteUrl: null, skoolInviteUrl: null });
-
-  // ── Countdown timer ──────────────────────────────────────────
-  useEffect(() => {
-    const getTargetTime = () => {
-      let target = localStorage.getItem('checkout_timer_target');
-      if (!target || new Date().getTime() > parseInt(target, 10)) {
-        const newTarget = new Date().getTime() + 24 * 60 * 60 * 1000;
-        localStorage.setItem('checkout_timer_target', newTarget.toString());
-        return newTarget;
-      }
-      return parseInt(target, 10);
-    };
-    const targetTime = getTargetTime();
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const difference = targetTime - now;
-      if (difference <= 0) {
-        const newTarget = new Date().getTime() + 24 * 60 * 60 * 1000;
-        localStorage.setItem('checkout_timer_target', newTarget.toString());
-        setTimeLeft({ hours: 24, minutes: 0, seconds: 0 });
-      } else {
-        setTimeLeft({
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000),
-        });
-      }
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   // ── SePay payment polling ─────────────────────────────────────
   const pollStatus = useCallback(async (orderId: string) => {
@@ -366,20 +333,15 @@ export function CheckoutSection() {
           >
             {/* ORDER SUMMARY */}
             <div className="p-6 sm:p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/30">
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-foreground mb-1">
-                    BEYOND FEAR
-                  </h3>
-                  <p className="text-sm text-muted-foreground">7 Ngày từ Sợ Hãi Đến Bình An</p>
-                </div>
-                <span className="shrink-0 text-[11px] font-bold px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 tracking-wide">
-                  TIẾT KIỆM 70%
-                </span>
+              <div className="mb-4">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-foreground mb-1">
+                  BEYOND FEAR
+                </h3>
+                <p className="text-sm text-muted-foreground">7 Ngày từ Sợ Hãi Đến Bình An</p>
               </div>
               <div className="flex items-baseline gap-3 py-4 border-y border-border/30">
                 <span className="text-3xl sm:text-4xl font-extrabold text-primary">444.000đ</span>
-                <span className="text-base text-muted-foreground line-through">1.480.000đ</span>
+                <span className="text-sm text-muted-foreground">Một lần thanh toán · Truy cập trọn đời</span>
               </div>
               <div className="flex items-center gap-1 mt-4">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -402,7 +364,7 @@ export function CheckoutSection() {
               </ul>
               {/* BONUS STACK */}
               <div className="mt-6 pt-6 border-t border-border/30">
-                <p className="text-sm font-bold text-foreground/70 uppercase tracking-wide mb-3">+ 4 quà tặng độc quyền</p>
+                <p className="text-sm font-bold text-foreground/70 uppercase tracking-wide mb-3">+ 4 quà tặng đi kèm</p>
                 <div className="space-y-2">
                   {bonuses.map((b, idx) => (
                     <div key={idx} className="flex items-center gap-3 text-sm bg-background/40 rounded-lg px-3 py-2.5">
@@ -411,9 +373,6 @@ export function CheckoutSection() {
                     </div>
                   ))}
                 </div>
-                <p className="text-xs text-muted-foreground mt-3">
-                  Tổng giá trị: <span className="line-through">3.991.000đ</span> — Hôm nay chỉ: <span className="text-primary font-bold">444.000đ</span>
-                </p>
               </div>
             </div>
 
@@ -465,26 +424,6 @@ export function CheckoutSection() {
             className="lg:sticky lg:top-6 h-fit"
           >
             <div className="rounded-2xl bg-white text-[#1b1918] p-6 sm:p-8 shadow-2xl border-2 border-primary/30">
-
-              {/* URGENCY COUNTDOWN */}
-              <div className="flex flex-col items-center mb-6 pb-6 border-b border-gray-200">
-                <div className="text-xs sm:text-sm font-bold text-red-600 uppercase tracking-wider mb-3 flex items-center gap-2">
-                  <Clock className="w-4 h-4" /> Ưu đãi ra mắt kết thúc sau
-                </div>
-                <div className="flex gap-3">
-                  {[['GIỜ', timeLeft.hours], ['PHÚT', timeLeft.minutes], ['GIÂY', timeLeft.seconds]].map(([label, val], i) => (
-                    <React.Fragment key={label as string}>
-                      {i > 0 && <div className="text-xl font-bold mt-3 text-gray-400">:</div>}
-                      <div className="flex flex-col items-center">
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gray-100 rounded-xl flex items-center justify-center text-xl sm:text-2xl font-bold font-mono shadow-inner">
-                          {(val as number).toString().padStart(2, '0')}
-                        </div>
-                        <span className="text-[10px] sm:text-xs text-gray-500 mt-1 font-medium">{label}</span>
-                      </div>
-                    </React.Fragment>
-                  ))}
-                </div>
-              </div>
 
               {/* STEP: FORM */}
               {step === 'form' && (
@@ -551,11 +490,14 @@ export function CheckoutSection() {
                       {isSubmitting ? (
                         <><RefreshCw className="w-5 h-5 animate-spin" /> Đang xử lý…</>
                       ) : (
-                        <> TIẾP TỤC THANH TOÁN — 444.000đ <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></>
+                        <> BẮT ĐẦU BEYOND FEAR™ — 444.000đ <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></>
                       )}
                     </button>
                     <p className="text-center text-[11px] text-gray-500 mt-3 flex items-center justify-center gap-1.5">
                       <Lock className="w-3 h-3" /> Bước tiếp theo: quét mã QR chuyển khoản · Truy cập tức thì sau khi hoàn tất
+                    </p>
+                    <p className="text-center text-[11px] text-gray-400 mt-2">
+                      Được phát triển bởi Nga Alchemist · Inner Safety Method™
                     </p>
                   </div>
                 </form>
