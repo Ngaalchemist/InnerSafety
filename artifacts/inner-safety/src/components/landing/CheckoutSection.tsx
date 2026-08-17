@@ -50,7 +50,7 @@ const included = [
   { icon: Video, text: '7 buổi video thực hành hàng ngày' },
   { icon: FileText, text: 'Healing Workbook đầy đủ' },
   { icon: Headphones, text: 'Audio "21 Ngày Duy Trì Tần Số An Toàn" — thực hành sau khóa học' },
-  { icon: Users, text: 'Cộng đồng học viên đồng hành suốt hành trình' },
+  { icon: Users, text: 'Cộng đồng riêng cho học viên — miễn phí trọn đời' },
   { icon: Clock, text: 'Truy cập trọn đời — học lại bất cứ khi nào cần' },
 ];
 
