@@ -1,34 +1,47 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Video, FileText, Headphones, Scale, Coins, Users } from 'lucide-react';
+import { Video, FileText, Users, Headphones, Scale, Zap, Infinity as InfinityIcon, Repeat } from 'lucide-react';
 import bundleImage from '../../../../../attached_assets/beyond-fear-healing-bundle.jpg';
 
-// The core 7-day video journey is the actual product (Inner Safety
-// Method™) — kept visually separate from the tools below it, instead of
-// sitting in the same grid as a workbook or a decision-making chart.
-// Otherwise the whole section reads as "a bundle of files" rather than
-// "a method, plus tools that support it".
-const core = {
-  icon: Video,
-  title: '7 Buổi Video Thực Hành',
-  desc: 'Mỗi ngày 20 phút — từng bước tháo gỡ những tầng khác nhau của nỗi sợ, từ cơ thể, cảm xúc đến niềm tin và danh tính.'
-};
-
-const tools = [
+// The core 7-day program is the actual product (Inner Safety Method™):
+// the video journey, the workbook, and the community that holds you
+// through it — kept visually one tier heavier than the gift bonuses
+// below, with a lifetime-access badge attached to the whole block.
+const coreProgram = [
+  {
+    icon: Video,
+    title: '7 Buổi Video Thực Hành',
+    desc: 'Mỗi ngày 20 phút — từng bước tháo gỡ những tầng khác nhau của nỗi sợ, từ cơ thể, cảm xúc đến niềm tin và danh tính.'
+  },
   {
     icon: FileText,
     title: 'Healing Workbook',
     desc: 'Bộ bài tập giúp bạn nhận ra điều gì kích hoạt nỗi sợ, cách bạn thường phản ứng, và cách phá vòng lặp cũ.'
   },
   {
-    icon: Headphones,
-    title: 'I AM Word — Audio "Tôi Đủ"',
-    desc: 'Bản ghi âm giúp củng cố self-worth và xây dựng lại cảm giác: "Tôi đủ."'
+    icon: Users,
+    title: 'Private Community',
+    desc: 'Cộng đồng đồng hành trong suốt hành trình 7 ngày — bạn không đi một mình.'
   },
+  {
+    icon: Repeat,
+    title: '21 Ngày Duy Trì Tần Số An Toàn',
+    desc: 'Audio thực hành mỗi ngày trong 21 ngày sau khóa học, giúp bạn duy trì tần số bình an và tiếp tục củng cố cảm giác an toàn đã xây dựng trong 7 ngày.'
+  }
+];
+
+// Quà tặng độc quyền — bonus tools that support the core method,
+// kept visually one tier lighter than the program above.
+const giftBonuses = [
   {
     icon: Headphones,
     title: 'Emergency Reset 5 Phút',
     desc: 'Audio ngắn dùng ngay khi bị trigger, hoảng hoặc overthinking — giúp bạn nhanh chóng quay về trạng thái bình tĩnh.'
+  },
+  {
+    icon: Headphones,
+    title: 'Sleep Healing Audio — "Tôi Đủ"',
+    desc: 'Bản ghi âm nghe vào buổi tối, giúp bạn chìm vào giấc ngủ trong khi tiềm thức âm thầm củng cố cảm giác an toàn và giá trị bản thân.'
   },
   {
     icon: Scale,
@@ -36,17 +49,11 @@ const tools = [
     desc: 'Giúp bạn nhận ra điều gì đang khiến mình co lại, và đưa ra quyết định nhẹ nhàng hơn.'
   },
   {
-    icon: Coins,
-    title: 'Làm Hoà Với Tiền',
-    desc: 'Một bài thực hành giúp bạn nhìn lại mối quan hệ với Tiền và tháo gỡ nỗi sợ thiếu hụt.'
+    icon: Zap,
+    title: 'Pattern Interrupt — Công Cụ Ngắt Vòng Lặp Phản Ứng',
+    desc: 'Một kỹ thuật ngắt phản ứng cảm xúc tự động ngay khi trigger vừa xuất hiện — chỉ vài giây, đủ để bạn không bị cuốn vào vòng lặp cũ.'
   }
 ];
-
-const support = {
-  icon: Users,
-  title: 'Private Community',
-  desc: 'Cộng đồng đồng hành trong suốt hành trình 7 ngày — bạn không đi một mình.'
-};
 
 function IncludedCard({
   icon: Icon,
@@ -54,7 +61,8 @@ function IncludedCard({
   desc,
   delay,
   isInView,
-  testId
+  testId,
+  emphasized = false
 }: {
   icon: typeof Video;
   title: string;
@@ -62,13 +70,18 @@ function IncludedCard({
   delay: number;
   isInView: boolean;
   testId: string;
+  emphasized?: boolean;
 }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay }}
-      className="flex items-start gap-4 p-4 sm:p-6 rounded-xl bg-card/40 backdrop-blur-sm border border-border/30 hover:border-primary/50 transition-all duration-300 hover:scale-105"
+      className={
+        emphasized
+          ? 'flex items-start gap-4 p-4 sm:p-6 rounded-xl bg-gradient-to-br from-primary/15 to-accent/10 border-2 border-primary/30 hover:border-primary/50 transition-all duration-300 hover:scale-105'
+          : 'flex items-start gap-4 p-4 sm:p-6 rounded-xl bg-card/40 backdrop-blur-sm border border-border/30 hover:border-primary/50 transition-all duration-300 hover:scale-105'
+      }
       data-testid={testId}
     >
       <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center flex-shrink-0">
@@ -120,59 +133,54 @@ export function IncludedSection() {
           />
         </motion.div>
 
-        {/* CORE — the actual method, visually distinct from the tools below */}
+        {/* CHƯƠNG TRÌNH CHÍNH — the core method: video journey + workbook +
+            community, with a lifetime-access badge attached to the block */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto mb-6 sm:mb-8"
+          className="max-w-4xl mx-auto mb-10 sm:mb-14"
         >
-          <p className="text-xs font-bold uppercase tracking-wide text-primary mb-3 text-center sm:text-left">
-            Chương trình chính
-          </p>
-          <div
-            className="flex items-start gap-4 sm:gap-5 p-5 sm:p-7 rounded-2xl bg-gradient-to-br from-primary/15 to-accent/10 border-2 border-primary/30"
-            data-testid="included-core"
-          >
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
-              <core.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary-foreground" />
-            </div>
-            <div>
-              <p className="text-base sm:text-lg font-bold text-foreground mb-1.5">{core.title}</p>
-              <p className="text-sm sm:text-base text-foreground/75 leading-relaxed">{core.desc}</p>
-            </div>
+          <div className="flex items-center justify-between gap-3 mb-3 flex-wrap">
+            <p className="text-xs font-bold uppercase tracking-wide text-primary">
+              Chương trình chính
+            </p>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-xs font-semibold text-primary">
+              <InfinityIcon className="w-3.5 h-3.5" />
+              Truy cập trọn đời
+            </span>
           </div>
-        </motion.div>
-
-        {/* TOOLS — support the core method, kept visually one tier lighter */}
-        <div className="max-w-4xl mx-auto mb-6 sm:mb-8">
-          <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground mb-3 text-center sm:text-left">
-            Công cụ đi kèm
-          </p>
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-            {tools.map((item, idx) => (
+            {coreProgram.map((item, idx) => (
               <IncludedCard
                 key={idx}
                 {...item}
                 delay={0.1 + idx * 0.08}
                 isInView={isInView}
-                testId={`included-tool-${idx}`}
+                testId={`included-core-${idx}`}
+                emphasized
               />
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* SUPPORT */}
+        {/* QUÀ TẶNG ĐỘC QUYỀN — bonus tools that support the core method,
+            kept visually one tier lighter */}
         <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
           <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground mb-3 text-center sm:text-left">
-            Đồng hành
+            Quà tặng độc quyền
           </p>
-          <IncludedCard
-            {...support}
-            delay={0.5}
-            isInView={isInView}
-            testId="included-support"
-          />
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+            {giftBonuses.map((item, idx) => (
+              <IncludedCard
+                key={idx}
+                {...item}
+                delay={0.1 + idx * 0.08}
+                isInView={isInView}
+                testId={`included-gift-${idx}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Value framing before the CTA that already follows this section
