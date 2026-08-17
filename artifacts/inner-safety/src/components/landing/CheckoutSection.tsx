@@ -28,8 +28,48 @@ import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 // ────────────────────────────────────────────────────────────────
-// Static content
+// Countdown — tạo cảm giác khẩn cấp thật (đếm ngược đến hạn quà tặng)
 // ────────────────────────────────────────────────────────────────
+
+const BONUS_DEADLINE = new Date('2026-09-30T23:59:59+07:00');
+
+function useCountdown(target: Date) {
+  const [msLeft, setMsLeft] = useState(() => target.getTime() - Date.now());
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setMsLeft(target.getTime() - Date.now());
+    }, 1000);
+    return () => clearInterval(id);
+  }, [target]);
+
+  return Math.max(0, msLeft);
+}
+
+function CountdownTimer({ target }: { target: Date }) {
+  const msLeft = useCountdown(target);
+  const totalSeconds = Math.floor(msLeft / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  const pad = (n: number) => n.toString().padStart(2, '0');
+
+  return (
+    <div className="flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-primary bg-primary/10 border border-primary/40 rounded-full px-4 py-2 mb-3 shadow-[0_0_20px_-6px] shadow-primary/40 animate-pulse">
+      <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+      <span>4 quà tặng kết thúc sau</span>
+      <span className="font-mono tabular-nums text-foreground text-sm sm:text-base">
+        {days > 0 && <>{days}n </>}
+        {pad(hours)}
+        <span className="animate-pulse">:</span>
+        {pad(minutes)}
+        <span className="animate-pulse">:</span>
+        {pad(seconds)}
+      </span>
+    </div>
+  );
+}
 
 const included = [
   { icon: Video, text: '7 buổi video thực hành hàng ngày' },
@@ -81,9 +121,25 @@ const checkoutFaqs = [
   { q: 'Tôi có được cập nhật nội dung mới sau này không?', a: 'Có. Mọi bài học hoặc tài liệu bổ sung trong tương lai đều miễn phí cho học viên đã đăng ký.' },
 ];
 
-// ────────────────────────────────────────────────────────────────
-// Types
-// ────────────────────────────────────────────────────────────────
+function BonusDaysLeftBadge({ target }: { target: Date }) {
+  const msLeft = useCountdown(target);
+  const daysLeft = Math.ceil(msLeft / 86400000);
+  const isUrgent = daysLeft <= 3;
+
+  return (
+    <span
+      className={`shrink-0 text-[11px] font-bold px-2.5 py-1 rounded-full border tracking-wide whitespace-nowrap ${
+        isUrgent
+          ? 'bg-destructive/15 text-destructive border-destructive/40 animate-pulse'
+          : 'bg-primary/15 text-primary border-primary/40'
+      }`}
+    >
+      Còn {daysLeft} ngày
+    </span>
+  );
+}
+
+
 
 type Step = 'form' | 'qr' | 'success';
 
@@ -192,7 +248,7 @@ export function CheckoutSection() {
 
   // ── QR step ───────────────────────────────────────────────────
   const qrStepContent = (
-    <div className="space-y-5 text-center text-[#1b1918]">
+    <div className="space-y-5 text-center text-foreground">
       <div className="flex items-center justify-center gap-2 text-sm font-bold text-primary mb-1">
         <QrCode className="w-4 h-4" />
         Quét mã QR để thanh toán
@@ -214,19 +270,19 @@ export function CheckoutSection() {
         </div>
       )}
 
-      <div className="text-left space-y-1.5 bg-muted/40 rounded-xl p-4 text-sm">
+      <div className="text-left space-y-1.5 bg-background/60 border border-border rounded-xl p-4 text-sm">
         <p className="font-semibold text-foreground/80 text-center mb-2">Thông tin chuyển khoản</p>
         <div className="flex justify-between">
-          <span className="text-foreground/60">Số tiền</span>
+          <span className="text-muted-foreground">Số tiền</span>
           <span className="font-bold text-primary">444.000đ</span>
         </div>
         <div className="flex justify-between gap-4">
-          <span className="text-foreground/60 shrink-0">Nội dung CK</span>
+          <span className="text-muted-foreground shrink-0">Nội dung CK</span>
           <span className="font-mono font-bold text-right break-all">{orderData?.orderId}</span>
         </div>
       </div>
 
-      <div className="flex items-center justify-center gap-2 text-sm text-foreground/60 animate-pulse">
+      <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground animate-pulse">
         <RefreshCw className="w-4 h-4 animate-spin" />
         Đang chờ xác nhận thanh toán…
       </div>
@@ -252,20 +308,20 @@ export function CheckoutSection() {
   // ── Success step ──────────────────────────────────────────────
   const hasInvites = inviteLinks.zaloInviteUrl || inviteLinks.skoolInviteUrl;
   const successStepContent = (
-      <div className="bg-green-50 border border-green-200 text-green-800 rounded-xl p-8 text-center animate-in fade-in zoom-in duration-300">
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <CheckCircle2 className="w-8 h-8 text-green-600" />
+      <div className="bg-green-500/10 border border-green-500/30 text-foreground rounded-xl p-8 text-center animate-in fade-in zoom-in duration-300">
+        <div className="w-16 h-16 bg-green-500/15 rounded-full flex items-center justify-center mx-auto mb-4">
+          <CheckCircle2 className="w-8 h-8 text-green-400" />
         </div>
-        <h4 className="text-xl font-bold mb-2">Thanh toán thành công!</h4>
-        <p className="text-sm leading-relaxed">
-          Cảm ơn <strong>{formData.name}</strong>!<br />
-          Kiểm tra email <strong>{formData.email}</strong> trong vài phút<br />
+        <h4 className="text-xl font-bold mb-2 text-green-400">Thanh toán thành công!</h4>
+        <p className="text-sm leading-relaxed text-foreground/80">
+          Cảm ơn <strong className="text-foreground">{formData.name}</strong>!<br />
+          Kiểm tra email <strong className="text-foreground">{formData.email}</strong> trong vài phút<br />
           để nhận link truy cập khóa học ngay lập tức.
         </p>
 
         {hasInvites && (
-          <div className="mt-6 pt-6 border-t border-green-200 space-y-2.5">
-            <p className="text-sm font-semibold text-green-900">Tham gia cộng đồng ngay để không bỏ lỡ:</p>
+          <div className="mt-6 pt-6 border-t border-green-500/20 space-y-2.5">
+            <p className="text-sm font-semibold text-foreground">Tham gia cộng đồng ngay để không bỏ lỡ:</p>
             {inviteLinks.zaloInviteUrl && (
               <a
                 href={inviteLinks.zaloInviteUrl}
@@ -291,7 +347,7 @@ export function CheckoutSection() {
           </div>
         )}
 
-        <p className="text-xs text-green-700/70 mt-4">
+        <p className="text-xs text-muted-foreground mt-4">
           Không thấy email? Kiểm tra hộp thư Spam hoặc liên hệ hotro@innersafety.vn
         </p>
       </div>
@@ -368,9 +424,7 @@ export function CheckoutSection() {
               <div className="mt-6 pt-6 border-t border-border/30">
                 <div className="flex items-center justify-between gap-3 mb-3">
                   <p className="text-sm font-bold text-foreground/70 uppercase tracking-wide">+ 4 quà tặng đi kèm</p>
-                  <span className="shrink-0 text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-500 border border-amber-500/40 tracking-wide whitespace-nowrap">
-                    Đến hết 30/9
-                  </span>
+                  <BonusDaysLeftBadge target={BONUS_DEADLINE} />
                 </div>
                 <div className="space-y-2">
                   {bonuses.map((b, idx) => (
@@ -436,71 +490,69 @@ export function CheckoutSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:sticky lg:top-6 h-fit"
           >
-            <div className="rounded-2xl bg-white text-[#1b1918] p-6 sm:p-8 shadow-2xl border-2 border-primary/30">
+            <div className="rounded-2xl bg-card text-foreground p-6 sm:p-8 shadow-2xl shadow-primary/10 border-2 border-primary/30">
 
               {/* STEP: FORM */}
               {step === 'form' && (
                 <form onSubmit={handleSubmit} className="space-y-4" data-testid="form-checkout">
                   <div className="space-y-1.5">
-                    <Label htmlFor="checkout-name">Họ và tên *</Label>
+                    <Label htmlFor="checkout-name" className="text-foreground/80">Họ và tên *</Label>
                     <Input
                       id="checkout-name"
                       placeholder="Nguyễn Văn A"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className={`h-12 bg-gray-50 border-gray-200 ${errors.name ? 'border-red-500' : ''}`}
+                      className={`h-12 bg-background/60 border-border text-foreground placeholder:text-muted-foreground focus-visible:ring-primary/40 ${errors.name ? 'border-destructive' : ''}`}
                       data-testid="input-checkout-name"
                     />
-                    {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
+                    {errors.name && <p className="text-destructive text-xs">{errors.name}</p>}
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label htmlFor="checkout-phone">Số điện thoại *</Label>
+                    <Label htmlFor="checkout-phone" className="text-foreground/80">Số điện thoại *</Label>
                     <Input
                       id="checkout-phone"
                       type="tel"
                       placeholder="0912 345 678"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className={`h-12 bg-gray-50 border-gray-200 ${errors.phone ? 'border-red-500' : ''}`}
+                      className={`h-12 bg-background/60 border-border text-foreground placeholder:text-muted-foreground focus-visible:ring-primary/40 ${errors.phone ? 'border-destructive' : ''}`}
                       data-testid="input-checkout-phone"
                     />
-                    {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
+                    {errors.phone && <p className="text-destructive text-xs">{errors.phone}</p>}
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label htmlFor="checkout-email">Email *</Label>
+                    <Label htmlFor="checkout-email" className="text-foreground/80">Email *</Label>
                     <Input
                       id="checkout-email"
                       type="email"
                       placeholder="email@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className={`h-12 bg-gray-50 border-gray-200 ${errors.email ? 'border-red-500' : ''}`}
+                      className={`h-12 bg-background/60 border-border text-foreground placeholder:text-muted-foreground focus-visible:ring-primary/40 ${errors.email ? 'border-destructive' : ''}`}
                       data-testid="input-checkout-email"
                     />
-                    {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
-                    <p className="text-[11px] text-gray-500 flex items-center gap-1">
+                    {errors.email && <p className="text-destructive text-xs">{errors.email}</p>}
+                    <p className="text-[11px] text-muted-foreground flex items-center gap-1">
                       <Mail className="w-3 h-3" /> Link truy cập khóa học sẽ được gửi tới email này
                     </p>
                   </div>
 
                   {apiError && (
-                    <p className="text-xs text-red-500 bg-red-50 border border-red-200 rounded-lg px-3 py-2">{apiError}</p>
+                    <p className="text-xs text-destructive bg-destructive/10 border border-destructive/30 rounded-lg px-3 py-2">{apiError}</p>
                   )}
 
                   <div className="pt-1">
-                    <div className="flex items-center justify-center gap-1.5 text-xs font-semibold text-amber-600 bg-amber-50 border border-amber-200 rounded-full px-3 py-1.5 mb-3">
-                      <Clock className="w-3.5 h-3.5" /> 4 quà tặng đi kèm chỉ áp dụng đến hết 30/9
-                    </div>
-                    <div className="flex items-center justify-between text-sm mb-3 text-gray-600">
+                    <CountdownTimer target={BONUS_DEADLINE} />
+                    <div className="flex items-center justify-between text-sm mb-3 text-muted-foreground">
                       <span>Tổng thanh toán</span>
-                      <span className="text-xl font-bold text-[#1b1918]">444.000đ</span>
+                      <span className="text-xl font-bold text-foreground">444.000đ</span>
                     </div>
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold text-base sm:text-lg text-white bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 hover:shadow-2xl hover:shadow-amber-400/40 transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
+                      className="group w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold text-base sm:text-lg text-background bg-gradient-to-r from-primary to-accent hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
                       data-testid="button-checkout-submit"
                     >
                       {isSubmitting ? (
@@ -509,10 +561,10 @@ export function CheckoutSection() {
                         <> BẮT ĐẦU BEYOND FEAR™ — 444.000đ <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></>
                       )}
                     </button>
-                    <p className="text-center text-[11px] text-gray-500 mt-3 flex items-center justify-center gap-1.5">
+                    <p className="text-center text-[11px] text-muted-foreground mt-3 flex items-center justify-center gap-1.5">
                       <Lock className="w-3 h-3" /> Bước tiếp theo: quét mã QR chuyển khoản · Truy cập tức thì sau khi hoàn tất
                     </p>
-                    <p className="text-center text-[11px] text-gray-400 mt-2">
+                    <p className="text-center text-[11px] text-muted-foreground/70 mt-2">
                       Được phát triển bởi Nga Alchemist · Inner Safety Method™
                     </p>
                   </div>
