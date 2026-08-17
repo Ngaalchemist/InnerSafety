@@ -255,7 +255,7 @@ export function CurriculumSection() {
             Bạn không cần thay đổi cuộc đời trong một ngày. Chỉ cần đi từng bước, mỗi ngày
             khoảng 20 phút.
             <br className="hidden sm:block" />
-            Sau 7 ngày... bạn sẽ nhìn cuộc sống bằng một trạng thái hoàn toàn khác.
+            Sau 7 ngày, bạn có một cách rõ ràng hơn để nhận ra nỗi sợ, bình tĩnh lại và bắt đầu hành động..
           </p>
         </motion.div>
 
