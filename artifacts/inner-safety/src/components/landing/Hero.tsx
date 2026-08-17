@@ -268,13 +268,13 @@ export function Hero() {
               và không dám bước tới.
               <br />
               <span className="block lg:whitespace-nowrap lg:text-[13px] xl:text-sm">
-                Hành trình{' '}
+                {' '}
                 <strong className="font-bold" style={{ color: PURPLE }}>
                   Beyond Fear™
                 </strong>{' '}
               là hành trình 7 ngày giúp bạn {' '}
                 <strong className="font-bold text-white">
-                 hiểu điều gì đang khiến mình mắc kẹt, bình tĩnh lại khi nỗi sợ xuất hiện <br /> và từng bước tin tưởng vào chính mình hơn. 
+                 hiểu điều gì đang khiến mình mắc kẹt, bình tĩnh lại khi nỗi sợ xuất hiện, <br /> từng bước tin tưởng vào chính mình và dám hành động. 
                          .
                 </strong>
               </span>
