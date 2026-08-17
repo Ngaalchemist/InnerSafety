@@ -272,7 +272,7 @@ export function Hero() {
                 </strong>{' '}
               là hành trình 7 ngày giúp bạn {' '}
                 <strong className="font-bold text-white">
-                 hiểu điều gì đang khiến mình sợ và mắc kẹt, bình tĩnh lại khi nỗi sợ xuất hiện, <br /> từng bước tin tưởng vào chính mình và dám hành động. 
+                 hiểu điều gì đang khiến mình sợ và mắc kẹt, <br /> bình tĩnh lại khi nỗi sợ xuất hiện, từng bước tin tưởng vào chính mình và dám hành động. 
                          .
                 </strong>
               </span>
