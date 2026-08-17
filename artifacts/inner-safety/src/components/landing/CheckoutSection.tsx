@@ -356,8 +356,7 @@ export function CheckoutSection() {
             Xác Nhận Đơn Hàng Của Bạn
           </h2>
           <p className="text-lg sm:text-xl text-foreground/70 max-w-2xl mx-auto">
-            Điền thông tin bên dưới để nhận quyền truy cập ngay lập tức vào BEYOND FEAR - Từ Lo Âu Đến
-            Bình An Trong 7 Ngày.
+            Điền thông tin bên dưới để nhận quyền truy cập ngay lập tức vào BEYOND FEAR - 7 Ngày Từ Sợ Hãi Đến Bình An.
           </p>
         </motion.div>
 
@@ -376,7 +375,7 @@ export function CheckoutSection() {
                   <h3 className="text-xl sm:text-2xl font-serif font-bold text-foreground mb-1">
                     BEYOND FEAR
                   </h3>
-                  <p className="text-sm text-muted-foreground">Từ Lo Âu Đến Bình An Trong 7 Ngày</p>
+                  <p className="text-sm text-muted-foreground">7 Ngày từ Sợ Hãi Đến Bình An</p>
                 </div>
                 <span className="shrink-0 text-[11px] font-bold px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 tracking-wide">
                   TIẾT KIỆM 70%
