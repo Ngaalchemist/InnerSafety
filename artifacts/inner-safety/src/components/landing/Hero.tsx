@@ -436,7 +436,7 @@ export function Hero() {
                 style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
                 data-testid="button-hero-cta"
               >
-                🔥 TÔI MUỐN THÁO GỠ GỐC RỄ NỖI SỢ
+                🔥 TÔI MUỐN BẮT ĐẦU 7 NGÀY
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </motion.div>
