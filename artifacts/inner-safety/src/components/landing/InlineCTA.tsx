@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
 import {
   ArrowRight,
   Monitor,
@@ -16,7 +17,7 @@ const T_LABEL_SM = 'text-xs sm:text-sm font-semibold';
 const T_CAPTION = 'text-xs sm:text-sm text-foreground/55 leading-snug';
 
 interface InlineCTAProps {
-  headline: string;
+  headline: ReactNode;
   subtext?: string;
   buttonLabel?: string;
   /** Set false when embedded inside a parent block that already handles
