@@ -127,7 +127,7 @@ export function InstructorSection() {
               <p className="italic text-foreground/70">"Sẽ chẳng ai cần mình."</p>
             </div>
             <p>
-              Nhưng đỉnh điểm là khi Covid-19 ập đến. Cùng một lúc: phá sản, mất việc, và lại
+              Nhưng đỉnh điểm là khi Covid-19 ập đến. Cùng một lúc tôi phải trải qua: phá sản, mất việc, và lại
               một lần nữa... ly hôn.
             </p>
             <p>
