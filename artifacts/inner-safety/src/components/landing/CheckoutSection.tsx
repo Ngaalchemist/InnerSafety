@@ -332,7 +332,7 @@ export function CheckoutSection() {
             className="space-y-6"
           >
             {/* ORDER SUMMARY */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/30">
+            <div className="p-6 sm:p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-primary/30 shadow-[0_0_40px_-12px] shadow-primary/20">
               <div className="mb-4">
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-foreground mb-1">
                   BEYOND FEAR
@@ -340,7 +340,7 @@ export function CheckoutSection() {
                 <p className="text-sm text-muted-foreground">7 Ngày từ Sợ Hãi Đến Bình An</p>
               </div>
               <div className="flex items-baseline gap-3 py-4 border-y border-border/30">
-                <span className="text-3xl sm:text-4xl font-extrabold text-primary">444.000đ</span>
+                <span className="text-4xl sm:text-5xl font-extrabold text-gradient-gold">444.000đ</span>
                 <span className="text-sm text-muted-foreground">Một lần thanh toán · Truy cập trọn đời</span>
               </div>
               <div className="flex items-center gap-1 mt-4">
@@ -362,17 +362,30 @@ export function CheckoutSection() {
                   </li>
                 ))}
               </ul>
-              {/* BONUS STACK */}
+              {/* BONUS STACK — real deadline: bonuses are only guaranteed for
+                  signups through Sep 30. Update or remove this date if the
+                  offer window changes; never leave a stale date live. */}
               <div className="mt-6 pt-6 border-t border-border/30">
-                <p className="text-sm font-bold text-foreground/70 uppercase tracking-wide mb-3">+ 4 quà tặng đi kèm</p>
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <p className="text-sm font-bold text-foreground/70 uppercase tracking-wide">+ 4 quà tặng đi kèm</p>
+                  <span className="shrink-0 text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-500 border border-amber-500/40 tracking-wide whitespace-nowrap">
+                    Đến hết 30/9
+                  </span>
+                </div>
                 <div className="space-y-2">
                   {bonuses.map((b, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-sm bg-background/40 rounded-lg px-3 py-2.5">
-                      <b.icon className="w-4 h-4 text-primary flex-shrink-0" />
+                    <div
+                      key={idx}
+                      className="flex items-center gap-3 text-sm bg-gradient-to-r from-amber-500/10 to-transparent border border-amber-500/20 rounded-lg px-3 py-2.5"
+                    >
+                      <b.icon className="w-4 h-4 text-amber-500 flex-shrink-0" />
                       <span className="text-foreground/80">{b.title}</span>
                     </div>
                   ))}
                 </div>
+                <p className="text-xs text-muted-foreground mt-3">
+                  Đăng ký sau ngày 30/9, khóa học vẫn đầy đủ như trên — chỉ không còn kèm 4 quà tặng này.
+                </p>
               </div>
             </div>
 
@@ -477,6 +490,9 @@ export function CheckoutSection() {
                   )}
 
                   <div className="pt-1">
+                    <div className="flex items-center justify-center gap-1.5 text-xs font-semibold text-amber-600 bg-amber-50 border border-amber-200 rounded-full px-3 py-1.5 mb-3">
+                      <Clock className="w-3.5 h-3.5" /> 4 quà tặng đi kèm chỉ áp dụng đến hết 30/9
+                    </div>
                     <div className="flex items-center justify-between text-sm mb-3 text-gray-600">
                       <span>Tổng thanh toán</span>
                       <span className="text-xl font-bold text-[#1b1918]">444.000đ</span>
