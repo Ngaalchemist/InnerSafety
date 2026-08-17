@@ -279,6 +279,7 @@ export function Hero() {
                 <strong className="font-bold text-white">
                  hiểu điều gì đang khiến mình mắc kẹt, bình tĩnh lại khi nỗi sợ xuất hiện và từng bước tin tưởng vào chính mình hơn. 
                          .
+                </strong>
               </span>
             </motion.p>
 
