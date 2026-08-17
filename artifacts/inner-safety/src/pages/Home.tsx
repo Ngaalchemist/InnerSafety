@@ -27,7 +27,7 @@ export default function Home() {
       <InstructorSection />
       <TestimonialsSection />
       <InlineCTA
-        headline="500+ người đã làm chủ nỗi sợ của họ. Bạn thì sao?"
+        headline="500+ Ca thôi miên thực tế.<br /> Một hành trình được xây dựng từ những trải nghiệm thật."
         buttonLabel="TÔI MUỐN THAM GIA NGAY"
         withTopSpacing={false}
       />
