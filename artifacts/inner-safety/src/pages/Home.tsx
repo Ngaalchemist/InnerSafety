@@ -21,6 +21,7 @@ export default function Home() {
       <InlineCTA
         headline="Sẵn sàng bắt đầu hành trình 7 ngày của bạn?"
         subtext="Hoàn tiền 100% nếu không phù hợp."
+        withTopSpacing={false}
       />
       <TransformationSection />
       <InstructorSection />
@@ -28,6 +29,7 @@ export default function Home() {
       <InlineCTA
         headline="500+ người đã làm chủ nỗi sợ của họ. Bạn thì sao?"
         buttonLabel="TÔI MUỐN THAM GIA NGAY"
+        withTopSpacing={false}
       />
       <CheckoutSection />
       <FAQSection />
