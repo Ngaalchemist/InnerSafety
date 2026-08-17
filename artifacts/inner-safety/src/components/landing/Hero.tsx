@@ -358,7 +358,7 @@ export function Hero() {
               </span>
             </div>
             <p
-              className="mt-3 text-sm font-bold tracking-wide pointer-events-auto"
+              className="mt-3 text-sm font-bold tracking-wide pointer-events-auto text-right"
               style={{ color: 'rgba(233,213,255,0.9)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
             >
               — Nga Alchemist
