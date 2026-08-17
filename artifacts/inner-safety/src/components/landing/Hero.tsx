@@ -232,7 +232,7 @@ export function Hero() {
             >
               <span className="block text-white">BEYOND FEAR</span>
               <span className="block" style={{ color: GOLD }}>
-                7 NGÀY THÁO GỠ GỐC RỄ NỖI SỢ
+                7 NGÀY TỪ SỢ HÃI ĐẾN BÌNH AN
               </span>
             </motion.h1>
 
@@ -260,34 +260,25 @@ export function Hero() {
               variants={fadeInUp}
               className="text-white/75 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
             >
-              Dành cho những người thường xuyên{' '}
+              Bạn biết mình muốn thay đổi, nhưng {' '}
               <strong className="font-bold" style={{ color: PURPLE }}>
-                suy nghĩ quá nhiều, lo lắng
+                nỗi sợ, lo lắng và những suy nghĩ quá nhiều
               </strong>{' '}
-              và biết mình {' '}
+              vẫn khiến bạn  {' '}
               <strong className="font-bold" style={{ color: PURPLE }}>
-                muốn thay đổi
+               chần chừ, tự nghi ngờ
               </strong>{' '}
-              nhưng vẫn không thể bước ra.
+              và không dám bước tới.
               <br />
               <span className="block lg:whitespace-nowrap lg:text-[13px] xl:text-sm">
                 Hành trình{' '}
                 <strong className="font-bold" style={{ color: PURPLE }}>
                   Beyond Fear™
                 </strong>{' '}
-                giúp bạn{' '}
+              là hành trình 7 ngày giúp bạn {' '}
                 <strong className="font-bold text-white">
-                  tháo gỡ gốc rễ của nỗi sợ
-                </strong>{' '}
-                để hành động từ{' '}
-                <strong className="font-bold" style={{ color: GOLD }}>
-                  Bình an
-                </strong>{' '}
-                thay vì{' '}
-                <strong className="font-bold" style={{ color: GOLD }}>
-                  Sợ hãi
-                </strong>
-                .
+                 hiểu điều gì đang khiến mình mắc kẹt, bình tĩnh lại khi nỗi sợ xuất hiện và từng bước tin tưởng vào chính mình hơn. 
+                         .
               </span>
             </motion.p>
 
