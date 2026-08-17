@@ -201,10 +201,7 @@ export function Hero() {
                   4.9/5 từ hơn 500+ học viên
                 </span>
               </div>
-              <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
-                Đã giúp hàng trăm người giảm overthinking và tìm lại bình an
-              </p>
-            </motion.div>
+                       </motion.div>
 
             {/* Eyebrow 2 — Inner Safety Method */}
             <motion.div variants={fadeInUp} className="mb-5">
