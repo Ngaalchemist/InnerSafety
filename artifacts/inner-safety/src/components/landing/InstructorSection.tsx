@@ -157,7 +157,6 @@ export function InstructorSection() {
               </strong>
               : cơ thể, cảm xúc, niềm tin, và cách bạn tự nhìn nhận chính mình.
             </p>
-            <p className="text-right text-foreground/60 italic pr-2 sm:pr-4">— Nga</p>
           </motion.div>
 
           {/* Closing line — the emotional thesis, kept as its own beat and
