@@ -109,7 +109,7 @@ export function TestimonialsSection() {
             Sau 7 Ngày, Điều Gì Đã Thay Đổi?
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">
-            Chia sẻ từ những học viên đã trải nghiệm Beyond Fear.
+            Chia sẻ từ những học viên đã trải nghiệm Beyond Fear
           </p>
         </motion.div>
 
