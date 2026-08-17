@@ -139,7 +139,7 @@ export function IncludedSection() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={sectionRef} className="py-20 sm:py-28 lg:py-36 relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
       {/* Ambient cosmic glow — echoes the starfield already on the body */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 left-[10%] w-[420px] h-[420px] rounded-full bg-accent/15 blur-[110px]" />
@@ -224,7 +224,7 @@ export function IncludedSection() {
         </div>
 
         {/* QUÀ TẶNG ĐỘC QUYỀN — lighter, staggered, something unlocked */}
-        <div className="max-w-4xl mx-auto mb-16 sm:mb-20">
+        <div className="max-w-4xl mx-auto mb-10 sm:mb-14">
           <p className="text-xs sm:text-sm tracking-[0.3em] uppercase text-accent font-bold mb-8 text-center">
             ✦ Quà Tặng Độc Quyền ✦
           </p>
