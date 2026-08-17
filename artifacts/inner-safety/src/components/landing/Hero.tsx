@@ -15,9 +15,6 @@ import {
   BookOpen,
 } from 'lucide-react';
 import cosmicTreeBg from '@assets/cay_hoang_hon.jpg';
-// TODO: replace with the real portrait already used in the "Người dẫn đường" section
-// (same file/import as used there) so the founder appears early in the page too.
-import ngaAvatar from '@assets/nga_alchemist_avatar.png';
 
 // Self-loads the Google Fonts so the bold condensed headline and the
 // display-serif header text render correctly even if the project's
@@ -256,6 +253,7 @@ export function Hero() {
             <motion.p
               variants={fadeInUp}
               className="text-white/75 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
+              style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
             >
               Bạn biết mình muốn thay đổi, nhưng {' '}
               <strong className="font-bold" style={{ color: PURPLE }}>
@@ -359,28 +357,12 @@ export function Hero() {
                 ”
               </span>
             </div>
-            <div className="mt-3 flex items-center gap-2 pointer-events-auto">
-              <img
-                src={ngaAvatar}
-                alt="Nga Alchemist"
-                className="w-16 h-16 rounded-full object-cover shrink-0"
-                style={{ border: '2px solid rgba(192,132,252,0.6)' }}
-              />
-              <div className="text-left">
-                <p
-                  className="text-sm font-bold tracking-wide"
-                  style={{ color: 'rgba(233,213,255,0.9)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
-                >
-                  Nga Alchemist
-                </p>
-                <p
-                  className="text-[11px] leading-tight"
-                  style={{ color: 'rgba(192,132,252,0.65)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
-                >
-                  Hypnotherapist - Founder <br /> Inner Safety Method™
-                </p>
-              </div>
-            </div>
+            <p
+              className="mt-3 text-sm font-bold tracking-wide pointer-events-auto"
+              style={{ color: 'rgba(233,213,255,0.9)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
+            >
+              — Nga Alchemist
+            </p>
           </motion.div>
 
           {/* ── PRICE BOX (left) + FEATURE GRID (right) — side by side, same row, like the mockup ── */}
