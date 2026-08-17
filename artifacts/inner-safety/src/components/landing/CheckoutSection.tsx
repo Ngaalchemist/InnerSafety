@@ -81,12 +81,6 @@ const checkoutFaqs = [
   { q: 'Tôi có được cập nhật nội dung mới sau này không?', a: 'Có. Mọi bài học hoặc tài liệu bổ sung trong tương lai đều miễn phí cho học viên đã đăng ký.' },
 ];
 
-const microTestimonials = [
-  { name: 'Minh Anh', title: 'Content Creator', quote: 'Ngày 5 làm mình khóc — giờ mình có công cụ tự sơ cứu khi bị trigger, không còn chạy trốn nữa.' },
-  { name: 'Thanh Hằng', title: 'Freelance Designer', quote: 'Không dạy nghĩ tích cực, mà dạy làm dịu hệ thần kinh. Đó là mảnh ghép mình thiếu suốt bao năm.' },
-  { name: 'Tuấn Anh', title: 'Startup Founder', quote: 'Sau 7 ngày, tôi mới hiểu "sống từ bình an" nghĩa là gì. Vẫn làm việc chăm chỉ, nhưng vì yêu thích, không vì sợ.' },
-];
-
 // ────────────────────────────────────────────────────────────────
 // Types
 // ────────────────────────────────────────────────────────────────
@@ -434,21 +428,6 @@ export function CheckoutSection() {
               <div className="flex items-center gap-2 text-xs sm:text-sm text-foreground/70 bg-card/40 border border-border/30 rounded-full px-3.5 py-2">
                 <Zap className="w-4 h-4 text-primary" /> Truy cập tức thì
               </div>
-            </div>
-
-            {/* MICRO TESTIMONIALS */}
-            <div className="grid sm:grid-cols-3 gap-3">
-              {microTestimonials.map((t, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-card/40 border border-border/30">
-                  <div className="flex gap-0.5 mb-2">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="w-3 h-3 text-primary" fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-xs text-foreground/70 leading-relaxed mb-2">"{t.quote}"</p>
-                  <p className="text-xs font-semibold text-foreground/60">{t.name} · {t.title}</p>
-                </div>
-              ))}
             </div>
 
             {/* OBJECTION HANDLING */}
