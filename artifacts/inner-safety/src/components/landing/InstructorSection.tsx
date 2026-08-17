@@ -55,7 +55,7 @@ export function InstructorSection() {
           className="text-center mb-10 sm:mb-14"
         >
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gradient-gold">
-            Người Đứng Sau Beyond Fear
+            Người Đồng Hành Cùng Bạn
           </h2>
         </motion.div>
 
