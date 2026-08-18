@@ -92,7 +92,9 @@ export function InstructorSection() {
               Bạn vẫn đi làm, chăm sóc gia đình và hoàn thành tốt mọi trách nhiệm mỗi ngày. Nhưng sâu bên trong, bạn luôn ở trong một trạng thái cảnh giác khó gọi tên: sợ mình không đủ tốt, sợ sai, sợ bị đánh giá, muốn bứt phá nhưng cứ mỗi lần định bước đi, một phần nào đó trong bạn lại kéo bạn lùi lại.
             </p>
             <p>
-              Đặc biệt, có những lúc bạn không hề thiếu kiến thức hay động lực. Bạn đã đọc rất nhiều sách, học nhiều phương pháp, đã thiền, đã chữa lành, đã tha thứ... Bạn biết mình cần làm gì và rất muốn làm, nhưng bạn vẫn không thể bước đi. Tôi hiểu điều đó không chỉ qua hơn 4 năm thực hành thôi miên trị liệu, mà vì tôi đã từng mắc kẹt rất lâu trong chính vòng lặp ấy.
+              Đặc biệt là, sự mắc kẹt này không phải vì bạn thiếu kiến thức hay thiếu quyết tâm. 
+              Bạn đã đọc rất nhiều sách, học nhiều phương pháp, đã thiền, đã chữa lành, đã tha thứ... Bạn biết rất rõ mình cần làm gì và khao khát bước tiếp, nhưng cơ thể và cảm xúc của bạn dường như vẫn không thể nhúc nhích.
+              Tôi rất hiểu sự bất lực âm thầm đó. Vì tôi không chỉ chứng kiến nó qua hơn 4 năm làm thôi miên trị liệu, mà bởi chính tôi đã từng vật lộn rất nhiều năm trong vòng lặp ấy.
             </p>
 
             {/* Khối 2: Khi thế giới an toàn sụp đổ */}
