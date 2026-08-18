@@ -86,10 +86,9 @@ export function InstructorSection() {
           >
             {/* Khối 1: Thấu cảm đầu tiên */}
             <p className="font-serif font-semibold text-base sm:text-lg text-foreground">
-              Tôi hiểu cảm giác bất lực ấy - vì tôi đã từng ở chính nơi đó.
             </p>
             <p>
-              Bạn vẫn đi làm, chăm sóc gia đình và hoàn thành tốt mọi trách nhiệm mỗi ngày. Nhưng sâu bên trong, bạn luôn ở trong một trạng thái cảnh giác khó gọi tên: sợ mình không đủ tốt, sợ sai, sợ bị đánh giá, muốn bứt phá nhưng cứ mỗi lần định bước đi, một phần nào đó trong bạn lại kéo bạn lùi lại.
+              Có thể bên ngoài, bạn vẫn đi làm, chăm sóc gia đình và hoàn thành tốt mọi trách nhiệm mỗi ngày. Nhưng sâu bên trong, bạn luôn ở trong một trạng thái cảnh giác khó gọi tên: sợ mình không đủ tốt, sợ sai, sợ bị đánh giá... Bạn rất muốn bứt phá, nhưng cứ mỗi lần định bước đi, một phần nào đó trong bạn lại kéo bạn lùi lại.
             </p>
             <p>
               Đặc biệt là, sự mắc kẹt này không phải vì bạn thiếu kiến thức hay thiếu quyết tâm. 
