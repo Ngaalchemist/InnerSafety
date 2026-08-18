@@ -85,8 +85,7 @@ export function InstructorSection() {
             className="font-['Be_Vietnam_Pro'] font-light space-y-5 text-sm sm:text-base text-foreground/80 leading-relaxed mb-10 sm:mb-14"
           >
             {/* Khối 1: Thấu cảm đầu tiên */}
-            <p className="font-serif font-semibold text-base sm:text-lg text-foreground">
-            </p>
+          
             <p>
               Có thể bên ngoài, bạn vẫn đi làm, chăm sóc gia đình và hoàn thành tốt mọi trách nhiệm mỗi ngày. Nhưng sâu bên trong, bạn luôn ở trong một trạng thái cảnh giác khó gọi tên: sợ mình không đủ tốt, sợ sai, sợ bị đánh giá... Bạn rất muốn bứt phá, nhưng cứ mỗi lần định bước đi, một phần nào đó trong bạn lại kéo bạn lùi lại.
             </p>
