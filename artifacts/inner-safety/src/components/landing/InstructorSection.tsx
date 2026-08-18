@@ -86,7 +86,7 @@ export function InstructorSection() {
           >
             {/* Khối 1: Thấu cảm đầu tiên */}
             <p className="font-serif font-semibold text-base sm:text-lg text-foreground">
-              Tôi hiểu cảm giác bất lực ấy — vì tôi đã từng ở chính nơi đó.
+              Tôi hiểu cảm giác bất lực ấy - vì tôi đã từng ở chính nơi đó.
             </p>
             <p>
               Bạn vẫn đi làm, chăm sóc gia đình và hoàn thành tốt mọi trách nhiệm mỗi ngày. Nhưng sâu bên trong, bạn luôn ở trong một trạng thái cảnh giác khó gọi tên: sợ mình không đủ tốt, sợ sai, sợ bị đánh giá, muốn bứt phá nhưng cứ mỗi lần định bước đi, một phần nào đó trong bạn lại kéo bạn lùi lại.
@@ -103,7 +103,7 @@ export function InstructorSection() {
                 Khi thế giới an toàn của tôi sụp đổ
               </h4>
               <p className="mb-3">
-                Năm 2009, bố mẹ tôi ly hôn. Thế giới mà tôi từng nghĩ là an toàn bỗng thay đổi hoàn toàn. Những tổn thương gia đình, cùng những đổ vỡ tình cảm sau đó, dần bào mòn sự tự tin và gieo vào tôi những niềm tin rất sâu:
+                Năm 2009, bố mẹ tôi ly hôn. Thế giới an toàn mà tôi từng biết hoàn toàn sụp đổ. Những tổn thương gia đình, cùng những đổ vỡ tình cảm sau đó, dần bào mòn sự tự tin và gieo vào tôi những niềm tin rất sâu:
               </p>
               <div className="py-2 px-4 rounded-xl bg-primary/5 border border-primary/20 text-center space-y-1 my-3">
                 <p className="italic text-foreground/90 font-medium">“Mình không đủ tốt.”</p>
@@ -121,7 +121,7 @@ export function InstructorSection() {
             {/* Khối 3: Đã chữa lành nhưng vẫn không thể bước đi */}
             <div className="pt-4">
               <h4 className="font-serif font-bold text-lg sm:text-xl text-gradient-gold mb-3">
-                Tôi đã chữa lành rất nhiều — nhưng vẫn không thể bước đi
+                Tôi đã chữa lành rất nhiều - nhưng vẫn không thể bước đi
               </h4>
               <p>
                 Tôi dành nhiều năm học hỏi, thiền định, khám phá thế giới bên trong và bén duyên với thôi miên trị liệu. Tôi bắt đầu đồng hành cùng những người khác trên hành trình chữa lành và nghĩ mình đã vượt qua. Cho đến khi cuộc đời tiếp tục đưa tôi đến những thử thách lớn hơn.
@@ -143,7 +143,8 @@ export function InstructorSection() {
             {/* Khối 4: Điểm xoay chuyển (Visual Anchors & In đậm trọng tâm) */}
             <div className="pt-4 space-y-4">
               <p className="text-base sm:text-lg text-primary font-medium">
-                Và rồi tôi nhận ra: vấn đề không phải là tôi chưa đủ mạnh. Đó là khoảnh khắc thay đổi cách tôi nhìn về chữa lành.
+                Và rồi tôi nhận ra: vấn đề không phải là do tôi chưa đủ mạnh mẽ. 
+                Đó là khoảnh khắc thay đổi hoàn toàn cách tôi nhìn về chữa lành.
               </p>
               
               <div className="space-y-3 pl-4 border-l-2 border-primary/40 my-4">
@@ -151,12 +152,12 @@ export function InstructorSection() {
                   <strong className="text-foreground font-semibold">Không phải mọi sự trì hoãn đều là lười biếng. Không phải mọi sự bất động đều là thiếu ý chí.</strong>
                 </p>
                 <p>
-                  Có những lúc bạn biết chính xác mình cần làm gì, nhưng cơ thể vẫn phản ứng như thể bạn đang gặp nguy hiểm. <strong className="text-foreground font-semibold">Bạn càng ép mình phải mạnh mẽ, bạn càng kiệt sức.</strong> Bạn càng cố dùng lý trí để “sửa” mình, bạn càng cảm thấy có gì đó bên trong đang chống lại mình.
+                  Có những lúc tôi biết chính xác mình cần làm gì, nhưng cơ thể vẫn phản ứng như thể tôi đang gặp nguy hiểm. <strong className="text-foreground font-semibold">Tôi càng ép mình phải mạnh mẽ, tôi càng kiệt sức.</strong> Càng cố dùng lý trí để “sửa” mình, tôi càng cảm thấy có gì đó bên trong đang gào thét chống lại chính mình.
                 </p>
               </div>
 
               <p className="text-foreground font-medium pt-2">
-                Bạn không cần chiến đấu với chính mình. Bạn cần xây dựng lại cảm giác rằng:
+                Tôi nhận ra mình không cần phải tiếp tục chiến đấu với chính mình nữa. Điều tôi thực sự cần là xây dựng lại cảm giác rằng:
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 my-3">
