@@ -161,6 +161,22 @@ interface InviteLinks {
 }
 
 // ────────────────────────────────────────────────────────────────
+// Meta Pixel — helper gọi fbq an toàn (không có thì bỏ qua, không throw)
+// ────────────────────────────────────────────────────────────────
+
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
+function trackFbEvent(eventName: string, params?: Record<string, unknown>) {
+  if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+    window.fbq('track', eventName, params);
+  }
+}
+
+// ────────────────────────────────────────────────────────────────
 // Component
 // ────────────────────────────────────────────────────────────────
 
@@ -179,6 +195,7 @@ export function CheckoutSection() {
   const [orderData, setOrderData] = useState<OrderData | null>(null);
   const [pollError, setPollError] = useState('');
   const [inviteLinks, setInviteLinks] = useState<InviteLinks>({ zaloInviteUrl: null, skoolInviteUrl: null });
+  const purchaseTrackedRef = useRef(false);
 
   // ── SePay payment polling ─────────────────────────────────────
   const pollStatus = useCallback(async (orderId: string) => {
@@ -196,6 +213,19 @@ export function CheckoutSection() {
           skoolInviteUrl: data.skoolInviteUrl ?? null,
         });
         setStep('success');
+
+        // Ghi nhận sự kiện Purchase (Meta Pixel) — chỉ bắn 1 lần,
+        // đúng lúc thanh toán đã được xác nhận thành công.
+        if (!purchaseTrackedRef.current) {
+          purchaseTrackedRef.current = true;
+          trackFbEvent('Purchase', {
+            value: 444000,
+            currency: 'VND',
+            content_name: 'BEYOND FEAR - 7 Ngày Từ Sợ Hãi Đến Bình An',
+            content_type: 'product',
+            order_id: orderId,
+          });
+        }
       }
     } catch {
       // silent — poll will retry
@@ -330,7 +360,7 @@ export function CheckoutSection() {
           <div className="mt-6 pt-6 border-t border-green-500/20 space-y-2.5">
             <p className="text-sm font-semibold text-foreground">Tham gia cộng đồng ngay để không bỏ lỡ:</p>
             {inviteLinks.zaloInviteUrl && (
-              <a
+              
                 href={inviteLinks.zaloInviteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -341,7 +371,7 @@ export function CheckoutSection() {
               </a>
             )}
             {inviteLinks.skoolInviteUrl && (
-              <a
+              
                 href={inviteLinks.skoolInviteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
