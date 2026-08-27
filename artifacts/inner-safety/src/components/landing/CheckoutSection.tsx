@@ -360,7 +360,7 @@ export function CheckoutSection() {
           <div className="mt-6 pt-6 border-t border-green-500/20 space-y-2.5">
             <p className="text-sm font-semibold text-foreground">Tham gia cộng đồng ngay để không bỏ lỡ:</p>
             {inviteLinks.zaloInviteUrl && (
-              
+              <a
                 href={inviteLinks.zaloInviteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -371,7 +371,7 @@ export function CheckoutSection() {
               </a>
             )}
             {inviteLinks.skoolInviteUrl && (
-              
+              <a
                 href={inviteLinks.skoolInviteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
