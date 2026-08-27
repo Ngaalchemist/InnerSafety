@@ -241,6 +241,17 @@ export function CheckoutSection() {
     return () => clearInterval(interval);
   }, [step, orderData, pollStatus]);
 
+  // ── "Trang cảm ơn" ảo (SPA không đổi URL) ──────────────────────
+  // Ứng dụng này là single-page, nên không có URL riêng cho trang
+  // cảm ơn. Bước "success" chính là trang cảm ơn — bắn thêm một
+  // PageView ảo tại đây để tương đương với việc load một trang
+  // cảm ơn thật trên website nhiều trang.
+  useEffect(() => {
+    if (step === 'success') {
+      trackFbEvent('PageView');
+    }
+  }, [step]);
+
   // ── Form validation ───────────────────────────────────────────
   const validate = () => {
     const newErrors = { name: '', phone: '', email: '' };
