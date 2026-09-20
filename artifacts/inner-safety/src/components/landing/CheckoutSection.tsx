@@ -286,6 +286,12 @@ export function CheckoutSection() {
 
       const data = await res.json() as { orderId: string; qrUrl: string };
       setOrderData({ orderId: data.orderId, qrUrl: data.qrUrl });
+       trackFbEvent('InitiateCheckout', {
+  value: 444000,
+  currency: 'VND',
+  content_name: 'BEYOND FEAR - 7 Ngày Từ Sợ Hãi Đến Bình An',
+  content_type: 'product',
+});
       setStep('qr');
     } catch (err) {
       setApiError(err instanceof Error ? err.message : 'Có lỗi xảy ra, vui lòng thử lại.');
