@@ -307,7 +307,7 @@ export function ProblemSection() {
           <p className={`${T_BODY} text-foreground/80 mt-2`}>
             Thay vì chỉ cố ép mình hành động khác đi, bạn sẽ học cách:.
           </p>
-          <p className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold leading-snug mt-3 sm:mt-4 text-gradient-gold">
+          <p className={`${T_BODY} font-medium text-gradient-gold mt-2`}>
             nhìn rõ nỗi sợ → nhận ra những niềm tin phía sau → thay đổi góc nhìn → củng cố niềm tin vào bản thân → lựa chọn và hành động khác đi.
           </p>
           {/* CTA continues directly off the line above — same container,
