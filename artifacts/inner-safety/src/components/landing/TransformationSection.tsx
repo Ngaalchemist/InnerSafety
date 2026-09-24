@@ -19,7 +19,7 @@ const after = [
   'Biết cách tạo khoảng dừng trước khi phản ứng',
   'Sống thật hơn và dám nói “không” khi cần',
   'Chuyển từ suy nghĩ kéo dài sang hành động rõ ràng hơn',
-  'Xây dựng “Rễ An Toàn” — nền tảng giúp bạn tin mình hơn và dám sống theo điều mình thật sự muốn.'
+  'Xây dựng “Rễ An Toàn” - nền tảng giúp bạn tin mình hơn và dám sống theo điều mình thật sự muốn.'
 ];
 
 export function TransformationSection() {
