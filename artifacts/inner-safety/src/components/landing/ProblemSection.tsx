@@ -311,7 +311,7 @@ nhìn rõ nỗi sợ → nhận ra những niềm tin phía sau → thay đổi 
           {/* CTA continues directly off the line above — same container,
               same fade-in, no new background or card boundary. */}
           <InlineCTA
-            headline="Bắt đầu hành trình tháo gỡ gốc rễ của nỗi sợ — ngay hôm nay."
+            headline="Bắt đầu khóa học BEYOND FEAR™  — ngay hôm nay."
             subtext="Chỉ 20 phút mỗi ngày, trong 7 ngày."
           />
         </motion.div>
