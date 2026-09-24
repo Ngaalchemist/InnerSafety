@@ -29,8 +29,8 @@ const layers = [
     text: 'Kết nối lại với điều bạn thật sự muốn, giá trị của bạn và tiếng nói bên trong của chính mình.'
   },
   {
-    icon: BƯỚC TỚI,
-    stage: 'Rise',
+    icon: Sunrise,
+    stage: 'BƯỚC TỚI',
     title: 'Biến điều mình hiểu thành hành động',
     text: 'Chọn một bước rõ ràng và bắt đầu hành động từ phiên bản vững vàng hơn của chính mình.'
   }
