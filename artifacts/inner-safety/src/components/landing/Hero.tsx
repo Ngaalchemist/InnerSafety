@@ -333,7 +333,7 @@ export function Hero() {
                 <br />
                 Mà là{' '}
                 <span style={{ color: GOLD, fontWeight: 600 }}>
-                  có những nỗi sợ nỗi sợ
+                  có những nỗi sợ 
                 </span>
                  đang âm thầm <br /> ảnh hưởng đến cách bạn sống và lựa chọn.
               </p>
