@@ -241,4 +241,83 @@ export function ProblemSection() {
                 <span className={`${T_BODY} text-foreground/80`}>Quyết định từ sự bình an.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span
+                <span className="text-primary mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Dám nói điều mình thật sự nghĩ.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Tin vào lựa chọn của mình hơn.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Dám thử điều mới.</span>
+                <span className={`${T_BODY} text-foreground/80`}>Cho phép mình thay đổi.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-destructive/20 to-destructive/5 border-2 border-destructive/30">
+            <h3 className={`${T_SUBHEAD} text-destructive mb-5`}>
+              Khi lựa chọn từ nỗi sợ
+            </h3>
+            <ul className={LINE_GAP}>
+              <li className="flex items-start gap-2">
+                <span className="text-destructive mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Dễ chần chừ.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-destructive mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Dễ làm hài lòng người khác.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-destructive mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Thường xuyên tự nghi ngờ.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-destructive mt-1">•</span>
+                <span className={`${T_BODY} text-foreground/80`}>Ngại bước vào điều chưa quen thuộc.</span>
+              </li>
+            </ul>
+          </div>
+        </motion.div>
+
+        {/* ── Bridge to Solution ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="max-w-2xl mx-auto text-center mt-12 sm:mt-16"
+        >
+          <p className={`${T_BODY} text-foreground/80 mb-2`}>
+            Nếu bạn nhận ra mình trong một vài điều trên...
+          </p>
+          <p className={`${T_QUOTE} text-foreground mb-2`}>
+            Tin vui là bạn không cần ép mình mạnh mẽ hơn.
+          </p>
+          <p className={`${T_QUOTE} text-foreground mb-2`}>
+            Bạn chỉ cần bắt đầu nhìn rõ những “gốc rễ” - những niềm tin và khuôn mẫu cũ - đang ảnh hưởng đến lựa chọn của mình.
+          </p>
+          <p className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold leading-snug mt-3 sm:mt-4 text-gradient-gold">
+            Và những gốc rễ đó có thể được thay đổi từng bước.
+          </p>
+
+          <p className={`${T_BODY} text-foreground mt-5 sm:mt-6`}>
+            Đó là nền tảng của <strong className="text-foreground">Inner Safety Method™</strong>.
+          </p>
+          <p className={`${T_BODY} text-foreground/80 mt-2`}>
+            Thay vì chỉ cố ép mình hành động khác đi, bạn sẽ học cách:.
+          </p>
+          <p className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold leading-snug mt-3 sm:mt-4 text-gradient-gold">
+            nhìn rõ nỗi sợ → nhận ra những niềm tin phía sau → thay đổi góc nhìn → củng cố niềm tin vào bản thân → lựa chọn và hành động khác đi.
+          </p>
+          {/* CTA continues directly off the line above — same container,
+              same fade-in, no new background or card boundary. */}
+          <InlineCTA
+            headline="Bắt đầu khóa học BEYOND FEAR™  — ngay hôm nay."
+            subtext="Chỉ 20 phút mỗi ngày, trong 7 ngày."
+          />
+        </motion.div>
+      </div>
+    </section>
+  );
+}
