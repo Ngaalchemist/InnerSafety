@@ -38,23 +38,23 @@ const LINE_GAP = 'space-y-4 sm:space-y-5';
 const fears = [
   {
     title: 'Sợ mình không đủ.',
-    desc: 'Bạn luôn nhìn thấy điểm mạnh của người khác, nhưng chỉ nhìn thấy điểm yếu của chính mình.',
+    desc: 'Bạn dễ nhìn thấy điểm mạnh của người khác, nhưng lại khắt khe hơn với chính mình.',
   },
   {
     title: 'Sợ thất bại.',
-    desc: 'Bạn chuẩn bị rất nhiều nhưng vẫn trì hoãn, vì trong lòng luôn có một tiếng nói rằng: "Mình chưa đủ giỏi."',
+    desc: 'Bạn chuẩn bị rất nhiều nhưng vẫn trì hoãn, vì bên trong vẫn có một tiếng nói: "Mình chưa đủ giỏi."',
   },
    {
-    title: 'Sợ bị bỏ rơi.',
-    desc: 'Bạn cố gắng làm hài lòng, nhẫn nhịn hoặc kiểm soát người khác chỉ để giữ một mối quan hệ.',
+    title: 'Sợ mất đi điều quan trọng.',
+    desc: 'Bạn có thể cố gắng làm hài lòng, nhẫn nhịn hoặc thay đổi mình chỉ để giữ một mối quan hệ.',
   },
   {
     title: 'Sợ bị đánh giá.',
-    desc: 'Bạn nghĩ rất nhiều trước khi nói, trước khi đăng một bài viết hay trước khi dám thể hiện chính mình.',
+    desc: 'Bạn nghĩ rất nhiều trước khi nói, trước khi đăng một bài viết hoặc trước khi thể hiện con người thật của mình.',
   },
   {
     title: 'Sợ bắt đầu lại.',
-    desc: 'Bạn tiếp tục ở lại với một công việc, một mối quan hệ hoặc một cuộc sống không còn phù hợp... chỉ vì bắt đầu lại có vẻ còn đáng sợ hơn.',
+    desc: 'Bạn tiếp tục ở lại với một công việc, một mối quan hệ hoặc một lựa chọn không còn phù hợp... chỉ vì điều chưa biết phía trước có vẻ đáng sợ hơn điều quen thuộc hiện tại.',
   },
   ];
 
@@ -85,18 +85,18 @@ export function ProblemSection() {
           >
             Có Phải Nỗi Sợ Đang Âm Thầm
             <br />
-            Điều Khiển Cuộc Đời Bạn?
+            Ảnh hưởng đến những lựa chọn của bạn?
           </h2>
 
           <div className={`max-w-3xl mx-auto ${LINE_GAP} ${T_BODY} text-foreground/80`}>
-            <p>Có thể bạn nghĩ mình chỉ đang lo lắng quá nhiều.</p>
+            <p>Có thể đôi khi bạn chỉ nghĩ mình đang suy nghĩ quá nhiều.</p>
             <p>
               <span className="sm:whitespace-nowrap">
-                Nhưng sự thật là rất nhiều quyết định trong cuộc sống không xuất phát từ điều bạn thật sự mong muốn...
+                Nhưng rất nhiều lựa chọn trong cuộc sống không hoàn toàn xuất phát từ điều bạn thật sự mong muốn...
               </span>
               <br />
               <strong className="text-foreground">
-                Mà từ những nỗi sợ đã âm thầm điều khiển bạn suốt nhiều năm.
+                Mà từ những nỗi sợ âm thầm ảnh hưởng đến cách bạn suy nghĩ, lựa chọn và hành động.
               </strong>
             </p>
             <p className="italic">Có thể đó là...</p>
@@ -136,43 +136,43 @@ export function ProblemSection() {
           className={`max-w-3xl mx-auto ${BLOCK_GAP}`}
         >
           <p className={`${T_QUOTE} text-foreground mb-2`}>
-            Điều đáng sợ không phải là bạn có những nỗi sợ ấy.
+           Có nỗi sợ không phải là vấn đề.
           </p>
           <p className={`${T_QUOTE} text-foreground mb-4`}>
-            Mà là chúng đang âm thầm đưa ra quyết định thay bạn.
+            Vấn đề là khi nỗi sợ bắt đầu quyết định thay bạn.
           </p>
-          <p className={`${T_BODY} italic text-foreground/70 mb-4`}>Thế nên bạn...</p>
+          <p className={`${T_BODY} italic text-foreground/70 mb-4`}>Và rồi bạn có thể...</p>
           <ul className={`${LINE_GAP} pl-4 sm:pl-6`}>
             <li className="flex items-start gap-2 sm:gap-3">
               <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <span className={`${T_BODY} text-foreground/80`}>
-                Không dám bắt đầu điều mình thật sự muốn.
+                Chần chừ trước điều mình thật sự muốn.
               </span>
             </li>
             <li className="flex items-start gap-2 sm:gap-3">
               <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <span className={`${T_BODY} text-foreground/80`}>
-                Chọn an toàn thay vì phát triển.
+                Chọn điều quen thuộc thay vì điều giúp mình phát triển.
               </span>
             </li>
             <li className="flex items-start gap-2 sm:gap-3">
               <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <span className={`${T_BODY} text-foreground/80`}>
-                Thu nhỏ ước mơ của mình.
+                Thu nhỏ những điều mình khao khát.
               </span>
             </li>
             <li className="flex items-start gap-2 sm:gap-3">
               <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <span className={`${T_BODY} text-foreground/80`}>
-                Sống để bớt sợ thay vì sống hạnh phúc.
+                Đợi đến khi hoàn toàn tự tin mới cho phép mình bước tới.
               </span>
             </li>
           </ul>
           <p className={`${T_BODY} font-medium text-foreground mt-4 sm:mt-5`}>
-            Theo thời gian, bạn không còn sống cuộc đời mình mong muốn.
+            Theo thời gian, khoảng cách giữa cuộc sống bạn đang có và cuộc sống bạn thật sự muốn có có thể ngày một lớn hơn.
           </p>
           <p className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold leading-snug mt-3 sm:mt-4 text-gradient-gold">
-            Bạn chỉ đang sống trong giới hạn mà nỗi sợ cho phép.
+           Không phải vì bạn không đủ khả năng. Bạn chỉ đang sống trong giới hạn mà nỗi sợ cho phép.
           </p>
         </motion.div>
 
@@ -186,11 +186,10 @@ export function ProblemSection() {
           <div className={`text-center max-w-2xl mx-auto ${LINE_GAP}`}>
             <p className={`${T_QUOTE} text-foreground`}>Hãy hình dung cuộc đời bạn như một cái cây.</p>
             <p className={`${T_BODY} text-foreground/80`}>
-              Phần mọi người nhìn thấy: công việc, gia đình, sự cố gắng mỗi ngày — chỉ là phần thân và
-              lá. Nhưng thứ quyết định cái cây đứng vững hay gục ngã...<br />{' '}
-              <strong className="text-gradient-gold"> lại là bộ rễ nằm sâu dưới mặt đất.</strong>
+              Phần mọi người nhìn thấy: công việc, các mối quan hệ, những lựa chọn và hành động mỗi ngày — giống như phần thân và lá. Nhưng thứ quyết định cái cây đứng vững hay gục ngã...<br />{' '}
+              <strong className="text-gradient-gold"> lại là bộ rễ nằm bên dưới.</strong>
             </p>
-            <p className={`${T_QUOTE} text-foreground`}>Cuộc sống của bạn cũng vậy.</p>
+            <p className={`${T_QUOTE} text-foreground`}>Con người cũng vậy.</p>
           </div>
         </motion.div>
 
@@ -220,9 +219,9 @@ export function ProblemSection() {
             </div>
 
             <p className={`text-center ${T_BODY} italic text-muted-foreground`}>
-              "Từ xa nhìn vào, hai cái cây trông giống hệt nhau.
+              "Từ xa nhìn vào, hai cái cây có thể trông giống nhau.
               <br />
-              Nhưng chỉ một cái sẽ đứng vững qua giông bão."
+              Nhưng chỉ một sẽ đứng vững qua giông bão."
             </p>
           </div>
         </motion.div>
@@ -235,7 +234,7 @@ export function ProblemSection() {
           className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto"
         >
           <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary/30">
-            <h3 className={`${T_SUBHEAD} text-primary mb-5`}>Bạn có đang sống bằng rễ an toàn không?</h3>
+            <h3 className={`${T_SUBHEAD} text-primary mb-5`}>Khi lựa chọn từ sự vững vàng</h3>
             <ul className={LINE_GAP}>
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
@@ -243,39 +242,40 @@ export function ProblemSection() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>Dám nói không.</span>
+                <span className={`${T_BODY} text-foreground/80`}>Dám nói điều mình thật sự nghĩ.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>Tin bản thân.</span>
+                <span className={`${T_BODY} text-foreground/80`}>Tin vào lựa chọn của mình hơn.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>Dám thay đổi.</span>
+                <span className={`${T_BODY} text-foreground/80`}>Dám thử điều mới.</span>
+                 <span className={`${T_BODY} text-foreground/80`}>Cho phép mình thay đổi.</span>
               </li>
             </ul>
           </div>
 
           <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-destructive/20 to-destructive/5 border-2 border-destructive/30">
             <h3 className={`${T_SUBHEAD} text-destructive mb-5`}>
-              Hay bạn đang sống bằng rễ sợ hãi?
+              Khi lựa chọn từ nỗi sợ
             </h3>
             <ul className={LINE_GAP}>
               <li className="flex items-start gap-2">
                 <span className="text-destructive mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>Quyết định vì sợ.</span>
+                <span className={`${T_BODY} text-foreground/80`}>Dễ chần chừ.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-destructive mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>Luôn làm hài lòng.</span>
+                <span className={`${T_BODY} text-foreground/80`}>Dễ làm hài lòng người khác.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-destructive mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>Luôn nghi ngờ.</span>
+                <span className={`${T_BODY} text-foreground/80`}>Thường xuyên tự nghi ngờ.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-destructive mt-1">•</span>
-                <span className={`${T_BODY} text-foreground/80`}>Sợ bắt đầu.</span>
+                <span className={`${T_BODY} text-foreground/80`}>Ngại bước vào điều chưa quen thuộc.</span>
               </li>
             </ul>
           </div>
@@ -289,26 +289,25 @@ export function ProblemSection() {
           className="max-w-2xl mx-auto text-center mt-12 sm:mt-16"
         >
           <p className={`${T_BODY} text-foreground/80 mb-2`}>
-            Nếu bạn nhận ra mình trong những điều trên...
+            Nếu bạn nhận ra mình trong một vài điều trên...
           </p>
           <p className={`${T_QUOTE} text-foreground mb-2`}>
-            Tin vui là vấn đề không nằm ở ý chí.
+            Tin vui là bạn không cần ép mình mạnh mẽ hơn.
           </p>
           <p className={`${T_QUOTE} text-foreground mb-2`}>
-            Vấn đề nằm ở gốc rễ.
+            Bạn chỉ cần bắt đầu nhìn rõ những “gốc rễ” - những niềm tin và khuôn mẫu cũ - đang ảnh hưởng đến lựa chọn của mình.
           </p>
           <p className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold leading-snug mt-3 sm:mt-4 text-gradient-gold">
-            Và gốc rễ có thể được thay đổi.
+            Và những gốc rễ đó có thể được thay đổi từng bước.
           </p>
 
           <p className={`${T_BODY} text-foreground mt-5 sm:mt-6`}>
-            Đó chính là điều <strong className="text-foreground">Inner Safety Method™</strong> được tạo ra để làm.
+            Đó là nền tảng của <strong className="text-foreground">Inner Safety Method™</strong>.
           </p>
           <p className={`${T_BODY} text-foreground/80 mt-2`}>
-            Thay vì dành cả đời cố kiểm soát những biểu hiện bên ngoài của nỗi sợ, bạn sẽ từng
-            bước đi xuống những gốc rễ đang khiến nó tiếp tục cầm lái.
+            Thay vì chỉ cố ép mình hành động khác đi, bạn sẽ học cách:.
           </p>
-
+nhìn rõ nỗi sợ → nhận ra những niềm tin phía sau → thay đổi góc nhìn → củng cố niềm tin vào bản thân → lựa chọn và hành động khác đi.
           {/* CTA continues directly off the line above — same container,
               same fade-in, no new background or card boundary. */}
           <InlineCTA
