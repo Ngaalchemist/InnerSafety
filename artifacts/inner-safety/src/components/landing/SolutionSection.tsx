@@ -6,50 +6,50 @@ import goldenRootsImage from '@assets/b7c36e0667cc4b981650a080f50a5cc8_178530578
 const layers = [
   {
     icon: Waves,
-    stage: 'Regulate',
-    title: 'Làm dịu cơ thể & hệ thần kinh',
-    text: 'Đưa cơ thể thoát khỏi chế độ sinh tồn và trở về trạng thái an toàn — điểm bắt đầu của mọi thay đổi.'
+    stage: 'NHẬN BIẾT',
+    title: 'NHÌN RÕ NỖI SỢ',
+    text: 'Nhận ra điều gì thường khiến bạn chùn bước, tự nghi ngờ hoặc quay về lựa chọn quen thuộc.'
   },
   {
     icon: Flame,
-    stage: 'Release',
-    title: 'Giải phóng cảm xúc mắc kẹt',
-    text: 'Buông bỏ những cảm xúc, ký ức và cả mối quan hệ với Tiền đã bị giữ lại quá lâu bên trong bạn.'
+    stage: 'THẤU HIỂU',
+    title: 'Hiểu điều nằm phía sau',
+    text: 'Nhìn lại những cảm xúc, trải nghiệm và góc nhìn cũ vẫn đang ảnh hưởng đến lựa chọn hiện tại.'
   },
   {
     icon: BrainCircuit,
-    stage: 'Rewrite',
+    stage: 'THAY ĐỔI',
     title: 'Viết lại niềm tin giới hạn',
-    text: 'Tháo gỡ những niềm tin không còn đúng, và cài đặt một sự thật lớn hơn về chính bạn.'
+    text: 'Nhận ra những niềm tin không còn phù hợp và xây dựng một cách nhìn mới về chính mình.'
   },
   {
     icon: Compass,
-    stage: 'Reconnect',
-    title: 'Kết nối trực giác & nguồn lực bên trong',
-    text: 'Gặp lại phiên bản cao nhất của bạn — nơi câu trả lời cho mọi lựa chọn luôn có sẵn.'
+    stage: 'KẾT NỐI',
+    title: 'Trở về với chính mình',
+    text: 'Kết nối lại với điều bạn thật sự muốn, giá trị của bạn và tiếng nói bên trong của chính mình.'
   },
   {
-    icon: Sunrise,
+    icon: BƯỚC TỚI,
     stage: 'Rise',
-    title: 'Hành động từ danh tính mới',
-    text: 'Bước ra khỏi nỗi sợ bằng những hành động thật, từ con người bạn vừa trở thành.'
+    title: 'Biến điều mình hiểu thành hành động',
+    text: 'Chọn một bước rõ ràng và bắt đầu hành động từ phiên bản vững vàng hơn của chính mình.'
   }
 ];
 
 const outcomes = [
-  'Dám nói điều mình nghĩ mà không quá sợ bị đánh giá.',
-  'Bình tĩnh hơn khi gặp áp lực.',
-  'Ra quyết định mà không overthinking quá nhiều.',
+  'Dám nói điều mình thật sự nghĩ.',
+  'Giữ được sự rõ ràng khi gặp áp lực.',
+  'Ra quyết định mà không suy nghĩ mãi không thôi.',
   'Theo đuổi điều mình thật sự mong muốn.'
 ];
 
-const stillFeelings = ['Overthinking', 'Trì hoãn', 'Tự nghi ngờ', 'Sợ bị đánh giá'];
+const stillFeelings = ['Suy nghĩ quá nhiều', 'Trì hoãn', 'Tự nghi ngờ', 'Sợ bị đánh giá'];
 
-const notList = ['Ép bản thân tích cực.', 'Cố mạnh mẽ hơn.', 'Đè nén nỗi sợ.'];
+const notList = ['Ép bản thân phải luôn tích cực.', 'Cố tỏ ra mạnh mẽ hơn.', 'Phớt lờ hoặc chống lại nỗi sợ.'];
 const isList = [
-  'Xây dựng cảm giác an toàn từ bên trong.',
-  'Tháo gỡ bộ rễ tạo ra nỗi sợ.',
-  'Hành động từ sự bình an thay vì phải gồng mình.'
+  'Hiểu điều gì đang thật sự giữ mình lại.',
+  'Nhìn rõ những niềm tin và khuôn mẫu cũ phía sau nỗi sợ.',
+  'Xây dựng sự vững vàng để lựa chọn và hành động khác đi.'
 ];
 
 export function SolutionSection() {
@@ -72,7 +72,7 @@ export function SolutionSection() {
             Khám Phá Inner Safety Method™
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl font-sans text-foreground/80">
-            Phương pháp giúp bạn tháo gỡ bộ rễ sợ hãi đa tầng.
+            Phương pháp giúp bạn nhìn rõ và thay đổi những “gốc rễ” đang khiến nỗi sợ tiếp tục ảnh hưởng đến lựa chọn của mình.
           </p>
         </motion.div>
 
@@ -135,9 +135,7 @@ export function SolutionSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="max-w-2xl mx-auto text-center text-base sm:text-lg text-foreground/80 leading-relaxed mb-12 sm:mb-16"
         >
-          Inner Safety Method™ không chỉ giúp bạn bình tĩnh hơn trong chốc lát. Mục tiêu là
-          thay đổi <span className="text-primary font-semibold">"bộ rễ"</span> tạo ra nỗi sợ,
-          để sự bình an trở thành trạng thái tự nhiên.
+          Inner Safety Method™ không chỉ giúp bạn cảm thấy tốt hơn trong một khoảnh khắc. Mục tiêu là giúp bạn nhìn xuống<span className="text-primary font-semibold">"bộ rễ"</span> - những niềm tin, góc nhìn và cách phản ứng đã hình thành theo thời gian - để từng bước tạo ra một cách sống mới.
         </motion.p>
 
         {/* Paradox callout — unchanged framing, only the explanation line is softened */}
@@ -149,7 +147,7 @@ export function SolutionSection() {
         >
           <div className="rounded-2xl border border-primary/20 bg-card/40 backdrop-blur-sm p-6 sm:p-8 text-center space-y-3">
             <p className="text-sm sm:text-base font-semibold tracking-wide uppercase text-primary">
-              Điều kỳ lạ là...
+              Điều thú vị là...
             </p>
             <p className="text-xl sm:text-2xl font-medium text-foreground leading-snug">
               Bạn càng cố loại bỏ nỗi sợ, nó càng trở nên mạnh hơn.
@@ -157,8 +155,8 @@ export function SolutionSection() {
             <p className="text-base sm:text-lg text-foreground/80 leading-relaxed pt-2">
               Điều đó không có nghĩa là bạn yếu. Cũng không phải vì bạn thiếu ý chí.
               <br className="hidden sm:block" />
-              Mà bởi vì bên trong bạn vẫn còn một phần{' '}
-              <span className="text-primary font-semibold">chưa thật sự cảm thấy an toàn.</span>
+              Có thể đơn giản là{' '}
+              <span className="text-primary font-semibold">một phần trong bạn vẫn đang tin rằng cách cũ là lựa chọn an toàn hơn.</span>
             </p>
           </div>
         </motion.div>
@@ -171,7 +169,7 @@ export function SolutionSection() {
           className="max-w-2xl mx-auto text-center mb-12 sm:mb-16"
         >
           <p className="text-base sm:text-lg text-foreground/80 leading-relaxed mb-4">
-            Khi bên trong vẫn còn cảm giác phải phòng vệ... bạn sẽ tiếp tục:
+            Và khi những niềm tin cũ vẫn còn đó, chúng có thể tiếp tục xuất hiện dưới dạng:
           </p>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4">
             {stillFeelings.map((item) => (
@@ -201,16 +199,16 @@ export function SolutionSection() {
           </p>
 
           <p className="text-center">
-            Thay vào đó, bạn sẽ từng bước giúp cơ thể và bên trong mình cảm thấy đủ an toàn.
+            Thay vào đó, bạn sẽ từng bước hiểu mình rõ hơn, nhìn lại những niềm tin đang giữ mình lại và tạo ra những lựa chọn mới.
             <br className="hidden sm:block" />
-            Khi cảm giác an toàn xuất hiện... việc hành động sẽ trở nên tự nhiên hơn rất nhiều.
+            
           </p>
 
           <div className="pt-6 sm:pt-8 border-t border-border/30 space-y-6">
             <p className="text-lg sm:text-xl text-center text-foreground/80">
               Khi <span className="text-primary font-semibold">"bộ rễ"</span> thay đổi...
               <br className="hidden sm:block" />
-              bạn sẽ thấy mình dễ dàng hơn khi:
+              bạn có thể bắt đầu thấy mình dễ dàng hơn khi:
             </p>
 
             <ul className="space-y-3 max-w-xl mx-auto">
@@ -243,11 +241,10 @@ export function SolutionSection() {
           className="max-w-2xl mx-auto"
         >
           <p className="text-center text-lg sm:text-xl font-medium text-foreground mb-2">
-            Inner Safety Method™ — hành trình chuyển hóa qua 5 tầng
+            Inner Safety Method™ — 5 bước từ nỗi sợ đến hành động
           </p>
           <p className="text-center text-sm sm:text-base text-foreground/60 mb-8 sm:mb-10">
-            Mọi kỹ thuật (thôi miên, somatic, tái lập trình niềm tin...) đều chỉ là công cụ
-            phục vụ đúng một trong 5 tầng dưới đây.
+           Các bài học và bài thực hành trong khóa học đều phục vụ một trong 5 bước dưới đây.
           </p>
 
           <div className="relative space-y-6 sm:space-y-8">
