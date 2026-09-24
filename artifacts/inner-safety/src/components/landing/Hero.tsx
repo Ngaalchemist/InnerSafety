@@ -272,7 +272,7 @@ export function Hero() {
                 </strong>{' '}
               là khóa học phát triển bản thân trực tuyến trong 7 ngày, giúp bạn {' '}
                 <strong className="font-bold text-white">
-                hiểu rõ nỗi sợ của mình,<br /> thay đổi những niềm tin đang giữ mình lại, <br /> tin vào bản thân hơn và dám hành động.
+                hiểu rõ nỗi sợ của mình,<br /> thay đổi những niềm tin đang giữ mình lại, tin vào bản thân hơn và dám hành động.
                 </strong>
               </span>
             </motion.p>
@@ -335,7 +335,7 @@ export function Hero() {
                 <span style={{ color: GOLD, fontWeight: 600 }}>
                   có những nỗi sợ nỗi sợ
                 </span>
-                đang âm thầm ảnh hưởng đến cách bạn sống và lựa chọn.
+                 đang âm thầm <br /> ảnh hưởng đến cách bạn sống và lựa chọn.
               </p>
               <span
                 aria-hidden="true"
