@@ -5,21 +5,21 @@ import fearRootImage from '../../../../../attached_assets/re-so-hai-visual.png';
 import safeRootImage from '../../../../../attached_assets/re-an-toan-visual.png';
 
 const before = [
-  'Ra quyết định từ sự hoảng loạn',
-  'Sống trong giới hạn mà nỗi sợ cho phép',
-  'Cơ thể & hệ thần kinh luôn căng thẳng',
-  'Phải gồng mình nói "Tôi ổn" khi bên trong rối bời',
-  'Bị kẹt trong vòng lặp overthinking',
-  'Nghi ngờ giá trị bản thân mỗi ngày'
+  'Ra quyết định từ sự chần chừ và tự nghi ngờ',
+  'Sống trong những giới hạn mà nỗi sợ tạo ra',
+  'Dễ bị kéo vào những vòng suy nghĩ lặp lại',
+  'Thường xuyên cố làm hài lòng người khác',
+  'Khó nói điều mình thật sự nghĩ hoặc thật sự muốn',
+  'Dễ nghi ngờ khả năng và lựa chọn của chính mình'
 ];
 
 const after = [
-  'Ra quyết định từ sự rõ ràng và tự tin',
-  'Sống vượt trên nỗi sợ, dám bước ra ngoài vùng an toàn',
-  'Làm dịu hệ thần kinh chỉ trong vài phút',
-  'Sống thật, tháo bỏ áp lực, dám nói "Không" một cách nhẹ nhàng',
-  'Làm chủ tâm trí, chuyển overthinking thành hành động',
-  'Xây dựng "Bộ rễ an toàn" — cảm giác "Tôi đã đủ"'
+  'Ra quyết định với nhiều sự rõ ràng và tự tin hơn',
+  'Dám bước ra khỏi điều quen thuộc để phát triển',
+  'Biết cách tạo khoảng dừng trước khi phản ứng',
+  'Sống thật hơn và dám nói “không” khi cần',
+  'Chuyển từ suy nghĩ kéo dài sang hành động rõ ràng hơn',
+  'Xây dựng “Rễ An Toàn” — nền tảng giúp bạn tin mình hơn và dám sống theo điều mình thật sự muốn.'
 ];
 
 export function TransformationSection() {
@@ -38,7 +38,7 @@ export function TransformationSection() {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold mb-4 sm:mb-6">
-            Cuộc Đời Bạn<br />Trước Và Sau
+            Trước Và Sau Khi Bạn<br />Bắt Đầu Lựa Chọn Khác Đi
           </h2>
           <p className="text-base sm:text-lg text-foreground/70 max-w-2xl mx-auto">
             Hai trạng thái. Hai cách sống. Bạn đang ở đâu, và bạn muốn đi về đâu?
@@ -56,11 +56,11 @@ export function TransformationSection() {
             <div className="relative">
               <img
                 src={fearRootImage}
-                alt="Rễ Sợ Hãi — sống trong hoảng loạn, overthinking, căng thẳng, áp lực triền miên"
+                alt="Rễ Sợ Hãi — chần chừ, tự nghi ngờ, suy nghĩ lặp lại, sống trong giới hạn"
                 className="w-full h-72 sm:h-80 lg:h-96 object-cover object-top"
                 data-testid="img-fear-root"
               />
-              {/* Light bottom-only fade so the full emotional image stays visible */}
+              {/* Light bottom-only fade so the full image stays visible */}
               <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background/90 to-transparent" />
               <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/60 backdrop-blur-sm border border-destructive/40">
                 <X className="w-4 h-4 text-destructive" />
@@ -105,11 +105,11 @@ export function TransformationSection() {
             <div className="relative">
               <img
                 src={safeRootImage}
-                alt="Rễ An Toàn — bình an, tự tin, yêu thương, sống thật, làm chủ tâm trí"
+                alt="Rễ An Toàn — tự tin, rõ ràng, sống thật, dám bước tới"
                 className="w-full h-72 sm:h-80 lg:h-96 object-cover object-top"
                 data-testid="img-safe-root"
               />
-              {/* Light bottom-only fade so the full emotional image stays visible */}
+              {/* Light bottom-only fade so the full image stays visible */}
               <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background/90 to-transparent" />
               <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/60 backdrop-blur-sm border border-primary/40">
                 <Check className="w-4 h-4 text-primary" />
