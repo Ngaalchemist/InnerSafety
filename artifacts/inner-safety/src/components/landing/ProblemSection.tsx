@@ -22,10 +22,13 @@ function useSectionFonts() {
 }
 
 // ── Type scale ─────────────────────────────────────────────────────
-// Exactly 4 tiers, reused everywhere instead of ad-hoc sizes per block.
+// Exactly 5 tiers, reused everywhere instead of ad-hoc sizes per block.
+// Never exceed T_SUBHEAD's weight (font-bold) outside the H2 — a heavier
+// weight than the section's own headline reads as a mistake, not emphasis.
 const T_DISPLAY = 'text-4xl sm:text-5xl lg:text-6xl font-bold'; // the one headline
 const T_QUOTE = 'text-xl sm:text-2xl font-medium italic'; // pull-quote / emphasis lines
 const T_SUBHEAD = 'text-xl sm:text-2xl font-bold'; // h3-level section subheads
+const T_EMPHASIS = 'text-xl sm:text-2xl font-bold leading-snug'; // one-line punchline, same size/weight as T_SUBHEAD — never bolder, never a custom breakpoint size
 const T_BODY = 'text-base sm:text-lg leading-relaxed'; // all paragraphs and list items
 const T_LABEL = 'text-sm sm:text-base font-bold uppercase tracking-wide'; // small tags/badges
 const T_CAPTION = 'text-sm sm:text-base text-foreground/55 leading-snug'; // secondary line under a list item
@@ -171,8 +174,8 @@ export function ProblemSection() {
           <p className={`${T_BODY} font-medium text-foreground mt-4 sm:mt-5`}>
             Theo thời gian, khoảng cách giữa cuộc sống bạn đang có và cuộc sống bạn thật sự muốn có có thể ngày một lớn hơn.
           </p>
-          <p className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold leading-snug mt-3 sm:mt-4 text-gradient-gold">
-           Không phải vì bạn không đủ khả năng. Bạn chỉ đang sống trong giới hạn mà nỗi sợ cho phép.
+          <p className={`${T_EMPHASIS} mt-3 sm:mt-4 text-gradient-gold`}>
+            Không phải vì bạn không đủ khả năng. Bạn chỉ đang sống trong giới hạn mà nỗi sợ cho phép.
           </p>
         </motion.div>
 
@@ -297,7 +300,7 @@ export function ProblemSection() {
           <p className={`${T_QUOTE} text-foreground mb-2`}>
             Bạn chỉ cần bắt đầu nhìn rõ những “gốc rễ” - những niềm tin và khuôn mẫu cũ - đang ảnh hưởng đến lựa chọn của mình.
           </p>
-          <p className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold leading-snug mt-3 sm:mt-4 text-gradient-gold">
+          <p className={`${T_EMPHASIS} mt-3 sm:mt-4 text-gradient-gold`}>
             Và những gốc rễ đó có thể được thay đổi từng bước.
           </p>
 
