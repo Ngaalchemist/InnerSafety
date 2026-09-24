@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { Video, FileText, Users, Headphones, Scale, Zap, Infinity as InfinityIcon, Repeat } from 'lucide-react';
 import bundleImage from '../../../../../attached_assets/beyond-fear-healing-bundle.jpg';
 
-// The core 7-day program is the actual product (Inner Safety Method™).
+// The core 7-day program is the actual product (Beyond Fear™).
 // Rendered as ONE continuous panel — a "manuscript" the four pieces
 // live inside, joined by a spine of light — rather than four equal
 // boxes, so it reads as a single relic worth having, not a feature grid.
@@ -11,48 +11,48 @@ const coreProgram = [
   {
     icon: Video,
     title: '7 Buổi Video Thực Hành',
-    desc: 'Mỗi ngày 20 phút — từng bước tháo gỡ những tầng khác nhau của nỗi sợ, từ cơ thể, cảm xúc đến niềm tin và danh tính.'
+    desc: 'Mỗi ngày khoảng 20 phút, từng bước đi qua: Nỗi sợ → Suy nghĩ → Niềm tin → Sự tự tin → Hành động. Mỗi bài học ngắn gọn, dễ hiểu và có thể áp dụng ngay vào cuộc sống.'
   },
   {
     icon: FileText,
-    title: 'Healing Workbook',
-    desc: 'Bộ bài tập giúp bạn nhận ra điều gì kích hoạt nỗi sợ, cách bạn thường phản ứng, và cách phá vòng lặp cũ.'
+    title: 'Sổ Thực Hành Beyond Fear™',
+    desc: 'Bộ câu hỏi và bài tập giúp bạn nhìn rõ điều gì thường khiến mình chùn bước, nhận ra những khuôn mẫu lặp lại và lựa chọn một cách phản ứng mới.'
   },
   {
     icon: Users,
-    title: 'Private Community',
-    desc: 'Cộng đồng riêng dành cho học viên — tham gia miễn phí, trọn đời, không chỉ trong 7 ngày học.'
+    title: 'Cộng Đồng Học Viên',
+    desc: 'Không gian riêng dành cho học viên Beyond Fear™ — nơi bạn có thể chia sẻ trải nghiệm, đặt câu hỏi và đồng hành cùng những người đang trên hành trình phát triển bản thân. Tham gia miễn phí · Truy cập trọn đời.'
   },
   {
     icon: Repeat,
-    title: '21 Ngày Duy Trì Tần Số An Toàn',
-    desc: 'Audio thực hành mỗi ngày trong 21 ngày sau khóa học, giúp bạn duy trì tần số bình an và tiếp tục củng cố cảm giác an toàn đã xây dựng trong 7 ngày.'
+    title: '21 Ngày Tiếp Tục Beyond Fear™',
+    desc: 'Các bài thực hành ngắn sau khóa học giúp bạn tiếp tục củng cố những điều đã học và biến chúng thành những thói quen nhỏ trong cuộc sống hàng ngày.'
   }
 ];
 
-// Quà tặng độc quyền — bonus tools that support the core method.
+// Quà tặng đi kèm — bonus tools that support the core course.
 // Kept as a lighter, staggered set of cards: something you unlock,
 // not something you're issued.
 const giftBonuses = [
   {
     icon: Headphones,
-    title: 'Emergency Reset 5 Phút',
-    desc: 'Audio ngắn dùng ngay khi bị trigger, hoảng hoặc overthinking — giúp bạn nhanh chóng quay về trạng thái bình tĩnh.'
+    title: '5 Phút Trở Về Với Chính Mình',
+    desc: 'Một bài thực hành ngắn dành cho những lúc đầu óc quá nhiều suy nghĩ — giúp bạn tạo khoảng dừng, nhìn lại điều quan trọng và chọn bước tiếp theo.'
   },
   {
     icon: Headphones,
-    title: 'Sleep Healing Audio — "Tôi Đủ"',
-    desc: 'Bản ghi âm nghe vào buổi tối, giúp bạn chìm vào giấc ngủ trong khi tiềm thức âm thầm củng cố cảm giác an toàn và giá trị bản thân.'
+    title: 'Audio Buổi Tối — "Tôi Đủ"',
+    desc: 'Một bài nghe nhẹ nhàng trước khi ngủ, giúp bạn kết thúc ngày bằng những suy nghĩ tích cực hơn về bản thân và điều mình đang hướng tới.'
   },
   {
     icon: Scale,
-    title: 'Nặng vs Nhẹ — Công Cụ Ra Quyết Định',
-    desc: 'Giúp bạn nhận ra điều gì đang khiến mình co lại, và đưa ra quyết định nhẹ nhàng hơn.'
+    title: 'Nặng Hay Nhẹ? — Công Cụ Ra Quyết Định',
+    desc: 'Một bài thực hành đơn giản giúp bạn quan sát cảm nhận của mình trước một lựa chọn và nhìn vấn đề từ nhiều góc độ hơn trước khi quyết định.'
   },
   {
     icon: Zap,
-    title: 'Pattern Interrupt — Công Cụ Ngắt Vòng Lặp Phản Ứng',
-    desc: 'Một kỹ thuật ngắt phản ứng cảm xúc tự động ngay khi trigger vừa xuất hiện — chỉ vài giây, đủ để bạn không bị cuốn vào vòng lặp cũ.'
+    title: 'Công Cụ Ngắt Vòng Suy Nghĩ',
+    desc: 'Một kỹ thuật ngắn giúp bạn nhận ra khi mình bắt đầu suy nghĩ vòng tròn, tạo khoảng dừng và quay lại với điều thực sự có thể làm tiếp theo.'
   }
 ];
 
@@ -155,16 +155,16 @@ export function IncludedSection() {
         >
           <span className="inline-flex items-center gap-3 text-[11px] sm:text-xs tracking-[0.35em] uppercase text-primary/80 font-semibold mb-5">
             <span className="w-8 sm:w-10 h-px bg-primary/50" />
-            Hành Trang Chuyển Hoá
+            Bộ Công Cụ Beyond Fear™
             <span className="w-8 sm:w-10 h-px bg-primary/50" />
           </span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-foreground leading-[1.05] mb-5 sm:mb-6">
             Bạn Nhận Được Gì<br />
-            <span className="italic text-gradient-gold">Trong 7 Ngày?</span>
+            <span className="italic text-gradient-gold">Khi Tham Gia Khóa Học?</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-foreground/70 max-w-xl mx-auto">
-            Không chỉ là 7 bài học. Bạn có một bộ công cụ để làm việc với nỗi sợ ngay khi nó
-            xuất hiện.
+            Không chỉ là 7 bài học. Bạn sẽ có một bộ công cụ đơn giản để tiếp tục hiểu mình,
+            làm việc với nỗi sợ và đưa ra những lựa chọn rõ ràng hơn ngay cả sau khi khóa học kết thúc.
           </p>
         </motion.div>
 
@@ -176,7 +176,7 @@ export function IncludedSection() {
         >
           <img
             src={bundleImage}
-            alt="Beyond Fear Healing Bundle — trọn bộ 7 công cụ chuyển hóa"
+            alt="Bộ công cụ Beyond Fear™ — trọn bộ 7 công cụ thực hành"
             className="w-full h-auto rounded-2xl shadow-2xl border border-border/30"
             data-testid="img-included-bundle"
           />
@@ -223,10 +223,10 @@ export function IncludedSection() {
           </motion.div>
         </div>
 
-        {/* QUÀ TẶNG ĐỘC QUYỀN — lighter, staggered, something unlocked */}
+        {/* QUÀ TẶNG ĐI KÈM — lighter, staggered, something unlocked */}
         <div className="max-w-4xl mx-auto mb-6 sm:mb-8">
           <p className="text-xs sm:text-sm tracking-[0.3em] uppercase text-accent font-bold mb-8 text-center">
-            ✦ Quà Tặng Độc Quyền ✦
+            ✦ Quà Tặng Đi Kèm ✦
           </p>
           <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
             {giftBonuses.map((item, idx) => (
@@ -250,8 +250,8 @@ export function IncludedSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="max-w-2xl mx-auto text-center text-lg sm:text-xl font-serif italic text-foreground/70 leading-relaxed"
         >
-          "Giá trị của toàn bộ chương trình không nằm ở số lượng tài liệu bạn nhận được — mà ở
-          việc bạn có một hệ thống để tiếp tục làm việc với nỗi sợ, ngay cả sau khi 7 ngày kết thúc."
+          "Giá trị của Beyond Fear™ không nằm ở việc bạn nhận được bao nhiêu tài liệu — mà ở
+          chỗ sau 7 ngày, bạn có một cách đơn giản để hiểu nỗi sợ, nhìn lại lựa chọn của mình và tiếp tục bước tới."
         </motion.p>
       </div>
     </section>
