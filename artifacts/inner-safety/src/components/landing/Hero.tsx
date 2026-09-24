@@ -78,32 +78,32 @@ const quickFacts = [
 
 // Short reassurance bullets under the subheadline
 const checklist = [
-  'Dám làm điều mình muốn mà không còn bị nỗi sợ kéo lùi.',
-  'Ra quyết định mà không còn bị lo âu hay suy nghĩ quá nhiều chi phối.',
-  'Tin vào chính mình và không còn luôn tự hỏi: “Mình có đủ tốt không?”.',
+  'Dám bước tới điều mình thật sự muốn mà không còn liên tục chần chừ.',
+  'RRa quyết định với nhiều sự rõ ràng hơn, thay vì mắc kẹt trong suy nghĩ.',
+  'Tin vào chính mình hơn và bớt sống trong cảm giác “mình chưa đủ tốt”.',
 ];
 
 // 5 feature icons — mirrors the 5 checklist outcomes from the reference mockup
 const featureGrid = [
   {
     icon: Sprout,
-    title: 'Tháo gỡ gốc rễ nỗi sợ',
-    desc: 'Cảm giác an toàn bền vững từ bên trong.',
+    title: 'HIỂU RÕ NỖI SỢ',
+    desc: 'Nhận ra điều gì đang khiến bạn chần chừ và tự nghi ngờ.',
   },
   {
     icon: Brain,
-    title: 'Bình tĩnh khi bị trigger',
-    desc: 'Làm dịu hệ thần kinh chỉ trong vài phút.',
+    title: 'GIỮ VỮNG TRƯỚC ÁP LỰC',
+    desc: 'Tạo khoảng dừng để không vội phản ứng theo nỗi sợ.',
   },
   {
     icon: RotateCcw,
-    title: 'Giảm overthinking',
-    desc: 'Ngừng suy nghĩ lặp lại vô tận.',
+    title: 'BỚT SUY NGHĨ QUÁ NHIỀU',
+    desc: 'Không để suy nghĩ kéo bạn đi quá xa.',
   },
   {
     icon: Unlock,
-    title: 'Tháo gỡ niềm tin giới hạn',
-    desc: 'Giải phóng những niềm tin kéo bạn lại.',
+    title: 'THAY ĐỔI NIỀM TIN GIỚI HẠN',
+    desc: 'Thay đổi những niềm tin đang giữ bạn ở lại.',
   },
   {
     icon: Zap,
@@ -114,10 +114,10 @@ const featureGrid = [
 
 // Bottom trust strip — full-bleed bar at the base of the hero
 const trustStrip = [
-  { icon: Monitor, label: 'Học online', sub: 'mọi lúc, mọi nơi' },
+  { icon: Monitor, label: 'Học trực tuyến', sub: 'mọi lúc, mọi nơi' },
   { icon: InfinityIcon, label: 'Truy cập ngay', sub: 'sau khi đăng ký' },
   { icon: ShieldCheck, label: 'Hoàn tiền 7 ngày', sub: 'nếu không phù hợp' },
-  { icon: Users, label: 'Cộng đồng riêng', sub: 'hỗ trợ 24/7' },
+  { icon: Users, label: 'Cộng đồng riêng', sub: 'đồng hành cùng bạn' },
   { icon: BookOpen, label: 'Bài học ngắn gọn', sub: 'dễ hiểu, dễ áp dụng' },
 ];
 
@@ -209,7 +209,7 @@ export function Hero() {
                 Inner Safety Method™
               </p>
               <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
-                Phương pháp độc quyền giúp bạn tháo gỡ bộ rễ của nỗi sợ để xây dựng cảm giác an toàn từ bên trong.
+                Phương pháp giúp bạn hiểu rõ nỗi sợ, thay đổi những niềm tin đang giữ mình lại và xây dựng sự vững vàng từ bên trong.
               </p>
             </motion.div>
 
@@ -257,22 +257,22 @@ export function Hero() {
             >
               Bạn biết mình muốn thay đổi, nhưng {' '}
               <strong className="font-bold" style={{ color: PURPLE }}>
-                nỗi sợ, lo lắng và những suy nghĩ quá nhiều
+                nỗi sợ, sự tự nghi ngờ và những suy nghĩ lặp lại
               </strong>{' '}
               vẫn khiến bạn  {' '}
               <strong className="font-bold" style={{ color: PURPLE }}> <br />
-               chần chừ, tự nghi ngờ
+               chần chừ
               </strong>{' '}
-              và không dám bước tới.
+              trước điều mình thật sự muốn.
               <br />
               <span className="block lg:whitespace-nowrap">
-                Hành trình{' '}
+              
                 <strong className="font-bold" style={{ color: PURPLE }}>
                   Beyond Fear™
                 </strong>{' '}
-              là hành trình 7 ngày giúp bạn {' '}
+              là khóa học phát triển bản thân trực tuyến trong 7 ngày, giúp bạn {' '}
                 <strong className="font-bold text-white">
-                 hiểu điều gì đang khiến mình sợ và <br /> mắc kẹt, bình tĩnh lại khi nỗi sợ xuất hiện, từng bước tin tưởng vào chính mình và dám hành động.
+                hiểu rõ nỗi sợ của mình, thay đổi những niềm tin đang giữ mình lại, <br /> tin vào bản thân hơn và dám hành động.
                 </strong>
               </span>
             </motion.p>
@@ -329,14 +329,14 @@ export function Hero() {
                   textShadow: '0 1px 8px rgba(0,0,0,0.6)',
                 }}
               >
-                Vấn đề không phải là cuộc đời bạn.
+                Vấn đề không phải là bạn không đủ khả năng.
                 <br />
                 Mà là{' '}
                 <span style={{ color: GOLD, fontWeight: 600 }}>
-                  gốc rễ của nỗi sợ
+                  có những nỗi sợ nỗi sợ
                 </span>
                 <br />
-                đang âm thầm chi phối cách bạn sống và lựa chọn.
+                đang âm thầm ảnh hưởng đến cách bạn sống và lựa chọn.
               </p>
               <span
                 aria-hidden="true"
@@ -380,7 +380,7 @@ export function Hero() {
               }}
             >
               <p className="text-white/70 text-xs font-bold uppercase tracking-wide mb-2">
-                Trải nghiệm 7 ngày
+                KHÓA HỌC ONLINE 7 NGÀY
               </p>
 
               <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
@@ -406,7 +406,7 @@ export function Hero() {
                 style={{ background: `linear-gradient(90deg, ${GOLD}, ${PURPLE})`, color: INK }}
                 data-testid="button-hero-cta"
               >
-                🔥 TÔI MUỐN BẮT ĐẦU 7 NGÀY
+                🔥 BẮT ĐẦU KHÓA HỌC NGAY
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </motion.div>
