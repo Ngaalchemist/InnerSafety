@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-           - name: Call reconcile endpoint
+      - name: Call reconcile endpoint
         run: |
           HTTP_CODE=$(curl -sS -o response.txt -w "%{http_code}" \
             -X GET "https://beyondfear.ngaalchemist.com/api/checkout/reconcile" \
