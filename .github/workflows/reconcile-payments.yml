@@ -10,7 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Call reconcile endpoint
+           - name: Call reconcile endpoint
         run: |
-          curl -sf -X GET "https://beyondfear.ngaalchemist.com/api/checkout/reconcile" \
-            -H "Authorization: Bearer ${{ secrets.RECONCILE_SECRET }}"
+          HTTP_CODE=$(curl -sS -o response.txt -w "%{http_code}" \
+            -X GET "https://beyondfear.ngaalchemist.com/api/checkout/reconcile" \
+            -H "Authorization: Bearer ${{ secrets.RECONCILE_SECRET }}")
+
+          echo "HTTP status: $HTTP_CODE"
+          echo "Response:"
+          cat response.txt
+
+          if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
+            exit 1
+          fi
