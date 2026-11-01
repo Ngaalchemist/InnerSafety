@@ -313,9 +313,13 @@ export function Hero() {
                   textShadow: '0 1px 8px rgba(0,0,0,0.6)',
                 }}
               >
-                Những khuôn mẫu cũ không định nghĩa con người bạn.
+                Những khuôn mẫu cũ không
                 <br />
-                Và bạn có thể học cách lựa chọn khác đi.
+                định nghĩa con người bạn.
+                <br />
+                Và bạn có thể học cách
+                <br />
+                lựa chọn khác đi.
               </p>
               <span
                 aria-hidden="true"
