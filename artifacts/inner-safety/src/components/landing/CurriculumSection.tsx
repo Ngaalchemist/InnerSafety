@@ -92,9 +92,9 @@ const curriculum = [
     milestone: 'Làm rõ',
     learnLabel: 'Bạn sẽ làm rõ',
     learns: [
-      'Những giá trị bạn muốn sống theo',
-      'Những phẩm chất bạn muốn phát triển',
-      'Những lựa chọn cụ thể phù hợp với hình ảnh bản thân bạn mong muốn'
+      'Những “cài đặt mặc định” trong cách bạn vẫn nghĩ về bản thân',
+      'Điều nào còn phù hợp để giữ, điều nào đã đến lúc cập nhật',
+      'Hình ảnh bản thân và những lựa chọn bạn muốn phát triển tiếp'
     ],
     result: 'Làm rõ giá trị, phẩm chất và lựa chọn muốn phát triển'
   },
