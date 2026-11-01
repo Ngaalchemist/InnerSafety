@@ -162,7 +162,7 @@ export function Hero() {
               className="hidden sm:inline text-sm sm:text-base italic truncate"
               style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Playfair Display', serif", fontWeight: 600, letterSpacing: '0.2px' }}
             >
-              7 Ngày Hiểu Nỗi Sợ, Vững Vàng Bước Tới.
+              KHÓA HỌC PHÁT TRIỂN BẢN THÂN 7 NGÀY
             </span>
           </span>
 
