@@ -159,8 +159,8 @@ export function Hero() {
             </span>
             <span className="hidden sm:inline w-px h-3.5 shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.25)' }} />
             <span
-              className="hidden sm:inline text-sm sm:text-base italic truncate"
-              style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Playfair Display', serif", fontWeight: 600, letterSpacing: '0.2px' }}
+              className="hidden sm:inline text-xs sm:text-sm font-extrabold uppercase tracking-[0.12em] truncate"
+              style={{ color: '#FFFFFF', fontFamily: "'Inter', sans-serif" }}
             >
               KHÓA HỌC PHÁT TRIỂN BẢN THÂN 7 NGÀY
             </span>
