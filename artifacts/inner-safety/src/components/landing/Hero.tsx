@@ -209,7 +209,7 @@ export function Hero() {
                 Inner Safety Method™
               </p>
               <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
-                Phương pháp giúp bạn hiểu rõ nỗi sợ, thay đổi những niềm tin đang giữ mình lại và xây dựng sự vững vàng từ bên trong.
+                Phương pháp giúp bạn hiểu rõ nỗi sợ, nhìn lại những niềm tin giới hạn và phát triển sự vững vàng từ bên trong để chủ động lựa chọn và hành động.
               </p>
             </motion.div>
 
