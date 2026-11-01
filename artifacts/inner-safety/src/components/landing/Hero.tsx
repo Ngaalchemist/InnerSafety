@@ -55,9 +55,9 @@ const INK = '#0D0B18';
 // QUOTE_RIGHT: '%' distance from the right edge. Bigger number = further LEFT (closer to the tree).
 //              Smaller number (or negative) = further RIGHT (closer to the screen edge).
 // QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
-const QUOTE_TOP = '35%';
-const QUOTE_RIGHT = '-7%';
-const QUOTE_WIDTH = 300;
+const QUOTE_TOP = '38%';
+const QUOTE_RIGHT = '-6%';
+const QUOTE_WIDTH = 380;
 
 // Decorative " " marks — positioned with `position: absolute` relative to the
 // quote block below, so their placement never depends on how many lines the
@@ -311,17 +311,17 @@ export function Hero() {
                   fontFamily: "'Playfair Display', serif",
                   fontWeight: 700,
                   fontSize: '14px',
-                  color: GOLD,
+                  whiteSpace: 'nowrap',
                   textShadow: '0 1px 8px rgba(0,0,0,0.6)',
                 }}
               >
-                Những khuôn mẫu cũ không
+                <span style={{ color: '#FFFFFF' }}>
+                  Những khuôn mẫu cũ không định nghĩa con người bạn.
+                </span>
                 <br />
-                định nghĩa con người bạn.
-                <br />
-                Và bạn có thể học cách
-                <br />
-                lựa chọn khác đi.
+                <span style={{ color: GOLD }}>
+                  Và bạn có thể học cách lựa chọn khác đi.
+                </span>
               </p>
               <span
                 aria-hidden="true"
