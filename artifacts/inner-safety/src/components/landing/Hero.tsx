@@ -216,7 +216,7 @@ export function Hero() {
             {/* Headline */}
             <motion.h1
               variants={fadeInUp}
-              className="uppercase mb-5 whitespace-nowrap"
+              className="uppercase mb-5"
               style={{
                 fontFamily: "'Anton', sans-serif",
                 fontSize: 'clamp(1.9rem, 4.6vw, 3.4rem)',
@@ -224,9 +224,12 @@ export function Hero() {
                 letterSpacing: '1px',
               }}
             >
-              <span className="block text-white">BEYOND FEAR</span>
-              <span className="block" style={{ color: GOLD }}>
-                7 NGÀY TỪ SỢ HÃI ĐẾN BÌNH AN
+              <span className="block text-white">BEYOND FEAR™</span>
+              <span
+                className="block mt-1"
+                style={{ color: GOLD, fontSize: 'clamp(1.25rem, 2.9vw, 2.1rem)', lineHeight: 1.25 }}
+              >
+                7 ngày hiểu nỗi sợ, củng cố niềm tin và chủ động lựa chọn
               </span>
             </motion.h1>
 
@@ -255,26 +258,7 @@ export function Hero() {
               className="text-white/75 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
               style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
             >
-              Bạn biết mình muốn thay đổi, nhưng {' '}
-              <strong className="font-bold" style={{ color: PURPLE }}>
-                nỗi sợ, sự tự nghi ngờ và những suy nghĩ lặp lại
-              </strong>{' '}
-              vẫn khiến bạn  {' '}
-              <strong className="font-bold" style={{ color: PURPLE }}> <br />
-               chần chừ
-              </strong>{' '}
-              trước điều mình thật sự muốn.
-              <br />
-              <span className="block lg:whitespace-nowrap">
-              
-                <strong className="font-bold" style={{ color: PURPLE }}>
-                  Beyond Fear™
-                </strong>{' '}
-              là khóa học phát triển bản thân trực tuyến trong 7 ngày, giúp bạn {' '}
-                <strong className="font-bold text-white">
-                hiểu rõ nỗi sợ của mình,<br /> thay đổi những niềm tin đang giữ mình lại, tin vào bản thân hơn và dám hành động.
-                </strong>
-              </span>
+              Một khóa học phát triển bản thân trực tuyến, giúp người học khám phá cách nỗi sợ và những khuôn mẫu suy nghĩ ảnh hưởng đến hành động, thực hành những góc nhìn mới và phát triển khả năng tự dẫn dắt bản thân.
             </motion.p>
 
             {/* Reassurance bullets — 3 short lines, plain list */}
