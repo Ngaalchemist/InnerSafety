@@ -78,9 +78,9 @@ const quickFacts = [
 
 // Short reassurance bullets under the subheadline
 const checklist = [
-  'Dám bước tới điều mình thật sự muốn mà không còn liên tục chần chừ.',
+  'Dám bước tới điều mình thật sự muốn, ngay cả khi còn do dự.',
   'Ra quyết định với nhiều sự rõ ràng hơn, thay vì mắc kẹt trong suy nghĩ.',
-  'Tin vào chính mình hơn và bớt sống trong cảm giác “mình chưa đủ tốt”.',
+  'Xây dựng niềm tin vào bản thân và nhận ra giá trị của chính mình.',
 ];
 
 // 5 feature icons — mirrors the 5 checklist outcomes from the reference mockup
@@ -229,7 +229,7 @@ export function Hero() {
                 className="block mt-1"
                 style={{ color: GOLD, fontSize: 'clamp(1.25rem, 2.9vw, 2.1rem)', lineHeight: 1.25 }}
               >
-                hiểu nỗi sợ, củng cố niềm tin và chủ động lựa chọn
+                7 Ngày Hiểu Nỗi Sợ, Vững Vàng Bước Tới
               </span>
             </motion.h1>
 
