@@ -71,7 +71,7 @@ const CLOSE_QUOTE_BOTTOM = '-34px';
 // (time cost, format, difficulty) right next to the headline instead of
 // being buried inside the long subheadline paragraph.
 const quickFacts = [
-  { icon: Zap, label: 'Chỉ 20 phút/ngày' },
+  { icon: Zap, label: 'Truy cập trọn đời' },
   { icon: Monitor, label: 'Học mọi lúc, mọi nơi' },
   { icon: ShieldCheck, label: 'Không cần kinh nghiệm' },
 ];
