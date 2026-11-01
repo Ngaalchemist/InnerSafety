@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Check, BookOpen, PenLine, Headphones, Sparkles } from 'lucide-react';
+import { Check } from 'lucide-react';
 import day1Image from '../../../../../attached_assets/day-1.jpg';
 import day2Image from '../../../../../attached_assets/day-2.jpg';
 import day3Image from '../../../../../attached_assets/day-3.jpg';
@@ -8,16 +8,6 @@ import day4Image from '../../../../../attached_assets/day-4.jpg';
 import day5Image from '../../../../../attached_assets/day-5.jpg';
 import day6Image from '../../../../../attached_assets/day-6.jpg';
 import day7Image from '../../../../../attached_assets/day-7.jpg';
-
-// Every day follows the same 4-part format (Teaching → Reflection →
-// Guided audio practice → Integration), rendered once per card as a
-// fixed rhythm bar.
-const DAY_FORMAT = [
-  { icon: BookOpen, label: 'Giảng dạy', time: '10 phút' },
-  { icon: PenLine, label: 'Reflection Journal', time: '5 phút' },
-  { icon: Headphones, label: 'Thực hành có hướng dẫn bằng audio', time: '20–30 phút' },
-  { icon: Sparkles, label: 'Integration', time: '5 phút' },
-] as const;
 
 const curriculum = [
   {
@@ -130,20 +120,6 @@ function ProgressDots({ day }: { day: number }) {
   );
 }
 
-function DayFormatBar() {
-  return (
-    <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-foreground/60">
-      {DAY_FORMAT.map(({ icon: Icon, label, time }, i) => (
-        <span key={label} className="inline-flex items-center gap-1.5">
-          <Icon className="w-3.5 h-3.5 text-primary/70 flex-shrink-0" />
-          {label} <span className="text-foreground/40">· {time}</span>
-          {i < DAY_FORMAT.length - 1 && <span className="hidden sm:inline text-border ml-4">/</span>}
-        </span>
-      ))}
-    </div>
-  );
-}
-
 function DayCard({
   day,
   image,
@@ -208,8 +184,6 @@ function DayCard({
               ))}
             </ul>
           </div>
-
-          <DayFormatBar />
 
           <div className="p-3 sm:p-4 rounded-lg bg-primary/10 border-l-4 border-primary">
             <p className="text-xs sm:text-sm font-medium text-foreground">
