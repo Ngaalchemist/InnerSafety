@@ -55,9 +55,9 @@ const INK = '#0D0B18';
 // QUOTE_RIGHT: '%' distance from the right edge. Bigger number = further LEFT (closer to the tree).
 //              Smaller number (or negative) = further RIGHT (closer to the screen edge).
 // QUOTE_WIDTH: max width in px. Narrower = text wraps onto more lines (taller, skinnier block).
-const QUOTE_TOP = '30%';
-const QUOTE_RIGHT = '-11%';
-const QUOTE_WIDTH = 340;
+const QUOTE_TOP = '35%';
+const QUOTE_RIGHT = '-7%';
+const QUOTE_WIDTH = 300;
 
 // Decorative " " marks — positioned with `position: absolute` relative to the
 // quote block below, so their placement never depends on how many lines the
@@ -282,7 +282,7 @@ export function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-            className="hidden lg:block absolute z-[5] pointer-events-none text-left"
+            className="hidden lg:block absolute z-[5] pointer-events-none text-center"
             style={{ right: QUOTE_RIGHT, top: QUOTE_TOP, maxWidth: `${QUOTE_WIDTH}px` }}
           >
             <div className="relative pointer-events-auto" style={{ paddingTop: '30px', paddingBottom: '30px' }}>
@@ -293,6 +293,8 @@ export function Hero() {
                   position: 'absolute',
                   top: OPEN_QUOTE_TOP,
                   left: 0,
+                  right: 0,
+                  textAlign: 'center',
                   fontFamily: "'Playfair Display', serif",
                   fontWeight: 700,
                   fontSize: '56px',
@@ -327,7 +329,9 @@ export function Hero() {
                 style={{
                   position: 'absolute',
                   bottom: CLOSE_QUOTE_BOTTOM,
+                  left: 0,
                   right: 0,
+                  textAlign: 'center',
                   fontFamily: "'Playfair Display', serif",
                   fontWeight: 700,
                   fontSize: '56px',
@@ -340,7 +344,7 @@ export function Hero() {
               </span>
             </div>
             <p
-              className="mt-3 text-sm font-tracking-wide pointer-events-auto text-right"
+              className="mt-3 text-sm font-tracking-wide pointer-events-auto text-center"
               style={{ color: 'rgba(233,213,255,0.9)', fontFamily: "'Be Vietnam Pro', sans-serif" }}
             >
               — Nga Alchemist
