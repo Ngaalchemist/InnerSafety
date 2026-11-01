@@ -10,12 +10,12 @@ import day6Image from '../../../../../attached_assets/day-6.jpg';
 import day7Image from '../../../../../attached_assets/day-7.jpg';
 
 // Every day follows the same 4-part format (Teaching → Reflection →
-// Hypnosis/Healing Journey → Integration), rendered once per card as a
+// Guided audio practice → Integration), rendered once per card as a
 // fixed rhythm bar.
 const DAY_FORMAT = [
   { icon: BookOpen, label: 'Giảng dạy', time: '10 phút' },
   { icon: PenLine, label: 'Reflection Journal', time: '5 phút' },
-  { icon: Headphones, label: 'Hypnosis / Healing Journey', time: '20–30 phút' },
+  { icon: Headphones, label: 'Thực hành có hướng dẫn bằng audio', time: '20–30 phút' },
   { icon: Sparkles, label: 'Integration', time: '5 phút' },
 ] as const;
 
@@ -23,98 +23,93 @@ const curriculum = [
   {
     day: 1,
     image: day1Image,
-    title: 'SỰ THỨC TỈNH',
-    milestone: 'Thấy',
-    learnLabel: 'Bạn sẽ nhận ra',
+    title: 'Hiểu cách nỗi sợ ảnh hưởng đến lựa chọn',
+    milestone: 'Nhận diện',
+    learnLabel: 'Bạn sẽ khám phá',
     learns: [
-      'Điều thật sự khiến bạn chùn bước ngay trước ngưỡng cửa thay đổi',
-      '4 phản ứng sinh tồn đang âm thầm điều khiển bạn — và bạn đang mắc kẹt ở đâu',
-      'Khoảnh khắc chính xác khi nỗi sợ "cầm lái" thay vì bạn'
+      'Những tình huống thường khiến bạn do dự hoặc trì hoãn',
+      '4 kiểu phản ứng quen thuộc khi đối diện nỗi sợ',
+      'Nỗi sợ đang ảnh hưởng đến quyết định hằng ngày của bạn ra sao'
     ],
-    result: 'Lần đầu tiên, bạn đứng lùi lại đủ xa để thấy: không phải mình yếu — mà nỗi sợ đã lái xe quá lâu.'
+    result: 'Nhận diện các tình huống thường kích hoạt sự do dự'
   },
   {
     day: 2,
     image: day2Image,
-    title: 'TRỞ VỀ CƠ THỂ',
-    milestone: 'Ổn định',
-    learnLabel: 'Bạn sẽ học cách',
+    title: 'Tạo khoảng dừng trước khi phản ứng',
+    milestone: 'Tạm dừng',
+    learnLabel: 'Bạn sẽ thực hành',
     learns: [
-      'Đưa cơ thể về trạng thái bình tĩnh chỉ trong vài phút, bất cứ khi nào cần',
-      'Rút ngắn khoảng cách giữa "biết mình nên bình tĩnh" và cơ thể thật sự cảm thấy an toàn',
-      'Tạo một nơi an toàn bên trong mà bạn có thể quay về bất cứ lúc nào'
+      'Dừng lại vài nhịp trước khi phản ứng',
+      'Quan sát cảm xúc và sự chú ý mà không vội đánh giá',
+      'Một bài thực hành ngắn bạn có thể dùng lại bất cứ lúc nào'
     ],
-    highlight: '🌿 Ngày đầu tiên cơ thể thật sự được nghỉ ngơi.',
-    result: 'Lần đầu tiên sau rất lâu, bạn cảm thấy: cơ thể mình thật sự an toàn.'
+    result: 'Làm quen các bài thực hành quan sát cảm xúc và sự chú ý'
   },
   {
     day: 3,
     image: day3Image,
-    title: 'GIẢI PHÓNG CẢM XÚC BỊ MẮC KẸT',
-    milestone: 'Buông',
-    learnLabel: 'Bạn sẽ giải phóng',
+    title: 'Hiểu và làm việc với cảm xúc',
+    milestone: 'Phân biệt',
+    learnLabel: 'Bạn sẽ học cách',
     learns: [
-      'Những cảm xúc tưởng đã qua nhưng vẫn âm thầm điều khiển cuộc sống',
-      'Những ký ức khiến cơ thể luôn phản ứng như đang ở trong quá khứ',
-      'Gánh nặng cảm xúc bạn đã mang theo quá lâu'
+      'Phân biệt cảm xúc, suy nghĩ và hành động',
+      'Nhận ra cảm xúc nào đang lên tiếng trong một tình huống cụ thể',
+      'Làm việc với cảm xúc thay vì để nó dẫn đường'
     ],
-    highlight: '⭐ Phiên chữa lành sâu nhất.',
-    result: 'Bạn cảm thấy nhẹ đi một điều đã mang theo rất lâu, mà không hẳn biết vì sao nó lại nặng đến vậy.'
+    result: 'Phân biệt cảm xúc, suy nghĩ và hành động'
   },
   {
     day: 4,
     image: day4Image,
-    title: 'THÁO GỠ BỘ RỄ NIỀM TIN',
-    milestone: 'Tái lập',
-    learnLabel: 'Bạn sẽ tháo gỡ',
+    title: 'Khám phá những niềm tin giới hạn',
+    milestone: 'Khám phá',
+    learnLabel: 'Bạn sẽ xem xét',
     learns: [
-      'Những niềm tin khiến bạn luôn thấy mình chưa đủ',
-      'Những "sự thật" bạn đã tin nhiều năm nhưng chưa từng kiểm chứng',
-      'Bộ rễ niềm tin mới giúp bạn hành động từ sự bình an'
+      'Những niềm tin quen thuộc về bản thân mà bạn chưa từng kiểm chứng',
+      'Niềm tin nào đang thu hẹp lựa chọn của bạn',
+      'Cách thử một góc nhìn khác và quan sát điều gì thay đổi'
     ],
-    result: `Thay vì tự nhủ "chắc mình không làm được đâu"... bạn bắt đầu tin rằng mình có thể.`
+    result: 'Xem xét những niềm tin quen thuộc và thử nghiệm góc nhìn khác'
   },
   {
     day: 5,
     image: day5Image,
-    title: 'CHỮA LÀNH MỐI QUAN HỆ VỚI TIỀN',
-    milestone: 'Mở rộng',
-    learnLabel: 'Bạn sẽ nhận ra',
+    title: 'Nhận diện niềm tin về tiền bạc',
+    milestone: 'Tìm hiểu',
+    learnLabel: 'Bạn sẽ tìm hiểu',
     learns: [
-      'Vì sao nỗi sợ thiếu hụt khiến bạn luôn lo lắng về tiền',
-      'Vì sao càng cố giữ tiền, bạn càng sống trong cảm giác không đủ',
-      'Cách xây dựng một mối quan hệ bình an hơn với tiền bạc'
+      'Quan điểm cá nhân về tiền bạc của bạn đến từ đâu',
+      'Quan điểm đó ảnh hưởng thế nào đến thói quen chi tiêu, tiết kiệm và kiếm tiền',
+      'Một vài điều chỉnh nhỏ trong cách nhìn và hành vi tài chính'
     ],
-    highlight: '💛 Journey được học viên yêu thích nhất.',
-    result: 'Bạn không còn né tránh nhìn vào tài khoản của mình — mà cảm thấy mình và Tiền đang ở cùng một phía.'
+    result: 'Tìm hiểu cách quan điểm cá nhân ảnh hưởng đến thói quen tài chính'
   },
   {
     day: 6,
     image: day6Image,
-    title: 'BƯỚC VÀO DANH TÍNH MỚI',
-    milestone: 'Trở thành',
-    learnLabel: 'Bạn sẽ gặp',
+    title: 'Xây dựng hình ảnh bản thân mong muốn',
+    milestone: 'Làm rõ',
+    learnLabel: 'Bạn sẽ làm rõ',
     learns: [
-      'Phiên bản của bạn đã sống cuộc đời mà bạn vẫn đang mơ ước',
-      'Một danh tính mới mà bạn được phép bước vào, thay vì tiếp tục là phiên bản cũ',
-      'Cảm giác thật sự khi biết mình có thể tin tưởng chính mình'
+      'Những giá trị bạn muốn sống theo',
+      'Những phẩm chất bạn muốn phát triển',
+      'Những lựa chọn cụ thể phù hợp với hình ảnh bản thân bạn mong muốn'
     ],
-    highlight: '✨ Journey giàu cảm xúc nhất.',
-    result: 'Bạn khóc — không phải vì đau, mà vì lần đầu tiên gặp được người mình luôn có thể trở thành.'
+    result: 'Làm rõ giá trị, phẩm chất và lựa chọn muốn phát triển'
   },
   {
     day: 7,
     image: day7Image,
-    title: 'BEYOND FEAR',
-    milestone: 'Vượt qua',
-    learnLabel: 'Bạn sẽ bước vào',
+    title: 'Từ nhận thức đến hành động',
+    milestone: 'Hành động',
+    learnLabel: 'Bạn sẽ hoàn thiện',
     learns: [
-      'Một nghi thức khép lại danh tính cũ',
-      'Một lời cam kết với phiên bản mới của chính mình',
-      'Cách tiếp tục sống từ sự bình an ngay cả khi hành trình 7 ngày kết thúc'
+      'Tổng kết những gì bạn nhận ra trong 6 ngày trước',
+      'Một cam kết thực hành rõ ràng cho bản thân',
+      'Kế hoạch tiếp tục sau khi khóa học kết thúc'
     ],
-    highlight: '🎓 Graduation Ceremony.',
-    result: `Bạn không chỉ "học xong" — bạn bước ra là một người khác với người đã bước vào Ngày 1.`
+    result: 'Tổng kết và xây dựng định hướng thực hành tiếp theo'
   }
 ];
 
@@ -156,7 +151,6 @@ function DayCard({
   milestone,
   learnLabel,
   learns,
-  highlight,
   result,
   index
 }: typeof curriculum[0] & { index: number }) {
@@ -177,11 +171,6 @@ function DayCard({
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
-          {highlight && (
-            <div className="absolute top-3 right-3 px-3 py-1.5 rounded-full bg-accent/90 backdrop-blur-sm text-xs font-semibold text-accent-foreground shadow-lg">
-              {highlight}
-            </div>
-          )}
         </div>
       )}
 
@@ -224,7 +213,7 @@ function DayCard({
 
           <div className="p-3 sm:p-4 rounded-lg bg-primary/10 border-l-4 border-primary">
             <p className="text-xs sm:text-sm font-medium text-foreground">
-              <strong className="text-primary">🎯 Chiến thắng:</strong> {result}
+              <strong className="text-primary">Kết quả học tập:</strong> {result}
             </p>
           </div>
         </div>
@@ -249,13 +238,13 @@ export function CurriculumSection() {
           className="text-center mb-8 sm:mb-10"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gradient-gold mb-4 sm:mb-6">
-            Sau 7 Ngày, Bạn Sẽ Không Còn Để Nỗi Sợ <br /> Quyết Định Cuộc Đời Mình
+            7 Ngày Hiểu Rõ Nỗi Sợ, <br /> Chủ Động Hơn Trong Mỗi Lựa Chọn
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
-            Bạn không cần thay đổi cuộc đời trong một ngày.<br /> Chỉ cần đi từng bước, mỗi ngày
-            khoảng 20 phút.
+            Bạn không cần thay đổi mọi thứ trong một ngày.<br /> Mỗi ngày khoảng 40–50 phút, bạn học một
+            khái niệm, viết vài dòng suy ngẫm và thực hành cùng audio hướng dẫn.
             <br className="hidden sm:block" />
-            Sau 7 ngày, bạn có một cách rõ ràng hơn để nhận ra nỗi sợ, bình tĩnh lại và bắt đầu hành động.
+            Sau 7 ngày, bạn hiểu rõ hơn nỗi sợ ảnh hưởng đến lựa chọn của mình ra sao, và có thêm những cách để dừng lại, nhìn lại, rồi hành động.
           </p>
         </motion.div>
 
@@ -267,8 +256,8 @@ export function CurriculumSection() {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="text-center text-sm sm:text-base text-foreground/60 italic max-w-xl mx-auto mb-12 sm:mb-16"
         >
-          Đây không phải một khóa học. Đây là một cuộc hành hương nội tâm 7 ngày — từ người
-          đang bị nỗi sợ cầm lái, đến người bước ra với một danh tính mới.
+          Bảy ngày, bảy bước nhỏ: từ việc nhận ra nỗi sợ ảnh hưởng đến lựa chọn của bạn thế nào,
+          đến việc chủ động chọn hướng đi phù hợp với giá trị của chính mình.
         </motion.p>
 
         <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
