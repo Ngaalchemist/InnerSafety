@@ -307,20 +307,15 @@ export function Hero() {
                 className="italic leading-snug"
                 style={{
                   fontFamily: "'Playfair Display', serif",
-                  fontWeight: 300,
+                  fontWeight: 700,
                   fontSize: '14px',
-                  color: '#FFFFFF',
+                  color: GOLD,
                   textShadow: '0 1px 8px rgba(0,0,0,0.6)',
                 }}
               >
-                Những khuôn mẫu cũ không định nghĩa.
+                Những khuôn mẫu cũ không định nghĩa con người bạn.
                 <br />
-                con người bạn.{' '}
-                <span style={{ color: GOLD, fontWeight: 600 }}>
-                  Và bạn có thể
-                </span>
-                
-                 học cách <br />lựa chọn khác đi.
+                Và bạn có thể học cách lựa chọn khác đi.
               </p>
               <span
                 aria-hidden="true"
