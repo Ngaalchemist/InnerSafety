@@ -195,7 +195,7 @@ export function Hero() {
                   <Star key={i} className="w-4 h-4" style={{ color: GOLD, fill: GOLD }} />
                 ))}
                 <span className="text-white text-xs sm:text-sm font-bold ml-1">
-                  4.9/5 từ hơn 500+ học viên
+                  4.9/5 từ hơn 500+ khách hàng
                 </span>
               </div>
                        </motion.div>
