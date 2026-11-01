@@ -313,14 +313,14 @@ export function Hero() {
                   textShadow: '0 1px 8px rgba(0,0,0,0.6)',
                 }}
               >
-                Vấn đề không phải là bạn không đủ khả năng.
+                Những khuôn mẫu cũ không định nghĩa.
                 <br />
-                Mà là{' '}
+                con người bạn.{' '}
                 <span style={{ color: GOLD, fontWeight: 600 }}>
-                  có những nỗi sợ 
+                  Và bạn có thể
                 </span>
                 
-                 đang âm thầm <br /> ảnh hưởng đến cách bạn sống và lựa chọn.
+                 học cách <br />lựa chọn khác đi.
               </p>
               <span
                 aria-hidden="true"
