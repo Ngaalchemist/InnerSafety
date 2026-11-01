@@ -79,7 +79,7 @@ const quickFacts = [
 // Short reassurance bullets under the subheadline
 const checklist = [
   'Dám bước tới điều mình thật sự muốn mà không còn liên tục chần chừ.',
-  'RRa quyết định với nhiều sự rõ ràng hơn, thay vì mắc kẹt trong suy nghĩ.',
+  'Ra quyết định với nhiều sự rõ ràng hơn, thay vì mắc kẹt trong suy nghĩ.',
   'Tin vào chính mình hơn và bớt sống trong cảm giác “mình chưa đủ tốt”.',
 ];
 
