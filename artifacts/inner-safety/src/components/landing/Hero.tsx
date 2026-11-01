@@ -162,7 +162,7 @@ export function Hero() {
               className="hidden sm:inline text-sm sm:text-base italic truncate"
               style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Playfair Display', serif", fontWeight: 600, letterSpacing: '0.2px' }}
             >
-              7 Ngày Từ Sợ Hãi Đến Bình An
+              7 Ngày Hiểu Nỗi Sợ, Vững Vàng Bước Tới.
             </span>
           </span>
 
@@ -229,7 +229,7 @@ export function Hero() {
                 className="block mt-1"
                 style={{ color: GOLD, fontSize: 'clamp(1.25rem, 2.9vw, 2.1rem)', lineHeight: 1.25 }}
               >
-                7 ngày hiểu nỗi sợ, củng cố niềm tin và chủ động lựa chọn
+                hiểu nỗi sợ, củng cố niềm tin và chủ động lựa chọn
               </span>
             </motion.h1>
 
