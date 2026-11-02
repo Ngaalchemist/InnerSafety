@@ -10,8 +10,8 @@ import bundleImage from '../../../../../attached_assets/beyond-fear-healing-bund
 const coreProgram = [
   {
     icon: Video,
-    title: '7 Buổi Video Thực Hành',
-    desc: 'Mỗi ngày khoảng 20 phút, từng bước đi qua: Nỗi sợ → Suy nghĩ → Niềm tin → Sự tự tin → Hành động. Mỗi bài học ngắn gọn, dễ hiểu và có thể áp dụng ngay vào cuộc sống.'
+    title: '7 Buổi Học & Thực Hành Có Hướng Dẫn',
+    desc: 'Hành trình 7 ngày giúp bạn từng bước khám phá mối liên hệ giữa nỗi sợ, suy nghĩ, niềm tin và hành động. Mỗi buổi kết hợp kiến thức và thực hành, giúp bạn hiểu mình rõ hơn, phát triển sự vững vàng từ bên trong và chủ động hơn trong những lựa chọn mỗi ngày.'
   },
   {
     icon: FileText,
