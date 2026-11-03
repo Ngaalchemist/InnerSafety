@@ -71,7 +71,7 @@ export function InstructorSection() {
             </div>
 
             <p className="font-serif italic font-medium text-lg sm:text-xl md:text-2xl text-foreground max-w-xl mx-auto leading-snug">
-              "Chuyển Hóa Từ Gốc Rễ — Để nỗi sợ không còn là thứ quyết định bạn sống cuộc đời như thế nào."
+              "Hiểu Nỗi Sợ Từ Gốc Rễ - để bạn chủ động hơn trong cách mình sống."
             </p>
           </motion.div>
 
@@ -87,21 +87,21 @@ export function InstructorSection() {
             {/* Khối 1: Thấu cảm đầu tiên */}
           
             <p>
-              Có thể bên ngoài, bạn vẫn đi làm, chăm sóc gia đình và hoàn thành tốt mọi trách nhiệm mỗi ngày. Nhưng sâu bên trong, bạn luôn ở trong một trạng thái cảnh giác khó gọi tên: sợ mình không đủ tốt, sợ sai, sợ bị đánh giá... Bạn rất muốn bứt phá, nhưng cứ mỗi lần định bước đi, một phần nào đó trong bạn lại kéo bạn lùi lại.
+              Nhiều người bên ngoài vẫn đi làm, chăm sóc gia đình và hoàn thành tốt trách nhiệm mỗi ngày. Nhưng bên trong, họ mang một sự e dè khó gọi tên: sợ mình không đủ tốt, sợ sai, sợ bị đánh giá. Họ rất muốn bứt phá, nhưng mỗi lần định bước đi, một phần nào đó lại kéo họ lùi lại.
             </p>
             <p>
-              Đặc biệt là, sự mắc kẹt này không phải vì bạn thiếu kiến thức hay thiếu quyết tâm. 
-              Bạn đã đọc rất nhiều sách, học nhiều phương pháp, đã thiền, đã chữa lành, đã tha thứ... Bạn biết rất rõ mình cần làm gì và khao khát bước tiếp, nhưng cơ thể và cảm xúc của bạn dường như vẫn không thể nhúc nhích.
-              Tôi rất hiểu sự bất lực âm thầm đó. Vì tôi không chỉ chứng kiến nó qua hơn 4 năm làm thôi miên trị liệu, mà bởi chính tôi đã từng vật lộn rất nhiều năm trong vòng lặp ấy.
+              Sự mắc kẹt ấy không hẳn vì thiếu kiến thức hay thiếu quyết tâm. 
+              Nhiều người đã đọc rất nhiều sách, học nhiều phương pháp, thực hành thiền, và biết rất rõ mình cần làm gì, nhưng vẫn chưa thể bước tiếp.
+              Tôi hiểu cảm giác đó, vì tôi đã đồng hành cùng khách hàng hơn 4 năm, và chính tôi cũng từng đứng yên rất lâu trong vòng lặp ấy.
             </p>
 
             {/* Khối 2: Khi thế giới an toàn sụp đổ */}
             <div className="pt-4">
               <h4 className="font-serif font-bold text-lg sm:text-xl text-gradient-gold mb-3">
-                Khi thế giới an toàn của tôi sụp đổ
+                Khi nền tảng của tôi lung lay
               </h4>
               <p className="mb-3">
-                Năm 2009, bố mẹ tôi ly hôn. Thế giới an toàn mà tôi từng biết hoàn toàn sụp đổ. Những tổn thương gia đình, cùng những đổ vỡ tình cảm sau đó, dần bào mòn sự tự tin và gieo vào tôi những niềm tin rất sâu:
+                Năm 2009, bố mẹ tôi ly hôn. Thế giới an toàn mà tôi từng biết thay đổi hoàn toàn. Những biến cố gia đình, cùng những đổ vỡ tình cảm sau đó, dần bào mòn sự tự tin và gieo vào tôi những niềm tin rất sâu:
               </p>
               <div className="py-2 px-4 rounded-xl bg-primary/5 border border-primary/20 text-center space-y-1 my-3">
                 <p className="italic text-foreground/90 font-medium">“Mình không đủ tốt.”</p>
@@ -109,29 +109,29 @@ export function InstructorSection() {
                 <p className="italic text-foreground/90 font-medium">“Sẽ chẳng ai thực sự cần mình.”</p>
               </div>
               <p>
-                Tôi đã làm điều mà rất nhiều người trong chúng ta vẫn làm: cố gắng nhiều hơn để chứng minh rằng mình có giá trị. Tôi lao vào công việc, gây dựng được một chuỗi Airbnb khá thành công và từng nghĩ rằng mình đã tạo được một nền tảng đủ vững chắc cho cuộc đời.
+                Tôi làm điều mà rất nhiều người vẫn làm: cố gắng nhiều hơn để chứng minh giá trị của mình. Tôi lao vào công việc, gây dựng được một chuỗi Airbnb khá thành công và từng nghĩ mình đã có một nền tảng đủ vững chắc.
               </p>
               <p className="mt-3">
-                Cho đến khi Covid-19 xảy ra. Công việc sụp đổ, tôi phá sản, nợ nần và hôn nhân đổ vỡ. Gần như tất cả những điểm tựa bên ngoài mà tôi từng dựa vào đều biến mất cùng lúc. Và lần đầu tiên, tôi không còn cách nào khác ngoài việc quay vào bên trong.
+                Cho đến khi Covid-19 xảy ra. Công việc sụp đổ, tôi phá sản, nợ nần và hôn nhân đổ vỡ. Gần như mọi điểm tựa bên ngoài biến mất cùng lúc. Lần đầu tiên, tôi không còn cách nào khác ngoài việc nhìn vào bên trong.
               </p>
             </div>
 
             {/* Khối 3: Đã chữa lành nhưng vẫn không thể bước đi */}
             <div className="pt-4">
               <h4 className="font-serif font-bold text-lg sm:text-xl text-gradient-gold mb-3">
-                Tôi đã chữa lành rất nhiều - nhưng vẫn không thể bước đi
+               Tôi học rất nhiều, nhưng vẫn chưa thể bước đi
               </h4>
               <p>
-                Tôi dành nhiều năm học hỏi, thiền định, khám phá thế giới bên trong và bén duyên với thôi miên trị liệu. Tôi bắt đầu đồng hành cùng những người khác trên hành trình chữa lành và nghĩ mình đã vượt qua. Cho đến khi cuộc đời tiếp tục đưa tôi đến những thử thách lớn hơn.
+                Tôi dành nhiều năm học hỏi, thiền định và khám phá thế giới bên trong. Tôi bắt đầu đồng hành cùng những người khác và nghĩ mình đã vượt qua. Cho đến khi cuộc đời đưa tôi đến những thử thách lớn hơn.
               </p>
               
               <div className="my-4 p-4 rounded-xl bg-card/60 border border-border/40 space-y-2">
-                <p>Tôi biết mình cần tiến lên. Lý trí nói: <strong className="text-foreground font-medium">“Đi đi.”</strong> Tôi biết mình có khả năng, biết mình có điều muốn tạo ra và muốn trao đi.</p>
-                <p>Nhưng cơ thể tôi lại nói: <strong className="text-foreground font-medium">“Không.”</strong></p>
+                <p>Lý trí nói: <strong className="text-foreground font-medium">“Đi đi.”</strong> Tôi biết mình có khả năng, biết mình có điều muốn tạo ra và muốn trao đi.</p>
+                <p>Nhưng bên trong tôi lại nói: <strong className="text-foreground font-medium">“Chưa.”</strong></p>
               </div>
 
               <p>
-                Tôi trì hoãn. Tôi né tránh. Tôi overthink. Tôi sợ bị nhìn thấy. Và có những giai đoạn tôi gần như đóng băng hoàn toàn. Tôi từng đứng yên hàng tháng trời, rồi hàng năm trời, dù bên trong biết rất rõ mình muốn đi đâu. Đó là một trong những trải nghiệm bất lực nhất tôi từng có.
+                Tôi trì hoãn. Tôi né tránh. Tôi overthink. Tôi sợ bị nhìn thấy. Và có những giai đoạn tôi gần như đóng băng hoàn toàn. Tôi từng đứng yên hàng tháng trời, rồi hàng năm trời, dù bên trong biết rất rõ mình muốn đi đâu. Đó là một trong những trải nghiệm bất lực nhất của tôi.
               </p>
               <p className="italic text-foreground/90 font-medium mt-3 text-center sm:text-left">
                 “Tại sao mình đã đồng hành cùng rất nhiều người, mà chính mình vẫn không thể bước qua nỗi sợ của mình?”
@@ -142,20 +142,19 @@ export function InstructorSection() {
             <div className="pt-4 space-y-4">
               <p className="text-base sm:text-lg text-primary font-medium">
                 Và rồi tôi nhận ra: vấn đề không phải là do tôi chưa đủ mạnh mẽ. 
-                Đó là khoảnh khắc thay đổi hoàn toàn cách tôi nhìn về chữa lành.
-              </p>
+                         </p>
               
               <div className="space-y-3 pl-4 border-l-2 border-primary/40 my-4">
                 <p>
-                  <strong className="text-foreground font-semibold">Không phải mọi sự trì hoãn đều là lười biếng. Không phải mọi sự bất động đều là thiếu ý chí.</strong>
+                  <strong className="text-foreground font-semibold">Không phải mọi sự trì hoãn đều là lười biếng. Không phải mọi sự đứng yên đều là thiếu ý chí.</strong>
                 </p>
                 <p>
-                  Có những lúc tôi biết chính xác mình cần làm gì, nhưng cơ thể vẫn phản ứng như thể tôi đang gặp nguy hiểm. <strong className="text-foreground font-semibold">Tôi càng ép mình phải mạnh mẽ, tôi càng kiệt sức.</strong> Càng cố dùng lý trí để “sửa” mình, tôi càng cảm thấy có gì đó bên trong đang gào thét chống lại chính mình.
+                  Có những lúc tôi biết chính xác mình cần làm gì, nhưng vẫn do dự như thể phía trước có điều gì đó không an toàn. <strong className="text-foreground font-semibold">Tôi càng ép mình phải mạnh mẽ, tôi càng kiệt sức.</strong> Càng cố dùng lý trí để “sửa” mình, tôi càng thấy mình giằng co với chính mình.
                 </p>
               </div>
 
               <p className="text-foreground font-medium pt-2">
-                Tôi nhận ra mình không cần phải tiếp tục chiến đấu với chính mình nữa. Điều tôi thực sự cần là xây dựng lại cảm giác rằng:
+                Điều tôi cần là xây dựng lại một niềm tin đơn giản:
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 my-3">
@@ -174,20 +173,20 @@ export function InstructorSection() {
               </div>
 
               <p>
-                Đó chính là nền tảng của <strong className="text-foreground font-semibold">Inner Safety Method™</strong> — phương pháp tôi phát triển từ hành trình cá nhân, thực hành thôi miên trị liệu và quá trình đồng hành cùng khách hàng.
+                Đó chính là nền tảng của <strong className="text-foreground font-semibold">Inner Safety Method™</strong> — phương pháp tôi phát triển từ hành trình cá nhân và quá trình đồng hành cùng khách hàng.
               </p>
               <p>
-                Thay vì chỉ cố thay đổi suy nghĩ, chúng ta bắt đầu từ những nơi sâu hơn: <span className="text-primary font-medium">Cơ thể → Cảm xúc → Niềm tin → Cách bạn nhìn nhận chính mình.</span> Khi bên trong không còn phải liên tục chống đỡ, việc hành động không còn là một cuộc chiến.
+                Thay vì chỉ cố ép mình hành động khác đi, chúng ta bắt đầu từ chỗ sâu hơn: <span className="text-primary font-medium">Nhận biết → Thấu hiểu → Thay đổi góc nhìn → Bước tới.</span> Khi bên trong bớt giằng co, việc hành động không còn là một cuộc chiến.
               </p>
             </div>
 
             {/* Khối 5: Nguồn gốc của Beyond Fear */}
             <div className="pt-4 space-y-3">
               <p>
-                Tôi không tạo ra <strong className="text-foreground font-semibold">Beyond Fear™</strong> từ lý thuyết. Tôi tạo ra Beyond Fear™ từ chính hành trình của mình: từ một người từng trải qua đổ vỡ, phá sản, mất phương hướng, cho đến một người đã dành nhiều năm chữa lành nhưng vẫn có lúc đóng băng trước chính những điều mình khao khát; cùng hơn 4 năm thực hành thôi miên trị liệu với 500+ khách hàng.
+                Tôi không tạo ra <strong className="text-foreground font-semibold">Beyond Fear™</strong> từ lý thuyết. Tôi tạo ra nó từ chính hành trình của mình: từ một người từng trải qua đổ vỡ, phá sản, mất phương hướng, đến một người hiểu rằng đôi khi mình đứng yên không phải vì yếu đuối. Cùng hơn 4 năm đồng hành với 500+ khách hàng.
               </p>
               <p>
-                Tôi không ở đây để nói với bạn: <em className="text-foreground/70">“Hãy cố gắng lên”</em>, <em className="text-foreground/70">“Hãy suy nghĩ tích cực hơn”</em> hay <em className="text-foreground/70">“Bạn chỉ cần vượt qua nỗi sợ”</em>. Tôi tạo ra Beyond Fear™ để giúp bạn bắt đầu xây dựng lại cảm giác an toàn từ bên trong — <strong className="text-foreground font-semibold">để nỗi sợ không còn là thứ quyết định bạn sẽ sống cuộc đời như thế nào.</strong>
+                Tôi không ở đây để nói với bạn: <em className="text-foreground/70">“Hãy cố gắng lên”</em>  hay  <em className="text-foreground/70">“Hãy suy nghĩ tích cực hơn”</em>. Tôi tạo ra Beyond Fear™ để giúp bạn hiểu nỗi sợ của mình rõ hơn, <strong className="text-foreground font-semibold">và chủ động hơn trong những lựa chọn phía trước.</strong>
               </p>
             </div>
           </motion.div>
@@ -203,7 +202,7 @@ export function InstructorSection() {
               Nếu bạn đã quá mệt mỏi vì đầu óc hiểu rất rõ mình cần làm gì, nhưng một phần bên trong vẫn không thể bước đi, có lẽ đã đến lúc ngừng ép mình phải mạnh mẽ hơn.
             </p>
             <p className="font-serif italic font-bold text-xl sm:text-2xl md:text-3xl text-gradient-gold leading-tight">
-              Đã đến lúc trở về nền.
+              Đã đến lúc trở về nền, bắt đầu từ việc hiểu mình.
               <br />
               Và từ một nơi đủ an toàn bên trong, bạn có thể bắt đầu bước đi một lần nữa.
             </p>
