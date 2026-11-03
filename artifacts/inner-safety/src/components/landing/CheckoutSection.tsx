@@ -27,25 +27,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
-// ────────────────────────────────────────────────────────────────
-// Countdown — tạo cảm giác khẩn cấp thật (đếm ngược đến hạn quà tặng)
-// ────────────────────────────────────────────────────────────────
-
-const BONUS_DEADLINE = new Date('2026-09-30T23:59:59+07:00');
-
-function useCountdown(target: Date) {
-  const [msLeft, setMsLeft] = useState(() => target.getTime() - Date.now());
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setMsLeft(target.getTime() - Date.now());
-    }, 1000);
-    return () => clearInterval(id);
-  }, [target]);
-
-  return Math.max(0, msLeft);
-}
-
 const included = [
   { icon: Video, text: '7 buổi video thực hành hàng ngày' },
   { icon: FileText, text: 'Healing Workbook đầy đủ' },
@@ -95,58 +76,6 @@ const checkoutFaqs = [
   { q: 'Thanh toán có bảo mật không?', a: 'Có, giao dịch được xử lý qua chuyển khoản ngân hàng chuẩn. Hệ thống không lưu trữ thông tin tài khoản của bạn.' },
   { q: 'Tôi có được cập nhật nội dung mới sau này không?', a: 'Có. Mọi bài học hoặc tài liệu bổ sung trong tương lai đều miễn phí cho học viên đã đăng ký.' },
 ];
-
-function BonusDaysLeftBadge({ target }: { target: Date }) {
-  const msLeft = useCountdown(target);
-  const daysLeft = Math.ceil(msLeft / 86400000);
-  const isUrgent = daysLeft <= 3;
-
-  return (
-    <span
-      className={`shrink-0 text-[11px] font-bold px-2.5 py-1 rounded-full border tracking-wide whitespace-nowrap ${
-        isUrgent
-          ? 'bg-destructive/15 text-destructive border-destructive/40 animate-pulse'
-          : 'bg-primary/15 text-primary border-primary/40'
-      }`}
-    >
-      Còn {daysLeft} ngày
-    </span>
-  );
-}
-
-function CountdownBanner({ target }: { target: Date }) {
-  const msLeft = useCountdown(target);
-  const totalSeconds = Math.floor(msLeft / 1000);
-  const days = Math.floor(totalSeconds / 86400);
-  const hours = Math.floor((totalSeconds % 86400) / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
-  const pad = (n: number) => n.toString().padStart(2, '0');
-
-  return (
-    <div className="relative mb-4 rounded-2xl bg-gradient-to-r from-primary via-accent to-primary px-5 py-4 sm:py-5 text-center shadow-2xl shadow-primary/40 overflow-hidden">
-      <p className="relative flex items-center justify-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-background/80 mb-1.5">
-        <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-pulse" />
-        4 quà tặng đi kèm kết thúc sau
-      </p>
-      <div className="relative font-mono font-black tabular-nums text-background text-3xl sm:text-4xl md:text-5xl tracking-wider">
-        {days > 0 && (
-          <span className="mr-2">
-            {days}
-            <span className="text-background/70 text-lg sm:text-xl align-top ml-0.5">n</span>
-          </span>
-        )}
-        {pad(hours)}
-        <span className="animate-pulse mx-0.5">:</span>
-        {pad(minutes)}
-        <span className="animate-pulse mx-0.5">:</span>
-        {pad(seconds)}
-      </div>
-    </div>
-  );
-}
-
-
 
 type Step = 'form' | 'qr' | 'success';
 
@@ -472,14 +401,9 @@ export function CheckoutSection() {
                   </li>
                 ))}
               </ul>
-              {/* BONUS STACK — real deadline: bonuses are only guaranteed for
-                  signups through Sep 30. Update or remove this date if the
-                  offer window changes; never leave a stale date live. */}
+              {/* BONUS STACK */}
               <div className="mt-6 pt-6 border-t border-border/30">
-                <div className="flex items-center justify-between gap-3 mb-3">
-                  <p className="text-sm font-bold text-foreground/70 uppercase tracking-wide">+ 4 quà tặng đi kèm</p>
-                  <BonusDaysLeftBadge target={BONUS_DEADLINE} />
-                </div>
+                <p className="text-sm font-bold text-foreground/70 uppercase tracking-wide mb-3">+ 4 quà tặng đi kèm</p>
                 <div className="space-y-2">
                   {bonuses.map((b, idx) => (
                     <div
@@ -491,9 +415,6 @@ export function CheckoutSection() {
                     </div>
                   ))}
                 </div>
-                <p className="text-xs text-muted-foreground mt-3">
-                  Đăng ký sau ngày 30/9, khóa học vẫn đầy đủ như trên — chỉ không còn kèm 4 quà tặng này.
-                </p>
               </div>
             </div>
 
@@ -546,9 +467,6 @@ export function CheckoutSection() {
           >
             {/* Ánh sáng lan tỏa phía sau, giúp mắt bị hút về khối form ngay cả khi lướt nhanh */}
             <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-primary/25 via-accent/15 to-primary/25 blur-2xl opacity-60" />
-
-            {/* Đếm ngược — đặt ngay trên đầu khung form, nền đặc để tương phản mạnh với khung form bên dưới */}
-            <CountdownBanner target={BONUS_DEADLINE} />
 
             {/* Viền gradient vàng→tím bao ngoài — cùng công thức màu với nút CTA, để mắt hiểu ngay đây là nơi hành động */}
             <div className="relative rounded-2xl p-[2px] bg-gradient-to-br from-primary via-accent to-primary shadow-2xl shadow-primary/30">
