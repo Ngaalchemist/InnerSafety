@@ -162,7 +162,7 @@ export function Hero() {
               className="hidden sm:inline text-xs sm:text-sm font-extrabold uppercase tracking-[0.12em] truncate"
               style={{ color: '#FFFFFF', fontFamily: "'Inter', sans-serif" }}
             >
-              KHÓA HỌC PHÁT TRIỂN BẢN THÂN 7 NGÀY
+             
             </span>
           </span>
 
@@ -229,7 +229,7 @@ export function Hero() {
                 className="block mt-1"
                 style={{ color: GOLD, fontSize: 'clamp(1.25rem, 2.9vw, 2.1rem)', lineHeight: 1.25 }}
               >
-                7 Ngày Hiểu Nỗi Sợ, Vững Vàng Bước Tới
+                7 Ngày Bước Ra Khỏi Vòng Lặp Sinh Tồn
               </span>
             </motion.h1>
 
