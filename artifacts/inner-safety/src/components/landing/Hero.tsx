@@ -156,7 +156,7 @@ export function Hero() {
               className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.12em] shrink-0"
               style={{ color: GOLD, fontFamily: "'Inter', sans-serif" }}
             >
-              Beyond Fear
+              Beyond Fear | 7 NGÀY BƯỚC RA KHỎI VÒNG LẶP SINH TỒN
             </span>
             <span className="hidden sm:inline w-px h-3.5 shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.25)' }} />
             <span
