@@ -225,15 +225,19 @@ export function Hero() {
               className="uppercase mb-5"
               style={{
                 fontFamily: "'Anton', sans-serif",
-                fontSize: 'clamp(1.9rem, 4.6vw, 3.4rem)',
                 lineHeight: 1.15,
                 letterSpacing: '1px',
               }}
             >
-              <span className="block text-white">BEYOND FEAR™</span>
+              <span
+                className="block text-white"
+                style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.6rem)' }}
+              >
+                BEYOND FEAR™
+              </span>
               <span
                 className="block mt-1"
-                style={{ color: GOLD, fontSize: 'clamp(1.25rem, 2.9vw, 2.1rem)', lineHeight: 1.25 }}
+                style={{ color: GOLD, fontSize: 'clamp(2rem, 4.6vw, 3.4rem)', lineHeight: 1.15 }}
               >
                 7 Ngày Bước Ra Khỏi Vòng Lặp Sinh Tồn
               </span>
