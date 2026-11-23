@@ -81,6 +81,7 @@ const checklist = [
   'Dám bước tới điều mình thật sự muốn, ngay cả khi còn do dự.',
   'Ra quyết định với nhiều sự rõ ràng hơn, thay vì mắc kẹt trong suy nghĩ.',
   'Xây dựng niềm tin vào bản thân và nhận ra giá trị của chính mình.',
+  'Bắt đầu hành động dù còn sợ.',
 ];
 
 // 5 feature icons — mirrors the 5 checklist outcomes from the reference mockup
@@ -209,7 +210,7 @@ export function Hero() {
                 Inner Safety Method™
               </p>
               <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
-                Phương pháp giúp bạn hiểu rõ nỗi sợ, nhìn lại những niềm tin giới hạn và phát triển sự vững vàng từ bên trong để chủ động lựa chọn và hành động.
+               
               </p>
             </motion.div>
 
@@ -258,7 +259,9 @@ export function Hero() {
               className="text-white/75 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
               style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
             >
-              Một khóa học phát triển bản thân trực tuyến, giúp người học khám phá cách nỗi sợ và những khuôn mẫu suy nghĩ ảnh hưởng đến hành động, thực hành những góc nhìn mới và phát triển khả năng tự dẫn dắt bản thân.
+            Bạn có thể hiểu rất nhiều về bản thân, nhưng vẫn lặp lại những cách phản ứng cũ mỗi khi gặp áp lực, bất định hoặc một bước đi mới.
+
+            Beyond Fear là hành trình 7 ngày giúp bạn Trở Về Nền — hiểu điều đang vận hành bên trong, xây lại sự vững vàng và bắt đầu lựa chọn khác đi.
             </motion.p>
 
             {/* Reassurance bullets — 3 short lines, plain list */}
