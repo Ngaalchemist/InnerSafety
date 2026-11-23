@@ -151,21 +151,26 @@ export function Hero() {
         style={{ backgroundColor: 'rgba(13,11,24,0.7)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
       >
         <div className="max-w-[1280px] mx-auto flex items-center justify-between">
-          <span className="flex items-baseline gap-2 min-w-0">
-            <span
-              className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.12em] shrink-0"
-              style={{ color: GOLD, fontFamily: "'Inter', sans-serif" }}
-            >
-              Beyond Fear | 7 NGÀY BƯỚC RA KHỎI VÒNG LẶP SINH TỒN
-            </span>
-            <span className="hidden sm:inline w-px h-3.5 shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.25)' }} />
-            <span
-              className="hidden sm:inline text-xs sm:text-sm font-extrabold uppercase tracking-[0.12em] truncate"
-              style={{ color: '#FFFFFF', fontFamily: "'Inter', sans-serif" }}
-            >
-             
-            </span>
-          </span>
+         <span className="flex items-baseline gap-2 min-w-0">
+  <span
+    className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.12em] shrink-0"
+    style={{ color: GOLD, fontFamily: "'Inter', sans-serif" }}
+  >
+    Beyond Fear
+  </span>
+  <span
+    className="text-xs sm:text-sm font-normal uppercase tracking-[0.12em]"
+    style={{ color: '#FFFFFF', fontFamily: "'Inter', sans-serif" }}
+  >
+    |
+  </span>
+  <span
+    className="text-xs sm:text-sm font-normal uppercase tracking-[0.12em] truncate"
+    style={{ color: '#FFFFFF', fontFamily: "'Inter', sans-serif" }}
+  >
+    7 NGÀY BƯỚC RA KHỎI VÒNG LẶP SINH TỒN
+  </span>
+</span>
 
           <button
             onClick={scrollToCTA}
