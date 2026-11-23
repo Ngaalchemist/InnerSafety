@@ -259,10 +259,13 @@ export function Hero() {
               className="text-white/75 text-sm sm:text-base leading-relaxed mb-2 max-w-none"
               style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
             >
-            Bạn có thể hiểu rất nhiều về bản thân, nhưng vẫn lặp lại những cách phản ứng cũ mỗi khi gặp áp lực, bất định hoặc một bước đi mới.
-
-            Beyond Fear là hành trình 7 ngày giúp bạn Trở Về Nền — hiểu điều đang vận hành bên trong, xây lại sự vững vàng và bắt đầu lựa chọn khác đi.
-            </motion.p>
+              <span className="block mb-3">
+                Bạn có thể hiểu rất nhiều về bản thân, nhưng vẫn lặp lại những cách phản ứng cũ mỗi khi gặp áp lực, bất định hoặc một bước đi mới.
+              </span>
+              <span className="block">
+                Beyond Fear là hành trình 7 ngày giúp bạn Trở Về Nền — hiểu điều đang vận hành bên trong, xây lại sự vững vàng và bắt đầu lựa chọn khác đi.
+              </span>
+              </motion.p>
 
             {/* Reassurance bullets — 3 short lines, plain list */}
             <motion.ul variants={staggerContainer} className="space-y-1.5 max-w-2x1 mt-3 mb-5">
