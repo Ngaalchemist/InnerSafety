@@ -219,28 +219,86 @@ export function Hero() {
               </p>
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline — matches the approved mockup:
+                BEYOND FEAR™ + line / 7 NGÀY / BƯỚC RA KHỎI / VÒNG LẶP SINH TỒN / glow line */}
             <motion.h1
               variants={fadeInUp}
-              className="uppercase mb-5"
-              style={{
-                fontFamily: "'Anton', sans-serif",
-                lineHeight: 1.15,
-                letterSpacing: '1px',
-              }}
+              className="mb-5"
+              style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
             >
-              <span
-                className="block text-white"
-                style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.6rem)' }}
-              >
-                BEYOND FEAR™
+              {/* Line 1 — brand name, wide letter-spacing, thin purple line to the right */}
+              <span className="flex items-center gap-4 mb-2">
+                <span
+                  className="uppercase font-bold"
+                  style={{
+                    color: GOLD,
+                    letterSpacing: '0.32em',
+                    fontSize: 'clamp(0.85rem, 1.5vw, 1.1rem)',
+                  }}
+                >
+                  BEYOND FEAR™
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="hidden sm:block h-px w-24 lg:w-40"
+                  style={{ background: `linear-gradient(90deg, ${PURPLE}, transparent)` }}
+                />
               </span>
+
+              {/* Line 2 — 7 NGÀY (light purple) */}
               <span
-                className="block mt-1"
-                style={{ color: GOLD, fontSize: 'clamp(2rem, 4.6vw, 3.4rem)', lineHeight: 1.15 }}
+                className="block uppercase font-bold mb-1"
+                style={{
+                  color: '#D8B4FE',
+                  letterSpacing: '0.2em',
+                  fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+                  lineHeight: 1.2,
+                }}
               >
-                7 Ngày Bước Ra Khỏi Vòng Lặp Sinh Tồn
+                7 NGÀY
               </span>
+
+              {/* Line 3 — BƯỚC RA KHỎI (cream → gold) */}
+              <span
+                className="block uppercase font-bold"
+                style={{
+                  fontSize: 'clamp(2rem, 4.8vw, 3.3rem)',
+                  lineHeight: 1.1,
+                  background: 'linear-gradient(180deg, #FFF3D6 0%, #FBBF24 100%)',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  filter: 'drop-shadow(0 0 14px rgba(251,191,36,0.25))',
+                }}
+              >
+                BƯỚC RA KHỎI
+              </span>
+
+              {/* Line 4 — VÒNG LẶP SINH TỒN (largest, gold glow) */}
+              <span
+                className="block uppercase font-bold lg:whitespace-nowrap"
+                style={{
+                  fontSize: 'clamp(2.1rem, 5.4vw, 3.8rem)',
+                  lineHeight: 1.1,
+                  background: 'linear-gradient(180deg, #FDE68A 0%, #FBBF24 55%, #F59E0B 100%)',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  filter: 'drop-shadow(0 0 18px rgba(251,191,36,0.4))',
+                }}
+              >
+                VÒNG LẶP SINH TỒN
+              </span>
+
+              {/* Glow line under the headline */}
+              <span
+                aria-hidden="true"
+                className="block mt-3 h-[2px] w-3/4 rounded-full"
+                style={{
+                  background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`,
+                  boxShadow: '0 0 14px rgba(251,191,36,0.6)',
+                }}
+              />
             </motion.h1>
 
             {/* ── QUICK-FACTS PILLS — time / format / difficulty, answered in 2 seconds ── */}
