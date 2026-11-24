@@ -1,119 +1,267 @@
-import { motion, useInView } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { BookOpen, Flower2, Heart, Infinity as InfinityIcon } from 'lucide-react';
+import bigIdeaBg from '@assets/big_idea_bg.webp';
 
 // Self-loads fonts so the section renders correctly even if the
 // project's global CSS doesn't import them.
-const GOOGLE_FONT_ID = 'font-manrope-playfair';
-function useSectionFonts() {
+const GOOGLE_FONT_ID = 'font-bigidea';
+function useBigIdeaFonts() {
   useEffect(() => {
     if (document.getElementById(GOOGLE_FONT_ID)) return;
     const link = document.createElement('link');
     link.id = GOOGLE_FONT_ID;
     link.rel = 'stylesheet';
     link.href =
-      'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap';
+      'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap';
     document.head.appendChild(link);
   }, []);
 }
 
-const T_BODY = 'text-base sm:text-lg leading-relaxed';
-const T_QUOTE = 'text-xl sm:text-2xl font-medium italic';
-const LINE_GAP = 'space-y-4 sm:space-y-5';
-const BLOCK_GAP = 'mb-10 sm:mb-14';
+const BG = '#140a22'; // section background, matches the deep purple of the artwork
+const CHAMPAGNE = '#F2C879'; // gold used for accents / borders
+const CREAM = '#FFF3DC';
+const SERIF = "'Playfair Display', serif";
+const SANS = "'Be Vietnam Pro', sans-serif";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+};
+
+// Left column list (icon + line)
+const knowledgeList = [
+  { icon: BookOpen, text: 'Có thể bạn đã đọc rất nhiều.' },
+  { icon: Flower2, text: 'Đã thiền.' },
+  { icon: Heart, text: 'Đã chữa lành.' },
+  { icon: InfinityIcon, text: 'Đã hiểu về niềm tin, tiềm thức, năng lượng, manifestation.' },
+];
 
 const reactions = ['trì hoãn', 'tự nghi ngờ', 'kiểm soát', 'làm hài lòng', 'thu mình', 'quay về điều quen thuộc'];
 
+// Labels under the glowing icons that are already drawn inside the artwork.
+// left/top are % of the artwork itself, so they stay glued to the icons at any size.
+const orbitLabels = [
+  { label: 'KIẾN THỨC', left: 50, top: 14.3 },
+  { label: 'HIỂU BIẾT', left: 37.9, top: 17.7 },
+  { label: 'NĂNG LƯỢNG', left: 62.6, top: 17.7 },
+  { label: 'THIỀN', left: 32.5, top: 24.4 },
+  { label: 'MANIFESTATION', left: 67.5, top: 24.4 },
+  { label: 'CHỮA LÀNH', left: 31.5, top: 30.8 },
+  { label: 'PHÁT TRIỂN\nBẢN THÂN', left: 68.6, top: 30.8 },
+];
+
 export function BigIdeaSection() {
-  useSectionFonts();
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
+  useBigIdeaFonts();
 
   return (
     <section
-      ref={sectionRef}
-      className="py-16 sm:py-20 lg:py-24 relative"
-      style={{ fontFamily: "'Manrope', sans-serif" }}
+      className="relative overflow-hidden"
+      style={{ backgroundColor: BG, fontFamily: SANS }}
       data-testid="section-big-idea"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none" />
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12 py-12 lg:py-0">
+        {/* Desktop: one 5:4 canvas, everything positioned on it. Mobile: simple stacked flow. */}
+        <div className="relative flex flex-col lg:block lg:aspect-[5/4]">
+          {/* ── ARTWORK (right side on desktop) ── */}
+          <div className="order-2 relative w-full max-w-[560px] mx-auto aspect-[1122/1402] lg:max-w-none lg:mx-0 lg:absolute lg:right-0 lg:top-0 lg:w-[64%]">
+            <img
+              src={bigIdeaBg}
+              alt=""
+              aria-hidden="true"
+              width={1122}
+              height={1402}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            {/* Edge fades so the artwork melts into the section background */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-y-0 left-0 w-[30%] hidden lg:block"
+              style={{ background: `linear-gradient(90deg, ${BG}, transparent)` }}
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-0 top-0 h-[10%]"
+              style={{ background: `linear-gradient(180deg, ${BG}, transparent)` }}
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-0 bottom-0 h-[14%]"
+              style={{ background: `linear-gradient(0deg, ${BG}, transparent)` }}
+            />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* ── Block 1 — knowledge isn't the problem ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className={`${BLOCK_GAP} ${LINE_GAP} ${T_BODY} text-foreground/80`}
-          >
-            <p className="text-2xl sm:text-3xl font-bold text-foreground">Bạn không thiếu kiến thức.</p>
-            <p>Có thể bạn đã đọc rất nhiều.</p>
-            <p>Đã thiền.</p>
-            <p>Đã chữa lành.</p>
-            <p>Đã hiểu về niềm tin, tiềm thức, năng lượng, manifestation.</p>
-          </motion.div>
+            {/* Labels for the icons drawn in the artwork */}
+            {orbitLabels.map(({ label, left, top }) => (
+              <span
+                key={label}
+                className="hidden md:block absolute -translate-x-1/2 text-center text-[10px] lg:text-xs tracking-wide text-white/85 whitespace-pre-line leading-tight"
+                style={{ left: `${left}%`, top: `${top}%`, textShadow: '0 1px 6px rgba(0,0,0,0.7)' }}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
 
-          {/* ── Block 2 — the gap ── */}
+          {/* ── LEFT COLUMN ── (first on mobile via order-1) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className={`${BLOCK_GAP} ${LINE_GAP} ${T_BODY} text-foreground/80`}
+            {...fadeUp}
+            className="order-1 mb-8 lg:mb-0 lg:absolute lg:left-0 lg:top-[3%] lg:w-[40%] relative z-10"
           >
-            <p>Nhưng đôi khi…</p>
-            <p className="text-foreground font-semibold">
-              biết mình cần làm gì không đồng nghĩa với việc mình có thể làm được điều đó một cách tự nhiên.
-            </p>
-            <p>
-              Bởi vì dưới những gì bạn hiểu bằng lý trí vẫn có thể tồn tại những cách phản ứng cũ:
-            </p>
-            <p className="text-primary font-semibold tracking-wide">{reactions.join(' · ')}</p>
-          </motion.div>
+            <div className="flex items-center gap-3 mb-6">
+              <Flower2 className="w-6 h-6" style={{ color: CHAMPAGNE }} strokeWidth={1.25} />
+              <span
+                className="text-xs sm:text-sm font-medium"
+                style={{ color: CHAMPAGNE, letterSpacing: '0.4em' }}
+              >
+                BEYOND FEAR
+              </span>
+              <span
+                aria-hidden="true"
+                className="hidden sm:block h-px w-24"
+                style={{ background: `linear-gradient(90deg, ${CHAMPAGNE}, transparent)` }}
+              />
+            </div>
 
-          {/* ── Block 3 — the named concept ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className={BLOCK_GAP}
-          >
-            <p className={`${T_BODY} text-foreground/80 mb-4`}>Tôi gọi đó là:</p>
             <h2
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gradient-gold uppercase"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              className="uppercase font-bold"
+              style={{
+                fontFamily: SERIF,
+                color: CREAM,
+                fontSize: 'clamp(2rem, 4.4vw, 3.5rem)',
+                lineHeight: 1.12,
+              }}
             >
-              SINH TỒN CHẠY NGẦM
+              <span className="block">BẠN KHÔNG THIẾU</span>
+              <span className="block">KIẾN THỨC.</span>
             </h2>
+            <span
+              aria-hidden="true"
+              className="block mt-3 mb-7 h-px w-[85%]"
+              style={{
+                background: `linear-gradient(90deg, ${CHAMPAGNE}, transparent)`,
+                boxShadow: `0 0 10px ${CHAMPAGNE}66`,
+              }}
+            />
+
+            <ul className="space-y-4 mb-8">
+              {knowledgeList.map(({ icon: Icon, text }) => (
+                <li key={text} className="flex items-center gap-4 text-white/90 text-base lg:text-lg font-light leading-snug">
+                  <Icon className="w-7 h-7 shrink-0 text-white/80" strokeWidth={1.25} />
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p
+              className="italic text-white/90 text-base lg:text-lg font-light leading-snug pl-4 max-w-[26rem]"
+              style={{ fontFamily: SANS, borderLeft: `2px solid ${CHAMPAGNE}` }}
+            >
+              Biết mình cần làm gì không đồng nghĩa với việc mình có thể làm được điều đó một cách tự nhiên.
+            </p>
           </motion.div>
 
-          {/* ── Block 4 — how it looks ── */}
+          {/* ── BOTTOM GROUP: pill + chips + italic lines + câu đinh ── */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.45 }}
-            className={`${BLOCK_GAP} ${LINE_GAP} ${T_BODY} text-foreground/80`}
+            {...fadeUp}
+            className="order-3 relative z-10 -mt-32 sm:-mt-40 lg:mt-0 lg:absolute lg:left-[20%] lg:right-0 lg:top-[62%] lg:bottom-[3%] flex flex-col items-center justify-between gap-5 text-center"
           >
-            <p>Không phải lúc nào nó cũng trông như khủng hoảng.</p>
-            <p>
+            {/* SINH TỒN CHẠY NGẦM pill */}
+            <div
+              className="rounded-full px-8 sm:px-12 py-3 sm:py-4"
+              style={{
+                border: `1.5px solid ${CHAMPAGNE}`,
+                backgroundColor: 'rgba(20,10,34,0.75)',
+                boxShadow: `0 0 24px ${CHAMPAGNE}40, inset 0 0 18px ${CHAMPAGNE}1f`,
+              }}
+            >
+              <span
+                className="uppercase font-semibold"
+                style={{
+                  fontFamily: SERIF,
+                  color: CREAM,
+                  fontSize: 'clamp(1.2rem, 2.6vw, 2.1rem)',
+                  letterSpacing: '0.02em',
+                }}
+              >
+                SINH TỒN CHẠY NGẦM
+              </span>
+            </div>
+
+            {/* Reaction chips */}
+            <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3">
+              {reactions.map((r) => (
+                <span
+                  key={r}
+                  className="rounded-full px-4 sm:px-5 py-1.5 sm:py-2 text-sm sm:text-base text-white/90"
+                  style={{
+                    border: `1px solid ${CHAMPAGNE}99`,
+                    backgroundColor: 'rgba(20,10,34,0.7)',
+                    boxShadow: `0 0 12px ${CHAMPAGNE}26`,
+                  }}
+                >
+                  {r}
+                </span>
+              ))}
+            </div>
+
+            {/* Italic explanation */}
+            <p className="italic text-white/90 text-sm sm:text-base lg:text-lg font-light leading-relaxed max-w-3xl">
               Đôi khi nó trông giống một người vẫn làm việc, vẫn học hỏi, vẫn chăm sóc mọi thứ…
-              <br />
+              <br className="hidden sm:block" />{' '}
               nhưng bên trong chưa thật sự cảm thấy đủ vững để bước vào điều mới.
             </p>
-          </motion.div>
 
-          {/* ── Câu đinh ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="border-t border-border/40 pt-10 sm:pt-12"
-          >
-            <p className={`${T_QUOTE} text-foreground/80 mb-3`}>
-              Có thể vấn đề không phải bạn cần học thêm.
-            </p>
-            <p className={`${T_QUOTE} text-primary`}>
-              Có thể nền bên trong của bạn chưa theo kịp những gì bạn đã hiểu.
-            </p>
+            {/* Câu đinh */}
+            <div className="relative w-full flex items-center gap-4">
+              <span
+                aria-hidden="true"
+                className="hidden xl:block h-px flex-1"
+                style={{ background: `linear-gradient(90deg, transparent, ${CHAMPAGNE})` }}
+              />
+              <div
+                className="relative rounded-3xl px-8 sm:px-14 py-4 sm:py-5 w-full xl:w-auto"
+                style={{
+                  border: `1.5px solid ${CHAMPAGNE}`,
+                  backgroundColor: 'rgba(20,10,34,0.8)',
+                  boxShadow: `0 0 26px ${CHAMPAGNE}33`,
+                }}
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute left-4 sm:left-6 top-2 select-none"
+                  style={{ fontFamily: SERIF, color: CHAMPAGNE, fontSize: '44px', lineHeight: 1 }}
+                >
+                  “
+                </span>
+                <p
+                  className="italic"
+                  style={{
+                    fontFamily: SERIF,
+                    color: CHAMPAGNE,
+                    fontSize: 'clamp(1rem, 2vw, 1.6rem)',
+                    lineHeight: 1.35,
+                  }}
+                >
+                  Có thể vấn đề không phải bạn cần học thêm.
+                  <br />
+                  Có thể nền bên trong của bạn chưa theo kịp những gì bạn đã hiểu.
+                </p>
+                <span
+                  aria-hidden="true"
+                  className="absolute right-4 sm:right-6 bottom-0 select-none"
+                  style={{ fontFamily: SERIF, color: CHAMPAGNE, fontSize: '44px', lineHeight: 1 }}
+                >
+                  ”
+                </span>
+              </div>
+              <span
+                aria-hidden="true"
+                className="hidden xl:block h-px flex-1"
+                style={{ background: `linear-gradient(90deg, ${CHAMPAGNE}, transparent)` }}
+              />
+            </div>
           </motion.div>
         </div>
       </div>
