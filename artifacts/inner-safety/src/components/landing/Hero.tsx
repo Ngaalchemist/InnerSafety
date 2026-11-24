@@ -436,7 +436,7 @@ export function Hero() {
               }}
             >
               <p className="text-white/70 text-xs font-bold uppercase tracking-wide mb-2">
-                KHÓA HỌC PHÁT TRIỂN BẢN THÂN 7 NGÀY
+                7 NGÀY BƯỚC RA KHỎI VÒNG LẶP SINH TỒN
               </p>
 
               <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
