@@ -205,20 +205,7 @@ export function Hero() {
                 </span>
               </div>
                        </motion.div>
-
-            {/* Eyebrow 2 — Inner Safety Method */}
-            <motion.div variants={fadeInUp} className="mb-5">
-              <p
-                className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] mb-1"
-                style={{ color: PURPLE }}
-              >
-                Inner Safety Method™
-              </p>
-              <p className="text-white/60 text-xs sm:text-sm italic leading-snug max-w-none">
-               
-              </p>
-            </motion.div>
-
+          
             {/* Headline — matches the approved mockup:
                 BEYOND FEAR™ + line / 7 NGÀY / BƯỚC RA KHỎI / VÒNG LẶP SINH TỒN / glow line */}
             <motion.h1
