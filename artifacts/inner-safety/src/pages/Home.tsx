@@ -1,4 +1,5 @@
 import { Hero } from '@/components/landing/Hero';
+import { BigIdeaSection } from '@/components/landing/BigIdeaSection';
 import { ProblemSection } from '@/components/landing/ProblemSection';
 import { SolutionSection } from '@/components/landing/SolutionSection';
 import { CurriculumSection } from '@/components/landing/CurriculumSection';
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-[100dvh] w-full relative noise-texture">
       <Hero />
+      <BigIdeaSection />
       <ProblemSection />
       <SolutionSection />
       <CurriculumSection />
