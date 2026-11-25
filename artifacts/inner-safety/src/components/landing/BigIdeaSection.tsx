@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Flower2, Heart, Infinity as InfinityIcon } from 'lucide-react';
 import bigIdeaBg from '@assets/big_idea_bg.webp';
@@ -53,6 +53,128 @@ const orbitLabels = [
   { label: 'PHÁT TRIỂN\nBẢN THÂN', left: 68.6, top: 30.8 },
 ];
 
+
+/* ── ROOTS: glowing roots that grow from the "SINH TỒN CHẠY NGẦM" pill into every symptom chip ──
+   Positions are measured from the real layout, so each root always lands on its chip. */
+type Pt = { x: number; y: number };
+type RootsData = {
+  w: number;
+  h: number;
+  pill: { cx: number; top: number; w: number; h: number };
+  chips: { cx: number; top: number }[];
+};
+
+function posIn(el: HTMLElement, root: HTMLElement) {
+  let x = 0;
+  let y = 0;
+  let cur: HTMLElement | null = el;
+  while (cur && cur !== root) {
+    x += cur.offsetLeft;
+    y += cur.offsetTop;
+    cur = cur.offsetParent as HTMLElement | null;
+  }
+  return { x, y, w: el.offsetWidth, h: el.offsetHeight };
+}
+
+const bez = (p0: Pt, p1: Pt, p2: Pt, p3: Pt, t: number): Pt => {
+  const u = 1 - t;
+  return {
+    x: u * u * u * p0.x + 3 * u * u * t * p1.x + 3 * u * t * t * p2.x + t * t * t * p3.x,
+    y: u * u * u * p0.y + 3 * u * u * t * p1.y + 3 * u * t * t * p2.y + t * t * t * p3.y,
+  };
+};
+
+function RootsOverlay({ data }: { data: RootsData }) {
+  const { w, h, pill, chips } = data;
+  const sy = pill.top + pill.h * 0.5; // roots start behind the pill
+  const main = Math.max(1.6, w * 0.0021);
+  const L = h * 0.04;
+
+  const roots = chips.map((chip, i) => {
+    const tx = chip.cx;
+    const ty = chip.top - 1;
+    const spread = Math.max(-1, Math.min(1, (tx - pill.cx) / (w * 0.4)));
+    const sx = pill.cx + spread * pill.w * 0.38;
+    const p0 = { x: sx, y: sy };
+    const p1 = { x: sx + (tx - sx) * 0.78, y: sy + (ty - sy) * 0.04 };
+    const p2 = { x: tx, y: sy + (ty - sy) * 0.42 };
+    const p3 = { x: tx, y: ty };
+    const d = `M ${p0.x} ${p0.y} C ${p1.x} ${p1.y}, ${p2.x} ${p2.y}, ${p3.x} ${p3.y}`;
+
+    const dirBase = Math.sign(tx - pill.cx) || 1;
+    const branches = [0.5, 0.72, 0.88].map((t, k) => {
+      const q = bez(p0, p1, p2, p3, t);
+      const dir = (k + i) % 2 === 0 ? dirBase : -dirBase;
+      const len = L * (1.1 - k * 0.2);
+      const ex = q.x + dir * len;
+      const ey = Math.min(q.y + len * 0.9, ty - 3);
+      return `M ${q.x} ${q.y} Q ${q.x + dir * len * 0.25} ${q.y + len * 0.7}, ${ex} ${ey}`;
+    });
+    return { d, branches, tx, ty };
+  });
+
+  return (
+    <svg
+      aria-hidden="true"
+      className="hidden lg:block absolute inset-0 w-full h-full z-[6] pointer-events-none"
+      viewBox={`0 0 ${w} ${h}`}
+    >
+      <style>{`
+        @keyframes bigidea-flow { to { stroke-dashoffset: -42; } }
+        .bigidea-flow { animation: bigidea-flow 3.2s linear infinite; }
+        @media (prefers-reduced-motion: reduce) { .bigidea-flow { animation: none; } }
+      `}</style>
+      <defs>
+        <linearGradient
+          id="bigidea-root-grad"
+          gradientUnits="userSpaceOnUse"
+          x1="0"
+          y1={pill.top}
+          x2="0"
+          y2={pill.top + h * 0.2}
+        >
+          <stop offset="0%" stopColor="#FF8FA8" stopOpacity="0.15" />
+          <stop offset="35%" stopColor="#FF8FA8" stopOpacity="0.95" />
+          <stop offset="100%" stopColor="#FFC48A" stopOpacity="1" />
+        </linearGradient>
+        <filter id="bigidea-root-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="2.6" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      <g filter="url(#bigidea-root-glow)" fill="none" strokeLinecap="round">
+        {roots.map((r, i) => (
+          <g key={i}>
+            <path d={r.d} stroke="url(#bigidea-root-grad)" strokeWidth={main} />
+            {r.branches.map((b, k) => (
+              <path
+                key={k}
+                d={b}
+                stroke="url(#bigidea-root-grad)"
+                strokeWidth={main * (0.65 - k * 0.12)}
+                opacity={0.85}
+              />
+            ))}
+            <path
+              className="bigidea-flow"
+              d={r.d}
+              stroke="#FFE6CC"
+              strokeWidth={main * 0.55}
+              strokeDasharray="3 18"
+              opacity={0.75}
+            />
+            <circle cx={r.tx} cy={r.ty} r={main * 1.5} fill="#FFD6A8" opacity={0.95} stroke="none" />
+          </g>
+        ))}
+      </g>
+    </svg>
+  );
+}
+
 /*
  * LAYOUT NOTE
  * On desktop (lg+) the whole section is ONE 16:9 canvas that never grows taller than the
@@ -63,6 +185,45 @@ const orbitLabels = [
 export function BigIdeaSection() {
   useBigIdeaFonts();
 
+  const canvasRef = useRef<HTMLDivElement>(null);
+  const pillRef = useRef<HTMLDivElement>(null);
+  const chipRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const [roots, setRoots] = useState<RootsData | null>(null);
+
+  useLayoutEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const measure = () => {
+      const pill = pillRef.current;
+      const chips = chipRefs.current.filter(Boolean) as HTMLSpanElement[];
+      if (!pill || chips.length === 0 || !window.matchMedia('(min-width: 1024px)').matches) {
+        setRoots(null);
+        return;
+      }
+      const pp = posIn(pill, canvas);
+      setRoots({
+        w: canvas.clientWidth,
+        h: canvas.clientHeight,
+        pill: { cx: pp.x + pp.w / 2, top: pp.y, w: pp.w, h: pp.h },
+        chips: chips.map((c) => {
+          const cp = posIn(c, canvas);
+          return { cx: cp.x + cp.w / 2, top: cp.y };
+        }),
+      });
+    };
+
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(canvas);
+    window.addEventListener('resize', measure);
+    document.fonts?.ready.then(measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', measure);
+    };
+  }, []);
+
   return (
     <section
       className="relative overflow-hidden"
@@ -71,11 +232,12 @@ export function BigIdeaSection() {
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12 py-12 lg:py-4">
         <div
+          ref={canvasRef}
           className="relative flex flex-col lg:block lg:aspect-[16/9] lg:overflow-hidden lg:mx-auto lg:w-[min(100%,calc((100dvh_-_4rem)*1.7778))]"
           style={{ containerType: 'inline-size' }}
         >
           {/* ── ARTWORK ── */}
-          <div className="order-2 relative w-full max-w-[560px] mx-auto aspect-[1122/1402] lg:max-w-none lg:mx-0 lg:absolute lg:right-[10%] lg:top-0 lg:w-[56.25%]">
+          <div className="order-2 relative w-full max-w-[560px] mx-auto aspect-[1122/1402] lg:max-w-none lg:mx-0 lg:absolute lg:right-[12%] lg:top-0 lg:w-[47%]">
             <img
               src={bigIdeaBg}
               alt=""
@@ -110,7 +272,7 @@ export function BigIdeaSection() {
             {orbitLabels.map(({ label, left, top }) => (
               <span
                 key={label}
-                className="hidden md:block absolute -translate-x-1/2 text-center text-[10px] lg:[font-size:max(8px,0.85cqw)] tracking-wide text-white/85 whitespace-pre-line leading-tight"
+                className="hidden md:block absolute -translate-x-1/2 text-center text-[10px] lg:[font-size:max(7px,0.72cqw)] tracking-wide text-white/85 whitespace-pre-line leading-tight"
                 style={{ left: `${left}%`, top: `${top}%`, textShadow: '0 1px 6px rgba(0,0,0,0.7)' }}
               >
                 {label}
@@ -124,6 +286,9 @@ export function BigIdeaSection() {
             className="hidden lg:block absolute inset-x-0 bottom-0 h-[14%] z-[5] pointer-events-none"
             style={{ background: `linear-gradient(0deg, ${BG}, transparent)` }}
           />
+
+          {/* Roots from the pill into every symptom chip (desktop only) */}
+          {roots && <RootsOverlay data={roots} />}
 
           {/* ── LEFT COLUMN ── (first on mobile via order-1) */}
           <motion.div
@@ -199,6 +364,7 @@ export function BigIdeaSection() {
               className="flex justify-center lg:absolute lg:z-10 lg:top-[57.9%] lg:left-[36.9%] lg:w-[40%]"
             >
               <div
+                ref={pillRef}
                 className="rounded-full px-8 sm:px-12 py-3 sm:py-4 lg:[padding:0.5cqw_2.2cqw] whitespace-nowrap"
                 style={{
                   border: `1.5px solid ${CHAMPAGNE}`,
@@ -207,7 +373,7 @@ export function BigIdeaSection() {
                 }}
               >
                 <span
-                  className="uppercase font-semibold [font-size:clamp(1.2rem,5vw,1.6rem)] lg:[font-size:2.05cqw]"
+                  className="uppercase font-semibold [font-size:clamp(1.2rem,5vw,1.6rem)] lg:[font-size:1.9cqw]"
                   style={{ fontFamily: SERIF, color: CREAM, letterSpacing: '0.02em', lineHeight: 1.2 }}
                 >
                   SINH TỒN CHẠY NGẦM
@@ -220,10 +386,13 @@ export function BigIdeaSection() {
               {...fadeUp}
               className="flex flex-wrap lg:flex-nowrap justify-center gap-2.5 sm:gap-3 lg:[gap:1.6cqw] lg:absolute lg:z-10 lg:top-[69.6%] lg:left-[25%] lg:w-[66.7%]"
             >
-              {reactions.map((r) => (
+              {reactions.map((r, i) => (
                 <span
                   key={r}
-                  className="rounded-full px-4 sm:px-5 py-1.5 sm:py-2 text-sm sm:text-base text-white/90 whitespace-nowrap lg:[padding:0.4cqw_1.25cqw] lg:[font-size:1.26cqw]"
+                  ref={(el) => {
+                    chipRefs.current[i] = el;
+                  }}
+                  className="rounded-full px-4 sm:px-5 py-1.5 sm:py-2 text-sm sm:text-base text-white/90 whitespace-nowrap lg:[padding:0.38cqw_1.05cqw] lg:[font-size:1.12cqw]"
                   style={{
                     border: `1px solid ${CHAMPAGNE}99`,
                     backgroundColor: 'rgba(20,10,34,0.7)',
@@ -238,7 +407,7 @@ export function BigIdeaSection() {
             {/* Italic explanation */}
             <motion.p
               {...fadeUp}
-              className="italic text-white/90 text-sm sm:text-base font-light leading-relaxed max-w-3xl lg:max-w-none lg:absolute lg:z-10 lg:top-[76.4%] lg:left-[12%] lg:w-[76%] lg:whitespace-nowrap lg:[font-size:1.3cqw] lg:[line-height:1.3]"
+              className="italic text-white/90 text-sm sm:text-base font-light leading-relaxed max-w-3xl lg:max-w-none lg:absolute lg:z-10 lg:top-[76.4%] lg:left-[12%] lg:w-[76%] lg:whitespace-nowrap lg:[font-size:1.15cqw] lg:[line-height:1.3]"
             >
               Đôi khi nó trông giống một người vẫn làm việc, vẫn học hỏi, vẫn chăm sóc mọi thứ…
               <br className="hidden sm:block" />{' '}
@@ -271,7 +440,7 @@ export function BigIdeaSection() {
                   “
                 </span>
                 <p
-                  className="italic [font-size:clamp(1rem,4.2vw,1.4rem)] lg:[font-size:1.9cqw]"
+                  className="italic [font-size:clamp(1rem,4.2vw,1.4rem)] lg:[font-size:1.65cqw]"
                   style={{ fontFamily: SERIF, color: CHAMPAGNE, lineHeight: 1.35 }}
                 >
                   Có thể vấn đề không phải bạn cần học thêm.
