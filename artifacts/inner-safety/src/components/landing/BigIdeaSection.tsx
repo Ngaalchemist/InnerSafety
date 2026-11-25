@@ -1,466 +1,70 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
-import { BookOpen, Flower2, Heart, Infinity as InfinityIcon } from 'lucide-react';
-import bigIdeaBg from '@assets/big_idea_bg.webp';
-
-// Self-loads fonts so the section renders correctly even if the
-// project's global CSS doesn't import them.
-const GOOGLE_FONT_ID = 'font-bigidea';
-function useBigIdeaFonts() {
-  useEffect(() => {
-    if (document.getElementById(GOOGLE_FONT_ID)) return;
-    const link = document.createElement('link');
-    link.id = GOOGLE_FONT_ID;
-    link.rel = 'stylesheet';
-    link.href =
-      'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap';
-    document.head.appendChild(link);
-  }, []);
-}
-
-const BG = '#140a22'; // section background, matches the deep purple of the artwork
-const CHAMPAGNE = '#F2C879'; // gold used for accents / borders
-const CREAM = '#FFF3DC';
-const SERIF = "'Playfair Display', serif";
-const SANS = "'Be Vietnam Pro', sans-serif";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.2 },
-  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-};
-
-// Left column list (icon + line)
-const knowledgeList = [
-  { icon: BookOpen, text: 'Có thể bạn đã đọc rất nhiều.' },
-  { icon: Flower2, text: 'Đã thiền.' },
-  { icon: Heart, text: 'Đã chữa lành.' },
-  { icon: InfinityIcon, text: 'Đã hiểu về niềm tin, tiềm thức, năng lượng, manifestation.' },
-];
-
-const reactions = ['trì hoãn', 'tự nghi ngờ', 'kiểm soát', 'làm hài lòng', 'thu mình', 'quay về điều quen thuộc'];
-
-// Labels under the glowing icons that are already drawn inside the artwork.
-// left/top are % of the artwork itself, so they stay glued to the icons at any size.
-const orbitLabels = [
-  { label: 'KIẾN THỨC', left: 50, top: 5.6 },
-  { label: 'HIỂU BIẾT', left: 36.8, top: 17.7 },
-  { label: 'NĂNG LƯỢNG', left: 63.8, top: 17.7 },
-  { label: 'THIỀN', left: 32.5, top: 24.4 },
-  { label: 'MANIFESTATION', left: 67.5, top: 24.4 },
-  { label: 'CHỮA LÀNH', left: 31.5, top: 30.8 },
-  { label: 'PHÁT TRIỂN\nBẢN THÂN', left: 68.6, top: 30.8 },
-];
-
-
-/* ── ROOTS: glowing roots that grow from the "SINH TỒN CHẠY NGẦM" pill into every symptom chip ──
-   Positions are measured from the real layout, so each root always lands on its chip. */
-type Pt = { x: number; y: number };
-type RootsData = {
-  w: number;
-  h: number;
-  pill: { cx: number; top: number; w: number; h: number };
-  chips: { cx: number; top: number }[];
-};
-
-function posIn(el: HTMLElement, root: HTMLElement) {
-  let x = 0;
-  let y = 0;
-  let cur: HTMLElement | null = el;
-  while (cur && cur !== root) {
-    x += cur.offsetLeft;
-    y += cur.offsetTop;
-    cur = cur.offsetParent as HTMLElement | null;
-  }
-  return { x, y, w: el.offsetWidth, h: el.offsetHeight };
-}
-
-const bez = (p0: Pt, p1: Pt, p2: Pt, p3: Pt, t: number): Pt => {
-  const u = 1 - t;
-  return {
-    x: u * u * u * p0.x + 3 * u * u * t * p1.x + 3 * u * t * t * p2.x + t * t * t * p3.x,
-    y: u * u * u * p0.y + 3 * u * u * t * p1.y + 3 * u * t * t * p2.y + t * t * t * p3.y,
-  };
-};
-
-function RootsOverlay({ data }: { data: RootsData }) {
-  const { w, h, pill, chips } = data;
-  const sy = pill.top + pill.h * 0.5; // roots start behind the pill
-  const main = Math.max(1.6, w * 0.0021);
-  const L = h * 0.04;
-
-  const roots = chips.map((chip, i) => {
-    const tx = chip.cx;
-    const ty = chip.top - 1;
-    const spread = Math.max(-1, Math.min(1, (tx - pill.cx) / (w * 0.4)));
-    const sx = pill.cx + spread * pill.w * 0.38;
-    const p0 = { x: sx, y: sy };
-    const p1 = { x: sx + (tx - sx) * 0.78, y: sy + (ty - sy) * 0.04 };
-    const p2 = { x: tx, y: sy + (ty - sy) * 0.42 };
-    const p3 = { x: tx, y: ty };
-    const d = `M ${p0.x} ${p0.y} C ${p1.x} ${p1.y}, ${p2.x} ${p2.y}, ${p3.x} ${p3.y}`;
-
-    const dirBase = Math.sign(tx - pill.cx) || 1;
-    const branches = [0.5, 0.72, 0.88].map((t, k) => {
-      const q = bez(p0, p1, p2, p3, t);
-      const dir = (k + i) % 2 === 0 ? dirBase : -dirBase;
-      const len = L * (1.1 - k * 0.2);
-      const ex = q.x + dir * len;
-      const ey = Math.min(q.y + len * 0.9, ty - 3);
-      return `M ${q.x} ${q.y} Q ${q.x + dir * len * 0.25} ${q.y + len * 0.7}, ${ex} ${ey}`;
-    });
-    return { d, branches, tx, ty };
-  });
-
-  return (
-    <svg
-      aria-hidden="true"
-      className="hidden lg:block absolute inset-0 w-full h-full z-[6] pointer-events-none"
-      viewBox={`0 0 ${w} ${h}`}
-    >
-      <style>{`
-        @keyframes bigidea-flow { to { stroke-dashoffset: -42; } }
-        .bigidea-flow { animation: bigidea-flow 3.2s linear infinite; }
-        @media (prefers-reduced-motion: reduce) { .bigidea-flow { animation: none; } }
-      `}</style>
-      <defs>
-        <linearGradient
-          id="bigidea-root-grad"
-          gradientUnits="userSpaceOnUse"
-          x1="0"
-          y1={pill.top}
-          x2="0"
-          y2={pill.top + h * 0.2}
-        >
-          <stop offset="0%" stopColor="#FF8FA8" stopOpacity="0.15" />
-          <stop offset="35%" stopColor="#FF8FA8" stopOpacity="0.95" />
-          <stop offset="100%" stopColor="#FFC48A" stopOpacity="1" />
-        </linearGradient>
-        <filter id="bigidea-root-glow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="2.6" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-
-      <g filter="url(#bigidea-root-glow)" fill="none" strokeLinecap="round">
-        {roots.map((r, i) => (
-          <g key={i}>
-            <path d={r.d} stroke="url(#bigidea-root-grad)" strokeWidth={main} />
-            {r.branches.map((b, k) => (
-              <path
-                key={k}
-                d={b}
-                stroke="url(#bigidea-root-grad)"
-                strokeWidth={main * (0.65 - k * 0.12)}
-                opacity={0.85}
-              />
-            ))}
-            <path
-              className="bigidea-flow"
-              d={r.d}
-              stroke="#FFE6CC"
-              strokeWidth={main * 0.55}
-              strokeDasharray="3 18"
-              opacity={0.75}
-            />
-            <circle cx={r.tx} cy={r.ty} r={main * 1.5} fill="#FFD6A8" opacity={0.95} stroke="none" />
-          </g>
-        ))}
-      </g>
-    </svg>
-  );
-}
-
-/*
- * LAYOUT NOTE
- * On desktop (lg+) the whole section is ONE 16:9 canvas that never grows taller than the
- * browser window, so the full picture is visible at a glance. Every size inside it uses
- * `cqw` (1% of the canvas width), so text, artwork and spacing all shrink together.
- * Below lg the blocks simply stack (headline → artwork → pill/chips/quote box).
- */
-export function BigIdeaSection() {
-  useBigIdeaFonts();
-
-  const canvasRef = useRef<HTMLDivElement>(null);
-  const pillRef = useRef<HTMLDivElement>(null);
-  const chipRefs = useRef<(HTMLSpanElement | null)[]>([]);
-  const [roots, setRoots] = useState<RootsData | null>(null);
-
-  useLayoutEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const measure = () => {
-      const pill = pillRef.current;
-      const chips = chipRefs.current.filter(Boolean) as HTMLSpanElement[];
-      if (!pill || chips.length === 0 || !window.matchMedia('(min-width: 1024px)').matches) {
-        setRoots(null);
-        return;
-      }
-      const pp = posIn(pill, canvas);
-      setRoots({
-        w: canvas.clientWidth,
-        h: canvas.clientHeight,
-        pill: { cx: pp.x + pp.w / 2, top: pp.y, w: pp.w, h: pp.h },
-        chips: chips.map((c) => {
-          const cp = posIn(c, canvas);
-          return { cx: cp.x + cp.w / 2, top: cp.y };
-        }),
-      });
-    };
-
-    measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(canvas);
-    window.addEventListener('resize', measure);
-    document.fonts?.ready.then(measure);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener('resize', measure);
-    };
-  }, []);
-
-  return (
-    <section
-      className="relative overflow-hidden"
-      style={{ backgroundColor: BG, fontFamily: SANS }}
-      data-testid="section-big-idea"
-    >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12 py-12 lg:py-4">
-        <div
-          ref={canvasRef}
-          className="relative flex flex-col lg:block lg:aspect-[16/9] lg:overflow-hidden lg:mx-auto lg:w-[min(100%,calc((100dvh_-_4rem)*1.7778))]"
-          style={{ containerType: 'inline-size' }}
-        >
-          {/* ── ARTWORK ── */}
-          <div className="order-2 relative w-full max-w-[560px] mx-auto aspect-[1122/1402] lg:max-w-none lg:mx-0 lg:absolute lg:right-[12%] lg:top-0 lg:w-[47%]">
-            <img
-              src={bigIdeaBg}
-              alt=""
-              aria-hidden="true"
-              width={1122}
-              height={1402}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            {/* Edge fades so the artwork melts into the section background */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-y-0 left-0 w-[18%] hidden lg:block"
-              style={{ background: `linear-gradient(90deg, ${BG}, transparent)` }}
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-y-0 right-0 w-[8%] hidden lg:block"
-              style={{ background: `linear-gradient(270deg, ${BG}, transparent)` }}
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-x-0 top-0 h-[10%]"
-              style={{ background: `linear-gradient(180deg, ${BG}, transparent)` }}
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-x-0 bottom-0 h-[14%]"
-              style={{ background: `linear-gradient(0deg, ${BG}, transparent)` }}
-            />
-
-            {/* Labels for the icons drawn in the artwork */}
-            {orbitLabels.map(({ label, left, top }) => (
-              <span
-                key={label}
-                className="hidden md:block absolute -translate-x-1/2 text-center text-[10px] lg:[font-size:max(7px,0.72cqw)] tracking-wide text-white/85 whitespace-pre-line leading-tight"
-                style={{ left: `${left}%`, top: `${top}%`, textShadow: '0 1px 6px rgba(0,0,0,0.7)' }}
-              >
-                {label}
-              </span>
-            ))}
-          </div>
-
-          {/* Desktop-only fade where the canvas crops the bottom of the artwork */}
-          <div
-            aria-hidden="true"
-            className="hidden lg:block absolute inset-x-0 bottom-0 h-[14%] z-[5] pointer-events-none"
-            style={{ background: `linear-gradient(0deg, ${BG}, transparent)` }}
-          />
-
-          {/* Roots from the pill into every symptom chip (desktop only) */}
-          {roots && <RootsOverlay data={roots} />}
-
-          {/* ── LEFT COLUMN ── (first on mobile via order-1) */}
-          <motion.div
-            {...fadeUp}
-            className="order-1 mb-8 lg:mb-0 lg:absolute lg:left-0 lg:top-[2.5%] lg:w-[36%] relative z-10"
-          >
-            <div className="flex items-center gap-3 mb-6 lg:[margin-bottom:1.6cqw] lg:[gap:1cqw]">
-              <Flower2
-                className="w-6 h-6 lg:[width:2.2cqw] lg:[height:2.2cqw]"
-                style={{ color: CHAMPAGNE }}
-                strokeWidth={1.25}
-              />
-              <span
-                className="text-xs sm:text-sm font-medium lg:[font-size:1cqw]"
-                style={{ color: CHAMPAGNE, letterSpacing: '0.4em' }}
-              >
-                BEYOND FEAR
-              </span>
-              <span
-                aria-hidden="true"
-                className="hidden sm:block h-px w-24 lg:[width:8cqw]"
-                style={{ background: `linear-gradient(90deg, ${CHAMPAGNE}, transparent)` }}
-              />
+<div className="mb-5 flex items-center gap-3 text-[#f2c879] lg:mb-[1.25cqw] lg:gap-[.8cqw]">
+              <span aria-hidden className="h-px w-10 bg-[#f2c879] lg:w-[4cqw]" />
+              <Flower2 className="h-6 w-6 lg:h-[2cqw] lg:w-[2cqw]" strokeWidth={1.4} />
+              <span className="text-xs font-semibold tracking-[.28em] lg:text-[.92cqw]">BEYOND FEAR</span>
+              <span aria-hidden className="h-px w-10 bg-[#f2c879] lg:w-[4cqw]" />
             </div>
 
-            <h2
-              className="uppercase font-bold [font-size:clamp(1.6rem,7vw,2.7rem)] lg:[font-size:3.3cqw]"
-              style={{ fontFamily: SERIF, color: CREAM, lineHeight: 1.12 }}
-            >
-              <span className="block lg:whitespace-nowrap">BẠN KHÔNG THIẾU</span>
-              <span className="block lg:whitespace-nowrap">KIẾN THỨC.</span>
+            <h2 className="max-w-[680px] font-serif text-[clamp(2.65rem,5.7vw,5.8rem)] leading-[.98] tracking-[-.035em] text-[#fff3dc] lg:text-[3.35cqw]">
+              Bạn không thiếu<br />kiến thức.
             </h2>
-            <span
-              aria-hidden="true"
-              className="block mt-3 mb-7 h-px w-[85%] lg:[margin-top:1cqw] lg:[margin-bottom:1.8cqw]"
-              style={{
-                background: `linear-gradient(90deg, ${CHAMPAGNE}, transparent)`,
-                boxShadow: `0 0 10px ${CHAMPAGNE}66`,
-              }}
-            />
+            <div aria-hidden className="my-4 h-[2px] w-[96%] bg-gradient-to-r from-[#f2c879] via-[#fff0ce] to-transparent shadow-[0_0_12px_#f2c879] lg:my-[.9cqw]" />
 
-            <ul className="flex flex-col gap-4 mb-8 lg:[gap:1cqw] lg:[margin-bottom:2cqw]">
-              {knowledgeList.map(({ icon: Icon, text }) => (
-                <li
-                  key={text}
-                  className="flex items-center gap-4 text-white/90 text-base font-light leading-snug lg:[gap:1.2cqw] lg:[font-size:1.3cqw]"
-                >
-                  <Icon
-                    className="w-7 h-7 shrink-0 text-white/80 lg:[width:2cqw] lg:[height:2cqw]"
-                    strokeWidth={1.25}
-                  />
+            <p className="mb-2 text-base font-semibold text-white lg:text-[1.35cqw]">Có thể bạn đã đọc rất nhiều.</p>
+            <ul className="mb-4 space-y-1.5 pl-2 text-base leading-snug text-white/95 lg:space-y-[.35cqw] lg:text-[1.28cqw]">
+              {facts.map(({ icon: Icon, text }, i) => (
+                <li key={i} className="flex items-center gap-3 lg:gap-[1cqw]">
+                  <Icon className="h-7 w-7 shrink-0 text-[#ffc27e] drop-shadow-[0_0_6px_#ff9366]" strokeWidth={1.7} />
                   <span>{text}</span>
                 </li>
               ))}
             </ul>
 
-            <p
-              className="italic text-white/90 text-base font-light leading-snug pl-4 max-w-[26rem] lg:max-w-[92%] lg:[font-size:1.25cqw] lg:[padding-left:1.2cqw]"
-              style={{ fontFamily: SANS, borderLeft: `2px solid ${CHAMPAGNE}` }}
-            >
-              Biết mình cần làm gì không đồng nghĩa với việc mình có thể làm được điều đó một cách tự nhiên.
+            <div className="mb-3 border-l-2 border-[#f2c879] py-0.5 pl-4 lg:mb-[.8cqw] lg:pl-[1.1cqw]">
+              <p className="text-base leading-snug text-white lg:text-[1.3cqw]">Nhưng đôi khi...</p>
+              <p className="text-base font-bold leading-snug text-[#ffc64d] lg:text-[1.3cqw]">
+                biết mình cần làm gì không đồng nghĩa với việc mình có thể làm được điều đó một cách tự nhiên.
+              </p>
+            </div>
+
+            <p className="mb-3 max-w-[650px] text-sm leading-snug text-white/95 lg:mb-[.75cqw] lg:text-[1.14cqw]">
+              Bởi vì dưới những gì bạn hiểu bằng lý trí vẫn có thể tồn tại những cách phản ứng cũ:
             </p>
-          </motion.div>
+          </div>
 
-          {/* ── BOTTOM CLUSTER: pill + chips + italic lines + câu đinh ──
-              On desktop each row is placed at the exact spot of the approved mockup
-              (top = % of canvas height, left/width = % of canvas width).
-              On mobile the wrapper is a normal stacked column. */}
-          <div className="order-3 relative z-10 -mt-32 sm:-mt-40 flex flex-col items-center gap-5 text-center lg:contents">
-            {/* SINH TỒN CHẠY NGẦM pill */}
-            <motion.div
-              {...fadeUp}
-              className="flex justify-center lg:absolute lg:z-10 lg:top-[57.9%] lg:left-[36.9%] lg:w-[40%]"
-            >
-              <div
-                ref={pillRef}
-                className="rounded-full px-8 sm:px-12 py-3 sm:py-4 lg:[padding:0.5cqw_2.2cqw] whitespace-nowrap"
-                style={{
-                  border: `1.5px solid ${CHAMPAGNE}`,
-                  backgroundColor: 'rgba(20,10,34,0.75)',
-                  boxShadow: `0 0 24px ${CHAMPAGNE}40, inset 0 0 18px ${CHAMPAGNE}1f`,
-                }}
-              >
-                <span
-                  className="uppercase font-semibold [font-size:clamp(1.2rem,5vw,1.6rem)] lg:[font-size:1.9cqw]"
-                  style={{ fontFamily: SERIF, color: CREAM, letterSpacing: '0.02em', lineHeight: 1.2 }}
-                >
-                  SINH TỒN CHẠY NGẦM
-                </span>
-              </div>
-            </motion.div>
-
-            {/* Reaction chips */}
-            <motion.div
-              {...fadeUp}
-              className="flex flex-wrap lg:flex-nowrap justify-center gap-2.5 sm:gap-3 lg:[gap:1.6cqw] lg:absolute lg:z-10 lg:top-[69.6%] lg:left-[25%] lg:w-[66.7%]"
-            >
-              {reactions.map((r, i) => (
-                <span
-                  key={r}
-                  ref={(el) => {
-                    chipRefs.current[i] = el;
-                  }}
-                  className="rounded-full px-4 sm:px-5 py-1.5 sm:py-2 text-sm sm:text-base text-white/90 whitespace-nowrap lg:[padding:0.38cqw_1.05cqw] lg:[font-size:1.12cqw]"
-                  style={{
-                    border: `1px solid ${CHAMPAGNE}99`,
-                    backgroundColor: 'rgba(20,10,34,0.7)',
-                    boxShadow: `0 0 12px ${CHAMPAGNE}26`,
-                  }}
-                >
-                  {r}
-                </span>
+          <div className="mt-auto pt-8 lg:pt-0">
+            <div className="mx-auto flex max-w-[1320px] flex-wrap justify-center gap-2 sm:gap-3 lg:gap-[.8cqw]">
+              {traits.map(({ icon: Icon, label }, i) => (
+                <div key={i} className="flex min-h-[62px] min-w-[92px] flex-col items-center justify-center rounded-full border border-[#e88bca]/70 bg-[#1b0b26]/70 px-3 py-2 text-center text-sm leading-tight text-white shadow-[0_0_14px_#d75caf33] sm:min-w-[112px] lg:min-h-[4.2cqw] lg:min-w-[7.3cqw] lg:px-[.7cqw] lg:py-[.35cqw] lg:text-[1.02cqw]">
+                  <Icon className="mb-1 h-5 w-5 text-[#ffc27e] lg:h-[1.7cqw] lg:w-[1.7cqw]" strokeWidth={1.6} />
+                  <span>{label}</span>
+                </div>
               ))}
-            </motion.div>
+            </div>
 
-            {/* Italic explanation */}
-            <motion.p
-              {...fadeUp}
-              className="italic text-white/90 text-sm sm:text-base font-light leading-relaxed max-w-3xl lg:max-w-none lg:absolute lg:z-10 lg:top-[76.4%] lg:left-[12%] lg:w-[76%] lg:whitespace-nowrap lg:[font-size:1.15cqw] lg:[line-height:1.3]"
-            >
-              Đôi khi nó trông giống một người vẫn làm việc, vẫn học hỏi, vẫn chăm sóc mọi thứ…
-              <br className="hidden sm:block" />{' '}
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-center lg:mt-[.8cqw] lg:gap-[.55cqw]">
+              <span className="text-sm text-white/90 lg:text-[1.05cqw]">Tôi gọi đó là:</span>
+              <span className="inline-flex rounded-full border border-[#f2c879] bg-[#170b20]/80 px-5 py-2 shadow-[0_0_18px_#f2c87955,inset_0_0_12px_#f2c87922] lg:px-[1.5cqw] lg:py-[.35cqw]">
+                <span className="whitespace-nowrap font-serif text-xl font-bold tracking-wide text-[#fff3dc] lg:text-[1.85cqw]">SINH TỒN CHẠY NGẦM</span>
+              </span>
+            </div>
+
+            <p className="mx-auto mt-3 max-w-[1200px] text-sm italic leading-snug text-white/90 lg:mt-[.65cqw] lg:text-[1.05cqw]">
+              Không phải lúc nào nó cũng trông như khủng hoảng.<br />
+              Đôi khi nó trông giống một người vẫn làm việc, vẫn học hỏi, vẫn chăm sóc mọi thứ…<br className="hidden xl:block" />
               nhưng bên trong chưa thật sự cảm thấy đủ vững để bước vào điều mới.
-            </motion.p>
+            </p>
 
-            {/* Câu đinh */}
-            <motion.div
-              {...fadeUp}
-              className="relative w-full flex items-center gap-4 lg:[gap:0.7cqw] lg:absolute lg:z-10 lg:top-[84.8%] lg:left-[3.7%] lg:w-[92.6%]"
-            >
-              <span
-                aria-hidden="true"
-                className="hidden lg:block h-px flex-1"
-                style={{ background: `linear-gradient(90deg, transparent, ${CHAMPAGNE})` }}
-              />
-              <div
-                className="relative rounded-3xl px-8 sm:px-14 py-4 sm:py-5 w-full lg:w-[70.8%] lg:shrink-0 lg:[padding:0.6cqw_4cqw]"
-                style={{
-                  border: `1.5px solid ${CHAMPAGNE}`,
-                  backgroundColor: 'rgba(20,10,34,0.8)',
-                  boxShadow: `0 0 26px ${CHAMPAGNE}33`,
-                }}
-              >
-                <span
-                  aria-hidden="true"
-                  className="absolute left-4 sm:left-6 top-2 select-none text-[44px] lg:[font-size:3.4cqw] lg:[left:2cqw] lg:[top:0.4cqw]"
-                  style={{ fontFamily: SERIF, color: CHAMPAGNE, lineHeight: 1 }}
-                >
-                  “
-                </span>
-                <p
-                  className="italic [font-size:clamp(1rem,4.2vw,1.4rem)] lg:[font-size:1.65cqw]"
-                  style={{ fontFamily: SERIF, color: CHAMPAGNE, lineHeight: 1.35 }}
-                >
-                  Có thể vấn đề không phải bạn cần học thêm.
-                  <br />
+            <div className="mx-auto mt-5 flex w-full max-w-[1100px] items-center gap-3 lg:mt-[1.05cqw] lg:gap-[1cqw]">
+              <span aria-hidden className="hidden h-px flex-1 bg-gradient-to-r from-transparent to-[#f2c879] sm:block" />
+              <div className="w-full rounded-full border border-[#f2c879] bg-[#12091c]/85 px-5 py-4 text-center shadow-[0_0_26px_#f2c87944] sm:w-auto sm:px-12 lg:px-[4.2cqw] lg:py-[.72cqw]">
+                <span className="block font-serif text-lg italic leading-snug text-white sm:text-xl lg:text-[1.7cqw]">Có thể vấn đề không phải bạn cần học thêm.</span>
+                <span className="block font-serif text-lg font-bold italic leading-snug text-[#ffc04d] sm:text-xl lg:text-[1.72cqw]">
                   Có thể nền bên trong của bạn chưa theo kịp những gì bạn đã hiểu.
-                </p>
-                <span
-                  aria-hidden="true"
-                  className="absolute right-4 sm:right-6 bottom-0 select-none text-[44px] lg:[font-size:3.4cqw] lg:[right:2cqw] lg:[bottom:-0.6cqw]"
-                  style={{ fontFamily: SERIF, color: CHAMPAGNE, lineHeight: 1 }}
-                >
-                  ”
                 </span>
               </div>
-              <span
-                aria-hidden="true"
-                className="hidden lg:block h-px flex-1"
-                style={{ background: `linear-gradient(90deg, ${CHAMPAGNE}, transparent)` }}
-              />
-            </motion.div>
+              <span aria-hidden className="hidden h-px flex-1 bg-gradient-to-l from-transparent to-[#f2c879] sm:block" />
+            </div>
           </div>
         </div>
       </div>
